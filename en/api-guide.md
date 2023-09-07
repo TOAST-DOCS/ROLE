@@ -1118,7 +1118,7 @@ page 에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 
 |Key|	Type|	Required|	Description|
 |---|---|---|---|
-|roleId|	String|	Yes| 	Role ID <br/> 최대 128글자까지 등록 가능하다. <br/> `-`, `_`, `.`, `:` 특수문자를 사용할 수 있으며, ID의 시작과 끝은 반드시 문자 및 숫자가 와야 한다. <br/> 대문자 카멜케이스를 사용해야하며, 서비스와 도메인/행위 구분은 `:` 를 사용하고, 도메인과 행위 구문은 `.`를 사용해야 한다. <br/> ex) `ResourceWatcher:Alarm.List` |
+|roleId|	String|	Yes| 	Role ID <br/> 최대 128글자까지 등록 가능하다. <br/> `-`, `_`, `.`, `:` 특수문자를 사용할 수 있으며, ID의 시작과 끝은 반드시 문자 및 숫자가 와야 한다. |
 |description|	String|	Yes|	Role 설명 <br/> 최대 128글자까지 등록 가능하다.|
 |roleName|	String|	No|	Role 이름 <br/> 의미 있는 이름을 부여할 수 있다. 최대 128글자까지 등록 가능하다.|
 |roleGroup|	String|	No|	Role Group <br/> Role들을 그룹핑하여 관리 목적으로 사용할수 있다. 최대 128글자까지 등록 가능하다.|
