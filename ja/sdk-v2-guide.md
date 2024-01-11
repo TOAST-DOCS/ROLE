@@ -1,6 +1,5 @@
 ## Application Service > ROLE > SDK 사용 가이드
 
-
 > Role 상품을 이용하여 권한을 체크하기 위해서는
 > RESTFUL API 를 호출하거나, Client SDK 를 이용하여야 한다.
 
@@ -20,29 +19,32 @@ RESTFUL API를 손쉽게 호출하기 위한 Role 전용 Client SDK 이다.
 자체 Cache 기능을 가지고 있기 때문에, 좀더 효율적으로 Role 상품을 이용 할 수 있다.
 현재는 JAVA 언어에 대해서만 지원을 하고 있다.
 
+### 사용 환경
+`JDK 11` 버전 이상의 환경
+
 ### Maven 을 이용한 JAVA Client SDK 사용
 
 JAVA Client SDK 를 사용하기 위해선 pom.xml 에 maven repository 및 depencency 설정이 필요하다.
 
 **[Maven Repository]**
+Maven Central Repository 에 저장되어 있어 별도의 설정은 필요 없음.
+만약 다른 저장소를 사용하거나 Maven Central이 참조되지 않는 환경에서는 다음과 같이 설정.
 
 ```xml
 <repositories>
    <repository>
-      <id>com.nhnent.cloud</id>
-      <name>TOAST Cloud Repository</name>
-      <url>http://nexus.nhnent.com/content/repositories/releases</url>
+      <id>central</id>
+      <url>https://repo.maven.apache.org/maven2</url>
    </repository>
 </repositories>
 ```
-
 **[Maven Dependency]**
 
 ```xml
 <dependencies>
    <dependency>
-      <groupId>com.nhnent.cloud</groupId>
-      <artifactId>role-api-client</artifactId>
+      <groupId>com.nhncloud.role</groupId>
+      <artifactId>nhncloud-role-sdk</artifactId>
       <version>2.0.0</version>
    </dependency>
 </dependencies>
@@ -117,9 +119,9 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
    |Key| 	Type   | 	Description    |
       |---------|-----------------|---|
-   |attributeId| String | 	속성 ID          |
-   |attributeOperatorTypeCode| AttributeOperatorTypeCode | 	속성 DataType 목록 |
-   |attributeValues| List&lt;String> | 	속성 값           |
+   |attributeId| String | 	조건 속성 ID          |
+   |attributeOperatorTypeCode| AttributeOperatorTypeCode | 	조건 속성 연산자 |
+   |attributeValues| List&lt;String> | 	조건 속성 값           |
 
 2. User 생성
 
@@ -248,7 +250,7 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
    |Key| 	Type                      |	Description|
    |----------------------------|---|---|
-   |operationId| 	String                    |	Operation ID|
+   |operationId| 	String                    |	오퍼레이션 ID|
    |description| 	String                    |	설명|
 
 2. Operation 생성
@@ -277,8 +279,8 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
    |Key| 	Type            | 	Description     | 
    |------------------|------------------|---|
-   |operationIds| 	List&lt;String> | 	Operation ID 목록 |
-   |operationIdPreLike| 	String          | 	Operation ID (전방 일치) |
+   |operationIds| 	List&lt;String> | 	오퍼레이션 ID 목록 |
+   |operationIdPreLike| 	String          | 	오퍼레이션 ID (전방 일치) |
    |descriptionLike| 	String          | 	설명 (부분 일치)           |
 
    ```java
@@ -321,12 +323,12 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
    |Key| 	Type            | 	Description                                  |
    |------------------|-----------------------------------------------|---|
-   |attributeId| 	String          | 	Attribute ID                                 |
-   |attributeName| 	String          | 	Attribute 이름                                 |
+   |attributeId| 	String          | 	조건 속성 ID                                 |
+   |attributeName| 	String          | 	조건 속성 이름                                 |
    |description| 	String          | 	설명                                           |
-   |attributeDataTypeCode| 	AttributeDataTypeCode          | 	Attribute DataType                           |
-   |attributeCreationTypeCode| 	AttributeCreationTypeCode          | 	Attribute 타입(기본: ROLE_ATTRIBUTE)<br>`셋팅 필요 없음` |
-   |attributeTagIds| 	List&lt;String>    | 	Attribute 태그 목록                              |
+   |attributeDataTypeCode| 	AttributeDataTypeCode          | 	조건 속성 데이터 타입       |
+   |attributeCreationTypeCode| 	AttributeCreationTypeCode          | 	조건 속성 타입(기본: ROLE_ATTRIBUTE)<br>`셋팅 필요 없음` |
+   |attributeTagIds| 	List&lt;String>    | 	조건 속성 태그 목록                              |
    |attributeRoleRelationIds| 	List&lt;String> | 	연관 역할 목록                                     |
 
 2. Attribute 생성
@@ -358,13 +360,13 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
    |Key| 	Type            | 	Description     | 
    |------------------|------------------|---|
-   |attributeIds| 	List&lt;String> | 	Attribute ID 목록 |
-   |attributeIdPreLike| 	String          | 	Attribute ID (전방 일치) |
-   |roleIds| 	List&lt;String> | Role ID 목록       |
-   |roleIdPreLike| 	String          | 	Role ID (전방 일치)           |
-   |attributeTagIds| 	List&lt;String> | 	Attribute ID 목록 |
+   |attributeIds| 	List&lt;String> | 	조건 속성 ID 목록 |
+   |attributeIdPreLike| 	String          | 	조건 속성 ID (전방 일치) |
+   |roleIds| 	List&lt;String> | 역 ID 목록       |
+   |roleIdPreLike| 	String          | 	역할 ID (전방 일치)           |
+   |attributeTagIds| 	List&lt;String> | 	조건 속성 ID 목록 |
    |descriptionLike| 	String          | 	설명 (부분 일치)           |
-   |attributeDataTypeCode| 	AttributeDataTypeCode          | 	Attribute DataType           |
+   |attributeDataTypeCode| 	AttributeDataTypeCode          | 	조건 속성 데이터 타입   |
 
    ```java
    GetAttributesRequest request = GetAttributesRequest.builder()
@@ -385,10 +387,10 @@ RoleClient client = new RoleClient(RoleConfig.builder()
     
     | Key                           | 	Type                                  | Description           |
     |-------------------------------|----------------------------------------|-----------------------|
-    | attribute                     | 	Attribute                             | Attribute 모델          |
-    | attributeTagById              | 	Map&lt;String, AttributeTag>          | AttributeTag 정보       |
-    | attributeRoleRelationByRoleId | 	Map&lt;String, AttributeRoleRelation> | AttributeRoleRelation |
-    | attributeInUse                | 	Boolean                               | Attribute DataType    |
+    | attribute                     | 	Attribute                             | 조건 속성 모델          |
+    | attributeTagById              | 	Map&lt;String, AttributeTag>          | 조건 속성 태그 정보       |
+    | attributeRoleRelationByRoleId | 	Map&lt;String, AttributeRoleRelation> | 조건 속성과 연관된 역할 |
+    | attributeInUse                | 	Boolean                               | 조건 속성 데이터 타입    |
 
 5. Attribute 수정
 
@@ -409,7 +411,7 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
    |Key| 	Type                                  | 	Description |
    |----------------------------------------|-----------|---|
-   |attributeId| 	String                                | 	Attribute ID |
+   |attributeId| 	String                                | 	조건 속성 ID |
    |forceDelete| 	boolean                               | 	강제 삭제 여부 |
 
    ```java
@@ -429,7 +431,7 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
    |Key| 	Type                      |	Description|
    |----------------------------|---|---|
-   |scopeId| 	String                    |	Scope ID|
+   |scopeId| 	String                    |	범위 ID|
    |description| 	String                    |	설명|
 
 2. Scope 생성
@@ -459,7 +461,7 @@ RoleClient client = new RoleClient(RoleConfig.builder()
    |Key| 	Type            | 	Description     |
    |------------------|------------------|---|
    |scopeIds| 	List&lt;String> | 	Scope ID 목록 |
-   |scopeIdPreLike| 	String          | 	Scope ID (전방 일치) |
+   |scopeIdPreLike| 	String          | 	범위 ID (전방 일치) |
    |descriptionLike| 	String          | 	설명 (부분 일치)           |
 
    ```java
@@ -502,17 +504,17 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
    |Key| 	Type            | 	Description     |
    |------------------|------------------|---|
-   |roleMetaData| 	RoleMetaData          | 	Role 정보          |
-   |roleRelations| 	List&lt;RoleRelation>    | 	연관관계 Role ID 목록 |
-   |roleTags| 	List&lt;RoleTag> | 	Role Tag 목록        |
+   |roleMetaData| 	RoleMetaData          | 	역할          |
+   |roleRelations| 	List&lt;RoleRelation>    | 	연관관계 역할 ID 목록 |
+   |roleTags| 	List&lt;RoleTag> | 	역할 태그 목록        |
 
    **[RoleMetaData]**
 
    |Key| 	Type            | 	Description     |
    |------------------|------------------|---|
-   |roleId| 	String          | 	Role ID          |
-   |roleName| 	String          | 	Role 이름          |
-   |roleGroup| 	String | 	Role 그룹 |
+   |roleId| 	String          | 	역할 ID          |
+   |roleName| 	String          | 	역할 이름          |
+   |roleGroup| 	String | 	역할 그룹 |
    |description| 	String   | 	설명              |
    |exposureOrder| 	Integer   | 	노출 순서       |
 
@@ -520,7 +522,7 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
    |Key| 	Type            | 	Description     |
    |------------------|------------------|---|
-   |relatedRoleId| 	String          | 	연관관계 Role ID          |
+   |relatedRoleId| 	String          | 	역할 연관관계 ID          |
    |roleApplyPolicyCode| 	RoleApplyPolicyCode | 	역할 사용 여부: ALLOW, DENY |
    |conditions| 	List&lt;Condition>   | 	역할 조건 속성              |
 
@@ -528,9 +530,9 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
    |Key| 	Type   | 	Description    |
       |---------|-----------------|---|
-   |attributeId| String | 	속성 ID          |
-   |attributeOperatorTypeCode| AttributeOperatorTypeCode | 	속성 DataType 목록 |
-   |attributeValues| List&lt;String> | 	속성 값           |
+   |attributeId| String | 	조건 속성 ID          |
+   |attributeOperatorTypeCode| AttributeOperatorTypeCode | 	조건 속성 연산자 |
+   |attributeValues| List&lt;String> | 	조건 속성 값           |
 
 2. Role 생성
 
@@ -571,19 +573,19 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
    | Key               | 	Type             | 	Description                       |
    |-------------------|-------------------|------------------------------------|
-   | roleIds           | 	List&lt;String>  | 	Role ID 목록 (완전 일치)                |
-   | roleIdPreLike     | 	String           | 	Scope ID (전방 일치)                  |
-   | relatedRoleIds    | 	List&lt;String>  | 	연관관계 Role ID 목록 (완전 일치)           |
+   | roleIds           | 	List&lt;String>  | 	역할 ID 목록 (완전 일치)                |
+   | roleIdPreLike     | 	String           | 	범위 ID (전방 일치)                  |
+   | relatedRoleIds    | 	List&lt;String>  | 	연관관계 역할 ID 목록 (완전 일치)           |
    | descriptionLike   | 	String           | 	설명 (부분 일치)                        |
-   | roleNameLike      | 	String           | 	Role 이름 (부분 일치)                   |
-   | roleGroupLike     | 	String           | 	Role 그룹 (부분 일치)                   |
-   | roleTagIdExpr     | 	String           | 	Role Tag 조건 (구분자 ';':OR, ',':AND) |
-   | roleTagIds        | 	List&lt;String>  | 	Role Tag ID 목록 (완전 일치)            |
-   | attributeIds      | 	List&lt;String>  | 	Attribute ID 목록 (완전 일치)           |
-   | attributeTagIds   | 	List&lt;String>  | 	Attribute Tag ID 목록 (완전 일치)       |
-   | needAttributes    | 	Boolean          | 	응답 시 Attribute 정보 포함 여부           |
-   | needRoleTags      | 	Boolean          | 	응답 시 Role Tag ID 목록 포함 여부         |
-   | needRoleRelations | 	Boolean          | 	응답 시 Role 연관관계 ID 목록 포함 여부        |
+   | roleNameLike      | 	String           | 	역할 이름 (부분 일치)                   |
+   | roleGroupLike     | 	String           | 	역할 그룹 (부분 일치)                   |
+   | roleTagIdExpr     | 	String           | 	역할 태그 조건 (구분자 ';':OR, ',':AND) |
+   | roleTagIds        | 	List&lt;String>  | 	역할 태그 ID 목록 (완전 일치)            |
+   | attributeIds      | 	List&lt;String>  | 	조건 속성 ID 목록 (완전 일치)           |
+   | attributeTagIds   | 	List&lt;String>  | 	조건 속성 Tag ID 목록 (완전 일치)       |
+   | needAttributes    | 	Boolean          | 	응답 시 조건 속성 정보 포함 여부           |
+   | needRoleTags      | 	Boolean          | 	응답 시 역할 태그 ID 목록 포함 여부         |
+   | needRoleRelations | 	Boolean          | 	응답 시 연관관계 역할 ID 목록 포함 여부        |
 
    ```java
    GetRoleRequest request = GetRoleRequest.builder()
@@ -639,10 +641,10 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
    | Key               | 	Type            | 	Description                 |
    |-------------------|------------------|------------------------------|
-   | roleId            | 	String          | 	Role ID                     |
-   | attributeIds      | 	List&lt;String> | 	Attribute ID 목록 (완전 일치)     |
-   | attributeTagIds   | 	List&lt;String> | 	Attribute Tag ID 목록 (완전 일치) |
-   | attributeNameLike | 	Boolean         | 	응답 시 Attribute 이름 (부분 일치)   |
+   | roleId            | 	String          | 	역할 ID                     |
+   | attributeIds      | 	List&lt;String> | 	조건 속성 ID 목록 (완전 일치)     |
+   | attributeTagIds   | 	List&lt;String> | 	조건 속성 Tag ID 목록 (완전 일치) |
+   | attributeNameLike | 	Boolean         | 	응답 시 조건 속성 이름 (부분 일치)   |
 
    ```java
    GetRoleAttributesRequest request = GetRoleAttributesRequest.builder()
@@ -676,11 +678,11 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
    | Key           | 	Type    | 	Description                       |
    |---------------|----------|------------------------------------|
-   | resourceId    | 	String  | 	Resource ID                       |
+   | resourceId    | 	String  | 	리소스 ID                       |
    | description   | 	String  | 	설명                                |
-   | name          | 	String  | 	Resource 이름                       |
-   | path          | 	String  | 	Resource Path                     |
-   | uiPath        | 	String  | 	Resource UI Path                  |
+   | name          | 	String  | 	리소스 이름                       |
+   | path          | 	String  | 	리소스 Path                     |
+   | uiPath        | 	String  | 	리소스 UI Path                  |
    | priority      | 	Integer | 	우선순위                              |
    | metadata      | 	String  | 	메타데이터                             |
    | newResourceId | 	String  | 	기존에 생성된 리소스의 ID 를 업데이트 하고 싶을때만 사용 |
@@ -716,8 +718,8 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
    | Key                  | 	Type                 | 	Description              |
    |----------------------|-----------------------|---------------------------|
-   | resourceIdPreLike    | 	String               | 	Resource ID (전방 일치)      |
-   | resourcePath         | 	String               | 	Resource Path (완전 일치)    |
+   | resourceIdPreLike    | 	String               | 	리소스 ID (전방 일치)      |
+   | resourcePath         | 	String               | 	리소스 Path (완전 일치)    |
    | resourcePathLike     | 	String               | 	리소스 Path (전방 일치)         |
    | resourceUiPath       | 	String               | 	리소스 UI Path (전방 일치)      |
    | resourceIds          | 	List&lt;String>      | 	리소스 ID 목록                |

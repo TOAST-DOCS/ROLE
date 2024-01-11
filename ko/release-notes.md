@@ -1,5 +1,15 @@
 ## Application Service > ROLE > 릴리스 노트
 
+### 2024. 01. 23.
+#### 신규 버전 출시
+* [RESTFUL API] Public API v3가 출시됩니다.
+    * RBAC(역할 기반 접근 제어)과 역할에 대한 ABAC(속성 기반 접근 제어)를 제공합니다.
+    * 특정 역할을 미사용하거나 조건을 설정하여 다양하고 세밀한 사용자 접근제어가 가능합니다.
+    * 자세한 사항은 매뉴얼 참고: [링크](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-v3-guide/)
+* [SDK] 2.0.0 으로 릴리즈되었습니다.
+    * RESTFUL API에서 신규로 제공되는 v3에 맞게 적용하였습니다.
+    * 자세한 사항은 매뉴얼 참고: [링크](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/sdk-v2-guide//)
+
 ### 2023. 09. 26.
 #### 기능 수정
 * Role 생성 시 Role id 네이밍 규칙이 변경되었습니다.
