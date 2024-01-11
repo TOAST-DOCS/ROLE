@@ -55,6 +55,16 @@ Maven Central Repository 에 저장되어 있어 별도의 설정은 필요 없�
 JAVA Client SDK 를 사용하기 위해선 먼저 RoleClientFactory 객체를 이용하여 RoleClient 객체의 instance 를 생성해야 한다.
 RoleClient 객체를 생성하였으면, 해당 객체에서 제공하는 method 를 호출하여 여러 작업들을 처리하면 된다.
 
+**[RoleConfig]**
+
+| Key            | Type    | Description                                                        |
+|----------------|---------|--------------------------------------------------------------------|
+| appKey         | String  | 서버에서 발급받은 앱키                                                       |
+| secretKey      | String  | 서버에서 발급받은 비밀 키                                                     |
+| domain         | String  | 도메인 주소<br/>기본으로 설정된 값을 사용하면 되며, 별도로 설정할 필요는 없다                     |
+| connectTimeout | Integer | 연결 타임아웃을 설정할 수 있으며, 시간단위는 밀리세컨드이다.<br/>기본값은 okHttp 의 기본값인 10초이다.   |
+| readTimeout    | Integer | Read 타임아웃을 설정할 수 있으며, 시간단위는 밀리세컨드이다.<br/>기본값은 okHttp 의 기본값인 10초이다. |
+
 ```java
 String appKey = "appKey";
 String secretKey = "secretKey";
@@ -64,12 +74,16 @@ String secretKey = "secretKey";
 RoleClient client = RoleClientFactory.getClient(RoleConfig.builder()
                                                             .appKey(appKey)
                                                             .secretKey(secretKey)
+                                                            .connectTimeout(30_000)
+                                                            .readTimeout(60_000)
                                                             .build());
 
 // 아래처럼 직접 생성자를 호출하면 안된다.
 RoleClient client = new RoleClient(RoleConfig.builder()
                                                 .appKey(appKey)
                                                 .secretKey(secretKey)
+                                                .connectTimeout(30_000)
+                                                .readTimeout(60_000)
                                                 .build());
 ```
 
