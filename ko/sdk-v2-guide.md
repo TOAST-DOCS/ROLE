@@ -1,12 +1,12 @@
 ## Application Service > ROLE > SDK 사용 가이드
 
 > ROLE 서비스를 이용하여 권한을 체크하기 위해서는
-> RESTful API를 호출하거나, 클라이언트 SDK를 이용하여야 한다.
+> RESTful API를 호출하거나, 클라이언트 SDK를 이용해야 한다.
 
 ## AppKey & SecretKey
 
-RESTful API와 클라이언트 SDK를 사용하려면 AppKey와 Secret Key 가 필요하다.
-[CONSOLE]의 좌측 상단에서 발급된 Key 정보를 확인 할 수 있다.
+RESTful API와 클라이언트 SDK를 사용하려면 AppKey와 Secret Key가 필요하다.
+[CONSOLE]의 우측 상단에서 발급된 키 정보를 확인할 수 있습니다.
 
 ![[그림 1] AppKey & SecretKey 확인](http://static.toastoven.net/prod_role/role_60.png)
 <center>[그림 1] AppKey & SecretKey 확인</center>
@@ -15,8 +15,8 @@ RESTful API와 클라이언트 SDK를 사용하려면 AppKey와 Secret Key 가 �
 
 ### 클라이언트 SDK 란?
 
-RESTful API를 손쉽게 호출하기 위한 ROLE 전용 클라이언트 SDK 이다.
-자체 캐시 기능을 가지고 있기 때문에, 좀더 효율적으로 ROLE 서비스를 이용할 수 있다.
+RESTful API를 손쉽게 호출하기 위한 ROLE 전용 클라이언트 SDK입니다.
+자체 캐시 기능을 가지고 있기 때문에, 좀더 효율적으로 ROLE 서비스를 이용할 수 있습니다.
 현재는 JAVA 언어에 대해서만 지원합니다.
 
 ### 사용 환경
@@ -24,7 +24,7 @@ RESTful API를 손쉽게 호출하기 위한 ROLE 전용 클라이언트 SDK 이
 
 ### Maven을 이용한 JAVA 클라이언트 SDK 사용
 
-JAVA 클라이언트 SDK를 사용하기 위해선 pom.xml에 maven repository 및 depencency 설정이 필요하다.
+JAVA 클라이언트 SDK를 사용하기 위해선 pom.xml에 maven repository 및 depencency 설정이 필요합니다.
 
 **[Maven Repository]**
 Maven Central Repository에 저장되어 있어 별도의 설정은 필요 없음.
@@ -52,18 +52,18 @@ Maven Central Repository에 저장되어 있어 별도의 설정은 필요 없�
 
 ### JAVA 클라이언트 SDK 사용법
 
-JAVA 클라이언트 SDK를 사용하기 위해서는 먼저 RoleClientFactory 객체를 이용하여 RoleClient 객체의 instance를 생성해야 한다.
-RoleClient 객체를 생성하였으면, 해당 객체에서 제공하는 method를 호출하여 여러 작업들을 처리하면 된다.
+JAVA 클라이언트 SDK를 사용하기 위해서는 먼저 RoleClientFactory 객체를 이용하여 RoleClient 객체의 instance를 생성해야 합니다.
+RoleClient 객체를 생성하였으면, 해당 객체에서 제공하는 method를 호출하여 여러 작업들을 처리하면 됩니다.
 
 **[RoleConfig]**
 
-| Key            | Type | Required |   Description   |
-|--------------|----------------|----|----------|
-| appKey         | String  |**Yes**| 서버에서 발급받은 앱키                                                       |
-| secretKey      | String  |**Yes**| 서버에서 발급받은 비밀 키                                                     |
-| domain         | String  |**No**| 도메인 주소<br/>기본으로 설정된 값을 사용하며, 별도로 설정할 필요는 없다                   |
-| connectTimeout | Integer |**No**| 연결 타임아웃을 설정할 수 있으며, 시간 단위는 밀리 세컨드다 입니다.<br/>기본값은 okHttp의 기본값인 10초이다   |
-| readTimeout    | Integer |**No**| Read 타임아웃을 설정할 수 있으며, 시간 단위는 밀리 세컨드 입니다.<br/>기본값은 okHttp의 기본값인 10초이다 |
+| Key            | Type | Required | Description                                                         |
+|--------------|----------------|----|---------------------------------------------------------------------|
+| appKey         | String  |**Yes**| 서버에서 발급받은 앱키                                                        |
+| secretKey      | String  |**Yes**| 서버에서 발급받은 비밀 키                                                      |
+| domain         | String  |**No**| 도메인 주소<br/>기본으로 설정된 값을 사용하며, 별도로 설정할 필요는 없다                         |
+| connectTimeout | Integer |**No**| 연결 타임아웃을 설정할 수 있으며, 시간 단위는 밀리 세컨드이다.<br/>기본값은 okHttp의 기본값인 10초이다.   |
+| readTimeout    | Integer |**No**| Read 타임아웃을 설정할 수 있으며, 시간 단위는 밀리 세컨드이다.<br/>기본값은 okHttp의 기본값인 10초이다. |
 
 ```java
 String appKey = "appKey";
@@ -736,7 +736,7 @@ boolean result = client.isDeniable(roleId);
 | uiPath        |    String  |**Yes**|   리소스 UI 경로                  |
 | priority      |    Integer |**Yes**|   우선순위                              |
 | metadata      |    String  |**No**|   메타데이터                             |
-| newResourceId |    String  |**No**|   기존에 생성된 리소스의 ID를 업데이트하고 싶을 때만 사용 |
+| newResourceId |    String  |**No**|   기존에 생성된 리소스 ID를 업데이트하고 싶을 때만 사용 |
 
 2. Resource 생성
 

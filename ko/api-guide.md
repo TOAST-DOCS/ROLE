@@ -2,12 +2,12 @@
 
 
 > ROLE 서비스를 이용해 권한을 체크하기 위해서는
-> RESTful API를 호출하거나, Client SDK를 이용하여야 합니다.
+> RESTful API를 호출하거나, 클라이언트 SDK를 이용하여야 합니다.
 
 ## AppKey & SecretKey
 
-RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합니다.
-[CONSOLE] 우측 상단의 **URL & Appkey** 버튼을 클릭하여 발급 Key 정보를 확인 할 수 있습니다.
+RESTful API와 클라이언트 SDK를 사용하려면 AppKey와 Secret Key가 필요합니다.
+[CONSOLE] 우측 상단의 **URL & Appkey** 버튼을 클릭하여 발급 키 정보를 확인할 수 있습니다.
 
 ![[그림 1] AppKey & SecretKey 확인](http://static.toastoven.net/prod_role/role_60.png)
 <center>[그림 1] AppKey & SecretKey 확인</center>
@@ -16,8 +16,8 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 
 ### Common Response Body
 
-모든 API 요청에 대해 HTTP 응답 코드는 200 으로 응답합니다.
-자세한 응답 결과는 Response Body 의 header 항목을 참고합니다.
+모든 API 요청에 대해 HTTP 응답 코드는 200으로 응답합니다.
+자세한 응답 결과는 Response Body의 header 항목을 참고합니다.
 
 ```json
 {
@@ -29,12 +29,12 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 }
 ```
 
-|Key|	Type|	Description|
-|---|---|---|
-|header|	Object|	응답 헤더|
-|header.isSuccessful|	boolean|	성공 여부|
-|header.resultCode|	int|	응답 코드. 성공 시 0, 실패 시 에러코드 반환|
-|header.resultMessage|	String|	응답 메시지. 성공 시 "SUCCESS", 실패 시 에러메시지 반환|
+|Key|	Type| 	Description                            |
+|---|---|-----------------------------------------|
+|header|	Object| 	응답 헤더                                  |
+|header.isSuccessful|	boolean| 	성공 여부                                  |
+|header.resultCode|	int| 	응답 코드. 성공 시 0, 실패 시 오류 코드 반환           |
+|header.resultMessage|	String| 	응답 메시지. 성공 시 "SUCCESS", 실패 시 오류 메시지 반환 |
 
 ### 1. User
 
@@ -107,11 +107,11 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 }
 ```
 
-|Key|	Type|	Description|
-|---|---|---|
-|errors|	List|	Error 리스트, 에러가 발생하지 않았다면 빈리스트를 반환합니다.|
-|errors[0].code|	int|	에러 코드|
-|errors[0].message|	String|	에러 메시지|
+|Key|	Type| 	Description                            |
+|---|---|-----------------------------------------|
+|errors|	List| 	Error 리스트, 오류가 발생하지 않았다면 빈리스트를 반환 합니다. |
+|errors[0].code|	int| 	오류 코드                                  |
+|errors[0].message|	String| 	오류 메시지                                 |
 
 #### 1.2. User 조회
 
@@ -163,8 +163,8 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 
 #### 1.3. User 리스트 조회
 
-Scope ID와 Role ID를 넘겨주면, 해당 역할을 가진 User 만 반환합니다.
-includeRelation 을 true 로 설정하면, Role ID와 연관 관계에 있는 Role 을 가진 User 도 포함하여 반환합니다.
+Scope ID와 Role ID를 넘겨주면, 해당 역할을 가진 User만 반환합니다.
+includeRelation 을 true로 설정하면, Role ID와 연관 관계에 있는 Role 을 가진 User도 포함하여 반환합니다.
 
 **[Method, URL]**
 
@@ -227,7 +227,7 @@ includeRelation 을 true 로 설정하면, Role ID와 연관 관계에 있는 Ro
 |users[0].userId|	String|	User ID|
 |users[0].description|	String|	User 설명|
 |users[0].regYmdt|	Timestamp|	등록일|
-|users[0].relations | List | User 에 할당된 관계 리스트 |
+|users[0].relations | List | User에 할당된 관계 리스트 |
 |users[0].relations[0].roleId | String | Role ID |
 |users[0].relations[0].scopeId | String | Scope ID |
 |users[0].relations[0].validStartDate | Date | User에게 부여된 Role의 유효 기간 시작 날짜(2024-01-23 이후 지원 종료)|
@@ -301,7 +301,7 @@ User 정보를 한번에 조회하는 API
 |users[0].userId|	String|	User ID|
 |users[0].description|	String|	User 설명|
 |users[0].regYmdt|	Timestamp|	등록일|
-|users[0].relations | List | User 에 할당된 관계 리스트 |
+|users[0].relations | List | User에 할당된 관계 리스트 |
 |users[0].relations[0].userId | String | User ID |
 |users[0].relations[0].roleId | String | Role ID |
 |users[0].relations[0].scopeId | String | Scope ID |
@@ -465,7 +465,7 @@ User 정보를 한번에 조회하는 API
 
 #### 1.8. Role 권한 체크
 
-User 에 Role 이 부여됬는지 여부를 반환합니다. 연관 관계에 따른 Role 도 포함합니다.
+User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따른 Role도 포함합니다.
 
 **[Method, URL]**
 
@@ -531,9 +531,9 @@ User 에 Role 이 부여됬는지 여부를 반환합니다. 연관 관계에 �
 |authorizations[0].roleId|	String|	Role ID|
 |authorizations[0].scopeId|	String|	Scope ID|
 
-#### 1.9. User 에 부여된 Role 조회
+#### 1.9. User에 부여된 Role 조회
 
-직접적으로 부여한 Role 만 반환합니다. Role 의 연관 관계에 따른 Role 은 반환하지 않는다.
+직접적으로 부여한 Role만 반환합니다. Role의 연관 관계에 따른 Role은 반환하지 않습니다.
 
 **[Method, URL]**
 
@@ -586,7 +586,7 @@ User 에 Role 이 부여됬는지 여부를 반환합니다. 연관 관계에 �
 |relations[0].validStartDate|	Date|User에게 부여된 Role의 유효 기간 시작 날짜(2024-01-23 이후 지원 종료)|
 |relations[0].validEndDate|	Date|User에게 부여된 Role의 유효 기간 종료 날짜(2024-01-23 이후 지원 종료)|
 
-#### 1.10. User 에 Role 부여
+#### 1.10. User에 Role 부여
 
 **[Method, URL]**
 
@@ -622,7 +622,7 @@ User 에 Role 이 부여됬는지 여부를 반환합니다. 연관 관계에 �
 |---|---|---|---|
 |roleId|	String|	Yes|	Role ID|
 |scopeId|	String|	Yes|	Scope ID|
-|createUserIfNotExist| Boolean| No| User 가 없을때 User를 생성할 지 여부|
+|createUserIfNotExist| Boolean| No| User가 없을때 User를 생성할 지 여부|
 |validStartDate|	Date|	No|	User에게 부여된 Role의 유효 기간 시작 날짜(2024-01-23 이후 지원 종료)|
 |validEndDate|	Date|	No|	User에게 부여된 Role의 유효 기간 종료 날짜(2024-01-23 이후 지원 종료) |
 
@@ -638,7 +638,7 @@ User 에 Role 이 부여됬는지 여부를 반환합니다. 연관 관계에 �
 }
 ```
 
-#### 1.11. User 에 부여된 Role 삭제
+#### 1.11. User에 부여된 Role 삭제
 
 **[Method, URL]**
 
@@ -957,7 +957,7 @@ User 에 Role 이 부여됬는지 여부를 반환합니다. 연관 관계에 �
 }
 ```
 
-#### 2.5. Scope 과 연관된 연관 관계 조회
+#### 2.5. Scope과 연관된 연관 관계 조회
 
 Scope ID와 관련된 연관 관계를 조회합니다.
 
@@ -1013,7 +1013,7 @@ Scope ID와 관련된 연관 관계를 조회합니다.
 #### 2.6. Scope 리스트 조회
 
 페이지 형태로 리스트를 조회할 수 있습니다.
-page 에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조회합니다.
+page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조회합니다.
 
 **[Method, URL]**
 
@@ -1104,13 +1104,13 @@ page 에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 }
 ```
 
-|Key|	Type|	Required|	Description|
-|---|---|---|---|
+|Key|	Type|	Required| 	Description                                                                                                  |
+|---|---|---|---------------------------------------------------------------------------------------------------------------|
 |roleId|	String|	Yes| 	Role ID <br/> 최대 128글자까지 등록 가능합니다. <br/> `-`, `_`, `.`, `:` 특수문자를 사용할 수 있으며, ID의 시작과 끝은 반드시 문자 및 숫자가 와야 합니다. |
-|description|	String|	Yes|	Role 설명 <br/> 최대 128글자까지 등록 가능합니다.|
-|roleName|	String|	No|	Role 이름 <br/> 의미 있는 이름을 부여할 수 있습니다. 최대 128글자까지 등록 가능합니다.|
-|roleGroup|	String|	No|	Role Group <br/> Role들을 그룹핑하여 관리 목적으로 사용할 수 있습니다. 최대 128글자까지 등록 가능합니다.|
-|exposureOrder|	int|	No|	노출 순서 <br/> 숫자만 가능합니다. 기본값 0|
+|description|	String|	Yes| 	Role 설명 <br/> 최대 128글자까지 등록 가능합니다.                                                                           |
+|roleName|	String|	No| 	Role 이름 <br/> 의미 있는 이름을 부여할 수 있습니다. 최대 128글자까지 등록 가능합니다.                                                     |
+|roleGroup|	String|	No| 	Role Group <br/> Role들을 그룹핑하여 관리 목적으로 사용할 수 있습니다. 최대 128글자까지 등록 가능합니다.                                       |
+|exposureOrder|	int|	No| 	노출 순서 <br/> 숫자만 가능합니다. 기본값은 0입니다.                                                                            |
 
 **[Response Body]**
 
@@ -1351,7 +1351,7 @@ page 에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 }
 ```
 
-#### 3.7. Role 에 User 할당
+#### 3.7. Role에 User 할당
 
 
 **[Method, URL]**
@@ -1412,7 +1412,7 @@ page 에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 #### 3.8. Role 리스트 조회
 
 페이지 형태로 리스트를 조회할 수 있습니다.
-page 에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조회합니다.
+page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조회합니다.
 
 **[Method, URL]**
 
@@ -1443,11 +1443,11 @@ page 에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 |roleGroup|	Role Group 이름|	No|
 |roleTagIds| Tag Id 조건(;는 OR, ,는 AND)|	No|
 |page|  검색을 원하는 페이지 번호로 1부터 시작|	No|
-|itemsPerPage|  결과를 원하는 scopes 의 레코드 수|	No|
+|itemsPerPage|  결과를 원하는 scopes의 레코드 수|	No|
 
-roleTagIds를 통해서 검색시 Role 에 설정 한 Tag를 AND 나 OR 조건으로 조회할 수 있습니다.
-예를 들어 Role 에 A와 B Tag를 가지고 있는 Role을 검색시에는 A;B 로 조건을 만들수 있고,
-A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B 로 조건을 만들 수 있습니다.
+roleTagIds를 통해서 검색 시 Role에 설정 한 Tag를 AND 또는 OR 조건으로 조회할 수 있습니다.
+예를 들어 Role에 A와 B Tag를 가지고 있는 Role을 검색시 에는 A;B로 조건을 만들 수 있고,
+A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 만시들 수 있습니다.
 (A;B),C와 같은 조건 생성도 가능합니다.
 
 **[Response Body]**
@@ -1652,15 +1652,15 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B 로 조건을
 }
 ```
 
-|Key|	Type|	Required|	Description|
-|---|---|---|---|
-|resourceId|	String|	Yes|	Resource ID <br/> 최대 32글자까지 등록 가능합니다. <br/> -\_ 특수문자를 사용할 수 있으며, ID의 시작과 끝은 반드시 문자 및 숫자가 와야 합니다.|
-|name|	String|	No|	필요 없음.|
-|path|	String|	Yes|	Resource 경로 <br/> 최대 1024글자까지 등록 가능합니다. <br/> Resource 경로는 '/' 의 조합으로 이루어져야 합니다. <br/> 예외적으로 Path Variable 을 표현할 수 있는 {}가 올 수 있습니다.|
-|description|	String|	Yes|	Resource 설명 <br/> 최대 128글자까지 등록 가능합니다.|
-|priority|	smallint|	Yes|	같은 경로에서 보여지는 우선순위 <br/> -32768 ~ 32767 값이 올 수 있으며, 낮을 수록 앞에 보이게 된다.|
-|metadata|	String|	Yes|	사용자 정의 데이터 <br/> 최대 65536글자까지 등록 가능합니다.|
-|uiPath|	String|	Yes|	UI Path 경로 <br/> 최대 1024글자까지 등록 가능합니다. <br/> UI Path 경로는 Resource 이름과 '/' 의 조합으로 이루어져야 합니다. |
+|Key|	Type|	Required| 	Description                                                                                                                       |
+|---|---|---|------------------------------------------------------------------------------------------------------------------------------------|
+|resourceId|	String|	Yes| 	Resource ID <br/> 최대 32글자까지 등록 가능합니다. <br/> -\_ 특수문자를 사용할 수 있으며, ID의 시작과 끝은 반드시 문자 및 숫자가 와야 합니다.                                  |
+|name|	String|	No| 	필요 없음.                                                                                                                            |야
+|path|	String|	Yes| 	Resource 경로 <br/> 최대 1024글자까지 등록 가능합니다. <br/> Resource 경로는 '/'의 조합으로 이루어져야 합니다. <br/> 예외적으로 Path Variable을 표현할 수 있는 {}가 올 수 있습니다. |
+|description|	String|	Yes| 	Resource 설명 <br/> 최대 128글자까지 등록 가능합니다.                                                                                            |
+|priority|	smallint|	Yes| 	같은 경로에서 보여지는 우선순위 <br/> -32768 ~ 32767 값이 올 수 있으며, 낮을수록 앞에 보이게 됩니다.                                                              |
+|metadata|	String|	Yes| 	사용자 정의 데이터 <br/> 최대 65536글자까지 등록 가능합니다.                                                                                           |
+|uiPath|	String|	Yes| 	UI Path 경로 <br/> 최대 1024글자까지 등록 가능합니다. <br/> UI Path 경로는 Resource 이름과 '/'의 조합으로 이루어져야 합니다.                                        |
 
 **[Response Body]**
 
@@ -1825,14 +1825,14 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B 로 조건을
 }
 ```
 
-|Key|	Type|	Required|	Description|
-|---|---|---|---|
-|name|	String|	No| 필요 없음. |
-|path|	String|	Yes| 	Resource 경로 <br/> 최대 1024글자까지 등록 가능합니다. <br/> Resource 경로는 '/' 의 조합으로 이루어져야 합니다. <br/> 예외적으로 Path Variable 을 표현할 수 있는 {}가 올 수 있습니다.|
-|description|	String|	Yes|	Resource 설명 <br/> 최대 128글자까지 등록 가능합니다.|
-|priority|	smallint|	Yes|	같은 경로에서 보여지는 우선순위 <br/> -32768 ~ 32767 값이 올 수 있으며, 낮을 수록 앞에 보이게 된다.|
-|metadata|	String|	Yes|	사용자 정의 데이터 <br/> 최대 65536글자까지 등록 가능합니다.|
-|uiPath|	String|	Yes| 	UI Path 경로 <br/> 최대 1024글자까지 등록 가능합니다. <br/> UI Path 경로는 Resource 이름과 '/' 의 조합으로 이루어져야 합니다. |
+|Key|	Type|	Required| 	Description                                                                                                                       |
+|---|---|---|------------------------------------------------------------------------------------------------------------------------------------|
+|name|	String|	No| 필요 없음.                                                                                                                             |
+|path|	String|	Yes| 	Resource 경로 <br/> 최대 1024글자까지 등록 가능합니다. <br/> Resource 경로는 '/'의 조합으로 이루어져야 합니다. <br/> 예외적으로 Path Variable을 표현할 수 있는 {}가 올 수 있습니다. |
+|description|	String|	Yes| 	Resource 설명 <br/> 최대 128글자까지 등록 가능합니다.                                                                                            |
+|priority|	smallint|	Yes| 	같은 경로에서 보여지는 우선순위 <br/> -32768 ~ 32767 값이 올 수 있으며, 낮을수록 앞에 보이게 됩니다.                                                               |
+|metadata|	String|	Yes| 	사용자 정의 데이터 <br/> 최대 65536글자까지 등록 가능합니다.                                                                                           |
+|uiPath|	String|	Yes| 	UI Path 경로 <br/> 최대 1024글자까지 등록 가능합니다. <br/> UI Path 경로는 Resource 이름과 '/'의 조합으로 이루어져야 합니다.                                        |
 
 **[Response Body]**
 
@@ -1926,7 +1926,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B 로 조건을
 |authorizations[0].operationId|	String|	Operation ID|
 |authorizations[0].roleId|	String|	Role ID|
 
-#### 4.7. Resource 에 권한을 추가합니다.
+#### 4.7. Resource에 권한을 추가합니다.
 
 **[Method, URL]**
 

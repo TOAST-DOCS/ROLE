@@ -1,12 +1,12 @@
 ## Application Service > ROLE > API v3 가이드
 
-> ROLE 서비스를 이용 권한을 체크하기 위해서는
-> RESTful API를 호출하거나, Client SDK를 이용하여야 합니다.
+> ROLE 서비스를 이용해 권한을 체크하기 위해서는
+> RESTful API를 호출하거나, 클라이언트 SDK를 이용하여야 합니다.
 
 ## AppKey & SecretKey
 
-RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합니다.
-[CONSOLE] 우측 상단의 **URL & Appkey** 버튼을 클릭하여 발급 Key 정보를 확인 할 수 있습니다.
+RESTful API와 클라이언트 SDK를 사용하려면 AppKey와 Secret Key가 필요합니다.
+[CONSOLE] 우측 상단의 **URL & Appkey** 버튼을 클릭하여 발급 키 정보를 확인 할 수 있습니다.
 
 ![[그림 1] AppKey & SecretKey 확인](http://static.toastoven.net/prod_role/role_60.png)
 <center>[그림 1] AppKey & SecretKey 확인</center>
@@ -35,18 +35,18 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 }
 ```
 
-| Key                  |  Type    |   Description                          |
-|----------------------|----------|---------------------------------------|
-| header               |  Object  |   응답 헤더                                 |
-| header.isSuccessful  |  boolean |   성공 여부                                |
-| header.resultCode    |  int     |   응답 코드. 성공 시 0, 실패 시 에러코드 반환          |
-| header.resultMessage |  String  |   응답 메시지. 성공 시 "SUCCESS", 실패 시 오류 메시지 반환 |
-| cache                | Object   |  캐시                                      |
-| cache.cacheFlushTime | String   | 캐시 삭제 시간 | 
-| cache.size | int      | 리소스 ID 기반 인증 캐시 크기 |
-| cache.sizeByPath | int      | 리소스 Path 기반 인증 캐시 크기 |
-| cache.sizeTree | int      | 리소스 Hierarchy 조회 캐시 크기 |
-| cache.ttl | int      | 캐시 데이터 유지 시간(초 단위) |
+| Key                  |  Type    | Description                            |
+|----------------------|----------|----------------------------------------|
+| header               |  Object  | 응답 헤더                                  |
+| header.isSuccessful  |  boolean | 성공 여부                                  |
+| header.resultCode    |  int     | 응답 코드. 성공 시 0, 실패 시 오류 코드 반환           |
+| header.resultMessage |  String  | 응답 메시지. 성공 시 "SUCCESS", 실패 시 오류 메시지 반환 |
+| cache                | Object   | 캐시                                     |
+| cache.cacheFlushTime | String   | 캐시 삭제 시간                               | 
+| cache.size | int      | 리소스 ID 기반 인증 캐시 크기                     |
+| cache.sizeByPath | int      | 리소스 Path 기반 인증 캐시 크기                   |
+| cache.sizeTree | int      | 리소스 Hierarchy 조회 캐시 크기                 |
+| cache.ttl | int      | 캐시 데이터 유지 시간(초 단위)                     |
 
 ## 사용자
 
@@ -214,7 +214,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `id.userId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.userId,ASC`)|
 | Request Body | **SearchUser.Request** | **SearchUser.Request**| **Yes** |  | |
 
 
@@ -238,7 +238,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |   **userIds** | **List&lt;String>**| **No** | 사용자 ID 목록(완전 일치)  |
 
 
-
+계
 
 
 
@@ -525,7 +525,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Query |**historyType** |  **List&lt;String>**| **No** | 변경 유형 | [optional] [default to null] [enum: USER_ADD, USER_REMOVE, ADD, REMOVE] |
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `seq,DESC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `seq,DESC`)|
 
 
 
@@ -669,7 +669,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `id.userId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.userId,ASC`)|
 | Request Body | **SearchUser.Request** | **SearchUser.Request**| **Yes** |  | |
 
 
@@ -1862,7 +1862,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Query |**roleIdPreLike** | **String**| **No** | 역할 ID(전방 일치) |
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `id.roleId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.roleId,ASC`)|
 
 
 
@@ -1916,15 +1916,15 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 
 
 
-| ParameterType | Name | Type | Required | Description  | 
-|------------- |------------- | ------------- | ------------- | ------------- | 
-|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
-|  Path |**appKey** | **String**| **Yes** | 앱키 | 
-|  Path |**roleId** | **String**| **Yes** | 역할 ID | 
-|  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
-|  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `attributeCreationTypeCode,ASC&quot;,&quot;id.attributeId,ASC`)|
-| Request Body | **SearchRoleAttributes.Request** | **SearchRoleAttributes.Request**| **Yes** |  | |
+| ParameterType | Name | Type | Required | Description                                                | 
+|------------- |------------- | ------------- | ------------- |------------------------------------------------------------| 
+|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey                                                  | 
+|  Path |**appKey** | **String**| **Yes** | 앱키                                                         | 
+|  Path |**roleId** | **String**| **Yes** | 역할 ID                                                      | 
+|  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1)                                      | 
+|  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10)                                 |  
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `attributeCreationTypeCode, id.attributeId,ASC`) |
+| Request Body | **SearchRoleAttributes.Request** | **SearchRoleAttributes.Request**| **Yes** |                                                            | |
 
 
 
@@ -2021,14 +2021,14 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 
 
 
-| ParameterType | Name | Type | Required | Description  | 
-|------------- |------------- | ------------- | ------------- | ------------- | 
-|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
-|  Path |**appKey** | **String**| **Yes** | 앱키 | 
-|  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
-|  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `exposureOrder,ASC&quot;,&quot;id.roleId,ASC`)|
-| Request Body | **GetRoles.Request** | **GetRoles.Request**| **Yes** |  | |
+| ParameterType | Name | Type | Required | Description                                   | 
+|------------- |------------- | ------------- | ------------- |-----------------------------------------------| 
+|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey                                     | 
+|  Path |**appKey** | **String**| **Yes** | 앱키                                            | 
+|  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1)                         | 
+|  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10)                    |  
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `exposureOrder, id.roleId,ASC`) |
+| Request Body | **GetRoles.Request** | **GetRoles.Request**| **Yes** |                                               | |
 
 
 
@@ -2498,7 +2498,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Query |**roleTagIdPreLike** | **String**| **No** | 역할 태그 ID(전방 일치) |
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `id.roleTagId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.roleTagId,ASC`)|
 
 
 
@@ -2664,7 +2664,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Query |**scopeIdPreLike** | **String**| **No** | 범위 ID(전방 일치) |
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `id.scopeId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.scopeId,ASC`)|
 
 
 
@@ -2793,7 +2793,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Path |**appKey** | **String**| **Yes** |  | 
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `id.scopeId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.scopeId,ASC`)|
 | Request Body | **PostSearchScopes.Request** | **PostSearchScopes.Request**| **Yes** |  | |
 
 
@@ -3137,7 +3137,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `id.resourceId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.resourceId,ASC`)|
 | Request Body | **GetAllResourceIds.Request** | **GetAllResourceIds.Request**| **Yes** |  | |
 
 
@@ -3311,7 +3311,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `id.attributeId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.attributeId,ASC`)|
 | Request Body | **SearchResourceAttributes.Request** | **SearchResourceAttributes.Request**| **Yes** |  | |
 
 
@@ -3414,7 +3414,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `uiPath,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `uiPath,ASC`)|
 | Request Body | **PostSearchResources.Request** | **PostSearchResources.Request**| **Yes** |  | |
 
 
@@ -4277,7 +4277,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Query |**operationIdPreLike** | **String**| **No** | 오퍼레이션 ID(전방 일치) |
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `id.operationId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.operationId,ASC`)|
 
 
 
@@ -4337,7 +4337,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `id.operationId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.operationId,ASC`)|
 | Request Body | **PostSearchOperations.Request** | **PostSearchOperations.Request**| **Yes** |  | |
 
 
@@ -4746,7 +4746,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `id.attributeId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.attributeId,ASC`)|
 | Request Body | **SearchAttributes.Request** | **SearchAttributes.Request**| **Yes** |  | |
 
 
@@ -4832,7 +4832,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `id.attributeId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.attributeId,ASC`)|
 | Request Body | **SearchAttributes.Request** | **SearchAttributes.Request**| **Yes** |  | |
 
 
@@ -5156,10 +5156,10 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 ##### GetAttributeDataTypeResponse.AttributeDataTypeProtocol
 
 
-| Name | Type | Required | Description | 
-|------------ | ------------- | ------------- | ------------ |
-|   **dataType** | **String**| **Yes** | 조건 속성 데이터 타입  |
-|   **operators** | **List&lt;GetAttributeDataTypeResponse.AttributeOperatorTypeProtocol>**| **Yes** | 조건 속성 사용가능한 연산자 목록  |
+| Name | Type | Required | Description         | 
+|------------ | ------------- | ------------- |---------------------|
+|   **dataType** | **String**| **Yes** | 조건 속성 데이터 타입        |
+|   **operators** | **List&lt;GetAttributeDataTypeResponse.AttributeOperatorTypeProtocol>**| **Yes** | 조건 속성 사용 가능한 연산자 목록 |
 
 
 ##### GetAttributeDataTypeResponse.AttributeOperatorTypeProtocol
@@ -5382,7 +5382,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Path |**attributeId** | **String**| **Yes** | 조건 속성 ID | 
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `attribute.id.attributeId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `attribute.id.attributeId,ASC`)|
 | Request Body | **SearchAttributeRoleRelations.Request** | **SearchAttributeRoleRelations.Request**| **Yes** |  | |
 
 
@@ -5613,7 +5613,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `id.attributeTagId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.attributeTagId,ASC`)|
 | Request Body | **SearchAttributeTagIds.Request** | **SearchAttributeTagIds.Request**| **Yes** |  | |
 
 
@@ -5691,7 +5691,7 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
-|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서 (기본값 `id.attributeTagId,ASC`)|
+|  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.attributeTagId,ASC`)|
 | Request Body | **SearchAttributeTags.Request** | **SearchAttributeTags.Request**| **Yes** |  | |
 
 
@@ -5779,15 +5779,15 @@ RESTful API와 Client SDK를 사용하려면 AppKey와 Secret Key가 필요합�
 ## 설정
 
 
-| Method | HTTP request | Description                            |
-|------------- | ------------- |----------------------------------------|
-| **PUT** |[**/role/v3.0/appkeys/{appKey}/config/cache-evict**](#deleteCache) | Role Service 서버와 Client SDK 의 Cache 제거 |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/config**](#getConfiguration) | 설정 조회                                  |
-| **PUT** |[**/role/v3.0/appkeys/{appKey}/config**](#updateConfig) | 설정 수정                                  |
+| Method | HTTP request                                                        | Description                     |
+|------------- |---------------------------------------------------------------------|---------------------------------|
+| **PUT** | [**/role/v3.0/appkeys/{appKey}/config/cache-evict트**](#deleteCache) | ROLE 서비스 서버와 클라이언트 SDK 의 캐시 제거 |
+| **GET** | [**/role/v3.0/appkeys/{appKey}/config**](#getConfiguration)         | 설정 조회                           |
+| **PUT** | [**/role/v3.0/appkeys/{appKey}/config**](#updateConfig)             | 설정 수정                           |
 
 
 <a name="deleteCache"></a>
-### **서버와 Client SDK 의 Cache 제거**
+### **서버와 클라이언트 SDK 의 캐시 제거**
 > PUT "/role/v3.0/appkeys/{appKey}/config/cache-evict"
 
 #### Parameters
