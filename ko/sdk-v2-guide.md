@@ -1,15 +1,15 @@
 ## Application Service > ROLE > SDK 사용 가이드
 
 > ROLE 서비스를 이용하여 권한을 체크하기 위해서는
-> RESTful API를 호출하거나, 클라이언트 SDK를 이용해야 한다.
+> RESTful API를 호출하거나, 클라이언트 SDK를 이용해야 합니다.
 
-## AppKey & SecretKey
+## 앱키 & 비밀 키
 
-RESTful API와 클라이언트 SDK를 사용하려면 AppKey와 Secret Key가 필요하다.
+RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 필요합니다. 
 [CONSOLE]의 우측 상단에서 발급된 키 정보를 확인할 수 있습니다.
 
-![[그림 1] AppKey & SecretKey 확인](http://static.toastoven.net/prod_role/role_60.png)
-<center>[그림 1] AppKey & SecretKey 확인</center>
+![[그림 1] 앱키 & 비밀 키 확인](http://static.toastoven.net/prod_role/role_60.png)
+<center>[그림 1] 앱키 & 비밀 키 확인</center>
 
 ## 클라이언트 SDK
 
@@ -52,8 +52,8 @@ Maven Central Repository에 저장되어 있어 별도의 설정은 필요 없�
 
 ### JAVA 클라이언트 SDK 사용법
 
-JAVA 클라이언트 SDK를 사용하기 위해서는 먼저 RoleClientFactory 객체를 이용하여 RoleClient 객체의 instance를 생성해야 합니다.
-RoleClient 객체를 생성하였으면, 해당 객체에서 제공하는 method를 호출하여 여러 작업들을 처리하면 됩니다.
+JAVA 클라이언트 SDK를 사용하기 위해서는 먼저 RoleClientFactory 객체를 이용하여 RoleClient 객체의 인스턴스를 생성해야 합니다.
+RoleClient 객체를 생성하였으면, 해당 객체에서 제공하는 메소드를 호출하여 여러 작업들을 처리하면 됩니다.
 
 **[RoleConfig]**
 
@@ -87,7 +87,7 @@ RoleClient client = new RoleClient(RoleConfig.builder()
                                                 .build());
 ```
 
-> RoleClient의 생성자를 직접 호출하지 않도록 주의한다.
+> RoleClient의 생성자를 직접 호출하지 않도록 주의합니다.
 
 ### SDK 사용 가이드
 #### Common
@@ -827,8 +827,8 @@ client.deleteResource(resourceId);
 
 
 #### 7. 리소스 계층구조
-> 리소스의 계층구조를 조회한다.
-> uiPath(resourceUiPath)를 기준으로 계층구조가 형성되며, 사용자가 정의한 캐시 시간만큼 캐싱 된다.
+> 리소스의 계층구조를 조회합니다.
+> uiPath(resourceUiPath)를 기준으로 계층구조가 형성되며, 사용자가 정의한 캐시 시간만큼 캐싱됩니다.
 
 1. 리소스 계층 구조 조회
 
@@ -865,8 +865,8 @@ List<ResourceHierarchy> responses = client.getResourceHierarchy(request);
 | resources   | List&lt;ResourceHierarchy> |**No**| 하위 리소스들                                 |
 
 #### 8. 사용자 인가(user authorization)
-> 사용자가 특정한 역할을 가지고 있거나, 리소스에 대한 접근 권한을 가지고 있는지를 확인한다.
-> 리소스의 경우 사용자가 정의한 캐시 시간만큼 캐싱 된다.
+> 사용자가 특정한 역할을 가지고 있거나, 리소스에 대한 접근 권한을 가지고 있는지를 확인합니다.
+> 리소스의 경우 사용자가 정의한 캐시 시간만큼 캐싱됩니다.
 
 1. 특정 리소스의 인가 결과 확인
 
@@ -928,15 +928,15 @@ List<GetResourceAuthorizationResponse> responses = client.hasAuthorizationByReso
 
 **[GetResourceAuthorizationResponse]**
 
-| Key           |    Type | Required |   Description   |
-|--------------|----------------|----|----------|
-| authRequestId | String                          |**No**| 사용자가 정의한 ID 값<br/>요청 시에 보낸 값이 그대로 반환된다       |
-| operationId   | String                          |**Yes**| 오퍼레이션 ID                                 |
-| resourceId    | String                          |**Yes**| 리소스 ID                                       |
-| resourcePath  | String                          |**No**| 리소스 경로                                       |
-| scopeId       | String                          |**Yes**| 범위 ID                                        |
+| Key           |    Type | Required | Description                                 |
+|--------------|----------------|----|---------------------------------------------|
+| authRequestId | String                          |**No**| 사용자가 정의한 ID 값<br/>요청 시에 보낸 값이 그대로 반환된다.     |
+| operationId   | String                          |**Yes**| 오퍼레이션 ID                                    |
+| resourceId    | String                          |**Yes**| 리소스 ID                                      |
+| resourcePath  | String                          |**No**| 리소스 경로                                      |
+| scopeId       | String                          |**Yes**| 범위 ID                                       |
 | permission    | Boolean                         |**Yes**| 인가 결과<br/><br/>true: 권한 있음<br/>false: 권한 없음 |
-| attributes    | List&lt;AuthorizationAttribute> |**No**| 조건 속성 목록                                     |
+| attributes    | List&lt;AuthorizationAttribute> |**No**| 조건 속성 목록                                    |
 
 3. 특정 역할의 인가 결과 확인
 
@@ -994,7 +994,7 @@ List<GetRoleAuthorizationResponse> responses = client.hasAuthorizationByRoles(us
 
 | Key            | Type | Required |   Description   |
 |--------------|----------------|----|----------|
-| authRequestId  | String                          |**No**| 사용자가 정의한 ID 값<br/>요청 시에 보낸 값이 그대로 반환된다        |
+| authRequestId  | String                          |**No**| 사용자가 정의한 ID 값<br/>요청 시에 보낸 값이 그대로 반환된다.        |
 | roleId         | String                          |**Yes**| 역할 ID                                         |
 | scopeId        | String                          |**Yes**| 범위 ID
 | permission     | Boolean                         |**Yes**| 인가 결과<br/><br/>true: 권한 있음<br/>false: 권한 없음 |
@@ -1002,13 +1002,13 @@ List<GetRoleAuthorizationResponse> responses = client.hasAuthorizationByRoles(us
 
 ### 클라이언트 SDK 캐시
 
-클라이언트 SDK에서는 아래 3가지 경우에 대해서 각각 클라이언트 단의 캐시를 사용한다.
+클라이언트 SDK에서는 아래 3가지 경우에 대해서 각각 클라이언트 단의 캐시를 사용합니다.
 
 - Resource ID를 이용한 권한 체크
 - Resource Path를 이용한 권한 체크
 - Resource Hierarchy 조회
 
-LRU로 관리하고 있으며, Cache의 기본값은 300초의 TTL(time to live) 과 1,000,000 개 Size입니다.
+LRU로 관리하고 있으며, 캐시의 기본값은 300초의 TTL(time to live)과 1,000,000개 Size입니다.
 해당 값을 수정하려면 NHN Cloud 콘솔에 접속하여 변경할 수 있습니다.
 NHN Cloud 콘솔에서 변경한 설정은 변경 즉시 반영되며, 변경되는 즉시 기존 캐시는 모두 삭제됩니다.
 
@@ -1089,8 +1089,8 @@ try {
 }
 ```
 
-RoleSession 객체를 사용 시 commit() method를 호출하기 전까지는 어떠한 추가/수정/변경사항도 서버에 반영되지 않기 때문에, commit()하기 전 변경한 데이터를 읽지 않도록 주의해야 합니다.
+RoleSession 객체를 사용 시 commit() 메소드를 호출하기 전까지는 어떠한 추가/수정/변경사항도 서버에 반영되지 않기 때문에, commit() 하기 전 변경한 데이터를 읽지 않도록 주의해야 합니다.
 
-RoleSession 객체를 commit()하거나 rollback() 한 다음 재사용 할 수 있습니다.
+RoleSession 객체를 commit() 하거나 rollback() 한 다음 재사용 할 수 있습니다.
 
 > RoleSession은 `SDK 사용 가이드`에서 정의된 서비스 중 조회를 제외한 등록, 수정, 삭제에 대해서 동일하게 사용 가능합니다.

@@ -4,13 +4,13 @@
 > ROLE 서비스를 이용해 권한을 체크하기 위해서는
 > RESTful API를 호출하거나, 클라이언트 SDK를 이용하여야 합니다.
 
-## AppKey & SecretKey
+## 앱키 & 비밀 키
 
-RESTful API와 클라이언트 SDK를 사용하려면 AppKey와 Secret Key가 필요합니다.
+RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 필요합니다.
 [CONSOLE] 우측 상단의 **URL & Appkey** 버튼을 클릭하여 발급 키 정보를 확인할 수 있습니다.
 
-![[그림 1] AppKey & SecretKey 확인](http://static.toastoven.net/prod_role/role_60.png)
-<center>[그림 1] AppKey & SecretKey 확인</center>
+![[그림 1] 앱키 & 비밀 키 확인](http://static.toastoven.net/prod_role/role_60.png)
+<center>[그림 1] 앱키 & 비밀 키 확인</center>
 
 ## RESTful API 가이드
 
@@ -57,7 +57,7 @@ RESTful API와 클라이언트 SDK를 사용하려면 AppKey와 Secret Key가 �
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 
 **[Request Body]**
 
@@ -109,7 +109,7 @@ RESTful API와 클라이언트 SDK를 사용하려면 AppKey와 Secret Key가 �
 
 |Key|	Type| 	Description                            |
 |---|---|-----------------------------------------|
-|errors|	List| 	Error 리스트, 오류가 발생하지 않았다면 빈리스트를 반환 합니다. |
+|errors|	List| 	오류 리스트, 오류가 발생하지 않았다면 빈 리스트를 반환합니다. |
 |errors[0].code|	int| 	오류 코드                                  |
 |errors[0].message|	String| 	오류 메시지                                 |
 
@@ -132,7 +132,7 @@ RESTful API와 클라이언트 SDK를 사용하려면 AppKey와 Secret Key가 �
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |userId|	User ID|
 
 **[Response Body]**
@@ -156,7 +156,7 @@ RESTful API와 클라이언트 SDK를 사용하려면 AppKey와 Secret Key가 �
 |Key|	Type|	Description|
 |---|---|---|
 |user|	Object|	User 정보|
-|user.appKey|	String|	AppKey|
+|user.appKey|	String|	앱키|
 |user.userId|	String|	User ID|
 |user.description|	String|	User 설명|
 |user.regYmdt|	Timestamp|	등록일|
@@ -183,7 +183,7 @@ includeRelation 을 true로 설정하면, Role ID와 연관 관계에 있는 Rol
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 
 **[Query Parameter]**
 
@@ -223,7 +223,7 @@ includeRelation 을 true로 설정하면, Role ID와 연관 관계에 있는 Rol
 |Key|	Type|	Description|
 |---|---|---|
 |users|	List|	User 정보 리스트|
-|users[0].appKey|	String|	AppKey|
+|users[0].appKey|	String|	앱키|
 |users[0].userId|	String|	User ID|
 |users[0].description|	String|	User 설명|
 |users[0].regYmdt|	Timestamp|	등록일|
@@ -254,7 +254,7 @@ User 정보를 한번에 조회하는 API
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 
 **[Request Body]**
 
@@ -297,7 +297,7 @@ User 정보를 한번에 조회하는 API
 |Key|	Type|	Description|
 |---|---|---|
 |users|	List|	User 정보 리스트|
-|users[0].appKey|	String|	AppKey|
+|users[0].appKey|	String|	앱키|
 |users[0].userId|	String|	User ID|
 |users[0].description|	String|	User 설명|
 |users[0].regYmdt|	Timestamp|	등록일|
@@ -328,7 +328,7 @@ User 정보를 한번에 조회하는 API
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |userId|	User ID|
 
 **[Request Body]**
@@ -374,7 +374,7 @@ User 정보를 한번에 조회하는 API
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |userId|	User ID|
 
 **[Response Body]**
@@ -407,7 +407,7 @@ User 정보를 한번에 조회하는 API
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |userId|	User ID|
 
 **[Request Body]**
@@ -483,7 +483,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |userId|	User ID|
 
 **[Request Body]**
@@ -552,7 +552,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |userId|	User ID|
 |userId|	User ID|
 
@@ -579,7 +579,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 |Key|	Type|	Description|
 |---|---|---|
 |relations|	List|	User - Role 관계 리스트|
-|relations[0].appKey|	String|	Operation ID|
+|relations[0].appKey|	String|	앱키|
 |relations[0].roleId|	String|	Role ID|
 |relations[0].scopeId|	String|	Scope ID|
 |relations[0].userId|	String|	User ID|
@@ -605,7 +605,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |userId|	User ID|
 
 **[Request Body]**
@@ -657,7 +657,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |userId|	User ID|
 
 **[Query Parameter]**
@@ -698,7 +698,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |userId|	User ID|
 
 **[Request Body]**
@@ -751,7 +751,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |userId|	User ID|
 
 **[Request Body]**
@@ -803,7 +803,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 
 **[Request Body]**
 
@@ -850,7 +850,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |scopeId|	Scope ID|
 
 **[Response Body]**
@@ -873,7 +873,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 |Key|	Type|	Description|
 |---|---|---|
 |scope|	Object|	Scope 정보|
-|scope.appKey|	String|	AppKey|
+|scope.appKey|	String|	앱키|
 |scope.scopeId|	String|	Scope ID|
 |scope.description|	String|	Scope 설명|
 
@@ -896,7 +896,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |scopeId|	Scope ID|
 
 **[Request Body]**
@@ -942,7 +942,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |scopeId|	Scope ID|
 
 **[Response Body]**
@@ -978,7 +978,7 @@ Scope ID와 관련된 연관 관계를 조회합니다.
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |scopeId|	Scope ID|
 
 **[Response Body]**
@@ -1004,7 +1004,7 @@ Scope ID와 관련된 연관 관계를 조회합니다.
 |Key|	Type|	Description|
 |---|---|---|
 |relations|	List|	User - Role 관계 리스트|
-|relations[0].appKey|	String|	Operation ID|
+|relations[0].appKey|	String|	앱키|
 |relations[0].roleId|	String|	Role ID|
 |relations[0].scopeId|	String|	Scope ID|
 |relations[0].userId|	String|	User ID|
@@ -1032,7 +1032,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 
 **[Query Parameter]**
 
@@ -1090,7 +1090,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 
 **[Request Body]**
 
@@ -1143,7 +1143,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |roleId|	Role ID|
 |roleName| Role 이름|
 |roleGroup| Role Group|
@@ -1173,7 +1173,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 |Key|	Type|	Description|
 |---|---|---|
 |role|	Object|	Role 정보|
-|role.appKey|	String|	AppKey|
+|role.appKey|	String|	앱키|
 |role.roleId|	String|	Role ID|
 |role.description|	String|	Role 설명|
 |role.roleName|	String|	Role 이름|
@@ -1202,7 +1202,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |roleId|	Role ID|
 
 **[Request Body]**
@@ -1254,7 +1254,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |roleId|	Role ID|
 
 
@@ -1289,7 +1289,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |roleId|	Role ID|
 
 **[Request Body]**
@@ -1335,7 +1335,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |roleId|	Role ID|
 |relatedRoleId|	연관 Role ID|
 
@@ -1371,7 +1371,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |roleId|	Role ID|
 
 **[Request Body]**
@@ -1431,7 +1431,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 
 **[Query Parameter]**
 
@@ -1446,8 +1446,8 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 |itemsPerPage|  결과를 원하는 scopes의 레코드 수|	No|
 
 roleTagIds를 통해서 검색 시 Role에 설정 한 Tag를 AND 또는 OR 조건으로 조회할 수 있습니다.
-예를 들어 Role에 A와 B Tag를 가지고 있는 Role을 검색시 에는 A;B로 조건을 만들 수 있고,
-A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 만시들 수 있습니다.
+예를 들어 Role에 A와 B Tag를 가지고 있는 Role을 검색 시에는 A;B로 조건을 만들 수 있고,
+A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 만들 수 있습니다.
 (A;B),C와 같은 조건 생성도 가능합니다.
 
 **[Response Body]**
@@ -1511,7 +1511,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |roleId|	Role ID|
 
 **[Request Body]**
@@ -1558,7 +1558,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |roleId|	Role ID|
 |roleTagId|	Tag ID|
 
@@ -1593,7 +1593,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |roleId|	Role ID|
 
 **[Response Body]**
@@ -1636,7 +1636,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 
 **[Request Body]**
 
@@ -1658,7 +1658,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 |name|	String|	No| 	필요 없음.                                                                                                                            |야
 |path|	String|	Yes| 	Resource 경로 <br/> 최대 1024글자까지 등록 가능합니다. <br/> Resource 경로는 '/'의 조합으로 이루어져야 합니다. <br/> 예외적으로 Path Variable을 표현할 수 있는 {}가 올 수 있습니다. |
 |description|	String|	Yes| 	Resource 설명 <br/> 최대 128글자까지 등록 가능합니다.                                                                                            |
-|priority|	smallint|	Yes| 	같은 경로에서 보여지는 우선순위 <br/> -32768 ~ 32767 값이 올 수 있으며, 낮을수록 앞에 보이게 됩니다.                                                              |
+|priority|	smallint|	Yes| 	같은 경로에서 보여지는 우선순위 <br/> -32768~32767 값이 올 수 있으며, 낮을수록 앞에 보이게 됩니다.                                                              |
 |metadata|	String|	Yes| 	사용자 정의 데이터 <br/> 최대 65536글자까지 등록 가능합니다.                                                                                           |
 |uiPath|	String|	Yes| 	UI Path 경로 <br/> 최대 1024글자까지 등록 가능합니다. <br/> UI Path 경로는 Resource 이름과 '/'의 조합으로 이루어져야 합니다.                                        |
 
@@ -1692,7 +1692,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 
 **[Query Parameter]**
 
@@ -1756,7 +1756,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |resourceId|	Resource ID|
 
 **[Response Body]**
@@ -1783,7 +1783,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 |Key|	Type|	Description|
 |---|---|---|
 |resource|	Object|	Resource 정보|
-|resource.appKey|	String|	AppKey|
+|resource.appKey|	String|	앱키|
 |resource.resourceId|	String|	Resource ID|
 |resource.description|	String|	Resource 설명|
 |resource.name|	String|	Resource 이름|
@@ -1810,7 +1810,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |resourceId|	Resource ID|
 
 **[Request Body]**
@@ -1830,7 +1830,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 |name|	String|	No| 필요 없음.                                                                                                                             |
 |path|	String|	Yes| 	Resource 경로 <br/> 최대 1024글자까지 등록 가능합니다. <br/> Resource 경로는 '/'의 조합으로 이루어져야 합니다. <br/> 예외적으로 Path Variable을 표현할 수 있는 {}가 올 수 있습니다. |
 |description|	String|	Yes| 	Resource 설명 <br/> 최대 128글자까지 등록 가능합니다.                                                                                            |
-|priority|	smallint|	Yes| 	같은 경로에서 보여지는 우선순위 <br/> -32768 ~ 32767 값이 올 수 있으며, 낮을수록 앞에 보이게 됩니다.                                                               |
+|priority|	smallint|	Yes| 	같은 경로에서 보여지는 우선순위 <br/> -32768~32767 값이 올 수 있으며, 낮을수록 앞에 보이게 됩니다.                                                               |
 |metadata|	String|	Yes| 	사용자 정의 데이터 <br/> 최대 65536글자까지 등록 가능합니다.                                                                                           |
 |uiPath|	String|	Yes| 	UI Path 경로 <br/> 최대 1024글자까지 등록 가능합니다. <br/> UI Path 경로는 Resource 이름과 '/'의 조합으로 이루어져야 합니다.                                        |
 
@@ -1865,7 +1865,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |resourceId|	Resource ID|
 
 **[Response Body]**
@@ -1899,7 +1899,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |resourceId|	Resource ID|
 
 **[Response Body]**
@@ -1945,7 +1945,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |resourceId|	Resource ID|
 
 **[Request Body]**
@@ -1993,7 +1993,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 
 **[Query Parameter]**
 
@@ -2058,7 +2058,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 
 **[Request Body]**
 
@@ -2105,7 +2105,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |operationId|	Operation ID|
 
 **[Response Body]**
@@ -2128,7 +2128,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 |Key|	Type|	Description|
 |---|---|---|
 |operation|	Object|	Operation 정보|
-|operation.appKey|	String|	AppKey|
+|operation.appKey|	String|	앱키|
 |operation.operationId|	String|	Operation ID|
 |operation.description|	String|	Operation 설명|
 
@@ -2151,7 +2151,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |operationId|	Operation ID|
 
 **[Request Body]**
@@ -2198,7 +2198,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 |operationId|	Operation ID|
 
 **[Response Body]**
@@ -2233,7 +2233,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 
 |Key|	Value|
 |---|---|
-|appKey|	[CONSOLE] 에서 발급받은 AppKey|
+|appKey|	[CONSOLE] 에서 발급받은 앱키|
 
 **[Response Body]**
 
@@ -2257,6 +2257,6 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 |Key|	Type|	Description|
 |---|---|---|
 |operations|	List|	Operation 정보|
-|operations[0].appKey|	String|	AppKey|
+|operations[0].appKey|	String|	앱키|
 |operations[0].description|	String|	Operation 설명|
 |operations[0].operationId|	String|	Operation ID|
