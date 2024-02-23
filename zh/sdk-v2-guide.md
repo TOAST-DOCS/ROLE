@@ -53,7 +53,7 @@ Maven Central Repository에 저장되어 있어 별도의 설정은 필요 없�
 ### JAVA 클라이언트 SDK 사용법
 
 JAVA 클라이언트 SDK를 사용하기 위해서는 먼저 RoleClientFactory 객체를 이용하여 RoleClient 객체의 인스턴스를 생성해야 합니다.
-RoleClient 객체를 생성하였으면, 해당 객체에서 제공하는 메소드를 호출하여 여러 작업들을 처리하면 됩니다.
+RoleClient 객체를 생성하였으면, 해당 객체에서 제공하는 메서드를 호출하여 여러 작업들을 처리하면 됩니다.
 
 **[RoleConfig]**
 
@@ -1089,7 +1089,7 @@ try {
 }
 ```
 
-RoleSession 객체를 사용 시 commit() 메소드를 호출하기 전까지는 어떠한 추가/수정/변경사항도 서버에 반영되지 않기 때문에, commit() 하기 전 변경한 데이터를 읽지 않도록 주의해야 합니다.
+RoleSession 객체를 사용 시 commit() 메서드를 호출하기 전까지는 어떠한 추가/수정/변경사항도 서버에 반영되지 않기 때문에, commit() 하기 전 변경한 데이터를 읽지 않도록 주의해야 합니다.
 
 RoleSession 객체를 commit() 하거나 rollback() 한 다음 재사용 할 수 있습니다.
 
