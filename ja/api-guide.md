@@ -1481,7 +1481,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 |---|---|---|
 |roles|	List|	Role 정보|
 |roles[0].description|	String|	Role 설명|
-|roles[0].relatedRoleIds|	List|	연관 RoleId 들|
+|roles[0].relatedRoleIds|	List|	연관 Role ID 목록|
 |roles[0].roleId|	String|	Role ID|
 |roles[0].roleName|	String|	Role 이름|
 |roles[0].roleGroup|	String|	Role 그룹 이름|
