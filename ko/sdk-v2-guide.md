@@ -131,6 +131,7 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 |roleId|     String            |**Yes**|     역할 ID                 |
 |roleApplyPolicyCode|    RoleApplyPolicyCode |**No**|   역할 사용 여부: ALLOW, DENY |
 |conditions|     List&lt;Condition>   |**No**|  역할 조건 속성              |
+|regYmdt | Date| **Yes** | 생성일시  |
 
 **[Condition]**
 
@@ -212,7 +213,13 @@ Page<User> user = client.getUsers(request, pageable);
 
 5. User 수정
 
-⚠️ 요청 시 사용되는 모델은 `User` 참고
+**[PutUserRequest]**
+
+| Key                  |     Type | Required |   Description   |
+|--------------|----------------|----|----------|
+| user                 | User      |**Yes**|   ⚠️ 요청 시 사용되는 모델은 `User` 참고 |
+| createUserIfNotExist | Boolean    |**No**|   요청 시 존재하지 않는 사용자 일 경우 생성 여부 |
+
 
 ```java
 User user = User.builder()
@@ -229,7 +236,12 @@ User user = User.builder()
                                                                                      .build()))
                                                         .build();
 
-client.updateUser(user);
+PutUserRequest request = PutUserRequest.builder()
+                                       .user(user)
+                                       .createUserIfNotExist(true)
+                                       .build();
+
+client.updateUser(request);
 ```
 
 6. User 삭제
@@ -240,7 +252,23 @@ String userId = "";
 client.deleteUser(userId);
 ```
 
-7. User 역할 변경 내역 리스트 조회
+7. User 다건 삭제
+
+**[DeleteUsersRequest]**
+
+| Key                  |     Type | Required |   Description   |
+|--------------|----------------|----|----------|
+| userIds             | Set&lt;String>      |**Yes**|   사용자 ID 목록 |
+
+```java
+DeleteUsersRequest request = DeleteUsersRequest.builder()
+                                               .userIds(Set.of(""))
+                                               .build();
+
+client.deleteUsers(request);
+```
+
+8. User 역할 변경 내역 리스트 조회
 
 **[GetUserRoleHistoriesRequest]**
 
@@ -277,6 +305,37 @@ Page<UserRoleHistory> userRoleHistories = client.getUserRoleHistories(request, P
 | command | UserRoleHistoryCommandCode |**Yes**|    명령     |
 | executionTime | OffsetDateTime |**Yes**|  변경 일시     |
 | operatorUuid | String |**Yes**|   작업자 UUID     |
+
+9. Scope 기반 User 수정
+
+**[PutUserScopeRequest]**
+
+| Key                  |    Type | Required |   Description   |
+|--------------|----------------|----|----------|
+| userId               | String         |**Yes**|   사용자 ID      |
+| scopeId             | String          |**Yes**| 적용 대상 ID
+| description|    String  |**No**| 설명|
+| createUserIfNotExist | Boolean    |**No**|   요청 시 존재하지 않는 사용자 일 경우 생성 여부 |
+| roleRelations|  List&lt;UserRoleRelation> |**No**| 연관 역할|
+
+```java
+PutUserRequest request = PutUserScopeRequest.builder()
+                                            .userId("")
+                                            .description("")
+                                            .createUserIfNotExist(true)
+                                            .roleRelations(List.of(UserRoleRelation.builder()
+                                                                                   .roleId("")
+                                                                                   .scopeId("")
+                                                                                   .roleApplyPolicyCode(RoleApplyPolicyCode.ALLOW)
+                                                                                   .conditions(List.of(Condition.builder()
+                                                                                                                .attributeId("")
+                                                                                                                .attributeOperatorTypeCode(AttributeOperatorTypeCode.STRING)
+                                                                                                                .attributeValues(List.of(""))))
+                                                                                                                .build()))
+                                                                                   .build();
+
+client.updateUserInScope(request);
+```
 
 #### 2. Operation
 > Operation 정보 등록, 조회, 수정, 삭제
@@ -353,6 +412,22 @@ client.updateOperation(operation);
 String operationId = "";
 
 client.deleteOperation(userId);
+```
+
+7. Operation 다건 삭제
+
+**[DeleteOperationsRequest]**
+
+| Key                  |     Type | Required |   Description   |
+|--------------|----------------|----|----------|
+| operationIds             | Set&lt;String>      |**Yes**|   오퍼레이션 ID 목록 |
+
+```java
+DeleteOperationsRequest request = DeleteOperationsRequest.builder()
+                                                          .operationIds(Set.of(""))
+                                                          .build();
+
+client.deleteOperations(request);
 ```
 
 #### 3. Attribute
@@ -451,7 +526,7 @@ client.updateAttribute(attribute);
 
 6. Attribute 삭제
 
-**[RemoveAttributeRequest]**
+**[DeleteAttributeRequest]**
 
 |Key|    Type | Required |   Description   |
 |--------------|----------------|----|----------|
@@ -459,15 +534,32 @@ client.updateAttribute(attribute);
 |forceDelete|    boolean        |**No**|     강제 삭제 여부(기본값: false) |
 
 ```java
-RemoveAttributeRequest request = RemoveAttributeRequest.build()
+DeleteAttributeRequest request = DeleteAttributeRequest.build()
                                                       .attributeId("")
                                                       .forceDelete(false)
                                                       .build();
 
-client.deleteAttribute(userId);
+client.deleteAttribute(request);
 ```
 
-#### 3. Scope
+7. Attribute 다건 삭제
+
+**[DeleteAttributesRequest]**
+
+| Key                  |     Type | Required |   Description   |
+|--------------|----------------|----|----------|
+|attributeIds| Set&lt;String>      |**Yes**|   조건 속성 ID 목록 |
+|forceDelete|    boolean        |**No**|     강제 삭제 여부(기본값: false) |
+
+```java
+DeleteAttributesRequest request = DeleteAttributesRequest.builder()
+                                                          .operationIds(Set.of(""))
+                                                          .build();
+
+client.deleteAttributes(request);
+```
+
+#### 4. Scope
 > Scope 정보 등록, 조회, 수정, 삭제
 
 1. Model
@@ -542,7 +634,23 @@ String scopeId = "";
 client.deleteScope(userId);
 ```
 
-#### 4. Role
+7. Scope 다건 삭제
+
+**[DeleteScopesRequest]**
+
+| Key                  |     Type | Required |   Description   |
+|--------------|----------------|----|----------|
+|scopeIds| Set&lt;String>      |**Yes**|   범위 ID 목록 |
+
+```java
+DeleteScopesRequest request = DeleteScopesRequest.builder()
+                                                 .scopeIds(Set.of(""))
+                                                 .build();
+
+client.deleteScopes(request);
+```
+
+#### 5. Role
 > Role 정보 등록, 조회, 수정, 삭제 및 등록된 Role의 설정 가능한 Attribute 목록 조회, DENY(미사용)로 변경 가능 여부
 
 1. Model
@@ -623,19 +731,21 @@ Role role = client.getRole(roleId);
 
 | Key               |    Type | Required |   Description   |
 |--------------|----------------|----|----------|
-| roleIds           |    List&lt;String>  |**No**|  역할 ID 목록(완전 일치)                |
-| roleIdPreLike     |    String           |**No**|  범위 ID(전방 일치)                  |
-| relatedRoleIds    |    List&lt;String>  |**No**|  연관관계 역할 ID 목록(완전 일치)           |
-| descriptionLike   |    String           |**No**|  설명(부분 일치)                        |
-| roleNameLike      |    String           |**No**|  역할 이름(부분 일치)                   |
-| roleGroupLike     |    String           |**No**|  역할 그룹(부분 일치)                   |
-| roleTagIdExpr     |    String           |**No**|  역할 태그 조건(구분자 ';':OR, ',':AND) |
-| roleTagIds        |    List&lt;String>  |**No**|  역할 태그 ID 목록(완전 일치)            |
-| attributeIds      |    List&lt;String>  |**No**|  조건 속성 ID 목록(완전 일치)           |
-| attributeTagIds   |    List&lt;String>  |**No**|  조건 속성 태그 ID 목록(완전 일치)       |
-| needAttributes    |    Boolean          |**No**|  응답 시 조건 속성 정보 포함 여부           |
-| needRoleTags      |    Boolean          |**No**|  응답 시 역할 태그 ID 목록 포함 여부         |
-| needRoleRelations |    Boolean          |**No**|  응답 시 연관관계 역할 ID 목록 포함 여부        |
+| roleIds              |    List&lt;String>               |**No**|  역할 ID 목록(완전 일치)                |
+| roleIdPreLike        |    String                        |**No**|  범위 ID(전방 일치)                  |
+| relatedRoleIds       |    List&lt;String>               |**No**|  연관관계 역할 ID 목록(완전 일치)           |
+| descriptionLike      |    String                        |**No**|  설명(부분 일치)                        |
+| roleNameLike         |    String                        |**No**|  역할 이름(부분 일치)                   |
+| roleGroup            |    String                        |**No**|  역할 그룹(완전 일치)                   |
+| roleGroupLike        |    String                        |**No**|  역할 그룹(부분 일치)                   |
+| roleTagIdExpr        |    String                        |**No**|  역할 태그 조건(구분자 ';':OR, ',':AND) |
+| roleTagIds           |    List&lt;String>               |**No**|  역할 태그 ID 목록(완전 일치)            |
+| attributeIds         |    List&lt;String>               |**No**|  조건 속성 ID 목록(완전 일치)           |
+| attributeTagIds      |    List&lt;String>               |**No**|  조건 속성 태그 ID 목록(완전 일치)       |
+| needAttributes       |    Boolean                       |**No**|  응답 시 조건 속성 정보 포함 여부           |
+| needRoleTags         |    Boolean                       |**No**|  응답 시 역할 태그 ID 목록 포함 여부         |
+| needRoleRelations    |    Boolean                       |**No**|  응답 시 연관관계 역할 ID 목록 포함 여부        |
+| searchRoleOptionCode |    SearchRoleOptionCode          |**No**|  역할 검색 시 하위 역할 포함 여부       |
 
 ```java
 GetRoleRequest request = GetRoleRequest.builder()
@@ -685,7 +795,23 @@ String roleId = "";
 client.deleteRole(roleId);
 ```
 
-7. Role에서 설정 가능한 모든 Attribute 목록 조회
+7. Role 다건 삭제
+
+**[DeleteRolesRequest]**
+
+| Key                  |     Type | Required |   Description   |
+|--------------|----------------|----|----------|
+|roleIds| Set&lt;String>      |**Yes**|   역할 ID 목록 |
+
+```java
+DeleteRolesRequest request = DeleteRolesRequest.builder()
+                                               .roleIds(Set.of(""))
+                                               .build();
+
+client.deleteRoles(request);
+```
+
+8. Role에서 설정 가능한 모든 Attribute 목록 조회
 
 **[GetRoleAttributesRequest]**
 
@@ -720,7 +846,80 @@ String roleId = "";
 boolean result = client.isDeniable(roleId);
 ```
 
-#### 5. Resource
+#### 6. Role Relation
+> Role Relation 등록, 수정, 삭제
+
+1. Role Relation 등록
+
+**[CreateRoleRelationRequest]**
+
+| Key           |    Type | Required |   Description   |
+|--------------|----------------|----|----------|
+| roleId    |    String  |**Yes**|   역할 ID                       |
+| roleRelations   |    List&lt;RoleRelation>  |**No**|   ⚠️ `5. Role`의 RoleRelation Model 참고   |
+
+```java
+CreateRoleRelationRequest role = CreateRoleRelationRequest.builder()
+                                                          .roleId("")
+                                                          .roleRelations(RoleRelation.build()
+                                                                                     .relatedRoleId("")
+                                                                                     .roleApplyPolicyCode(RoleApplyPolicyCode.ALLOW)
+                                                                                     .conditions(Condition.build()
+                                                                                                          .attributeId("")
+                                                                                                          .attributeOperatorTypeCode(AttributeOperatorTypeCode.STRING)
+                                                                                                          .attributeValues(List.of())
+                                                                                                          .build())
+                                                                                     .build())
+                                                          .build();
+
+client.createRoleRelations(role);
+```
+
+2. Role Relation 수정
+
+**[UpdateRoleRelationRequest]**
+
+| Key           |    Type | Required |   Description   |
+|--------------|----------------|----|----------|
+| roleId    |    String  |**Yes**|   역할 ID                       |
+| roleRelations   |    List&lt;RoleRelation>  |**No**|   ⚠️ `5. Role`의 RoleRelation Model 참고   |
+
+```java
+UpdateRoleRelationRequest role = UpdateRoleRelationRequest.builder()
+                                                          .roleId("")
+                                                          .roleRelations(RoleRelation.build()
+                                                                                     .relatedRoleId("")
+                                                                                     .roleApplyPolicyCode(RoleApplyPolicyCode.ALLOW)
+                                                                                     .conditions(Condition.build()
+                                                                                                          .attributeId("")
+                                                                                                          .attributeOperatorTypeCode(AttributeOperatorTypeCode.STRING)
+                                                                                                          .attributeValues(List.of())
+                                                                                                          .build())
+                                                                                     .build())
+                                                          .build();
+
+client.updateRoleRelation(role);
+```
+
+3. Role Relation 삭제
+
+**[DeleteRoleRelationRequest]**
+
+| Key           |    Type | Required |   Description   |
+|--------------|----------------|----|----------|
+| roleId    |    String  |**Yes**|   역할 ID                       |
+| relatedRoleIds   |    List&lt;String>  |**No**|   연관 역할 ID 목록   |
+
+```java
+DeleteRoleRelationRequest role = DeleteRoleRelationRequest.builder()
+                                                          .roleId("")
+                                                          .relatedRoleIds(List.Of(""))
+                                                          .build();
+
+client.deleteRoleRelations(role);
+```
+
+#### 7. Resource
 > Resource 정보 등록, 조회, 수정, 삭제
 
 1. Model
@@ -825,8 +1024,23 @@ String resourceId = "";
 client.deleteResource(resourceId);
 ```
 
+7. Resource 다건 삭제
 
-#### 7. 리소스 계층구조
+**[DeleteResourcesRequest]**
+
+| Key                  |     Type | Required |   Description   |
+|--------------|----------------|----|----------|
+|resourceIds| Set&lt;String>      |**Yes**|   리소스 ID 목록 |
+
+```java
+DeleteResourcesRequest request = DeleteResourcesRequest.builder()
+                                                       .roleIds(Set.of(""))
+                                                       .build();
+
+client.deleteResources(request);
+```
+
+#### 8. 리소스 계층구조
 > 리소스의 계층구조를 조회합니다.
 > uiPath(resourceUiPath)를 기준으로 계층구조가 형성되며, 사용자가 정의한 캐시 시간만큼 캐싱됩니다.
 
@@ -864,7 +1078,7 @@ List<ResourceHierarchy> responses = client.getResourceHierarchy(request);
 | priority    | Integer                    |**Yes**| 우선 순위                                   |
 | resources   | List&lt;ResourceHierarchy> |**No**| 하위 리소스들                                 |
 
-#### 8. 사용자 인가(user authorization)
+#### 9. 사용자 인가(user authorization)
 > 사용자가 특정한 역할을 가지고 있거나, 리소스에 대한 접근 권한을 가지고 있는지를 확인합니다.
 > 리소스의 경우 사용자가 정의한 캐시 시간만큼 캐싱됩니다.
 

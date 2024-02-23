@@ -55,11 +55,13 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/users**](#createUsers) | 사용자 생성 |
 | **DELETE** |[**/role/v3.0/appkeys/{appKey}/users/{userId}**](#deleteUser) | 사용자 삭제 |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/users**](#deleteUsers) | 사용자 다건 삭제 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/users/id**](#getAllUsers) | 모든 사용자 ID 목록 조회 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/users/{userId}**](#getUser) | 사용자 정보 조회 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/histories**](#getUserRoleHistories) | 사용자에게 할당된 역할의 변경 내역 목록 조회 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/users/search**](#getUsers) | 사용자 목록 조회 |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/users/{userId}**](#updateUser) | 사용자 수정 |
+| **PUT** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/scopes/{scopeId}**](#updateUserScope) | 사용자 범위 한정 수정 |
 
 
 <a name="createUsers"></a>
@@ -195,7 +197,30 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 ```
 
 
+<a name="deleteUsers"></a>
+### **사용자 다건 삭제**
+> DELETE "/role/v3.0/appkeys/{appKey}/users"
 
+#### Parameters
+
+| ParameterType | Name | Type | Required | Description  |
+|------------- |------------- | ------------- | ------------- | ------------- |
+|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey |
+|  Path |**appKey** | **String**| **Yes** | 앱키 |
+| Request Body |**userIds** |  **List&lt;String>**| **Yes** | 사용자 ID 목록 |
+
+
+#### Response Body
+
+```json
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "resultMessage"
+  }
+}
+```
 
 
 
@@ -238,7 +263,6 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 |   **userIds** | **List&lt;String>**| **No** | 사용자 ID 목록(완전 일치)  |
 
 
-계
 
 
 
@@ -981,7 +1005,7 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키   | 
 |  Path |**appKey** | **String**| **Yes** | 앱키          | 
 |  Path |**userId** | **String**| **Yes** | 사용자 ID      | 
-| Request Body | **PutUserRequest** | **PutUserRequest**| **Yes** | 사용자         | |
+| Request Body | **PutUserRequest** | **PutUserRequest**| **Yes** | 사용자         |
 
 
 
@@ -991,9 +1015,10 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 ##### PutUserRequest
 
 
-| Name | Type | Required | Description | 
+| Name | Type | Required | Description |
 |------------ | ------------- | ------------- |-------------|
 |   **user** | **PutUserRequest.UserProtocol**| **Yes** | 사용자         |
+| **createUserIfNotExist** | **Boolean** | **No** | 요청 시 존재하지 않는 사용자 일 경우 생성 여부 |
 
 ##### PutUserRequest.UserProtocol
 
@@ -1047,6 +1072,67 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 
 
 
+
+#### Response Body
+
+```json
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "resultMessage"
+  }
+}
+```
+
+
+
+<a name="updateUserScope"></a>
+### **사용자 범위 한정 수정**
+> PUT "/role/v3.0/appkeys/{appKey}/users/{userId}/scopes/{scopeId}"
+
+#### Parameters
+
+| ParameterType | Name | Type | Required | Description |
+|------------- |------------- | ------------- | ------------- |-------------|
+|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey   |
+|  Path |**appKey** | **String**| **Yes** | 앱키 |
+|  Path |**userId** | **String**| **Yes** | 사용자 ID |
+|  Path |**scopeId** | **String**| **Yes** | 범위 ID |
+| Request Body | **putUserScopeRequest** | **PutUserScopeRequest**| **Yes** | 사용자 |
+
+##### PutUserScopeRequest
+
+| Name | Type | Required | Description |
+|------------ | ------------- | ------------- |-------------|
+|   **user** | **PutUserScopeRequest.UserProtocol**| **Yes** | 사용자 |
+| **createUserIfNotExist** | **Boolean** | **No** | 요청 시 존재하지 않는 사용자 일 경우 생성 여부 |
+
+##### PutUserScopeRequest.UserProtocol
+
+| Name | Type | Required | Description |
+|------------ | ------------- | ------------- | ------------ |
+|   **description** | **String**| **No** | 사용자 설명  |
+|   **roleRelations** | **List&lt;UserScopeRoleRelationProtocol>**| **No** | 사용자 연관 역할  |
+
+
+##### UserScopeRoleRelationProtocol
+
+
+| Name | Type | Required | Description |
+|------------ | ------------- | ------------- |-------------|
+|   **conditions** | **List&lt;ConditionProtocol>**| **No** | 역할 조건 속성 |
+|   **roleApplyPolicyCode** | **String**| **No** | ALLOW, DENY |
+|   **roleId** | **String**| **Yes** | 역할 ID |
+
+##### ConditionProtocol
+
+
+| Name | Type | Required | Description |
+|------------ | ------------- | ------------- | ------------ |
+|   **attributeId** | **String**| **Yes** | 조건 속성 ID  |
+|   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
+|   **attributeValues** | **List&lt;String>**| **No** | 조건 속성 값  |
 
 #### Response Body
 
@@ -1391,6 +1477,7 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/roles**](#createRole) | 역할 생성 |
 | **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#deleteRole) | 역할 삭제 |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles**](#deleteRoles) | 역할 다건 삭제 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/deniable**](#getDeniable) | 역할 사용여부 DENY(미사용)로 변경가능 여부 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#getRole) | 역할 단건 조회 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/id**](#searchAllRoleIds) | 모든 역할 ID 목록 조회 |
@@ -1549,7 +1636,30 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 ```
 
 
+<a name="deleteRoles"></a>
+### **역할 다건 삭제**
+> DELETE "/role/v3.0/appkeys/{appKey}/roles/{roleId}"
 
+#### Parameters
+
+| ParameterType | Name | Type | Required | Description  |
+|------------- |------------- | ------------- | ------------- | ------------- |
+|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey |
+|  Path |**appKey** | **String**| **Yes** | 앱키 |
+| Request Body |**roleIds** |  **List&lt;String>**| **Yes** | 역할 ID 목록 |
+
+
+#### Response Body
+
+```json
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "resultMessage"
+  }
+}
+```
 
 
 
@@ -2046,6 +2156,7 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 |   **needRoleRelations** | **Boolean**| **No** | 응답 시 역할 연관 관계 ID 목록 포함 여부  |
 |   **needRoleTags** | **Boolean**| **No** | 응답 시 역할 태그 ID 목록 포함 여부  |
 |   **relatedRoleIds** | **List&lt;String>**| **No** | 연관 관계 역할 ID 목록(완전 일치)  |
+|   **roleGroup** | **String**| **No** | 역할 그룹(완전 일치)  |
 |   **roleGroupLike** | **String**| **No** | 역할 그룹(부분 일치)  |
 |   **roleIdPreLike** | **String**| **No** | 역할 ID(전방 일치)  |
 |   **roleIds** | **List&lt;String>**| **No** | 역할 ID 목록(완전 일치)  |
@@ -2537,9 +2648,145 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 
 
 
+## 역할 연관 관계
 
 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#createRoleRelations) | 역할 연관 관계 다건 생성 |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations}**](#deleteRoleRelations) | 역할 연관 관계 다건 삭제 |
+| **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#updateRoleRelations) | 역할 연관 관계 다건 수정 |
 
+<a name="createRoleRelations"></a>
+### **역할 연관 관계 다건 생성**
+> POST "/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations"
+
+#### Parameters
+
+| ParameterType | Name | Type | Required | Description  |
+|------------- |------------- | ------------- | ------------- | ------------- |
+|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey |
+|  Path |**appKey** | **String**| **Yes** | 앱키 |
+|  Path |**roleId** | **String**| **Yes** | 역할 ID |
+| Request Body | **CreateRoleRelationRequest** | **CreateRoleRelationRequest**| **Yes** |  | |
+
+##### CreateRoleRelationRequest
+
+| Name | Type | Required | Description      |
+|------------ | ------------- | ------------- |------------------|
+|   **roleRelations** | **List&lt;RoleRelationProtocol>**| **Yes** | 역할 연관 관계 목록 |
+
+
+##### RoleRelationProtocol
+
+| Name | Type | Required | Description |
+|------------ | ------------- | ------------- | ------------ |
+|   **conditions** | **List&lt;ConditionProtocol>**| **No** | 역할 조건 속성  |
+|   **relatedRoleId** | **String**| **Yes** | 조건 속성과 연관된 역할 ID  |
+|   **roleApplyPolicyCode** | **String**| **No** |   ALLOW, DENY |
+
+##### ConditionProtocol
+
+| Name | Type | Required | Description |
+|------------ | ------------- | ------------- | ------------ |
+|   **attributeId** | **String**| **Yes** | 조건 속성 ID  |
+|   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
+|   **attributeValues** | **List&lt;String>**| **No** | 조건 속성 값  |
+
+
+#### Response Body
+
+```json
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "resultMessage"
+  }
+}
+```
+
+<a name="deleteRoleRelations"></a>
+### **역할 연관 관계 다건 삭제**
+> DELETE "/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations"
+
+#### Parameters
+
+| ParameterType | Name | Type | Required | Description  |
+|------------- |------------- | ------------- | ------------- | ------------- |
+|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey |
+|  Path |**appKey** | **String**| **Yes** | 앱키 |
+|  Path |**roleId** | **String**| **Yes** | 역할 ID |
+| Request Body | **DeleteRoleRelationRequest** | **DeleteRoleRelationRequest**| **Yes** |  | |
+
+##### DeleteRoleRelationRequest
+
+| Name | Type | Required | Description      |
+|------------ | ------------- | ------------- |------------------|
+|   **relatedRoleIds** | **List&lt;String>**| **Yes** | 연관 관계 역할 ID 목록 |
+
+
+#### Response Body
+
+```json
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "resultMessage"
+  }
+}
+```
+
+
+<a name="updateRoleRelations"></a>
+### **역할 연관 관계 다건 수정**
+> PUT "/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations"
+
+#### Parameters
+
+| ParameterType | Name | Type | Required | Description  |
+|------------- |------------- | ------------- | ------------- | ------------- |
+|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey |
+|  Path |**appKey** | **String**| **Yes** | 앱키 |
+|  Path |**roleId** | **String**| **Yes** | 역할 ID |
+| Request Body | **UpdateRoleRelationRequest** | **UpdateRoleRelationRequest**| **Yes** |  | |
+
+##### UpdateRoleRelationRequest
+
+| Name | Type | Required | Description      |
+|------------ | ------------- | ------------- |------------------|
+|   **roleRelations** | **List&lt;RoleRelationProtocol>**| **Yes** | 역할 연관 관계 목록 |
+
+
+##### RoleRelationProtocol
+
+| Name | Type | Required | Description |
+|------------ | ------------- | ------------- | ------------ |
+|   **conditions** | **List&lt;ConditionProtocol>**| **No** | 역할 조건 속성  |
+|   **relatedRoleId** | **String**| **Yes** | 조건 속성과 연관된 역할 ID  |
+|   **roleApplyPolicyCode** | **String**| **No** |   ALLOW, DENY |
+
+##### ConditionProtocol
+
+| Name | Type | Required | Description |
+|------------ | ------------- | ------------- | ------------ |
+|   **attributeId** | **String**| **Yes** | 조건 속성 ID  |
+|   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
+|   **attributeValues** | **List&lt;String>**| **No** | 조건 속성 값  |
+
+
+#### Response Body
+
+```json
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "resultMessage"
+  }
+}
+```
 
 
 
@@ -2550,6 +2797,7 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/scopes**](#createScope) | 범위 생성 |
 | **DELETE** |[**/role/v3.0/appkeys/{appKey}/scopes/{scopeId}**](#deleteScope) | 범위 삭제 |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/scopes**](#deleteScopes) | 범위 다건 삭제 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/scopes/id**](#getAllScopeIds) | 모든 범위 ID 목록 조회 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/scopes/{scopeId}**](#getScope) | 범위 단건 조회 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/scopes/search**](#postSearchScopes) | 범위 목록 조회 |
@@ -2644,7 +2892,30 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 ```
 
 
+<a name="deleteScopes"></a>
+### **범위 다건 삭제**
+> DELETE "/role/v3.0/appkeys/{appKey}/scopes"
 
+#### Parameters
+
+| ParameterType | Name | Type | Required | Description  |
+|------------- |------------- | ------------- | ------------- | ------------- |
+|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey |
+|  Path |**appKey** | **String**| **Yes** | 앱키 |
+| Request Body |**scopeIds** |  **List&lt;String>**| **Yes** | 범위 ID 목록 |
+
+
+#### Response Body
+
+```json
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "resultMessage"
+  }
+}
+```
 
 
 
@@ -2928,6 +3199,7 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources**](#createResource) | 리소스 생성 |
 | **DELETE** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#deleteResource) | 리소스 삭제 |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/resources**](#deleteResources) | 리소스 다건 삭제 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#getResource) | 리소스 단건 조회 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources/id**](#getResourceIds) | 리소스 ID 목록 조회 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/resources**](#getResources) | 리소스 목록 조회 |
@@ -3034,7 +3306,30 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 ```
 
 
+<a name="deleteResources"></a>
+### **리소스 다건 삭제**
+> DELETE "/role/v3.0/appkeys/{appKey}/resources"
 
+#### Parameters
+
+| ParameterType | Name | Type | Required | Description  |
+|------------- |------------- | ------------- | ------------- | ------------- |
+|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey |
+|  Path |**appKey** | **String**| **Yes** | 앱키 |
+| Request Body |**resourceIds** |  **List&lt;String>**| **Yes** | 리소스 ID 목록 |
+
+
+#### Response Body
+
+```json
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "resultMessage"
+  }
+}
+```
 
 
 
@@ -4091,6 +4386,7 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/operations**](#createOperation) | 오퍼레이션 생성 |
 | **DELETE** |[**/role/v3.0/appkeys/{appKey}/operations/{operationId}**](#deleteOperation) | 오퍼레이션 삭제 |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/operations**](#deleteOperations) | 오퍼레이션 다건 삭제 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/operations/{operationId}**](#getOperation) | 오퍼레이션 단건 조회 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/operations/id**](#getOperationIdByPageable) | 모든 오퍼레이션 ID 조회 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/operations/search**](#postSearchOperation) | 오퍼레이션 목록 조회(조건/페이징) |
@@ -4185,7 +4481,30 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 ```
 
 
+<a name="deleteOperations"></a>
+### **오퍼레이션 다건 삭제**
+> DELETE "/role/v3.0/appkeys/{appKey}/operations"
 
+#### Parameters
+
+| ParameterType | Name | Type | Required | Description  |
+|------------- |------------- | ------------- | ------------- | ------------- |
+|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey |
+|  Path |**appKey** | **String**| **Yes** | 앱키 |
+| Request Body |**operationIds** |  **List&lt;String>**| **Yes** | 오퍼레이션 ID 목록 |
+
+
+#### Response Body
+
+```json
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "resultMessage"
+  }
+}
+```
 
 
 
@@ -4476,6 +4795,7 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/attributes**](#createAttribute) | 조건 속성 생성 |
 | **DELETE** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}**](#deleteAttribute) | 조건 속성 삭제 |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/attributes**](#deleteAttributes) | 조건 속성 다건 삭제 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}**](#getAttribute) | 조건 속성 단건 조회 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/id**](#searchAttributeIds) | 조건 속성 ID 목록 조회 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/search**](#searchAttributes) | 조건 속성 목록 조회 |
@@ -4580,7 +4900,30 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 ```
 
 
+<a name="deleteAttributes"></a>
+### **조건 속성 다건 삭제**
+> DELETE "/role/v3.0/appkeys/{appKey}/attributes"
 
+#### Parameters
+
+| ParameterType | Name | Type | Required | Description  |
+|------------- |------------- | ------------- | ------------- | ------------- |
+|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey |
+|  Path |**appKey** | **String**| **Yes** | 앱키 |
+| Request Body |**attributeIds** |  **List&lt;String>**| **Yes** | 조건 속성 ID 목록 |
+| Request Body |**forceDelete** | **Boolean**| **No** | 강제 삭제, 기본값(false) |
+
+#### Response Body
+
+```json
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "resultMessage"
+  }
+}
+```
 
 
 
