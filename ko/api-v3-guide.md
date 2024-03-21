@@ -252,8 +252,9 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **descriptionLike** | **String**| **No** | 사용자 설명(부분 일치)  |
-|   **needRoleRelations** | **Boolean**| **No** | 응답 시 역할 연관 관계 포함 여부  |
-|   **needRoleTags** | **Boolean**| **No** | 응답 시 역할 연관 관계 포함 시 역할 태그 포함 여부  |
+|   **needRoleRelations** | **Boolean**| **No** | 응답 시 역할 연관 관계 포함 여부(기본값: true)  |
+|   **needRoleTags** | **Boolean**| **No** | 응답 시 역할 연관 관계 포함 시 역할 태그 포함 여부(기본값: false)  |
+|   **needRoleCount** | **Boolean**| **No** | 응답 시 사용자가 가진 역할 개수 포함 여부(기본값: false)        |
 |   **roleIdPreLike** | **String**| **No** | 역할 ID(전방 일치)  |
 |   **roleIds** | **List&lt;String>**| **No** | 역할 ID 목록(완전 일치)  |
 |   **scopeIdPreLike** | **String**| **No** | 범위 ID(전방 일치)  |
@@ -706,9 +707,9 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 | Name | Type | Required | Description                                  | 
 |------------ | ------------- | ------------- |----------------------------------------------|
 |   **descriptionLike** | **String**| **No** | 사용자 설명(부분 일치)                                |
-|   **needRoleRelations** | **Boolean**| **No** | 응답 시 역할 연관 관계 포함 여부 (기본값 : true)             |
-|   **needRoleTags** | **Boolean**| **No** | 응답 시 역할 연관 관계 포함 시 역할 태그 포함 여부 (기본값 : false) |
-|   **needRoleCount** | **Boolean**| **No** | 응답 시 사용자가 가진 역할 개수 포함 여부 (기본값 : false)        |
+|   **needRoleRelations** | **Boolean**| **No** | 응답 시 역할 연관 관계 포함 여부(기본값: true)            |
+|   **needRoleTags** | **Boolean**| **No** | 응답 시 역할 연관 관계 포함 시 역할 태그 포함 여부(기본값: false) |
+|   **needRoleCount** | **Boolean**| **No** | 응답 시 사용자가 가진 역할 개수 포함 여부(기본값: false)        |
 |   **roleIdPreLike** | **String**| **No** | 역할 ID(전방 일치)                                 |
 |   **roleIds** | **List&lt;String>**| **No** | 역할 ID 목록(완전 일치)                              |
 |   **scopeIdPreLike** | **String**| **No** | 범위 ID(전방 일치)                                 |
@@ -938,7 +939,7 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 | Name | Type | Required | Description | 
 |------------ | ------------ | ------------- | ------------ |
 |   **scopeId** | **String**| **Yes** | 범위 ID  |
-|   **roleCount** | **Long**| **Yes** | 범위 ID 별 역할 개수  |
+|   **roleCount** | **Long**| **Yes** | 범위 ID별 역할 개수  |
 
 ##### ConditionBundleProtocol
 
