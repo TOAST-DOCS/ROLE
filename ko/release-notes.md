@@ -1,5 +1,11 @@
 ## Application Service > ROLE > 릴리스 노트
 
+### 2024. 03. 26.
+#### 기능 추가
+* [RESTful API] 사용자 목록 조회 API 가 변경되었습니다.
+    * POST /role/v3.0/appkeys/{appKey}/users/search : 사용자 목록 조회
+        * 자세한 사항은 매뉴얼 참고: [링크](https://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-v3-guide/#_8)
+
 ### 2024. 02. 27.
 #### 기능 추가
 * ABAC(속성 기반 접근 제어) 기능이 추가되었습니다.
