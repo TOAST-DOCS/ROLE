@@ -914,7 +914,7 @@ For detailed response results, see Headers in the Response Body.
 |   **regYmdt** | **Date**| **No** | User Creation Date  |
 |   **roleRelations** | **List<UserBundleProtocol.UserRoleRelationBundleProtocol>**| **No** | List of roles assigned to the user  |
 |   **userId** | **String**| **Yes** | User ID  |
-|   **roleCounts** | **List&lt;UserRoleCountProtocol>**| **No**   | The numver of roles assigned to users  |
+|   **roleCounts** | **List&lt;UserRoleCountProtocol>**| **No**   | The number of roles assigned to users  |
 
 
 
