@@ -267,19 +267,6 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### Response Body
 
 ```json
@@ -724,17 +711,6 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 #### Response Body
 
 ```json
@@ -809,7 +785,13 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
     } ],
     "description" : "description",
     "regYmdt" : "2000-01-23T04:56:07.000+00:00",
-    "userId" : "userId"
+    "userId" : "userId",
+    "roleCounts": [
+      {
+        "roleCount": 2,
+        "scopeId": "scopeId"
+      }
+    ]
   }, {
     "roleRelations" : [ {
       "scopeId" : "scopeId",
@@ -874,7 +856,13 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
     } ],
     "description" : "description",
     "regYmdt" : "2000-01-23T04:56:07.000+00:00",
-    "userId" : "userId"
+    "userId" : "userId",
+    "roleCounts": [
+      {
+        "roleCount": 2,
+        "scopeId": "scopeId"
+      }
+    ]
   } ]
 }
 ```
@@ -918,6 +906,13 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 |   **roleName** | **String**| **No** | ロール名 |
 |   **roleTags** | **List&lt;UserBundleProtocol.RoleTagProtocol>**| **No** | ロールタグリスト |
 |   **scopeId** | **String**| **Yes** | スコープID  |
+
+##### UserBundleProtocol.UserRoleCountProtocol
+
+| Name | Type | Required | Description | 
+|------------ | ------------ | ------------- | ------------ |
+|   **scopeId** | **String**| **Yes** | 범위 ID  |
+|   **roleCount** | **Long**| **Yes** | 범위 ID별 역할 개수  |
 
 ##### ConditionBundleProtocol
 
