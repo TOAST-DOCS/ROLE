@@ -1,5 +1,18 @@
 ## Application Service > ROLE > Release note
 
+### April 23, 2024
+#### Added Features
+* [RESTful API] Extended The APIs to retrieve role lists and a single role.
+  * Added role tag lists to the list of related roles.
+    * POST /role/v3.0/appkeys/{appKey}/roles/search: Retrieve roles
+        * For more details, see: [link](https://docs.nhncloud.com/en/Application%20Service/ROLE/en/api-v3-guide/#searchRoles)
+    * GET /role/v3.0/appkeys/{appKey}/roles/{roleId}: Retrieve a role
+        * For more details, see: [link](https://docs.nhncloud.com/en/Application%20Service/ROLE/en/api-v3-guide/#getRole)
+
+#### Bug Fixes
+* [RESTful API] Fixed an error where the roleApplyPolicyCode (role enabled or disabled) entry would not be reflected when requesting the Create role and Modify role API.
+* [RESTful API] Fixed an error where validations of some conditions (role condition attributes) failed when requesting the Create role and Modify role API.
+
 ### March 26, 2024
 #### Added Features
 * [RESTful API] Changed the Get a list of users API.
