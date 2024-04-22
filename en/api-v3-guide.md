@@ -1772,6 +1772,11 @@ For detailed response results, see Headers in the Response Body.
       "roleId" : "roleId",
       "roleName" : "roleName",
       "description" : "description",
+      "roleTags" : [ {
+        "roleTagId" : "roleTagId"
+      }, {
+        "roleTagId" : "roleTagId"
+      } ],
       "conditions" : [ {
         "attributeId" : "instance.name",
         "attributeValues" : [ "attributeValues", "attributeValues" ],
@@ -1795,6 +1800,11 @@ For detailed response results, see Headers in the Response Body.
       "roleId" : "roleId",
       "roleName" : "roleName",
       "description" : "description",
+      "roleTags" : [ {
+        "roleTagId" : "roleTagId"
+      }, {
+        "roleTagId" : "roleTagId"
+      } ],
       "conditions" : [ {
         "attributeId" : "instance.name",
         "attributeValues" : [ "attributeValues", "attributeValues" ],
@@ -1908,6 +1918,7 @@ For detailed response results, see Headers in the Response Body.
 |   **roleGroup** | **String**| **No** | Role group  |
 |   **roleId** | **String**| **Yes** | Role ID  |
 |   **roleName** | **String**| **No** | Role name  |
+|   **roleTags** | **List&lt;RoleBundleProtocol.RoleTagProtocol>**| **No** | Role tag list  |
 
 ##### ConditionBundleProtocol
 
@@ -2220,6 +2231,11 @@ For detailed response results, see Headers in the Response Body.
       "roleId" : "roleId",
       "roleName" : "roleName",
       "description" : "description",
+      "roleTags" : [ {
+        "roleTagId" : "roleTagId"
+      }, {
+        "roleTagId" : "roleTagId"
+      } ],
       "conditions" : [ {
         "attributeId" : "instance.name",
         "attributeValues" : [ "attributeValues", "attributeValues" ],
@@ -2243,6 +2259,11 @@ For detailed response results, see Headers in the Response Body.
       "roleId" : "roleId",
       "roleName" : "roleName",
       "description" : "description",
+      "roleTags" : [ {
+        "roleTagId" : "roleTagId"
+      }, {
+        "roleTagId" : "roleTagId"
+      } ],
       "conditions" : [ {
         "attributeId" : "instance.name",
         "attributeValues" : [ "attributeValues", "attributeValues" ],
@@ -2289,6 +2310,11 @@ For detailed response results, see Headers in the Response Body.
       "roleId" : "roleId",
       "roleName" : "roleName",
       "description" : "description",
+      "roleTags" : [ {
+        "roleTagId" : "roleTagId"
+      }, {
+        "roleTagId" : "roleTagId"
+      } ],
       "conditions" : [ {
         "attributeId" : "instance.name",
         "attributeValues" : [ "attributeValues", "attributeValues" ],
@@ -2426,6 +2452,7 @@ For detailed response results, see Headers in the Response Body.
 |   **roleGroup** | **String**| **No** | Role group  |
 |   **roleId** | **String**| **Yes** | Role ID  |
 |   **roleName** | **String**| **No** | Role name  |
+|   **roleTags** | **List&lt;RoleBundleProtocol.RoleTagProtocol>**| **No** | Role tag list  |
 
 ##### ConditionBundleProtocol
 

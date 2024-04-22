@@ -1746,6 +1746,11 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
       "roleId" : "roleId",
       "roleName" : "roleName",
       "description" : "description",
+      "roleTags" : [ {
+        "roleTagId" : "roleTagId"
+      }, {
+        "roleTagId" : "roleTagId"
+      } ],
       "conditions" : [ {
         "attributeId" : "instance.name",
         "attributeValues" : [ "attributeValues", "attributeValues" ],
@@ -1769,6 +1774,11 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
       "roleId" : "roleId",
       "roleName" : "roleName",
       "description" : "description",
+      "roleTags" : [ {
+        "roleTagId" : "roleTagId"
+      }, {
+        "roleTagId" : "roleTagId"
+      } ],
       "conditions" : [ {
         "attributeId" : "instance.name",
         "attributeValues" : [ "attributeValues", "attributeValues" ],
@@ -1882,6 +1892,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 |   **roleGroup** | **String**| **No** | ロールグループ |
 |   **roleId** | **String**| **Yes** | ロールID  |
 |   **roleName** | **String**| **No** | ロール名 |
+|   **roleTags** | **List&lt;RoleBundleProtocol.RoleTagProtocol>**| **No** | 役割タグリスト |
 
 ##### ConditionBundleProtocol
 
@@ -2194,6 +2205,11 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
       "roleId" : "roleId",
       "roleName" : "roleName",
       "description" : "description",
+      "roleTags" : [ {
+        "roleTagId" : "roleTagId"
+      }, {
+        "roleTagId" : "roleTagId"
+      } ],
       "conditions" : [ {
         "attributeId" : "instance.name",
         "attributeValues" : [ "attributeValues", "attributeValues" ],
@@ -2217,6 +2233,11 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
       "roleId" : "roleId",
       "roleName" : "roleName",
       "description" : "description",
+      "roleTags" : [ {
+        "roleTagId" : "roleTagId"
+      }, {
+        "roleTagId" : "roleTagId"
+      } ],
       "conditions" : [ {
         "attributeId" : "instance.name",
         "attributeValues" : [ "attributeValues", "attributeValues" ],
@@ -2263,6 +2284,11 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
       "roleId" : "roleId",
       "roleName" : "roleName",
       "description" : "description",
+      "roleTags" : [ {
+        "roleTagId" : "roleTagId"
+      }, {
+        "roleTagId" : "roleTagId"
+      } ],
       "conditions" : [ {
         "attributeId" : "instance.name",
         "attributeValues" : [ "attributeValues", "attributeValues" ],
@@ -2400,6 +2426,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 |   **roleGroup** | **String**| **No** | ロールグループ |
 |   **roleId** | **String**| **Yes** | ロールID  |
 |   **roleName** | **String**| **No** | ロール名 |
+|   **roleTags** | **List&lt;RoleBundleProtocol.RoleTagProtocol>**| **No** | 役割タグリスト |
 
 ##### ConditionBundleProtocol
 
