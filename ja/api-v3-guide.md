@@ -3225,7 +3225,6 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | **DELETE** |[**/role/v3.0/appkeys/{appKey}/resources**](#deleteResources) | リソースの一括削除 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#getResource) | リソース単件照会 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources/id**](#getResourceIds) | リソースIDリストの照会 |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/resources**](#getResources) | リソースリストの照会 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources/attributes/search**](#searchAttributesByResource) | リソースで設定可能なすべての条件属性リストの照会 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources/search**](#searchResources) | リソースリストの照会 |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#updateResource) | リソースの修正 |
@@ -3508,102 +3507,6 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 |------------ | ------------- | ------------- | ------------ |
 |   **resourceIds** | **List&lt;String>**| **Yes** | リソースIDリスト |
 |   **totalItems** | **Long**| **Yes** | 全体数 |
-
-
-
-
-
-
-
-
-
-
-
-<a name="getResources"></a>
-### **リソースリストの照会**
-> GET "/role/v3.0/appkeys/{appKey}/resources"
-
-#### Parameters
-
-
-
-| ParameterType | Name | Type | Required | Description  | 
-|------------- |------------- | ------------- | ------------- | ------------- | 
-|  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
-|  Query |**userId** | **String**| **No** | リソースにアクセス可能なユーザーID |
-|  Query |**roleId** | **String**| **No** | リソースに付与されたロールID |
-|  Query |**operationId** | **String**| **No** | リソースに付与されたOperation ID |
-
-
-
-
-
-
-
-
-
-
-
-#### Response Body
-
-```json
-{
-  "header" : {
-    "isSuccessful" : true,
-    "resultCode" : 0,
-    "resultMessage" : "resultMessage"
-  },
-  "resources" : [ {
-    "path" : "path",
-    "metadata" : "metadata",
-    "resourceId" : "resourceId",
-    "name" : "name",
-    "description" : "description",
-    "priority" : -27519,
-    "uiPath" : "uiPath"
-  }, {
-    "path" : "path",
-    "metadata" : "metadata",
-    "resourceId" : "resourceId",
-    "name" : "name",
-    "description" : "description",
-    "priority" : -27519,
-    "uiPath" : "uiPath"
-  } ]
-}
-```
-
-
-
-##### GetResources.Response
-
-
-| Name | Type | Required | Description | 
-|------------ | ------------- | ------------- | ------------ |
-|   **resources** | **List&lt;ResourceProtocol>**| **No** | リソースリスト |
-
-
-##### ResourceProtocol
-
-
-| Name | Type | Required | Description | 
-|------------ | ------------- | ------------- | ------------ |
-|   **description** | **String**| **No** | リソースの説明 |
-|   **metadata** | **String**| **No** | メタデータ |
-|   **name** | **String**| **No** | リソース名 |
-|   **path** | **String**| **Yes** | リソースPath  |
-|   **priority** | **Integer**| **Yes** | 優先順位 |
-|   **resourceId** | **String**| **No** | リソースID  |
-|   **uiPath** | **String**| **Yes** | リソースUI Path  |
-
-
-
-
-
-
-
-
 
 
 
