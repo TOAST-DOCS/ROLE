@@ -3248,9 +3248,9 @@ For detailed response results, see Headers in the Response Body.
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources**](#createResource) | Create Resources |
 | **DELETE** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#deleteResource) | Delete Resource |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/resources**](#deleteResources) | Delete Resources |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#getResource) | Single resource lookup |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources/id**](#getResourceIds) | Get a list of resource IDs |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/resources**](#getResources) | Get a list of resources |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources/attributes/search**](#searchAttributesByResource) | Get a list of all condition attributes that can be set in a role |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources/search**](#searchResources) | Get a list of resources |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#updateResource) | Modify Resources |
@@ -3533,102 +3533,6 @@ For detailed response results, see Headers in the Response Body.
 |------------ | ------------- | ------------- | ------------ |
 |   **resourceIds** | **List&lt;String>**| **Yes** | Resource ID list  |
 |   **totalItems** | **Long**| **Yes** | Total number  |
-
-
-
-
-
-
-
-
-
-
-
-<a name="getResources"></a>
-### **Get a list of resources**
-> GET "/role/v3.0/appkeys/{appKey}/resources"
-
-#### Parameters
-
-
-
-| ParameterType | Name | Type | Required | Description  | 
-|------------- |------------- | ------------- | ------------- | ------------- | 
-|  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
-|  Path |**appKey** | **String**| **Yes** | Appkey | 
-|  Query |**userId** | **String**| **No** | User IDs that have access to the resource |
-|  Query |**roleId** | **String**| **No** | Role ID assigned to the resource |
-|  Query |**operationId** | **String**| **No** | Operation ID assigned to the resource |
-
-
-
-
-
-
-
-
-
-
-
-#### Response Body
-
-```json
-{
-  "header" : {
-    "isSuccessful" : true,
-    "resultCode" : 0,
-    "resultMessage" : "resultMessage"
-  },
-  "resources" : [ {
-    "path" : "path",
-    "metadata" : "metadata",
-    "resourceId" : "resourceId",
-    "name" : "name",
-    "description" : "description",
-    "priority" : -27519,
-    "uiPath" : "uiPath"
-  }, {
-    "path" : "path",
-    "metadata" : "metadata",
-    "resourceId" : "resourceId",
-    "name" : "name",
-    "description" : "description",
-    "priority" : -27519,
-    "uiPath" : "uiPath"
-  } ]
-}
-```
-
-
-
-##### GetResources.Response
-
-
-| Name | Type | Required | Description | 
-|------------ | ------------- | ------------- | ------------ |
-|   **Resources** | **List<ResourceProtocol>**| **No** | Resource List  |
-
-
-##### ResourceProtocol
-
-
-| Name | Type | Required | Description | 
-|------------ | ------------- | ------------- | ------------ |
-|   **description** | **String**| **No** | Resource descriptions  |
-|   **metadata** | **String**| **No** | Metadata  |
-|   **name** | **String**| **No** | Resource name  |
-|   **path** | **String**| **Yes** | Resource Path  |
-|   **priority** | **Integer**| **Yes** | Priority  |
-|   **resourceId** | **String**| **No** | Resource ID  |
-|   **uiPath** | **String**| **Yes** | Resource UI Path  |
-
-
-
-
-
-
-
-
 
 
 
