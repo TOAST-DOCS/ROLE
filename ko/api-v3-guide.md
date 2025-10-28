@@ -3251,7 +3251,6 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 | **DELETE** |[**/role/v3.0/appkeys/{appKey}/resources**](#deleteResources) | 리소스 다건 삭제 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#getResource) | 리소스 단건 조회 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources/id**](#getResourceIds) | 리소스 ID 목록 조회 |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/resources**](#getResources) | 리소스 목록 조회 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources/attributes/search**](#searchAttributesByResource) | 리소스에서 설정 가능한 모든 조건 속성 목록 조회 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources/search**](#searchResources) | 리소스 목록 조회 |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#updateResource) | 리소스 수정 |
@@ -3534,102 +3533,6 @@ RESTful API와 클라이언트 SDK를 사용하려면 앱키와 비밀 키가 �
 |------------ | ------------- | ------------- | ------------ |
 |   **resourceIds** | **List&lt;String>**| **Yes** | 리소스 ID 목록  |
 |   **totalItems** | **Long**| **Yes** | 전체 개수  |
-
-
-
-
-
-
-
-
-
-
-
-<a name="getResources"></a>
-### **리소스 목록 조회**
-> GET "/role/v3.0/appkeys/{appKey}/resources"
-
-#### Parameters
-
-
-
-| ParameterType | Name | Type | Required | Description  | 
-|------------- |------------- | ------------- | ------------- | ------------- | 
-|  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
-|  Path |**appKey** | **String**| **Yes** | 앱키 | 
-|  Query |**userId** | **String**| **No** | 리소스에 접근 가능한 사용자 ID |
-|  Query |**roleId** | **String**| **No** | 리소스에 부여된 역할 ID |
-|  Query |**operationId** | **String**| **No** | 리소스에 부여된 Operation ID |
-
-
-
-
-
-
-
-
-
-
-
-#### Response Body
-
-```json
-{
-  "header" : {
-    "isSuccessful" : true,
-    "resultCode" : 0,
-    "resultMessage" : "resultMessage"
-  },
-  "resources" : [ {
-    "path" : "path",
-    "metadata" : "metadata",
-    "resourceId" : "resourceId",
-    "name" : "name",
-    "description" : "description",
-    "priority" : -27519,
-    "uiPath" : "uiPath"
-  }, {
-    "path" : "path",
-    "metadata" : "metadata",
-    "resourceId" : "resourceId",
-    "name" : "name",
-    "description" : "description",
-    "priority" : -27519,
-    "uiPath" : "uiPath"
-  } ]
-}
-```
-
-
-
-##### GetResources.Response
-
-
-| Name | Type | Required | Description | 
-|------------ | ------------- | ------------- | ------------ |
-|   **resources** | **List&lt;ResourceProtocol>**| **No** | 리소스 목록  |
-
-
-##### ResourceProtocol
-
-
-| Name | Type | Required | Description | 
-|------------ | ------------- | ------------- | ------------ |
-|   **description** | **String**| **No** | 리소스 설명  |
-|   **metadata** | **String**| **No** | 메타데이터  |
-|   **name** | **String**| **No** | 리소스 이름  |
-|   **path** | **String**| **Yes** | 리소스 Path  |
-|   **priority** | **Integer**| **Yes** | 우선순위  |
-|   **resourceId** | **String**| **No** | 리소스 ID  |
-|   **uiPath** | **String**| **Yes** | 리소스 UI Path  |
-
-
-
-
-
-
-
-
 
 
 
