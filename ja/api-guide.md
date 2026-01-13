@@ -816,7 +816,7 @@ UserにRoleが付与されているかどうかを返します。関連関係に
 
 |Key|	Type|	Required|	Description|
 |---|---|---|---|
-|scopeId|	String|	Yes|	Scope ID <br/> 最大32文字まで登録できます。 </br> -\_特殊文字を使用することができ、IDの先頭と末尾は必ず文字及び数字で構成されている必要があります。|
+|scopeId|	String|	Yes|	Scope ID <br/> 最大36文字まで登録できます。 </br> -\_特殊文字を使用することができ、IDの先頭と末尾は必ず文字及び数字で構成されている必要があります。|
 |description|	String|	Yes|	Scope説明 <br/> 最大128文字まで登録できます。|
 
 **[Response Body]**
