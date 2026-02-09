@@ -815,7 +815,7 @@ Returns only directly granted roles. It does not return roles that are related t
 
 |Key|	Type|	Required|	Description|
 |---|---|---|---|
-|scopeId|	String|	Yes|	Scope ID <br/> You can register up to 32 characters. </br> You can use the -_ special character, and the ID must start and end with a letter and a number. |
+|scopeId|	String|	Yes|	Scope ID <br/> You can register up to 36 characters. </br> You can use the -_ special character, and the ID must start and end with a letter and a number. |
 |description|	String|	Yes|	Scope description <br/> You can register up to 128 characters.|
 
 **[Response Body]**
