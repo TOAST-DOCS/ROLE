@@ -1478,6 +1478,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#getRole) | ロール単件照会 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/id**](#searchAllRoleIds) | すべてのロールIDリストの照会 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search**](#searchAttributesByRoleId) | ロールで設定可能なすべての条件属性リストの照会 |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search**](#searchContainingRoles) | 특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/roles/search**](#searchRoles) | ロールリストの照会 |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#updateRole) | ロール修正 |
 
@@ -2110,6 +2111,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 |   **attributeDataTypeCode** | **String**| **Yes** |   STRING, NUMERIC, DAY_OF_WEEK, DATETIME, TIME, IPADDRESS, BOOLEAN |
 |   **attributeId** | **String**| **Yes** | 条件属性ID  |
 |   **attributeName** | **String**| **No** | 条件属性名 |
+|   **attributeTagIds** | **List&lt;String>**| **No** | 조건 속성 태그 ID 목록  |
 |   **description** | **String**| **No** | 条件属性の説明 |
 
 
@@ -2120,6 +2122,77 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 
 
 
+
+
+
+
+
+
+
+
+
+
+<a name="searchContainingRoles"></a>
+### **특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회**
+> POST "/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search"
+
+기준이 되는 역할(`{roleId}`)의 직접 하위 역할 목록을 모두 포함하는 상위 호환 역할 ID 목록을 조회합니다.
+
+#### Parameters
+
+
+
+| ParameterType | Name | Type | Required | Description | 
+|------------- |------------- | ------------- | ------------- | ------------- | 
+|  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
+|  Path |**appKey** | **String**| **Yes** | 앱키 |
+|  Path |**roleId** | **String**| **Yes** | 기준이 되는 역할 ID |
+| Request Body | **SearchContainingRoles.Request** | **SearchContainingRoles.Request**| **Yes** |  | |
+
+
+
+##### SearchContainingRoles.Request
+
+
+| Name | Type | Required | Description | 
+|------------ | ------------- | ------------- | ------------ |
+|   **roleTagIds** | **List&lt;String>**| **No** | 역할 태그 ID 목록(OR 조건)  |
+|   **roleGroups** | **List&lt;String>**| **No** | 역할 그룹 목록(OR 조건)  |
+
+
+#### Request 예시
+
+```json
+{
+  "roleTagIds" : [ "TAG_A", "TAG_B" ],
+  "roleGroups" : [ "GROUP_1" ]
+}
+```
+
+
+#### Response Body
+
+```json
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalItems" : 3,
+  "roleIds" : [ "ROLE_ADMIN", "ROLE_SUPER", "ROLE_MANAGER" ]
+}
+```
+
+
+
+##### SearchContainingRoles.Response
+
+
+| Name | Type | Required | Description | 
+|------------ | ------------- | ------------- | ------------ |
+|   **roleIds** | **List&lt;String>**| **Yes** | 상위 호환 역할 ID 목록  |
+|   **totalItems** | **Long**| **Yes** | 전체 개수  |
 
 
 
