@@ -4,13 +4,12 @@
 > ROLEサービスを利用して権限をチェックするためには
 > RESTful APIを呼び出すか、クライアントSDKを利用する必要があります。
 
-## アプリケーションキー&秘密鍵
+## 認証および権限
 
-RESTful APIとクライアントSDKを使用するには、アプリケーションキーと秘密鍵が必要です。
-[CONSOLE] 右上の**URL & Appkey**ボタンをクリックすると、発行キー情報を確認できます。
-
-![[図1]アプリケーションキー&秘密鍵確認](http://static.toastoven.net/prod_role/role_60.png)
-<center>[図1]アプリケーションキー&秘密鍵の確認</center>
+ROLE APIを使用するには、AppkeyとSecretKeyが必要です。
+Appkeyは、API呼び出し時にリクエストURLに含めて特定のリソースを指定し、識別するために使用されます。SecretKeyは、APIへのアクセスを制御するシークレットキーです。
+Appkey及びSecretKeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-api/appkey)を参照してください。
+Appkeyの代わりにプロジェクト統合Appkeyを使用することも可能です。プロジェクト統合Appkeyの作成及び使用に関する詳細は、[プロジェクト統合Appkey](/nhncloud/ja/public-api/project-integrated-appkey)を参照してください。
 
 ## RESTful APIガイド
 
