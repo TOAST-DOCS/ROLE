@@ -5,7 +5,7 @@
 
 ## 認証および権限
 
-ROLE APIを使用するには、AppkeyとSecretKeyが必要です。
+ROLE SDKを使用するには、AppkeyとSecretKeyが必要です。
 Appkeyは、API呼び出し時にリクエストURLに含めて特定のリソースを指定し、識別するために使用されます。SecretKeyは、APIへのアクセスを制御するシークレットキーです。
 Appkey及びSecretKeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-api/appkey)を参照してください。
 Appkeyの代わりにプロジェクト統合Appkeyを使用することも可能です。プロジェクト統合Appkeyの作成及び使用に関する詳細は、[プロジェクト統合Appkey](/nhncloud/ja/public-api/project-integrated-appkey)を参照してください。
