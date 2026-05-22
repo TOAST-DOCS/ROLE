@@ -858,17 +858,17 @@ String roleId = "";
 boolean result = client.isDeniable(roleId);
 ```
 
-9. 특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회
+9. 特定のロールの下位ロール/権限を全て含むロール一覧照会
 
-> 기준 역할의 직접 하위 역할 목록을 모두 포함하는 상위 호환 역할 ID 목록을 조회합니다.
+> 基準ロールの直接の下位ロール一覧を全て含む上位互換ロールID一覧を照会します。
 
 **[GetContainingRolesRequest]**
 
 | Key         | Type            | Required | Description           |
 |-------------|-----------------|----------|-----------------------|
-| roleId      | String          |**Yes**| 기준이 되는 역할 ID            |
-| roleTagIds  | List&lt;String> |**No**| 역할 태그 ID 목록(OR 조건)        |
-| roleGroups  | List&lt;String> |**No**| 역할 그룹 목록(OR 조건)          |
+| roleId      | String          |**Yes**| 基準となるロールID            |
+| roleTagIds  | List&lt;String> |**No**| ロールタグID一覧(OR条件)        |
+| roleGroups  | List&lt;String> |**No**| ロールグループ一覧(OR条件)          |
 
 ```java
 GetContainingRolesRequest request = GetContainingRolesRequest.builder()
