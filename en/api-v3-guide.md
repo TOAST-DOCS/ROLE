@@ -1539,8 +1539,8 @@ Retrieves a list of upward-compatible role IDs that include all direct sub-roles
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
-|   **roleIds** | **List&lt;String>**| **Yes** | 상위 호환 역할 ID 목록  |
-|   **totalItems** | **Long**| **Yes** | 전체 개수  |
+|   **roleIds** | **List&lt;String>**| **Yes** | List of upward-compatible role IDs  |
+|   **totalItems** | **Long**| **Yes** | Total count  |
 
 <a name="searchRoles"></a>
 ### **Get a list of roles**

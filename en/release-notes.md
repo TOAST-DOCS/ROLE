@@ -1,7 +1,7 @@
 ## Application Service > ROLE > Release note
 
-### April 28, 2026
-#### Added Features
+## April 28, 2026
+### Added Features
 * [RESTful API] Added an API to retrieve a list of roles that include all sub-roles and permissions of a specific role.
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search
         * For more information, see the manual: [Link](https://docs.nhncloud.com/en/Application%20Service/ROLE/en/api-v3-guide/#searchContainingRoles)

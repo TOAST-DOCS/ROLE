@@ -323,7 +323,7 @@ Page<UserRoleHistory> userRoleHistories = client.getUserRoleHistories(request, P
 |--------------|----------------|----|----------|
 | userId               | String         |**Yes**|   User ID      |
 | scopeId             | String          |**Yes**| Applicable ID
-| description|    String  |**No**| 설명|
+| description|    String  |**No**| Description |
 | createUserIfNotExist | Boolean    |**No**|  Whether to create when the user does not exist when requested |
 | roleRelations|  List&lt;UserRoleRelation> |**No**| Related role|
 
