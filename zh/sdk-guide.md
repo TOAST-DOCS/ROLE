@@ -5,13 +5,12 @@
 > RESTFUL API 를 호출하거나, Client SDK 를 이용하여야 한다.
 > Spring Framework 을 사용하는 경우, 좀더 편하게 JAVA Client SDK 를 사용할 수 있다.
 
-## 앱키 & 비밀 키
+## 인증 및 권한
 
-RESTFUL API 와 Client SDK 를 사용하려면 앱키와 비밀 키가 필요하다.
-[CONSOLE] 의 좌측 상단에서 발급된 Key 정보를 확인 할 수 있다.
-
-![[그림 1] 앱키 & 비밀 키 확인](http://static.toastoven.net/prod_role/role_60.png)
-<center>[그림 1] 앱키 & 비밀 키 확인</center>
+ROLE SDK를 사용하려면 Appkey와 SecretKey가 필요합니다.
+Appkey는 API 호출 시 요청 URL에 포함하여 특정 리소스를 가리키고 식별하는 데 사용되며, SecretKey는 API에 대한 접근을 제어하는 비밀 키입니다.
+Appkey 및 SecretKey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/public-api/appkey)를 참고하세요.
+Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프로젝트 통합 Appkey에 대한 자세한 내용은 [프로젝트 통합 Appkey](/nhncloud/ko/public-api/project-integrated-appkey)를 참고하세요.
 
 
 ## Spring Client SDK

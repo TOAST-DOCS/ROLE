@@ -3,13 +3,12 @@
 > In order to check authority using the ROLE service, 
 > the RESTful API have to be called or the client SDK have to be used.
 
-## AppKey & SecretKey
+## Authentication and Authorization 
 
-AppKey and SecretKey are required to use RESTful API and Client SDK.
-You can check the key information issued at the top left of [CONSOLE].
-
-![[Figure 1] Check AppKey and SecretKey](http://static.toastoven.net/prod_role/role_60.png)
-<center>[Figure 1] Check AppKey and SecretKey</center>
+AppKey and SecretKey are required to use the ROLE SDK.
+The Appkey is included in the request URL to identify and specify a particular resource when making API calls. A SecretKey is a private key used to control access to the API. 
+For more information on checking and using Appkeys and SecretKeys, please refer to [Appkey](/nhncloud/en/public-api/appkey).
+Alternatively, a Project-integrated Appkey can be used in place of Appkey. For more information on creating and using Project Integrated Appkeys, please refer to [Project Integrated Appkey](/nhncloud/en/public-api/project-integrated-appkey).
 
 ## Client SDK
 
