@@ -14,7 +14,7 @@ Alternatively, a Project-integrated Appkey can be used in place of Appkey. For m
 
 ### Common Response Body
 
-All API requests are responded to with an HTTP response code of 200.
+Returns the HTTP response code 200 for all API requests.
 For detailed response results, see Headers in the Response Body.
 
 ```json
@@ -49,7 +49,6 @@ For detailed response results, see Headers in the Response Body.
 
 ## User
 
-
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/users**](#createUsers) | Create a user |
@@ -62,14 +61,11 @@ For detailed response results, see Headers in the Response Body.
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/users/{userId}**](#updateUser) | Edit users |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/scopes/{scopeId}**](#updateUserScope) | Edit user scopes |
 
-
 <a name="createUsers"></a>
 ### **Create a user**
 > POST "/role/v3.0/appkeys/{appKey}/users"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -77,12 +73,7 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 | Request Body | **CreateUserRequest** | **CreateUserRequest**| **Yes** |  | |
 
-
-
-
-
 ##### CreateUserRequest
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -90,16 +81,13 @@ For detailed response results, see Headers in the Response Body.
 
 ##### CreateUserRequest.UserProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **description** | **String**| **No** | User description  |
 |   **roleRelations** | **List<UserRoleRelationProtocol>**| **No** | User-related Role  |
 |   **userId** | **String**| **Yes** | User ID  |
 
-
 ##### UserRoleRelationProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- |------|
@@ -117,32 +105,6 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
 |   **attributeValues** | **List&lt;String>**| **No** | Condition attribute value  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### Response Body
 
 ```json
@@ -154,12 +116,6 @@ For detailed response results, see Headers in the Response Body.
   }
 }
 ```
-
-
-
-
-
-
 
 <a name="deleteUser"></a>
 ### **Deleting a user**
@@ -167,21 +123,11 @@ For detailed response results, see Headers in the Response Body.
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 |  Path |**userId** | **String**| **Yes** | User ID | 
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -194,7 +140,6 @@ For detailed response results, see Headers in the Response Body.
   }
 }
 ```
-
 
 <a name="deleteUsers"></a>
 ### **Delete users**
@@ -208,7 +153,6 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**appKey** | **String**| **Yes** | Appkey |
 | Request Body |**userIds** |  **List&lt;String>**| **Yes** | User IDs |
 
-
 #### Response Body
 
 ```json
@@ -221,16 +165,11 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
-
 <a name="getAllUsers"></a>
 ### **Get a list of all user IDs**
 > POST "/role/v3.0/appkeys/{appKey}/users/id"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -241,12 +180,7 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `id.userId,ASC`)|
 | Request Body | **SearchUser.Request** | **SearchUser.Request**| **Yes** |  | |
 
-
-
-
-
 ##### SearchUser.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -262,24 +196,6 @@ For detailed response results, see Headers in the Response Body.
 |   **userIdPreLike** | **String**| **No** | User ID (forward matching)  |
 |   **userIds** | **List&lt;String>**| **No** | List of user IDs (exact match)  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### Response Body
 
 ```json
@@ -294,33 +210,18 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### SearchAllUser.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **totalItems** | **Long**| **Yes** | Total number  |
 |   **userIds** | **List&lt;String>**| **Yes** | User list  |
 
-
-
-
-
-
-
-
-
-
-
 <a name="getUser"></a>
 ### **Get user information**
 > GET "/role/v3.0/appkeys/{appKey}/users/{userId}"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -330,15 +231,6 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**searchRoleOptionCode** | **String**| **No** | How to search the list of accessible roles | [optional] [default to null] [enum: DIRECT_ROLE, INDIRECT_ROLE] |
 |  Query |**roleIds** |  **List&lt;String>**| **No** | Relationship role ID |
 |  Query |**scopeIds** |  **List&lt;String>**| **No** | Relationship scope ID |
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -418,18 +310,13 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetUser.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- |-------------|
 |   **user** | **UserBundleProtocol**| **Yes** | User         |
 
-
 ##### UserBundleProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -438,10 +325,7 @@ For detailed response results, see Headers in the Response Body.
 |   **roleRelations** | **List<UserBundleProtocol.UserRoleRelationBundleProtocol>**| **No** | List of roles assigned to the user  |
 |   **userId** | **String**| **Yes** | User ID  |
 
-
-
 ##### UserBundleProtocol.UserRoleRelationBundleProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -458,7 +342,6 @@ For detailed response results, see Headers in the Response Body.
 
 ##### ConditionBundleProtocol
 
-
 | Name | Type | Required | Description                                                                                                                                                                               | 
 |------------ | ------------- | ------------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   **attribute** | **AttributeProtocol**| **Yes** | Condition attribute                                                                                                                                                                                     |
@@ -468,7 +351,6 @@ For detailed response results, see Headers in the Response Body.
 
 ##### AttributeProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeCreationTypeCode** | **String**| **Yes** |   COMMON_ATTRIBUTE, ROLE_ATTRIBUTE |
@@ -477,29 +359,6 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeName** | **String**| **No** | Condition attribute name  |
 |   **description** | **String**| **No** | Condition attribute description  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ##### UserBundleProtocol.RoleTagProtocol
 
 
@@ -507,35 +366,11 @@ For detailed response results, see Headers in the Response Body.
 |------------ | ------------- | ------------- | ------------ |
 |   **roleTagId** | **String**| **No** | Role Tag ID  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="getUserRoleHistories"></a>
 ### **View a list of changes to roles assigned to a user**
 > GET "/role/v3.0/appkeys/{appKey}/users/{userId}/histories"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -550,20 +385,6 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**page** | **Integer**| **No** | The page number you want to search (default 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | Number of searches per page for which you want results (default 10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `seq,DESC`)|
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -627,8 +448,6 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetUserHistory.Response
 
 
@@ -637,10 +456,7 @@ For detailed response results, see Headers in the Response Body.
 |   **totalItems** | **Long**| **Yes** | Total number  |
 |   **userHistory** | **List<UserHistoryProtocol>**| **Yes** | User change history list  |
 
-
-
 ##### UserHistoryProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -654,9 +470,7 @@ For detailed response results, see Headers in the Response Body.
 |   **userHistorySeq** | **Long**| **Yes** | User change history serial number  |
 |   **userId** | **String**| **Yes** | User ID  |
 
-
 ##### ConditionBundleProtocol
-
 
 | Name | Type | Required | Description                                                                                                                                                                               | 
 |------------ | ------------- | ------------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -667,7 +481,6 @@ For detailed response results, see Headers in the Response Body.
 
 ##### AttributeProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeCreationTypeCode** | **String**| **Yes** |   COMMON_ATTRIBUTE, ROLE_ATTRIBUTE |
@@ -676,16 +489,11 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeName** | **String**| **No** | Condition attribute name  |
 |   **description** | **String**| **No** | Condition attribute description  |
 
-
-
-
 <a name="getUsers"></a>
 ### **Get a list of users**
 > POST "/role/v3.0/appkeys/{appKey}/users/search"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -696,12 +504,7 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `id.userId,ASC`)|
 | Request Body | **SearchUser.Request** | **SearchUser.Request**| **Yes** |  | |
 
-
-
-
-
 ##### SearchUser.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -716,25 +519,6 @@ For detailed response results, see Headers in the Response Body.
 |   **searchRoleOptionCode** | **String**| **No** |   DIRECT_ROLE, INDIRECT_ROLE |
 |   **userIdPreLike** | **String**| **No** | User ID (forward matching)  |
 |   **userIds** | **List&lt;String>**| **No** | List of user IDs (exact match)  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -892,20 +676,14 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### SearchUser.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **totalItems** | **Long**| **Yes** | Total number  |
 |   **users** | **List<UserBundleProtocol>**| **Yes** | User list  |
 
-
-
 ##### UserBundleProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -915,10 +693,7 @@ For detailed response results, see Headers in the Response Body.
 |   **userId** | **String**| **Yes** | User ID  |
 |   **roleCounts** | **List&lt;UserRoleCountProtocol>**| **No**   | The number of roles assigned to users  |
 
-
-
 ##### UserBundleProtocol.UserRoleRelationBundleProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -942,7 +717,6 @@ For detailed response results, see Headers in the Response Body.
 
 ##### ConditionBundleProtocol
 
-
 | Name | Type | Required | Description                                                                                                                                                                               | 
 |------------ | ------------- | ------------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   **attribute** | **AttributeProtocol**| **Yes** | Condition attribute                                                                                                                                                                                     |
@@ -952,7 +726,6 @@ For detailed response results, see Headers in the Response Body.
 
 ##### AttributeProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeCreationTypeCode** | **String**| **Yes** |   COMMON_ATTRIBUTE, ROLE_ATTRIBUTE |
@@ -961,65 +734,17 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeName** | **String**| **No** | Condition attribute name  |
 |   **description** | **String**| **No** | Condition attribute description  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ##### UserBundleProtocol.RoleTagProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **roleTagId** | **String**| **No** | Role Tag ID  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <a name="updateUser"></a>
 ### **Edit users**
 > PUT "/role/v3.0/appkeys/{appKey}/users/{userId}"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description | 
 |------------- |------------- | ------------- | ------------- |-------------| 
@@ -1028,13 +753,7 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**userId** | **String**| **Yes** | User ID      | 
 | Request Body | **PutUserRequest** | **PutUserRequest**| **Yes** | User         | |
 
-
-
-
-
-
 ##### PutUserRequest
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- |-------------|
@@ -1043,15 +762,12 @@ For detailed response results, see Headers in the Response Body.
 
 ##### PutUserRequest.UserProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **description** | **String**| **No** | User description  |
 |   **roleRelations** | **List<UserRoleRelationProtocol>**| **No** | User-related Role  |
 
-
 ##### UserRoleRelationProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- |-------------|
@@ -1062,37 +778,11 @@ For detailed response results, see Headers in the Response Body.
 
 ##### ConditionProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeId** | **String**| **Yes** | Condition attribute ID  |
 |   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
 |   **attributeValues** | **List&lt;String>**| **No** | Condition attribute value  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -1105,8 +795,6 @@ For detailed response results, see Headers in the Response Body.
   }
 }
 ```
-
-
 
 <a name="updateUserScope"></a>
 ### **Edit user scopes**
@@ -1136,9 +824,7 @@ For detailed response results, see Headers in the Response Body.
 |   **description** | **String**| **No** | User description  |
 |   **roleRelations** | **List&lt;UserScopeRoleRelationProtocol>**| **No** | Roles related to users  |
 
-
 ##### UserScopeRoleRelationProtocol
-
 
 | Name | Type | Required | Description |
 |------------ | ------------- | ------------- |-------------|
@@ -1147,7 +833,6 @@ For detailed response results, see Headers in the Response Body.
 |   **roleId** | **String**| **Yes** | Role ID |
 
 ##### ConditionProtocol
-
 
 | Name | Type | Required | Description |
 |------------ | ------------- | ------------- | ------------ |
@@ -1169,20 +854,16 @@ For detailed response results, see Headers in the Response Body.
 
 ## User authentication
 
-
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/authorizations/resources**](#checkResource) | Check if a user is authorized to access a resource |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/authorizations/roles**](#checkRole) | Check if a user has access to a role |
-
 
 <a name="checkResource"></a>
 ### **Check if a user is authorized to access a resource**
 > POST "/role/v3.0/appkeys/{appKey}/users/{userId}/authorizations/resources"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description | 
 |------------- |------------- | ------------- | ------------- |-------------| 
@@ -1191,20 +872,13 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**userId** | **String**| **Yes** | User ID      | 
 | Request Body | **PostAuthorizationResource.Request** | **PostAuthorizationResource.Request**| **Yes** | Resource List      | |
 
-
-
-
-
-
 ##### PostAuthorizationResource.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- |-------------|
 |   **Resources** | **List<PostAuthorizationResource.ResourceProtocol>**| **Yes** | Resource List      |
 
 ##### PostAuthorizationResource.ResourceProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -1217,33 +891,10 @@ For detailed response results, see Headers in the Response Body.
 
 ##### PostAuthorizationResource.AttributeProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeId** | **String**| **Yes** | Condition attribute ID  |
 |   **attributeValue** | **String**| **Yes** | Condition attribute value  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -1286,17 +937,13 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### PostAuthorizationResource.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **authorizations** | **List<PostAuthorizationResource.AuthorizationWithResourceProtocol>**| **No** | List of permission check results  |
 
 ##### PostAuthorizationResource.AuthorizationWithResourceProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -1310,43 +957,16 @@ For detailed response results, see Headers in the Response Body.
 
 ##### PostAuthorizationResource.AttributeProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeId** | **String**| **Yes** | Condition attribute ID  |
 |   **attributeValue** | **String**| **Yes** | Condition attribute value  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <a name="checkRole"></a>
 ### **Check if a user has access to a role**
 > POST "/role/v3.0/appkeys/{appKey}/users/{userId}/authorizations/roles"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -1355,20 +975,13 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**userId** | **String**| **Yes** | User ID | 
 | Request Body | **PostAuthorizationRole.Request** | **PostAuthorizationRole.Request**| **Yes** |  | |
 
-
-
-
-
-
 ##### PostAuthorizationRole.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **roles** | **List<PostAuthorizationRole.AuthRoleProtocol>**| **Yes** | Authentication request list  |
 
 ##### PostAuthorizationRole.AuthRoleProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -1379,31 +992,10 @@ For detailed response results, see Headers in the Response Body.
 
 ##### PostAuthorizationRole.AttributeProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeId** | **String**| **Yes** | Condition attribute ID  |
 |   **attributeValue** | **String**| **Yes** | Condition attribute value  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -1442,17 +1034,13 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### PostAuthorizationRole.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **authorizations** | **List<PostAuthorizationRole.AuthorizationProtocol>**| **No** | List of permission check results  |
 
 ##### PostAuthorizationRole.AuthorizationProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -1464,35 +1052,12 @@ For detailed response results, see Headers in the Response Body.
 
 ##### PostAuthorizationRole.AttributeProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeId** | **String**| **Yes** | Condition attribute ID  |
 |   **attributeValue** | **String**| **Yes** | Condition attribute value  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Roles
-
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -1503,10 +1068,9 @@ For detailed response results, see Headers in the Response Body.
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#getRole) | Single role lookup |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/id**](#searchAllRoleIds) | Get a list of all role IDs |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search**](#searchAttributesByRoleId) | Get a list of all condition attributes that can be set in a role |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search**](#searchContainingRoles) | 특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회 |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search**](#searchContainingRoles) | Retrieve a list of roles that include all sub-roles and permissions of a specific role |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/roles/search**](#searchRoles) | Get a list of roles |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#updateRole) | Modify roles |
-
 
 <a name="createRole"></a>
 ### **Create a role**
@@ -1514,20 +1078,13 @@ For detailed response results, see Headers in the Response Body.
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 | Request Body | **CreateRoleRequest** | **CreateRoleRequest**| **Yes** |  | |
 
-
-
-
-
 ##### CreateRoleRequest
-
 
 | Name | Type | Required | Description      | 
 |------------ | ------------- | ------------- |------------------|
@@ -1537,7 +1094,6 @@ For detailed response results, see Headers in the Response Body.
 
 ##### RoleProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **description** | **String**| **No** | Role descriptions  |
@@ -1546,17 +1102,7 @@ For detailed response results, see Headers in the Response Body.
 |   **roleId** | **String**| **Yes** | Role ID  |
 |   **roleName** | **String**| **No** | Role name  |
 
-
-
-
-
-
-
-
-
-
 ##### CreateRoleRequest.RoleRelationProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -1566,44 +1112,17 @@ For detailed response results, see Headers in the Response Body.
 
 ##### ConditionProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeId** | **String**| **Yes** | Condition attribute ID  |
 |   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
 |   **attributeValues** | **List&lt;String>**| **No** | Condition attribute value  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ##### CreateRoleRequest.RoleTagProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **roleTagId** | **String**| **Yes** | Role Tag ID  |
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -1616,12 +1135,6 @@ For detailed response results, see Headers in the Response Body.
   }
 }
 ```
-
-
-
-
-
-
 
 <a name="deleteRole"></a>
 ### **Deleting roles**
@@ -1629,21 +1142,11 @@ For detailed response results, see Headers in the Response Body.
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 |  Path |**roleId** | **String**| **Yes** | Role ID | 
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -1656,7 +1159,6 @@ For detailed response results, see Headers in the Response Body.
   }
 }
 ```
-
 
 <a name="deleteRoles"></a>
 ### **Delete roles**
@@ -1670,7 +1172,6 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**appKey** | **String**| **Yes** | Appkey |
 | Request Body |**roleIds** |  **List&lt;String>**| **Yes** | Role IDs |
 
-
 #### Response Body
 
 ```json
@@ -1683,30 +1184,17 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
-
 <a name="getDeniable"></a>
 ### **Whether the role is enabled or can be changed to DENY (not enabled)**
 > GET "/role/v3.0/appkeys/{appKey}/roles/{roleId}/deniable"
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 |  Path |**roleId** | **String**| **Yes** | Role ID | 
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -1721,23 +1209,11 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetDeniableResponse
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **deniable** | **Boolean**| **No** | Whether the role is enabled or can be changed to DENY (not enabled)  |
-
-
-
-
-
-
-
-
-
 
 <a name="getRole"></a>
 ### **Single role lookup**
@@ -1745,21 +1221,11 @@ For detailed response results, see Headers in the Response Body.
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 |  Path |**roleId** | **String**| **Yes** | Role ID | 
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -1853,18 +1319,13 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetRoleResponse
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- |-------------|
 |   **role** | **RoleBundleProtocol**| **Yes** | Roles |
 
-
 ##### RoleBundleProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -1879,9 +1340,7 @@ For detailed response results, see Headers in the Response Body.
 |   **roleRelations** | **List<RoleBundleProtocol.RoleRelationProtocol>**| **No** | List of relations roles  |
 |   **roleTags** | **List<RoleBundleProtocol.RoleTagProtocol>**| **No** | Role tag list  |
 
-
 ##### AttributeProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -1891,23 +1350,7 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeName** | **String**| **No** | Condition attribute name  |
 |   **description** | **String**| **No** | Condition attribute description  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ##### RoleBundleProtocol.RoleRelationProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -1922,7 +1365,6 @@ For detailed response results, see Headers in the Response Body.
 
 ##### ConditionBundleProtocol
 
-
 | Name | Type | Required | Description                                                                                                                                                                               | 
 |------------ | ------------- | ------------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   **attribute** | **AttributeProtocol**| **Yes** | Condition attribute                                                                                                                                                                                     |
@@ -1932,7 +1374,6 @@ For detailed response results, see Headers in the Response Body.
 
 ##### AttributeProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeCreationTypeCode** | **String**| **Yes** |   COMMON_ATTRIBUTE, ROLE_ATTRIBUTE |
@@ -1941,62 +1382,17 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeName** | **String**| **No** | Condition attribute name  |
 |   **description** | **String**| **No** | Condition attribute description  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ##### RoleBundleProtocol.RoleTagProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **roleTagId** | **String**| **No** | Role Tag ID  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <a name="searchAllRoleIds"></a>
 ### **Get a list of all role IDs**
 > GET "/role/v3.0/appkeys/{appKey}/roles/id"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -2006,16 +1402,6 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**page** | **Integer**| **No** | The page number you want to search (default 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | Number of searches per page for which you want results (default 10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `id.roleId,ASC`)|
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -2031,33 +1417,18 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetAllRoleIds.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **roleIds** | **List&lt;String>**| **Yes** | List of role IDs  |
 |   **totalItems** | **Long**| **Yes** | Total number  |
 
-
-
-
-
-
-
-
-
-
-
 <a name="searchAttributesByRoleId"></a>
 ### **Get a list of all condition attributes that can be set in a role**
 > POST "/role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -2069,31 +1440,13 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `attributeCreationTypeCode,ASC&quot;,&quot;id.attributeId,ASC&quot`)|
 | Request Body | **SearchRoleAttributes.Request** | **SearchRoleAttributes.Request**| **Yes** |  | |
 
-
-
-
-
-
 ##### SearchRoleAttributes.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeIds** | **List&lt;String>**| **No** | Condition attribute ID list (exact match)  |
 |   **attributeNameLike** | **String**| **No** | Condition attribute name (partial match)  |
 |   **attributeTagIds** | **List&lt;String>**| **No** | Condition attribute tag ID list (exact match)  |
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -2117,8 +1470,6 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### SearchRoleAttributes.Response
 
 
@@ -2129,63 +1480,38 @@ For detailed response results, see Headers in the Response Body.
 
 ##### AttributeProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeCreationTypeCode** | **String**| **Yes** |   COMMON_ATTRIBUTE, ROLE_ATTRIBUTE |
 |   **attributeDataTypeCode** | **String**| **Yes** |   STRING, NUMERIC, DAY_OF_WEEK, DATETIME, TIME, IPADDRESS, BOOLEAN |
 |   **attributeId** | **String**| **Yes** | Condition attribute ID  |
 |   **attributeName** | **String**| **No** | Condition attribute name  |
-|   **attributeTagIds** | **List&lt;String>**| **No** | 조건 속성 태그 ID 목록  |
+|   **attributeTagIds** | **List&lt;String>**| **No** | List of condition attribute tag IDs  |
 |   **description** | **String**| **No** | Condition attribute description  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="searchContainingRoles"></a>
-### **특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회**
+### **Retrieve a list of roles that include all sub-roles and permissions of a specific role**
 > POST "/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search"
 
-기준이 되는 역할(`{roleId}`)의 직접 하위 역할 목록을 모두 포함하는 상위 호환 역할 ID 목록을 조회합니다.
+Retrieves a list of upward-compatible role IDs that include all direct sub-roles of the base role ({roleId}).
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
-|  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
-|  Path |**appKey** | **String**| **Yes** | 앱키 |
-|  Path |**roleId** | **String**| **Yes** | 기준이 되는 역할 ID |
+|  Header |**X-Secret-Key** | **String**| **Yes** | Secret key |
+|  Path |**appKey** | **String**| **Yes** | Appkey |
+|  Path |**roleId** | **String**| **Yes** | Role ID that serves as a base |
 | Request Body | **SearchContainingRoles.Request** | **SearchContainingRoles.Request**| **Yes** |  | |
-
-
 
 ##### SearchContainingRoles.Request
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
-|   **roleTagIds** | **List&lt;String>**| **No** | 역할 태그 ID 목록(OR 조건)  |
-|   **roleGroups** | **List&lt;String>**| **No** | 역할 그룹 목록(OR 조건)  |
+|   **roleTagIds** | **List&lt;String>**| **No** | Role tag ID list (OR condition)  |
+|   **roleGroups** | **List&lt;String>**| **No** | Role group list (OR condition)  |
 
-
-#### Request 예시
+#### Request Example
 
 ```json
 {
@@ -2193,7 +1519,6 @@ For detailed response results, see Headers in the Response Body.
   "roleGroups" : [ "GROUP_1" ]
 }
 ```
-
 
 #### Response Body
 
@@ -2209,32 +1534,18 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### SearchContainingRoles.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
-|   **roleIds** | **List&lt;String>**| **Yes** | 상위 호환 역할 ID 목록  |
-|   **totalItems** | **Long**| **Yes** | 전체 개수  |
-
-
-
-
-
-
-
-
-
+|   **roleIds** | **List&lt;String>**| **Yes** | List of upward-compatible role IDs  |
+|   **totalItems** | **Long**| **Yes** | Total count  |
 
 <a name="searchRoles"></a>
 ### **Get a list of roles**
 > POST "/role/v3.0/appkeys/{appKey}/roles/search"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -2245,12 +1556,7 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `exposureOrder,ASC&quot;,&quot;id.roleId,ASC&quot`)|
 | Request Body | **GetRoles.Request** | **GetRoles.Request**| **Yes** |  | |
 
-
-
-
-
 ##### GetRoles.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -2268,28 +1574,6 @@ For detailed response results, see Headers in the Response Body.
 |   **roleNameLike** | **String**| **No** | Role name (partial match)  |
 |   **roleTagIdExpr** | **String**| **No** | Role tag conditions (separator ';':OR, ',':AND)  |
 |   **roleTagIds** | **List&lt;String>**| **No** | List of role tag IDs (exact match)  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -2458,19 +1742,14 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetRoles.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **roles** | **List<RoleBundleProtocol>**| **Yes** | Roles list  |
 |   **totalItems** | **Long**| **Yes** | Total number of roles  |
 
-
 ##### RoleBundleProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -2485,9 +1764,7 @@ For detailed response results, see Headers in the Response Body.
 |   **roleRelations** | **List<RoleBundleProtocol.RoleRelationProtocol>**| **No** | List of related roles  |
 |   **roleTags** | **List<RoleBundleProtocol.RoleTagProtocol>**| **No** | Role tag list  |
 
-
 ##### AttributeProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -2497,23 +1774,7 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeName** | **String**| **No** | Condition attribute name  |
 |   **description** | **String**| **No** | Condition attribute description  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ##### RoleBundleProtocol.RoleRelationProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -2528,7 +1789,6 @@ For detailed response results, see Headers in the Response Body.
 
 ##### ConditionBundleProtocol
 
-
 | Name | Type | Required | Description                                                                                                                                                                               | 
 |------------ | ------------- | ------------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   **attribute** | **AttributeProtocol**| **Yes** | Condition attribute                                                                                                                                                                                     |
@@ -2538,7 +1798,6 @@ For detailed response results, see Headers in the Response Body.
 
 ##### AttributeProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeCreationTypeCode** | **String**| **Yes** |   COMMON_ATTRIBUTE, ROLE_ATTRIBUTE |
@@ -2547,63 +1806,17 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeName** | **String**| **No** | Condition attribute name  |
 |   **description** | **String**| **No** | Condition attribute description  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ##### RoleBundleProtocol.RoleTagProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **roleTagId** | **String**| **No** | Role Tag ID  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <a name="updateRole"></a>
 ### **Modify roles**
 > PUT "/role/v3.0/appkeys/{appKey}/roles/{roleId}"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -2612,13 +1825,7 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**roleId** | **String**| **Yes** | Role ID | 
 | Request Body | **UpdateRoleRequest** | **UpdateRoleRequest**| **Yes** |  | |
 
-
-
-
-
-
 ##### UpdateRoleRequest
-
 
 | Name | Type | Required | Description         | 
 |------------ | ------------- | ------------- |---------------------|
@@ -2628,7 +1835,6 @@ For detailed response results, see Headers in the Response Body.
 
 ##### RoleMetadataProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **description** | **String**| **No** | Role descriptions  |
@@ -2636,16 +1842,7 @@ For detailed response results, see Headers in the Response Body.
 |   **roleGroup** | **String**| **No** | Role group  |
 |   **roleName** | **String**| **No** | Role name  |
 
-
-
-
-
-
-
-
-
 ##### UpdateRoleRequest.RoleRelationProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -2655,44 +1852,17 @@ For detailed response results, see Headers in the Response Body.
 
 ##### ConditionProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeId** | **String**| **Yes** | Condition attribute ID  |
 |   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
 |   **attributeValues** | **List&lt;String>**| **No** | Condition attribute value  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ##### UpdateRoleRequest.RoleTagProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **roleTagId** | **String**| **Yes** | Role Tag ID  |
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -2706,7 +1876,6 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
 ## Role tags
 
 
@@ -2714,14 +1883,11 @@ For detailed response results, see Headers in the Response Body.
 |------------- | ------------- | -------------|
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/tags/id**](#getAllRoleTagIds) | Get a list of all role tag IDs |
 
-
 <a name="getAllRoleTagIds"></a>
 ### **Get a list of all role tag IDs**
 > GET "/role/v3.0/appkeys/{appKey}/roles/tags/id"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -2731,16 +1897,6 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**page** | **Integer**| **No** | The page number you want to search (default 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | Number of searches per page for which you want results (default 10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `id.roleTagId,ASC`)|
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -2756,21 +1912,14 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetAllRoleTagIds.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **roleTagIds** | **List&lt;String>**| **No** | List of role tag IDs  |
 |   **totalItems** | **Long**| **Yes** | Total number  |
 
-
-
-
 ## Role-related relations
-
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -2797,7 +1946,6 @@ For detailed response results, see Headers in the Response Body.
 |------------ | ------------- | ------------- |------------------|
 |   **roleRelations** | **List&lt;RoleRelationProtocol>**| **Yes** | role-related relations |
 
-
 ##### RoleRelationProtocol
 
 | Name | Type | Required | Description |
@@ -2813,7 +1961,6 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeId** | **String**| **Yes** | Condition attribute ID  |
 |   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
 |   **attributeValues** | **List&lt;String>**| **No** | Condition attribute value  |
-
 
 #### Response Body
 
@@ -2859,7 +2006,6 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
 <a name="updateRoleRelations"></a>
 ### **Edit role-related relations**
 > PUT "/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations"
@@ -2879,7 +2025,6 @@ For detailed response results, see Headers in the Response Body.
 |------------ | ------------- | ------------- |------------------|
 |   **roleRelations** | **List&lt;RoleRelationProtocol>**| **Yes** | Role-related realtions |
 
-
 ##### RoleRelationProtocol
 
 | Name | Type | Required | Description |
@@ -2896,7 +2041,6 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
 |   **attributeValues** | **List&lt;String>**| **No** | Condition attribute value  |
 
-
 #### Response Body
 
 ```json
@@ -2909,10 +2053,7 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ## Scope
-
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -2924,14 +2065,11 @@ For detailed response results, see Headers in the Response Body.
 | **POST** |[**/role/v3.0/appkeys/{appKey}/scopes/search**](#postSearchScopes) | Get a list of scopes |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/scopes/{scopeId}**](#updateScope) | Modify scope |
 
-
 <a name="createScope"></a>
 ### **Create a scope**
 > POST "/role/v3.0/appkeys/{appKey}/scopes"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -2939,26 +2077,12 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 | Request Body | **CreateScope.Request** | **CreateScope.Request**| **Yes** |  | |
 
-
-
-
-
 ##### CreateScope.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **description** | **String**| **No** | Scope description  |
 |   **scopeId** | **String**| **Yes** | Scope ID  |
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -2971,12 +2095,6 @@ For detailed response results, see Headers in the Response Body.
   }
 }
 ```
-
-
-
-
-
-
 
 <a name="deleteScope"></a>
 ### **Delete a scope**
@@ -2984,21 +2102,11 @@ For detailed response results, see Headers in the Response Body.
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** |  | 
 |  Path |**scopeId** | **String**| **Yes** |  | 
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -3011,7 +2119,6 @@ For detailed response results, see Headers in the Response Body.
   }
 }
 ```
-
 
 <a name="deleteScopes"></a>
 ### **Delete scopes**
@@ -3025,7 +2132,6 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**appKey** | **String**| **Yes** | Appkey |
 | Request Body |**scopeIds** |  **List&lt;String>**| **Yes** | Scope IDs |
 
-
 #### Response Body
 
 ```json
@@ -3038,16 +2144,11 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
-
 <a name="getAllScopeIds"></a>
 ### **Get a list of all scope IDs**
 > GET "/role/v3.0/appkeys/{appKey}/scopes/id"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -3057,16 +2158,6 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**page** | **Integer**| **No** | The page number you want to search (default 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | Number of searches per page for which you want results (default 10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `id.scopeId,ASC`)|
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -3082,25 +2173,12 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetAllScopeIds.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **scopeIds** | **List&lt;String>**| **No** | List of Scope IDs  |
 |   **totalItems** | **Long**| **Yes** | Total number  |
-
-
-
-
-
-
-
-
-
-
 
 <a name="getScope"></a>
 ### **Get a single scope**
@@ -3108,21 +2186,11 @@ For detailed response results, see Headers in the Response Body.
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** |  | 
 |  Path |**scopeId** | **String**| **Yes** |  | 
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -3140,44 +2208,24 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetScope.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- |-------------|
 |   **scope** | **ScopeProtocol**| **No** | Scope          |
 
-
 ##### ScopeProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **description** | **String**| **No** | Scope description  |
 |   **scopeId** | **String**| **Yes** | Scope ID  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="postSearchScopes"></a>
 ### **Get a list of scopes**
 > POST "/role/v3.0/appkeys/{appKey}/scopes/search"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -3188,30 +2236,13 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `id.scopeId,ASC`)|
 | Request Body | **PostSearchScopes.Request** | **PostSearchScopes.Request**| **Yes** |  | |
 
-
-
-
-
 ##### PostSearchScopes.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **descriptionLike** | **String**| **No** | Scope description (partial match)  |
 |   **scopeIdPreLike** | **String**| **No** | Scope ID (forward match)  |
 |   **scopeIds** | **List&lt;String>**| **No** | List of scope IDs (exact match)  |
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -3233,46 +2264,25 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### PostSearchScopes.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **scopes** | **List<ScopeProtocol>**| **No** | Scope list  |
 |   **totalItems** | **Long**| **No** | Total number of scopes  |
 
-
 ##### ScopeProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **description** | **String**| **No** | Scope description  |
 |   **scopeId** | **String**| **Yes** | Scope ID  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="updateScope"></a>
 ### **Modify scope**
 > PUT "/role/v3.0/appkeys/{appKey}/scopes/{scopeId}"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -3281,25 +2291,11 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**scopeId** | **String**| **Yes** |  | 
 | Request Body | **UpdateScope.Request** | **UpdateScope.Request**| **Yes** |  | |
 
-
-
-
-
-
 ##### UpdateScope.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **description** | **String**| **No** | Description  |
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -3315,7 +2311,6 @@ For detailed response results, see Headers in the Response Body.
 
 ## Resource
 
-
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources**](#createResource) | Create Resources |
@@ -3327,14 +2322,11 @@ For detailed response results, see Headers in the Response Body.
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources/search**](#searchResources) | Get a list of resources |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#updateResource) | Modify Resources |
 
-
 <a name="createResource"></a>
 ### **Create Resources**
 > POST "/role/v3.0/appkeys/{appKey}/resources"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -3342,12 +2334,7 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 | Request Body | **CreateResource.Request** | **CreateResource.Request**| **Yes** |  | |
 
-
-
-
-
 ##### CreateResource.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -3359,20 +2346,6 @@ For detailed response results, see Headers in the Response Body.
 |   **resourceId** | **String**| **No** | Resource ID  |
 |   **uiPath** | **String**| **Yes** | Resource UI Path  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### Response Body
 
 ```json
@@ -3384,12 +2357,6 @@ For detailed response results, see Headers in the Response Body.
   }
 }
 ```
-
-
-
-
-
-
 
 <a name="deleteResource"></a>
 ### **Delete Resource**
@@ -3397,21 +2364,11 @@ For detailed response results, see Headers in the Response Body.
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 |  Path |**resourceId** | **String**| **Yes** | Resource ID | 
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -3424,7 +2381,6 @@ For detailed response results, see Headers in the Response Body.
   }
 }
 ```
-
 
 <a name="deleteResources"></a>
 ### **Delete resources**
@@ -3438,7 +2394,6 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**appKey** | **String**| **Yes** | Appkey |
 | Request Body |**resourceIds** |  **List&lt;String>**| **Yes** | Resource IDs |
 
-
 #### Response Body
 
 ```json
@@ -3451,30 +2406,17 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
-
 <a name="getResource"></a>
 ### **Single resource lookup**
 > GET "/role/v3.0/appkeys/{appKey}/resources/{resourceId}"
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 |  Path |**resourceId** | **String**| **Yes** | Resource ID | 
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -3497,18 +2439,13 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetResource.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- |-------------|
 |   **resource** | **ResourceProtocol**| **No** | Resource         |
 
-
 ##### ResourceProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -3520,31 +2457,11 @@ For detailed response results, see Headers in the Response Body.
 |   **resourceId** | **String**| **No** | Resource ID  |
 |   **uiPath** | **String**| **Yes** | Resource UI Path  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="getResourceIds"></a>
 ### **Get a list of resource IDs**
 > POST "/role/v3.0/appkeys/{appKey}/resources/id"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -3555,12 +2472,7 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `id.resourceId,ASC`)|
 | Request Body | **GetAllResourceIds.Request** | **GetAllResourceIds.Request**| **Yes** |  | |
 
-
-
-
-
 ##### GetAllResourceIds.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- |-------------|
@@ -3568,19 +2480,6 @@ For detailed response results, see Headers in the Response Body.
 |   **resourceIdPreLike** | **String**| **No** | User IDs that have access to the resource      |
 |   **roleIds** | **List&lt;String>**| **No** | Role ID assigned to the resource      |
 |   **userIds** | **List&lt;String>**| **No** | Operation ID assigned to the resource      |
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -3596,33 +2495,18 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetAllResourceIds.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **resourceIds** | **List&lt;String>**| **Yes** | Resource ID list  |
 |   **totalItems** | **Long**| **Yes** | Total number  |
 
-
-
-
-
-
-
-
-
-
-
 <a name="searchAttributesByResource"></a>
 ### **Get a list of all condition attributes that can be set in a role**
 > POST "/role/v3.0/appkeys/{appKey}/resources/attributes/search"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -3633,30 +2517,13 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `id.attributeId,ASC`)|
 | Request Body | **SearchResourceAttributes.Request** | **SearchResourceAttributes.Request**| **Yes** |  | |
 
-
-
-
-
 ##### SearchResourceAttributes.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **operationId** | **String**| **Yes** | Operation ID  |
 |   **resourceId** | **String**| **No** | Resource ID, or by ID only if both ID and Path are present  |
 |   **resourcePath** | **String**| **No** | Resource Path  |
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -3680,10 +2547,7 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### SearchResourceAttributes.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -3691,7 +2555,6 @@ For detailed response results, see Headers in the Response Body.
 |   **totalItems** | **Long**| **Yes** | Total number  |
 
 ##### AttributeProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -3701,31 +2564,11 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeName** | **String**| **No** | Condition attribute name  |
 |   **description** | **String**| **No** | Condition attribute description  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="searchResources"></a>
 ### **Get a list of resources**
 > POST "/role/v3.0/appkeys/{appKey}/resources/search"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -3736,12 +2579,7 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `uiPath,ASC`)|
 | Request Body | **PostSearchResources.Request** | **PostSearchResources.Request**| **Yes** |  | |
 
-
-
-
-
 ##### PostSearchResources.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -3757,27 +2595,6 @@ For detailed response results, see Headers in the Response Body.
 |   **scopeIds** | **List&lt;String>**| **No** | List of scope IDs accessible to the resource  |
 |   **searchRoleOptionCode** | **String**| **No** | How to retrieve the list of accessible roles DIRECT_ROLE, INDIRECT_ROLE |
 |   **userIds** | **List&lt;String>**| **No** | List of user IDs that have access to the resource  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -3809,19 +2626,14 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### PostSearchResources.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **Resources** | **List<ResourceProtocol>**| **Yes** | Resource List  |
 |   **totalItems** | **Long**| **Yes** | Total number  |
 
-
 ##### ResourceProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -3833,32 +2645,11 @@ For detailed response results, see Headers in the Response Body.
 |   **resourceId** | **String**| **No** | Resource ID  |
 |   **uiPath** | **String**| **Yes** | Resource UI Path  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="updateResource"></a>
 ### **Modify Resources**
 > PUT "/role/v3.0/appkeys/{appKey}/resources/{resourceId}"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -3867,13 +2658,7 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**resourceId** | **String**| **Yes** | Resource ID | 
 | Request Body | **UpdateResource.Request** | **UpdateResource.Request**| **Yes** |  | |
 
-
-
-
-
-
 ##### UpdateResource.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -3884,20 +2669,6 @@ For detailed response results, see Headers in the Response Body.
 |   **path** | **String**| **Yes** | Resource Path  |
 |   **priority** | **Integer**| **Yes** | Priority  |
 |   **uiPath** | **String**| **Yes** | Resource UI Path  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -3913,20 +2684,16 @@ For detailed response results, see Headers in the Response Body.
 
 ## Resource hierarchy
 
-
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | **GET** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}/sub-resources**](#getSubResources) | Viewing child resource pages on a UI PATH |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources/hierarchy/search**](#searchAllResourceHierarchy) | Get Resource Hierarchy |
-
 
 <a name="getSubResources"></a>
 ### **Viewing child resource pages on a UI PATH**
 > GET "/role/v3.0/appkeys/{appKey}/resources/{resourceId}/sub-resources"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -3940,21 +2707,6 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**depth** | **Integer**| **No** | Hierarchy depth of children in the Resource UI Path |
 |  Query |**limit** | **Integer**| **No** | The position of the list to return. default: INT_MAX |
 |  Query |**offset** | **Integer**| **No** | The starting position of the list to return. default: 0 |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -3986,19 +2738,14 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetSubResources.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **Resources** | **List<ResourceProtocol>**| **No** | Resource List  |
 |   **totalItemCount** | **Long**| **No** | Total number of resources  |
 
-
 ##### ResourceProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -4010,32 +2757,11 @@ For detailed response results, see Headers in the Response Body.
 |   **resourceId** | **String**| **No** | Resource ID  |
 |   **uiPath** | **String**| **Yes** | Resource UI Path  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="searchAllResourceHierarchy"></a>
 ### **Get Resource Hierarchy**
 > POST "/role/v3.0/appkeys/{appKey}/resources/hierarchy/search"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -4043,13 +2769,7 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 | Request Body | **SearchResourceHierarchy.Request** | **SearchResourceHierarchy.Request**| **Yes** |  | |
 
-
-
-
-
-
 ##### SearchResourceHierarchy.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- |-------------|
@@ -4060,20 +2780,6 @@ For detailed response results, see Headers in the Response Body.
 |   **roleIds** | **List&lt;String>**| **No** | List of Root Resource IDs in the hierarchy            |
 |   **scopeIds** | **List&lt;String>**| **No** | Root Resource Path in the hierarchy            |
 |   **userIds** | **List&lt;String>**| **No** | Root Resource Ui Path in Hierarchy            |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -4106,18 +2812,13 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### SearchResourceHierarchy.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **Resources** | **Set<SearchResourceHierarchy.ResourceHierarchyProtocol>**| **No** | Resource hierarchy list  |
 
-
 ##### SearchResourceHierarchy.ResourceHierarchyProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -4130,14 +2831,7 @@ For detailed response results, see Headers in the Response Body.
 |   **Resources** | **Set<SearchResourceHierarchy.ResourceHierarchyProtocol>**| **No** | List of resources in the child hierarchy  |
 |   **uiPath** | **String**| **Yes** | Resource UI Path  |
 
-
-
-
-
-
-
 ##### SearchResourceHierarchy.ResourceHierarchyProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -4150,14 +2844,7 @@ For detailed response results, see Headers in the Response Body.
 |   **Resources** | **Set<SearchResourceHierarchy.ResourceHierarchyProtocol>**| **No** | List of resources in the child hierarchy  |
 |   **uiPath** | **String**| **Yes** | Resource UI Path  |
 
-
-
-
-
-
-
 ##### SearchResourceHierarchy.ResourceHierarchyProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -4170,14 +2857,7 @@ For detailed response results, see Headers in the Response Body.
 |   **Resources** | **Set<SearchResourceHierarchy.ResourceHierarchyProtocol>**| **No** | List of resources in the child hierarchy  |
 |   **uiPath** | **String**| **Yes** | Resource UI Path  |
 
-
-
-
-
-
-
 ##### SearchResourceHierarchy.ResourceHierarchyProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -4189,42 +2869,10 @@ For detailed response results, see Headers in the Response Body.
 |   **resourceId** | **String**| **No** | Resource ID  |
 |   **Resources** | **Set<SearchResourceHierarchy.ResourceHierarchyProtocol>**| **No** | List of resources in the child hierarchy  |
 |   **uiPath** | **String**| **Yes** | Resource UI Path  |
-
-
-
-
-
-
 
 (../Models/SearchResourceHierarchy.ResourceHierarchyProtocol.md)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## User-related Role
-
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -4232,14 +2880,11 @@ For detailed response results, see Headers in the Response Body.
 | **GET** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations**](#getAuthorizations) | Get a list of resource role relations |
 | **DELETE** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations**](#removeAuthorization) | Delete a resource role relation |
 
-
 <a name="addAuthorization"></a>
 ### **Add a resource role relation**
 > POST "/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -4248,29 +2893,13 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**resourceId** | **String**| **Yes** | Resource ID | 
 | Request Body | **AddAuthorization.Request** | **AddAuthorization.Request**| **Yes** |  | |
 
-
-
-
-
-
 ##### AddAuthorization.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **operationId** | **String**| **Yes** | Operation ID  |
 |   **propagation** | **Boolean**| **No** | Whether to apply the specified role equally to all parent paths except Root.  |
 |   **roleId** | **String**| **Yes** | Role ID  |
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -4284,33 +2913,17 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
-
-
-
-
 <a name="getAuthorizations"></a>
 ### **Get a list of resource role relations**
 > GET "/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations"
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 |  Path |**resourceId** | **String**| **Yes** | Resource ID | 
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -4333,10 +2946,7 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetAuthorizations.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -4344,35 +2954,17 @@ For detailed response results, see Headers in the Response Body.
 
 ##### ResourceAuthorizationProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **operationId** | **String**| **Yes** | Operation ID  |
 |   **resourceId** | **String**| **Yes** | Resource ID  |
 |   **roleId** | **String**| **Yes** | Role Id  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="removeAuthorization"></a>
 ### **Delete a resource role relation**
 > DELETE "/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -4381,16 +2973,6 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**resourceId** | **String**| **Yes** | Resource ID | 
 |  Query |**operationId** | **String**| **Yes** | Operation ID | 
 |  Query |**roleId** | **String**| **Yes** | Role ID | 
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -4406,7 +2988,6 @@ For detailed response results, see Headers in the Response Body.
 
 ## Operations
 
-
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/operations**](#createOperation) | Create an operation |
@@ -4417,14 +2998,11 @@ For detailed response results, see Headers in the Response Body.
 | **POST** |[**/role/v3.0/appkeys/{appKey}/operations/search**](#postSearchOperation) | Get Operations List (Conditions/Paging) |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/operations/{operationId}**](#updateOperation) | Modifying operations |
 
-
 <a name="createOperation"></a>
 ### **Create an operation**
 > POST "/role/v3.0/appkeys/{appKey}/operations"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -4432,26 +3010,12 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 | Request Body | **CreateOperation.Request** | **CreateOperation.Request**| **Yes** |  | |
 
-
-
-
-
 ##### CreateOperation.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **description** | **String**| **No** | Operation description  |
 |   **operationId** | **String**| **Yes** | Operation ID  |
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -4464,12 +3028,6 @@ For detailed response results, see Headers in the Response Body.
   }
 }
 ```
-
-
-
-
-
-
 
 <a name="deleteOperation"></a>
 ### **Delete operations**
@@ -4477,21 +3035,11 @@ For detailed response results, see Headers in the Response Body.
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** |  | 
 |  Path |**operationId** | **String**| **Yes** |  | 
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -4504,7 +3052,6 @@ For detailed response results, see Headers in the Response Body.
   }
 }
 ```
-
 
 <a name="deleteOperations"></a>
 ### **Delete operatios**
@@ -4518,7 +3065,6 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**appKey** | **String**| **Yes** | Appkey |
 | Request Body |**operationIds** |  **List&lt;String>**| **Yes** | Operation IDs |
 
-
 #### Response Body
 
 ```json
@@ -4531,30 +3077,17 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
-
 <a name="getOperation"></a>
 ### **Single operation lookup**
 > GET "/role/v3.0/appkeys/{appKey}/operations/{operationId}"
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** |  | 
 |  Path |**operationId** | **String**| **Yes** |  | 
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -4573,18 +3106,13 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetOperation.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- |-------------|
 |   **operation** | **OperationResponseProtocol**| **Yes** | Operations       |
 
-
 ##### OperationResponseProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -4592,27 +3120,11 @@ For detailed response results, see Headers in the Response Body.
 |   **description** | **String**| **No** | Operation description  |
 |   **operationId** | **String**| **Yes** | Operation ID  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="getOperationIdByPageable"></a>
 ### **Get all operation IDs**
 > GET "/role/v3.0/appkeys/{appKey}/operations/id"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -4622,16 +3134,6 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**page** | **Integer**| **No** | The page number you want to search (default 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | Number of searches per page for which you want results (default 10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `id.operationId,ASC`)|
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -4647,33 +3149,18 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetAllOperationIds.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **operationIds** | **List&lt;String>**| **Yes** | Operation ID list  |
 |   **totalItems** | **Long**| **Yes** | Total number  |
 
-
-
-
-
-
-
-
-
-
-
 <a name="postSearchOperation"></a>
 ### **Get Operations List (Conditions/Paging)**
 > POST "/role/v3.0/appkeys/{appKey}/operations/search"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -4684,30 +3171,13 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `id.operationId,ASC`)|
 | Request Body | **PostSearchOperations.Request** | **PostSearchOperations.Request**| **Yes** |  | |
 
-
-
-
-
 ##### PostSearchOperations.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **descriptionLike** | **String**| **No** | Operation description (partial match)  |
 |   **operationIdPreLike** | **String**| **No** | Operation ID (forward matching)  |
 |   **operationIds** | **List&lt;String>**| **No** | Operation ID list (exact match)  |
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -4731,19 +3201,14 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### PostSearchOperations.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **operations** | **List<OperationResponseProtocol>**| **Yes** | List of operations  |
 |   **totalItems** | **Long**| **Yes** | Total number  |
 
-
 ##### OperationResponseProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -4751,28 +3216,11 @@ For detailed response results, see Headers in the Response Body.
 |   **description** | **String**| **No** | Operation description  |
 |   **operationId** | **String**| **Yes** | Operation ID  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="updateOperation"></a>
 ### **Modifying operations**
 > PUT "/role/v3.0/appkeys/{appKey}/operations/{operationId}"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -4781,25 +3229,11 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**operationId** | **String**| **Yes** |  | 
 | Request Body | **UpdateOperation.Request** | **UpdateOperation.Request**| **Yes** |  | |
 
-
-
-
-
-
 ##### UpdateOperation.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **description** | **String**| **No** | Operation description  |
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -4826,14 +3260,11 @@ For detailed response results, see Headers in the Response Body.
 | **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/search**](#searchAttributes) | Get a list of condition attributes |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}**](#updateAttribute) | Modify condition attributes |
 
-
 <a name="createAttribute"></a>
 ### **Create condition attribute**
 > POST "/role/v3.0/appkeys/{appKey}/attributes"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -4841,12 +3272,7 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 | Request Body | **CreateAttribute.Request** | **CreateAttribute.Request**| **Yes** |  | |
 
-
-
-
-
 ##### CreateAttribute.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -4857,19 +3283,6 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeTagIds** | **List&lt;String>**| **No** | List of condition attribute tag IDs  |
 |   **description** | **String**| **No** | Condition attribute description  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### Response Body
 
 ```json
@@ -4882,19 +3295,11 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
-
-
-
-
 <a name="deleteAttribute"></a>
 ### **Delete condition attribute**
 > DELETE "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -4903,15 +3308,6 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**attributeId** | **String**| **Yes** | Condition attribute ID | 
 |  Query |**forceDelete** | **Boolean**| **No** | Force delete, default (false) |
 
-
-
-
-
-
-
-
-
-
 #### Response Body
 
 ```json
@@ -4923,7 +3319,6 @@ For detailed response results, see Headers in the Response Body.
   }
 }
 ```
-
 
 <a name="deleteAttributes"></a>
 ### **Delete condition attributes**
@@ -4950,30 +3345,17 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
-
 <a name="getAttribute"></a>
 ### **Single lookup of condition attribute**
 > GET "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}"
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 |  Path |**attributeId** | **String**| **Yes** | Condition attribute ID | 
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -5019,10 +3401,7 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetAttribute.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- |-------------|
@@ -5030,7 +3409,6 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeInUse** | **Boolean**| **Yes** | Whether to use condition attributes |
 
 ##### AttributeBundleProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5042,12 +3420,7 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeTags** | **List&lt;AttributeTagProtocol>**| **Yes** | Condition attribute tag ID  |
 |   **description** | **String**| **No** | Condition attribute description  |
 
-
-
-
-
 ##### AttributeRoleRelationProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5059,19 +3432,7 @@ For detailed response results, see Headers in the Response Body.
 |   **roleId** | **String**| **Yes** | Role ID  |
 |   **roleName** | **String**| **No** | Role name  |
 
-
-
-
-
-
-
-
-
-
-
-
 ##### AttributeTagProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5079,34 +3440,11 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeTagId** | **String**| **Yes** | Condition attribute tag ID  |
 |   **regYmdt** | **Date**| **Yes** | When the condition attribute tag was created  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="searchAttributeIds"></a>
 ### **Get a list of condition attribute IDs**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/id"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -5117,12 +3455,7 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `id.attributeId,ASC`)|
 | Request Body | **SearchAttributes.Request** | **SearchAttributes.Request**| **Yes** |  | |
 
-
-
-
-
 ##### SearchAttributes.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5134,23 +3467,6 @@ For detailed response results, see Headers in the Response Body.
 |   **descriptionLike** | **String**| **No** | Condition attribute descriptions (partial match)  |
 |   **roleIdPreLike** | **String**| **No** | Role ID (forward match)  |
 |   **roleIds** | **List&lt;String>**| **No** | Role ID list (exact match)  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -5166,33 +3482,18 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### SearchAttributeIds.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeIds** | **List&lt;String>**| **Yes** | Condition attribute IDs  |
 |   **totalItems** | **Long**| **Yes** | Total number of roles  |
 
-
-
-
-
-
-
-
-
-
-
 <a name="searchAttributes"></a>
 ### **Get a list of condition attributes**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/search"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -5203,12 +3504,7 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `id.attributeId,ASC`)|
 | Request Body | **SearchAttributes.Request** | **SearchAttributes.Request**| **Yes** |  | |
 
-
-
-
-
 ##### SearchAttributes.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5220,23 +3516,6 @@ For detailed response results, see Headers in the Response Body.
 |   **descriptionLike** | **String**| **No** | Condition attribute descriptions (partial match)  |
 |   **roleIdPreLike** | **String**| **No** | Role ID (forward match)  |
 |   **roleIds** | **List&lt;String>**| **No** | Role ID list (exact match)  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -5312,10 +3591,7 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### SearchAttributes.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5323,7 +3599,6 @@ For detailed response results, see Headers in the Response Body.
 |   **totalItems** | **Long**| **Yes** | Total number of roles  |
 
 ##### AttributeBundleProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5335,12 +3610,7 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeTags** | **List&lt;AttributeTagProtocol>**| **Yes** | Condition attribute tag ID  |
 |   **description** | **String**| **No** | Condition attribute description  |
 
-
-
-
-
 ##### AttributeRoleRelationProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5352,19 +3622,7 @@ For detailed response results, see Headers in the Response Body.
 |   **roleId** | **String**| **Yes** | Role ID  |
 |   **roleName** | **String**| **No** | Role name  |
 
-
-
-
-
-
-
-
-
-
-
-
 ##### AttributeTagProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5372,34 +3630,11 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeTagId** | **String**| **Yes** | Condition attribute tag ID  |
 |   **regYmdt** | **Date**| **Yes** | When the condition attribute tag was created  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="updateAttribute"></a>
 ### **Modify condition attributes**
 > PUT "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -5408,13 +3643,7 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**attributeId** | **String**| **Yes** | Condition attribute ID | 
 | Request Body | **UpdateAttribute.Request** | **UpdateAttribute.Request**| **Yes** |  | |
 
-
-
-
-
-
 ##### UpdateAttribute.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5423,18 +3652,6 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeRoleRelationIds** | **List&lt;String>**| **No** | List of role IDs associated with the condition attribute  |
 |   **attributeTagIds** | **List&lt;String>**| **No** | List of condition attribute tag IDs  |
 |   **description** | **String**| **No** | Condition attribute description  |
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -5450,12 +3667,10 @@ For detailed response results, see Headers in the Response Body.
 
 ## Condition attribute data types
 
-
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/data-types**](#getAttributeDataType) | Get condition attribute data types |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/condition/validate**](#validateConditionValues) | Validating condition values |
-
 
 <a name="getAttributeDataType"></a>
 ### **Get condition attribute data types**
@@ -5463,19 +3678,10 @@ For detailed response results, see Headers in the Response Body.
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -5512,10 +3718,7 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetAttributeDataTypeResponse
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5523,15 +3726,12 @@ For detailed response results, see Headers in the Response Body.
 
 ##### GetAttributeDataTypeResponse.AttributeDataTypeProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **dataType** | **String**| **Yes** | Condition attribute data types  |
 |   **operators** | **List&lt;GetAttributeDataTypeResponse.AttributeOperatorTypeProtocol>**| **Yes** | Operators available for condition attributes  |
 
-
 ##### GetAttributeDataTypeResponse.AttributeOperatorTypeProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5539,32 +3739,11 @@ For detailed response results, see Headers in the Response Body.
 |   **min** | **Integer**| **Yes** | Minimum number of values an operator can take  |
 |   **operatorTypeCode** | **String**| **Yes** | Operator  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <a name="validateConditionValues"></a>
 ### **Validating condition values**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/condition/validate"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -5572,12 +3751,7 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 | Request Body | **ValidateConditionValuesRequest** | **ValidateConditionValuesRequest**| **Yes** |  | |
 
-
-
-
-
 ##### ValidateConditionValuesRequest
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5585,26 +3759,11 @@ For detailed response results, see Headers in the Response Body.
 
 ##### ConditionProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeId** | **String**| **Yes** | Condition attribute ID  |
 |   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
 |   **attributeValues** | **List&lt;String>**| **No** | Condition attribute value  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -5618,9 +3777,7 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
 ## Condition attribute role associations
-
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -5628,14 +3785,11 @@ For detailed response results, see Headers in the Response Body.
 | **DELETE** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles**](#deleteAttributeRoleRelations) | Delete multiple roles associated with condition attributes |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles/search**](#searchAttributeRoleRelations) | Get roles associated with condition attributes |
 
-
 <a name="createAttributeRoleRelations"></a>
 ### **Create multiple roles associated with condition attributes**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -5644,25 +3798,11 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**attributeId** | **String**| **Yes** | Condition attribute ID | 
 | Request Body | **CreateAttributeRoleRelations.Request** | **CreateAttributeRoleRelations.Request**| **Yes** |  | |
 
-
-
-
-
-
 ##### CreateAttributeRoleRelations.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeRoleRelationIds** | **List&lt;String>**| **Yes** | List of role IDs associated with the condition attribute  |
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -5676,19 +3816,11 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
-
-
-
-
 <a name="deleteAttributeRoleRelations"></a>
 ### **Delete multiple roles associated with condition attributes**
 > DELETE "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -5697,25 +3829,11 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**attributeId** | **String**| **Yes** | Condition attribute ID | 
 | Request Body | **DeleteAttributeRoleRelations.Request** | **DeleteAttributeRoleRelations.Request**| **Yes** |  | |
 
-
-
-
-
-
 ##### DeleteAttributeRoleRelations.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeRoleRelationIds** | **List&lt;String>**| **Yes** | List of role IDs associated with the condition attribute  |
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -5729,19 +3847,11 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
-
-
-
-
 <a name="searchAttributeRoleRelations"></a>
 ### **Get roles associated with condition attributes**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles/search"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -5753,31 +3863,13 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `attribute.id.attributeId,ASC`)|
 | Request Body | **SearchAttributeRoleRelations.Request** | **SearchAttributeRoleRelations.Request**| **Yes** |  | |
 
-
-
-
-
-
 ##### SearchAttributeRoleRelations.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **roleIdPreLike** | **String**| **No** | Role ID associated with condition attributes (front match)  |
 |   **roleIds** | **List&lt;String>**| **No** | Role IDs associated with condition attributes (exact match)  |
 |   **searchRoleOptionCode** | **String**| **No** |   DIRECT_ROLE, INDIRECT_ROLE |
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -5809,10 +3901,7 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### SearchAttributeRoleRelations.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5820,7 +3909,6 @@ For detailed response results, see Headers in the Response Body.
 |   **totalItems** | **Long**| **Yes** | Total number of roles  |
 
 ##### AttributeRoleRelationProtocol
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5832,26 +3920,7 @@ For detailed response results, see Headers in the Response Body.
 |   **roleId** | **String**| **Yes** | Role ID  |
 |   **roleName** | **String**| **No** | Role name  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Condition Attribute Tag
-
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -5860,14 +3929,11 @@ For detailed response results, see Headers in the Response Body.
 | **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/tags/id**](#searchAttributeTagIds) | Get a list of condition attribute tag IDs |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/tags/search**](#searchAttributeTags) | Get a list of condition attribute tags |
 
-
 <a name="createAttributeTags"></a>
 ### **Create condition attribute tag**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/tags"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -5876,25 +3942,11 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**attributeId** | **String**| **Yes** | Condition attribute ID | 
 | Request Body | **CreateAttributeTags.Request** | **CreateAttributeTags.Request**| **Yes** |  | |
 
-
-
-
-
-
 ##### CreateAttributeTags.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeTagIds** | **List&lt;String>**| **Yes** | List of condition attribute tag IDs  |
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -5908,19 +3960,11 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
-
-
-
-
 <a name="deleteAttributeTags"></a>
 ### **Delete condition attribute tag**
 > DELETE "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/tags"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -5929,25 +3973,11 @@ For detailed response results, see Headers in the Response Body.
 |  Path |**attributeId** | **String**| **Yes** | Condition attribute ID | 
 | Request Body | **DeleteAttributeTags.Request** | **DeleteAttributeTags.Request**| **Yes** |  | |
 
-
-
-
-
-
 ##### DeleteAttributeTags.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeTagIds** | **List&lt;String>**| **Yes** | List of condition attribute tag IDs  |
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -5961,19 +3991,11 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
-
-
-
-
 <a name="searchAttributeTagIds"></a>
 ### **Get a list of condition attribute tag IDs**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/tags/id"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -5984,12 +4006,7 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `id.attributeTagId,ASC`)|
 | Request Body | **SearchAttributeTagIds.Request** | **SearchAttributeTagIds.Request**| **Yes** |  | |
 
-
-
-
-
 ##### SearchAttributeTagIds.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -5997,19 +4014,6 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeIds** | **List&lt;String>**| **No** | Condition attribute ID list (exact match)  |
 |   **attributeTagIdPreLike** | **String**| **No** | Condition attribute tag ID (front match)  |
 |   **attributeTagIds** | **List&lt;String>**| **No** | Condition attribute tag ID list (exact match)  |
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -6025,33 +4029,18 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### SearchAttributeTagIds.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeTagIds** | **List&lt;String>**| **Yes** | List of condition attribute tag IDs  |
 |   **totalItems** | **Long**| **Yes** | Total number of roles  |
 
-
-
-
-
-
-
-
-
-
-
 <a name="searchAttributeTags"></a>
 ### **Get a list of condition attribute tags**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/tags/search"
 
 #### Parameters
-
-
 
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
@@ -6062,12 +4051,7 @@ For detailed response results, see Headers in the Response Body.
 |  Query |**sort** |  **List&lt;String>**| **No** | Sort order (default `id.attributeTagId,ASC`)|
 | Request Body | **SearchAttributeTags.Request** | **SearchAttributeTags.Request**| **Yes** |  | |
 
-
-
-
-
 ##### SearchAttributeTags.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -6075,19 +4059,6 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeIds** | **List&lt;String>**| **No** | Condition attribute ID list (exact match)  |
 |   **attributeTagIdPreLike** | **String**| **No** | Condition attribute tag ID (front match)  |
 |   **attributeTagIds** | **List&lt;String>**| **No** | Condition attribute tag ID list (exact match)  |
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -6111,10 +4082,7 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### SearchAttributeTags.Response
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -6123,29 +4091,13 @@ For detailed response results, see Headers in the Response Body.
 
 ##### AttributeTagProtocol
 
-
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeId** | **String**| **Yes** | Condition attribute ID  |
 |   **attributeTagId** | **String**| **Yes** | Condition attribute tag ID  |
 |   **regYmdt** | **Date**| **Yes** | When the condition attribute tag was created  |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Settings
-
 
 | Method | HTTP request | Description                            |
 |------------- | ------------- |----------------------------------------|
@@ -6153,26 +4105,16 @@ For detailed response results, see Headers in the Response Body.
 | **GET** |[**/role/v3.0/appkeys/{appKey}/config**](#getConfiguration) | Get settings                                  |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/config**](#updateConfig) | Modify settings                                  |
 
-
 <a name="deleteCache"></a>
 ### **Purge the cache of the server and client SDKs**
 > PUT "/role/v3.0/appkeys/{appKey}/config/cache-evict"
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -6185,12 +4127,6 @@ For detailed response results, see Headers in the Response Body.
   }
 }
 ```
-
-
-
-
-
-
 
 <a name="getConfiguration"></a>
 ### **Get settings**
@@ -6198,19 +4134,10 @@ For detailed response results, see Headers in the Response Body.
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
-
-
-
-
-
-
-
 
 #### Response Body
 
@@ -6224,23 +4151,11 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-
-
 ##### GetTenantConfigResponse
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
 |   **resourcePathTrailingSlashMatchPolicyCode** | **String**| **Yes** |   IDENTICAL_PATH, NON_IDENTICAL_PATH |
-
-
-
-
-
-
-
-
-
 
 <a name="updateConfig"></a>
 ### **Modify settings**
@@ -6248,20 +4163,13 @@ For detailed response results, see Headers in the Response Body.
 
 #### Parameters
 
-
-
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | SecretKey | 
 |  Path |**appKey** | **String**| **Yes** | Appkey | 
 | Request Body | **UpdateConfig.Request** | **UpdateConfig.Request**| **Yes** |  | |
 
-
-
-
-
 ##### UpdateConfig.Request
-
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
@@ -6270,8 +4178,6 @@ For detailed response results, see Headers in the Response Body.
 |   **cacheSizeTree** | **Integer**| **No** | Resource Path-based authentication cache size  |
 |   **cacheTtl** | **Integer**| **No** |  Cache data retention time (in seconds) |
 |   **resourcePathTrailingSlashMatchPolicyCode** | **String**| **No** |   IDENTICAL_PATH, NON_IDENTICAL_PATH |
-
-
 
 #### Response Body
 
