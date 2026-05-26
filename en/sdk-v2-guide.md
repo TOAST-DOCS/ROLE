@@ -3,13 +3,12 @@
 > In order to check authority using the ROLE service, 
 > the RESTful API have to be called or the client SDK have to be used.
 
-## AppKey & SecretKey
+## Authentication and Authorization 
 
-AppKey and SecretKey are required to use RESTful API and Client SDK.
-You can check the key information issued at the top left of [CONSOLE].
-
-![[Figure 1] Check AppKey and SecretKey](http://static.toastoven.net/prod_role/role_60.png)
-<center>[Figure 1] Check AppKey and SecretKey</center>
+AppKey and SecretKey are required to use the ROLE SDK.
+The Appkey is included in the request URL to identify and specify a particular resource when making API calls. A SecretKey is a private key used to control access to the API. 
+For more information on checking and using Appkeys and SecretKeys, please refer to [Appkey](/nhncloud/en/public-api/appkey).
+Alternatively, a Project-integrated Appkey can be used in place of Appkey. For more information on creating and using Project Integrated Appkeys, please refer to [Project Integrated Appkey](/nhncloud/en/public-api/project-integrated-appkey).
 
 ## Client SDK
 
@@ -22,9 +21,9 @@ Currently, we only support JAVA language.
 ### Usage Environment
 `JDK 11` or later version environments
 
-### Using the JAVA Client SDK with Maven
+### Using the Java Client SDK with Maven
 
-In order to use the JAVA client SDK, it is necessary to set the mean repository and dependency in pom.xml.
+In order to use the Java client SDK, it is necessary to set the mean repository and dependency in pom.xml.
 
 **[Maven Repository]** 
 It is stored in the Maven Central Repository, so no additional settings are required.
@@ -50,9 +49,9 @@ If you use another storage or do not reference Maven Central environment, set it
 </dependencies>
 ```
 
-### Using the JAVA Client SDK
+### Using the Java Client SDK
 
-To use the JAVA Client SDK, you first have to create an instance of the RoleClient object using the RoleClientFactory object.
+To use the Java Client SDK, you first have to create an instance of the RoleClient object using the RoleClientFactory object.
 Once you have created a RoleClient object, you may call the method provided by the object and process various tasks.
 
 **[RoleConfig]**
@@ -230,7 +229,6 @@ Page<User> user = client.getUsers(request, pageable);
 | user                 | User      |**Yes**|   ⚠️ Refer to `User` for the used model when requsted |
 | createUserIfNotExist | Boolean    |**No**| Whether to create when the user does not exist when requested |
 
-
 ```java
 User user = User.builder()
                  .userId("")
@@ -324,7 +322,7 @@ Page<UserRoleHistory> userRoleHistories = client.getUserRoleHistories(request, P
 |--------------|----------------|----|----------|
 | userId               | String         |**Yes**|   User ID      |
 | scopeId             | String          |**Yes**| Applicable ID
-| description|    String  |**No**| 설명|
+| description|    String  |**No**| Description |
 | createUserIfNotExist | Boolean    |**No**|  Whether to create when the user does not exist when requested |
 | roleRelations|  List&lt;UserRoleRelation> |**No**| Related role|
 
@@ -838,7 +836,7 @@ GetRoleAttributesRequest request = GetRoleAttributesRequest.builder()
                                                           .roleId("")
                                                           .attributeIds(List.of())
                                                           .attributeTagIds(List.of())
-                                                          .attributeNameLike(List.of()) 
+                                                          .attributeNameLike(List.of())
                                                           .build();
 Pageable pageable = Pageable.builder()
                            .page(1)
@@ -855,6 +853,28 @@ Page<Attribute> attributes = client.getRoleAttributes(request, pageable);
 String roleId = "";
 
 boolean result = client.isDeniable(roleId);
+```
+
+9. Retrieve a list of roles that include all sub-roles and permissions of a specific role
+
+> Retrieve a list of upward-compatible role IDs that include all direct sub-roles of the base role.
+
+**[GetContainingRolesRequest]**
+
+| Key         | Type            | Required | Description           |
+|-------------|-----------------|----------|-----------------------|
+| roleId      | String          |**Yes**| Role ID that serves as a base            |
+| roleTagIds  | List&lt;String> |**No**| Role tag ID list (OR condition)        |
+| roleGroups  | List&lt;String> |**No**| Role group list (OR condition)          |
+
+```java
+GetContainingRolesRequest request = GetContainingRolesRequest.builder()
+                                                             .roleId("")
+                                                             .roleTagIds(List.of())
+                                                             .roleGroups(List.of())
+                                                             .build();
+
+List<String> roleIds = client.getContainingRoleIds(request);
 ```
 
 #### 6. Role-related relations
@@ -1185,7 +1205,7 @@ GetRoleAuthorizationRequest getUserRequest = GetRoleAuthorizationRequest.builder
                                                                                                                     .attributeId("")
                                                                                                                     .attributeValue("")
                                                                                                                     .build()))
-                                                                        .build(); 
+                                                                        .build();
 
 boolean response = client.hasAuthorizationByRole(userId, request);
 ```
@@ -1260,8 +1280,8 @@ try {
                    .build(); 
  
    client.userCreate(user); 
-    
-    
+
+
    Role role = Role.builder() 
                    .roleMetaData(RoleMetaData.build() 
                                              .roleId("M1") 
@@ -1270,7 +1290,7 @@ try {
                                              .build()) 
                    .build(); 
  
-	// If Exception occurs here 
+   // If Exception occurs here 
 	// U1 will be created but M1 will not be created. 
 	client.createRole(role); 
 } catch (Exception e) { 
@@ -1295,8 +1315,8 @@ try {
                    .build(); 
  
    session.userCreate(user); 
-    
-    
+
+
    Role role = Role.builder() 
                    .roleMetaData(RoleMetaData.build() 
                                              .roleId("M1") 

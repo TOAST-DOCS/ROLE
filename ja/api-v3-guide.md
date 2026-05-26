@@ -3,13 +3,12 @@
 > ROLEサービスを利用して権限をチェックするためには
 > RESTful APIを呼び出すか、クライアントSDKを利用する必要があります。
 
-## アプリケーションキー&秘密鍵
+## 認証および権限
 
-RESTful APIとクライアントSDKを使用するには、アプリケーションキーと秘密鍵が必要です。
-[CONSOLE] 右上の**URL & Appkey**ボタンをクリックすると、発行キー情報を確認できます。
-
-![[図1]アプリケーションキー&秘密鍵確認](http://static.toastoven.net/prod_role/role_60.png)
-<center>[図1]アプリケーションキー&秘密鍵の確認</center>
+ROLE APIを使用するには、AppkeyとSecretKeyが必要です。
+Appkeyは、API呼び出し時にリクエストURLに含めて特定のリソースを指定し、識別するために使用されます。SecretKeyは、APIへのアクセスを制御するシークレットキーです。
+Appkey及びSecretKeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-api/appkey)を参照してください。
+Appkeyの代わりにプロジェクト統合Appkeyを使用することも可能です。プロジェクト統合Appkeyの作成及び使用に関する詳細は、[プロジェクト統合Appkey](/nhncloud/ja/public-api/project-integrated-appkey)を参照してください。
 
 ## RESTful APIガイド
 
@@ -75,7 +74,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 | Request Body | **CreateUserRequest** | **CreateUserRequest**| **Yes** |  | |
 
 
@@ -173,7 +172,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**userId** | **String**| **Yes** | ユーザーID | 
 
 
@@ -206,7 +205,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  |
 |------------- |------------- | ------------- | ------------- | ------------- |
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー |
+|  Path |**appKey** | **String**| **Yes** | アプリキー |
 | Request Body |**userIds** |  **List&lt;String>**| **Yes** | ユーザーIDリスト |
 
 
@@ -236,7 +235,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | ソート順序(デフォルト値`id.userId,ASC`)|
@@ -313,7 +312,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**userId** | **String**| **Yes** | ユーザーID | 
 |  Query |**searchRoleOptionCode** | **String**| **No** | アクセス可能なロールリスト検索方式 | [optional] [default to null] [enum: DIRECT_ROLE, INDIRECT_ROLE] |
 |  Query |**roleIds** |  **List&lt;String>**| **No** | 関連関係ロールID |
@@ -528,7 +527,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**userId** | **String**| **Yes** | ユーザーID | 
 |  Query |**roleId** | **String**| **No** | ロールID |
 |  Query |**scopeId** | **String**| **No** | スコープID |
@@ -678,7 +677,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | ソート順序(デフォルト値`id.userId,ASC`)|
@@ -999,7 +998,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description | 
 |------------- |------------- | ------------- | ------------- |-------------| 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵  |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー         | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー         | 
 |  Path |**userId** | **String**| **Yes** | ユーザーID      | 
 | Request Body | **PutUserRequest** | **PutUserRequest**| **Yes** | ユーザー        |
 
@@ -1092,7 +1091,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description |
 |------------- |------------- | ------------- | ------------- |-------------|
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵  |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー |
+|  Path |**appKey** | **String**| **Yes** | アプリキー |
 |  Path |**userId** | **String**| **Yes** | ユーザーID |
 |  Path |**scopeId** | **String**| **Yes** | スコープID |
 | Request Body | **putUserScopeRequest** | **PutUserScopeRequest**| **Yes** | ユーザー |
@@ -1162,7 +1161,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description | 
 |------------- |------------- | ------------- | ------------- |-------------| 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵  |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー         | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー         | 
 |  Path |**userId** | **String**| **Yes** | ユーザーID      | 
 | Request Body | **PostAuthorizationResource.Request** | **PostAuthorizationResource.Request**| **Yes** | リソースリスト     | |
 
@@ -1326,7 +1325,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**userId** | **String**| **Yes** | ユーザーID | 
 | Request Body | **PostAuthorizationRole.Request** | **PostAuthorizationRole.Request**| **Yes** |  | |
 
@@ -1478,6 +1477,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#getRole) | ロール単件照会 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/id**](#searchAllRoleIds) | すべてのロールIDリストの照会 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search**](#searchAttributesByRoleId) | ロールで設定可能なすべての条件属性リストの照会 |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search**](#searchContainingRoles) | 特定のロールの下位ロール/権限を全て含むロール一覧照会 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/roles/search**](#searchRoles) | ロールリストの照会 |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#updateRole) | ロール修正 |
 
@@ -1493,7 +1493,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 | Request Body | **CreateRoleRequest** | **CreateRoleRequest**| **Yes** |  | |
 
 
@@ -1608,7 +1608,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**roleId** | **String**| **Yes** | ロールID | 
 
 
@@ -1641,7 +1641,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  |
 |------------- |------------- | ------------- | ------------- | ------------- |
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー |
+|  Path |**appKey** | **String**| **Yes** | アプリキー |
 | Request Body |**roleIds** |  **List&lt;String>**| **Yes** | ロールIDリスト |
 
 
@@ -1671,7 +1671,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**roleId** | **String**| **Yes** | ロールID | 
 
 
@@ -1724,7 +1724,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**roleId** | **String**| **Yes** | ロールID | 
 
 
@@ -1842,7 +1842,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
-|   **appKey** | **String**| **Yes** | アプリケーションキー |
+|   **appKey** | **String**| **Yes** | アプリキー |
 |   **attributes** | **List&lt;AttributeProtocol>**| **No** | 条件属性リスト |
 |   **description** | **String**| **No** | ロールの説明 |
 |   **exposureOrder** | **Integer**| **Yes** | 表示順序 |
@@ -1975,7 +1975,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**roleIdPreLike** | **String**| **No** | ロールID(前方一致) |
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
@@ -2036,7 +2036,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description                                                | 
 |------------- |------------- | ------------- | ------------- |------------------------------------------------------------| 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵                                                 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー                                                        | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー                                                        | 
 |  Path |**roleId** | **String**| **Yes** | ロールID                                                      | 
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1)                                      | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10)                                 |  
@@ -2110,6 +2110,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 |   **attributeDataTypeCode** | **String**| **Yes** |   STRING, NUMERIC, DAY_OF_WEEK, DATETIME, TIME, IPADDRESS, BOOLEAN |
 |   **attributeId** | **String**| **Yes** | 条件属性ID  |
 |   **attributeName** | **String**| **No** | 条件属性名 |
+|   **attributeTagIds** | **List&lt;String>**| **No** | 条件プロパティタグID一覧 |
 |   **description** | **String**| **No** | 条件属性の説明 |
 
 
@@ -2120,6 +2121,77 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 
 
 
+
+
+
+
+
+
+
+
+
+
+<a name="searchContainingRoles"></a>
+### **特定のロールの下位ロール/権限を全て含むロール一覧照会**
+> POST "/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search"
+
+基準となるロール(`{roleId}`)の直接の下位ロール一覧を全て含む上位互換ロールID一覧を照会します。
+
+#### Parameters
+
+
+
+| ParameterType | Name | Type | Required | Description | 
+|------------- |------------- | ------------- | ------------- | ------------- | 
+|  Header |**X-Secret-Key** | **String**| **Yes** | シークレットキー |
+|  Path |**appKey** | **String**| **Yes** | アプリキー |
+|  Path |**roleId** | **String**| **Yes** | 基準となるロールID |
+| Request Body | **SearchContainingRoles.Request** | **SearchContainingRoles.Request**| **Yes** |  | |
+
+
+
+##### SearchContainingRoles.Request
+
+
+| Name | Type | Required | Description | 
+|------------ | ------------- | ------------- | ------------ |
+|   **roleTagIds** | **List&lt;String>**| **No** | ロールタグID一覧(OR条件) |
+|   **roleGroups** | **List&lt;String>**| **No** | ロールグループ一覧(OR条件) |
+
+
+#### Requestの例
+
+```json
+{
+  "roleTagIds" : [ "TAG_A", "TAG_B" ],
+  "roleGroups" : [ "GROUP_1" ]
+}
+```
+
+
+#### Response Body
+
+```json
+{
+  "header" : {
+    "isSuccessful" : true,
+    "resultCode" : 0,
+    "resultMessage" : "SUCCESS"
+  },
+  "totalItems" : 3,
+  "roleIds" : [ "ROLE_ADMIN", "ROLE_SUPER", "ROLE_MANAGER" ]
+}
+```
+
+
+
+##### SearchContainingRoles.Response
+
+
+| Name | Type | Required | Description | 
+|------------ | ------------- | ------------- | ------------ |
+|   **roleIds** | **List&lt;String>**| **Yes** | 上位互換ロールID一覧 |
+|   **totalItems** | **Long**| **Yes** | 全体数 |
 
 
 
@@ -2141,7 +2213,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description                                   | 
 |------------- |------------- | ------------- | ------------- |-----------------------------------------------| 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵                                    |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー                                           | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー                                           | 
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1)                         | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10)                    |  
 |  Query |**sort** |  **List&lt;String>**| **No** | ソート順序(デフォルト値`exposureOrder,ASC&quot;,&quot;id.roleId,ASC`)|
@@ -2376,7 +2448,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
-|   **appKey** | **String**| **Yes** | アプリケーションキー |
+|   **appKey** | **String**| **Yes** | アプリキー |
 |   **attributes** | **List&lt;AttributeProtocol>**| **No** | 条件属性リスト |
 |   **description** | **String**| **No** | ロールの説明 |
 |   **exposureOrder** | **Integer**| **Yes** | 表示順序 |
@@ -2510,7 +2582,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**roleId** | **String**| **Yes** | ロールID | 
 | Request Body | **UpdateRoleRequest** | **UpdateRoleRequest**| **Yes** |  | |
 
@@ -2628,7 +2700,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**roleTagIdPreLike** | **String**| **No** | ロールタグID(前方一致) |
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
@@ -2689,7 +2761,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  |
 |------------- |------------- | ------------- | ------------- | ------------- |
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー |
+|  Path |**appKey** | **String**| **Yes** | アプリキー |
 |  Path |**roleId** | **String**| **Yes** | ロールID |
 | Request Body | **CreateRoleRelationRequest** | **CreateRoleRelationRequest**| **Yes** |  | |
 
@@ -2738,7 +2810,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  |
 |------------- |------------- | ------------- | ------------- | ------------- |
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー |
+|  Path |**appKey** | **String**| **Yes** | アプリキー |
 |  Path |**roleId** | **String**| **Yes** | ロールID |
 | Request Body | **DeleteRoleRelationRequest** | **DeleteRoleRelationRequest**| **Yes** |  | |
 
@@ -2771,7 +2843,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  |
 |------------- |------------- | ------------- | ------------- | ------------- |
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー |
+|  Path |**appKey** | **String**| **Yes** | アプリキー |
 |  Path |**roleId** | **String**| **Yes** | ロールID |
 | Request Body | **UpdateRoleRelationRequest** | **UpdateRoleRelationRequest**| **Yes** |  | |
 
@@ -2838,7 +2910,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 | Request Body | **CreateScope.Request** | **CreateScope.Request**| **Yes** |  | |
 
 
@@ -2891,7 +2963,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**scopeId** | **String**| **Yes** | スコープID | 
 
 
@@ -2924,7 +2996,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  |
 |------------- |------------- | ------------- | ------------- | ------------- |
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー |
+|  Path |**appKey** | **String**| **Yes** | アプリキー |
 | Request Body |**scopeIds** |  **List&lt;String>**| **Yes** | スコープIDリスト |
 
 
@@ -2954,7 +3026,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**scopeIdPreLike** | **String**| **No** | スコープID(前方一致) |
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
@@ -3015,7 +3087,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**scopeId** | **String**| **Yes** | スコープID | 
 
 
@@ -3084,7 +3156,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | ソート順序(デフォルト値`id.scopeId,ASC`)|
@@ -3179,7 +3251,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**scopeId** | **String**| **Yes** | スコープID | 
 | Request Body | **UpdateScope.Request** | **UpdateScope.Request**| **Yes** |  | |
 
@@ -3241,7 +3313,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 | Request Body | **CreateResource.Request** | **CreateResource.Request**| **Yes** |  | |
 
 
@@ -3304,7 +3376,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**resourceId** | **String**| **Yes** | リソースID | 
 
 
@@ -3337,7 +3409,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  |
 |------------- |------------- | ------------- | ------------- | ------------- |
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー |
+|  Path |**appKey** | **String**| **Yes** | アプリキー |
 | Request Body |**resourceIds** |  **List&lt;String>**| **Yes** | リソースIDリスト |
 
 
@@ -3367,7 +3439,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**resourceId** | **String**| **Yes** | リソースID | 
 
 
@@ -3451,7 +3523,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | ソート順序(デフォルト値`id.resourceId,ASC`)|
@@ -3529,7 +3601,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | ソート順序(デフォルト値`id.attributeId,ASC`)|
@@ -3632,7 +3704,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | ソート順序(デフォルト値`uiPath,ASC`)|
@@ -3765,7 +3837,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**resourceId** | **String**| **Yes** | リソースID | 
 | Request Body | **UpdateResource.Request** | **UpdateResource.Request**| **Yes** |  | |
 
@@ -3833,7 +3905,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**resourceId** | **String**| **Yes** | リソースID | 
 |  Query |**userId** | **String**| **No** | ユーザーID |
 |  Query |**roleId** | **String**| **No** | ロールID |
@@ -3942,7 +4014,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 | Request Body | **SearchResourceHierarchy.Request** | **SearchResourceHierarchy.Request**| **Yes** |  | |
 
 
@@ -4145,7 +4217,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**resourceId** | **String**| **Yes** | リソースID | 
 | Request Body | **AddAuthorization.Request** | **AddAuthorization.Request**| **Yes** |  | |
 
@@ -4202,7 +4274,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**resourceId** | **String**| **Yes** | リソースID | 
 
 
@@ -4278,7 +4350,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**resourceId** | **String**| **Yes** | リソースID | 
 |  Query |**operationId** | **String**| **Yes** | オペレーションID | 
 |  Query |**roleId** | **String**| **Yes** | ロールID | 
@@ -4330,7 +4402,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 | Request Body | **CreateOperation.Request** | **CreateOperation.Request**| **Yes** |  | |
 
 
@@ -4383,7 +4455,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**operationId** | **String**| **Yes** | オペレーションID | 
 
 
@@ -4416,7 +4488,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  |
 |------------- |------------- | ------------- | ------------- | ------------- |
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー |
+|  Path |**appKey** | **String**| **Yes** | アプリキー |
 | Request Body |**operationIds** |  **List&lt;String>**| **Yes** | オペレーションIDリスト |
 
 
@@ -4446,7 +4518,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**operationId** | **String**| **Yes** | オペレーションID | 
 
 
@@ -4489,7 +4561,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
-|   **appKey** | **String**| **No** | アプリケーションキー |
+|   **appKey** | **String**| **No** | アプリキー |
 |   **description** | **String**| **No** | オペレーションの説明 |
 |   **operationId** | **String**| **Yes** | オペレーションID  |
 
@@ -4518,7 +4590,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**operationIdPreLike** | **String**| **No** | オペレーションID(前方一致) |
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
@@ -4579,7 +4651,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | ソート順序(デフォルト値`id.operationId,ASC`)|
@@ -4648,7 +4720,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
-|   **appKey** | **String**| **No** | アプリケーションキー |
+|   **appKey** | **String**| **No** | アプリキー |
 |   **description** | **String**| **No** | オペレーションの説明 |
 |   **operationId** | **String**| **Yes** | オペレーションID  |
 
@@ -4678,7 +4750,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**operationId** | **String**| **Yes** | オペレーションID | 
 | Request Body | **UpdateOperation.Request** | **UpdateOperation.Request**| **Yes** |  | |
 
@@ -4739,7 +4811,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 | Request Body | **CreateAttribute.Request** | **CreateAttribute.Request**| **Yes** |  | |
 
 
@@ -4800,7 +4872,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**attributeId** | **String**| **Yes** | 条件属性ID | 
 |  Query |**forceDelete** | **Boolean**| **No** | 強制削除、デフォルト値(false) |
 
@@ -4835,7 +4907,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  |
 |------------- |------------- | ------------- | ------------- | ------------- |
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー |
+|  Path |**appKey** | **String**| **Yes** | アプリキー |
 | Request Body |**attributeIds** |  **List&lt;String>**| **Yes** | 条件属性IDリスト |
 | Request Body |**forceDelete** | **Boolean**| **No** | 強制削除、デフォルト値(false) |
 
@@ -4865,7 +4937,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**attributeId** | **String**| **Yes** | 条件属性ID | 
 
 
@@ -5012,7 +5084,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | ソート順序(デフォルト値`id.attributeId,ASC`)|
@@ -5098,7 +5170,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | ソート順序(デフォルト値`id.attributeId,ASC`)|
@@ -5305,7 +5377,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**attributeId** | **String**| **Yes** | 条件属性ID | 
 | Request Body | **UpdateAttribute.Request** | **UpdateAttribute.Request**| **Yes** |  | |
 
@@ -5369,7 +5441,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 
 
 
@@ -5470,7 +5542,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 | Request Body | **ValidateConditionValuesRequest** | **ValidateConditionValuesRequest**| **Yes** |  | |
 
 
@@ -5541,7 +5613,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**attributeId** | **String**| **Yes** | 条件属性ID | 
 | Request Body | **CreateAttributeRoleRelations.Request** | **CreateAttributeRoleRelations.Request**| **Yes** |  | |
 
@@ -5594,7 +5666,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**attributeId** | **String**| **Yes** | 条件属性ID | 
 | Request Body | **DeleteAttributeRoleRelations.Request** | **DeleteAttributeRoleRelations.Request**| **Yes** |  | |
 
@@ -5647,7 +5719,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**attributeId** | **String**| **Yes** | 条件属性ID | 
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
@@ -5773,7 +5845,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**attributeId** | **String**| **Yes** | 条件属性ID | 
 | Request Body | **CreateAttributeTags.Request** | **CreateAttributeTags.Request**| **Yes** |  | |
 
@@ -5826,7 +5898,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Path |**attributeId** | **String**| **Yes** | 条件属性ID | 
 | Request Body | **DeleteAttributeTags.Request** | **DeleteAttributeTags.Request**| **Yes** |  | |
 
@@ -5879,7 +5951,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | ソート順序(デフォルト値`id.attributeTagId,ASC`)|
@@ -5957,7 +6029,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 |  Query |**page** | **Integer**| **No** | 検索したいページ番号(デフォルト値1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 結果を求めるページ別の検索数(デフォルト値10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | ソート順序(デフォルト値`id.attributeTagId,ASC`)|
@@ -6066,7 +6138,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 
 
 
@@ -6104,7 +6176,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 
 
 
@@ -6154,7 +6226,7 @@ RESTful APIとクライアントSDKを使用するには、アプリケーショ
 | ParameterType | Name | Type | Required | Description  | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 | 
-|  Path |**appKey** | **String**| **Yes** | アプリケーションキー | 
+|  Path |**appKey** | **String**| **Yes** | アプリキー | 
 | Request Body | **UpdateConfig.Request** | **UpdateConfig.Request**| **Yes** |  | |
 
 
