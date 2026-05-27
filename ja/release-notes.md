@@ -1,5 +1,16 @@
 ## Application Service > ROLE > リリースノート
 
+### 2026. 04. 28.
+#### 機能追加
+* [RESTful API] 特定のロールの下位ロール/権限を全て含むロール一覧を照会するAPIが追加されました。
+    * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search
+        * 詳細はマニュアルを参照：[リンク](https://docs.nhncloud.com/ja/Application%20Service/ROLE/ja/api-v3-guide/#searchContainingRoles)
+* [RESTful API] ロールで設定可能な全ての条件プロパティ一覧照会APIのレスポンスに`attributeTagIds`(条件プロパティタグID一覧)フィールドが追加されました。
+    * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search
+        * 詳細はマニュアルを参照：[リンク](https://docs.nhncloud.com/ja/Application%20Service/ROLE/ja/api-v3-guide/#searchAttributesByRoleId)
+* [SDK] 2.0.7がリリースされました。
+    * 新規API(特定のロールの下位ロール/権限を全て含むロール一覧照会)が反映されました。
+
 ### 2024. 04. 23.
 #### 機能追加
 * [RESTful API]ロールリスト照会、ロール単件照会APIが拡張されました。
