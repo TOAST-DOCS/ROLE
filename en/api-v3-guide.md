@@ -1924,7 +1924,7 @@ Retrieves a list of upward-compatible role IDs that include all direct sub-roles
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#createRoleRelations) | Create role-related relations |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations}**](#deleteRoleRelations) | Delete role-related relations |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#deleteRoleRelations) | Delete role-related relations |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#updateRoleRelations) | Edit role-related relations |
 
 <a name="createRoleRelations"></a>

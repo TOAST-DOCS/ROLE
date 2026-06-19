@@ -1919,7 +1919,7 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#createRoleRelations) | 역할 연관 관계 다건 생성 |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations}**](#deleteRoleRelations) | 역할 연관 관계 다건 삭제 |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#deleteRoleRelations) | 역할 연관 관계 다건 삭제 |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#updateRoleRelations) | 역할 연관 관계 다건 수정 |
 
 <a name="createRoleRelations"></a>
