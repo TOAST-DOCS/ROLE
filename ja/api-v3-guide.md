@@ -2749,7 +2749,7 @@ Appkeyの代わりにプロジェクト統合Appkeyを使用することも可�
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#createRoleRelations) | ロール関連関係の一括作成 |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations}**](#deleteRoleRelations) | ロール関連関係の一括削除 |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#deleteRoleRelations) | ロール関連関係の一括削除 |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#updateRoleRelations) | ロール関連関係の一括修正 |
 
 <a name="createRoleRelations"></a>

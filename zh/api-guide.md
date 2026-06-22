@@ -964,7 +964,7 @@ Scope ID와 관련된 연관 관계를 조회합니다.
 
 |Method|	URI|
 |---|---|
-|GET|	/role/v1.0/appkeys/{appKey}/scope/{scopeId}/relations
+|GET|	/role/v1.0/appkeys/{appKey}/scopes/{scopeId}/relations
 
 **[Request Header]**
 
