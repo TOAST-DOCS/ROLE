@@ -1,7 +1,11 @@
+<!-- pre-align:aligned sig=4fb0e8c01ff0 -->
+
 ## Application Service > ROLE > SDK使用ガイド
 
 > ROLEサービスを利用して権限をチェックするためには
 > RESTful APIを呼び出すか、クライアントSDKを利用する必要があります。
+
+<a id="authentication-and-authorization"></a>
 
 ## 認証および権限
 
@@ -10,7 +14,11 @@ Appkeyは、API呼び出し時にリクエストURLに含めて特定のリソ�
 Appkey及びSecretKeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-api/appkey)を参照してください。
 Appkeyの代わりにプロジェクト統合Appkeyを使用することも可能です。プロジェクト統合Appkeyの作成及び使用に関する詳細は、[プロジェクト統合Appkey](/nhncloud/ja/public-api/project-integrated-appkey)を参照してください。
 
+<a id="client-sdk"></a>
+
 ## クライアントSDK
+
+<a id="what-is-client-sdk"></a>
 
 ### クライアントSDKとは？
 
@@ -18,8 +26,12 @@ RESTful APIを簡単に呼び出すためのROLE専用クライアントSDKで�
 独自のキャッシュ機能を持っているため、より効率的にROLEサービスを利用できます。
 現在はJAVA言語のみサポートしています。
 
+<a id="usage-environment"></a>
+
 ### 使用環境
 `JDK 11`バージョン以上の環境
+
+<a id="using-the-java-client-sdk-with-maven"></a>
 
 ### Mavenを利用したJAVAクライアントSDKの使用方法
 
@@ -48,6 +60,8 @@ Maven Central Repositoryに保存されているので別途設定は必要あ�
    </dependency>
 </dependencies>
 ```
+
+<a id="using-the-java-client-sdk"></a>
 
 ### JAVAクライアントSDK使用方法
 
@@ -88,7 +102,11 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
 > RoleClientのコンストラクタを直接呼び出さないように注意してください。
 
+<a id="sdk-user-guide"></a>
+
 ### SDK使用ガイド
+<a id="common"></a>
+
 #### Common
 > SDK共通機能で使う部分
 
@@ -108,6 +126,8 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 |--------------|----------------|----|----------|
 | totalItems         | Integer    | **Yes** | 全体数   |
 | items | List&lt;T> | **Yes** | 照会されたリスト    |
+
+<a id="user"></a>
 
 #### 1. ユーザー
 > ユーザー情報の登録、照会、修正、削除機能及びユーザーロールの変更履歴の照会
@@ -346,6 +366,8 @@ PutUserRequest request = PutUserScopeRequest.builder()
 client.updateUserInScope(request);
 ```
 
+<a id="operation"></a>
+
 #### 2. オペレーション
 > Operation情報登録、照会、修正、削除
 
@@ -438,6 +460,8 @@ DeleteOperationsRequest request = DeleteOperationsRequest.builder()
 
 client.deleteOperations(request);
 ```
+
+<a id="attribute"></a>
 
 #### 3. 属性
 > 属性情報の登録、照会、修正、削除
@@ -568,6 +592,8 @@ DeleteAttributesRequest request = DeleteAttributesRequest.builder()
 client.deleteAttributes(request);
 ```
 
+<a id="scope"></a>
+
 #### 4. スコープ
 > スコープ情報の登録、照会、修正、削除
 
@@ -660,6 +686,8 @@ DeleteScopesRequest request = DeleteScopesRequest.builder()
 
 client.deleteScopes(request);
 ```
+
+<a id="role"></a>
 
 #### 5. ロール
 > ロール情報登録、照会、修正、削除及び登録されたロールの設定可能なAttributeリストの照会、DENY(未使用)に変更可能かどうか
@@ -879,6 +907,8 @@ GetContainingRolesRequest request = GetContainingRolesRequest.builder()
 List<String> roleIds = client.getContainingRoleIds(request);
 ```
 
+<a id="role-related-relations"></a>
+
 #### 6. ロール関連関係
 > ロール関連関係の登録、修正、削除
 
@@ -951,6 +981,8 @@ DeleteRoleRelationRequest role = DeleteRoleRelationRequest.builder()
 
 client.deleteRoleRelations(role);
 ```
+
+<a id="resource"></a>
 
 #### 7. リソース
 > リソース情報の登録、照会、修正、削除
@@ -1074,6 +1106,8 @@ DeleteResourcesRequest request = DeleteResourcesRequest.builder()
 client.deleteResources(request);
 ```
 
+<a id="resource-hierarchy"></a>
+
 #### 8. リソースの階層構造
 > リソースの階層構造を照会します。
 > uiPath(resourceUiPath)を基準に階層構造が形成され、ユーザーが定義したキャッシュ時間だけキャッシュされます。
@@ -1111,6 +1145,8 @@ List<ResourceHierarchy> responses = client.getResourceHierarchy(request);
 | uiPath      | String                     |**Yes**| リソースUIパス<br/>このパスに基づいて階層構造が作成されます。 |
 | priority    | Integer                    |**Yes**| 優先順位                                   |
 | resources   | List&lt;ResourceHierarchy> |**No**| 下位リソース                                 |
+
+<a id="user-authorization"></a>
 
 #### 9. ユーザー認可(user authorization)
 > ユーザーが特定のロールを持っているか、リソースに対するアクセス権を持っているかどうかを確認します。
@@ -1248,6 +1284,8 @@ List<GetRoleAuthorizationResponse> responses = client.hasAuthorizationByRoles(us
 | permission     | Boolean                         |**Yes**| 認可結果<br/><br/>true:権限あり<br/>false:権限なし |
 | attributes     | List&lt;AuthorizationAttribute> |**No**| 条件属性リスト                                     |
 
+<a id="client-sdk-cache"></a>
+
 ### クライアントSDKキャッシュ
 
 クライアントSDKでは、下記の3つの場合に、それぞれクライアント側のキャッシュを使用します。
@@ -1262,6 +1300,8 @@ NHN Cloudコンソールで変更した設定は、変更されるとすぐに�
 
 ![[図2]クライアントSDKキャッシュ設定](http://static.toastoven.net/prod_role/role_62.png)
 <center>[図2]クライアントSDKキャッシュ設定</center>
+
+<a id="support-transaction"></a>
 
 ### Transactionサポート
 
