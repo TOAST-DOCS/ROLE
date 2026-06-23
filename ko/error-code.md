@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=ec416b7f4d48 -->
+
 ## Application Service > ROLE > 오류 코드
 Response Body에는 "header" 정보가 기본으로 포함되어 있습니다.
 API 호출이 실패하면 isSuccessful이 false가 되며, 오류 코드가 resultCode에 표시됩니다.
