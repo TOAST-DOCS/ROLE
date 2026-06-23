@@ -1,8 +1,12 @@
+<!-- pre-align:aligned sig=ef8eb14dbe48 -->
+
 ## Application Service > ROLE > APIガイド
 
 
 > ROLEサービスを利用して権限をチェックするためには
 > RESTful APIを呼び出すか、クライアントSDKを利用する必要があります。
+
+<a id="authentication-and-authorization"></a>
 
 ## 認証および権限
 
@@ -11,7 +15,11 @@ Appkeyは、API呼び出し時にリクエストURLに含めて特定のリソ�
 Appkey及びSecretKeyの確認及び使用に関する詳細は、[Appkey](/nhncloud/ja/public-api/appkey)を参照してください。
 Appkeyの代わりにプロジェクト統合Appkeyを使用することも可能です。プロジェクト統合Appkeyの作成及び使用に関する詳細は、[プロジェクト統合Appkey](/nhncloud/ja/public-api/project-integrated-appkey)を参照してください。
 
+<a id="restful-api-guide"></a>
+
 ## RESTful APIガイド
+
+<a id="common-response-body"></a>
 
 ### Common Response Body
 
@@ -35,7 +43,11 @@ Appkeyの代わりにプロジェクト統合Appkeyを使用することも可�
 |header.resultCode|	int| 	レスポンスコード。成功時は0、失敗時はエラーコードを返す           |
 |header.resultMessage|	String| 	レスポンスメッセージ。成功時は"SUCCESS"、失敗時はエラーメッセージを返す |
 
+<a id="user"></a>
+
 ### 1. User
+
+<a id="1-register-a-user"></a>
 
 #### 1.1. User登録
 
@@ -112,6 +124,8 @@ Appkeyの代わりにプロジェクト統合Appkeyを使用することも可�
 |errors[0].code|	int| 	エラーコード                                 |
 |errors[0].message|	String| 	エラーメッセージ                                |
 
+<a id="2-get-user"></a>
+
 #### 1.2. User照会
 
 **[Method, URL]**
@@ -159,6 +173,8 @@ Appkeyの代わりにプロジェクト統合Appkeyを使用することも可�
 |user.userId|	String|	User ID|
 |user.description|	String|	User説明|
 |user.regYmdt|	Timestamp|	登録日|
+
+<a id="3-get-users"></a>
 
 #### 1.3. Userリストの照会
 
@@ -231,6 +247,8 @@ includeRelationをtrueに設定すると、Role IDと関連関係にあるRole�
 |users[0].relations[0].scopeId | String | Scope ID |
 |users[0].relations[0].validStartDate | Date | Userに付与されたRoleの有効期間開始日(2024-02-27以降サポート終了)|
 |users[0].relations[0].validEndDate | Date | Userに付与されたRoleの有効期間終了日(2024-02-27以降サポート終了)|
+
+<a id="4-get-bulk-users"></a>
 
 #### 1.4. バルクUserリストの照会
 
@@ -308,6 +326,8 @@ User情報を一度に照会するAPI
 |users[0].relations[0].validEndDate | Date | Userに付与されたRoleの有効期間終了日(2024-02-27以降サポート終了) |
 
 
+<a id="5-modify-user-description"></a>
+
 #### 1.5. User説明の修正
 
 **[Method, URL]**
@@ -354,6 +374,8 @@ User情報を一度に照会するAPI
 }
 ```
 
+<a id="6-delete-user"></a>
+
 #### 1.6. User削除
 
 **[Method, URL]**
@@ -387,6 +409,8 @@ User情報を一度に照会するAPI
 	}
 }
 ```
+
+<a id="7-check-permissions"></a>
 
 #### 1.7. 権限チェック
 
@@ -462,6 +486,8 @@ User情報を一度に照会するAPI
 |authorizations[0].resourcePath|	String|	Resource Path|
 |authorizations[0].scopeId|	String|	Scope ID|
 
+<a id="8-check-role-permissions"></a>
+
 #### 1.8. Role権限チェック
 
 UserにRoleが付与されているかどうかを返します。関連関係に応じたRoleも含みます。
@@ -530,6 +556,8 @@ UserにRoleが付与されているかどうかを返します。関連関係に
 |authorizations[0].roleId|	String|	Role ID|
 |authorizations[0].scopeId|	String|	Scope ID|
 
+<a id="9-get-role-assigned-to-user"></a>
+
 #### 1.9. Userに付与されたRole照会
 
 直接付与したRoleだけを返します。Roleの関連関係に基づくRoleは返しません。
@@ -585,6 +613,8 @@ UserにRoleが付与されているかどうかを返します。関連関係に
 |relations[0].validStartDate|	Date|Userに付与されたRoleの有効期間開始日(2024-02-27以降サポート終了)|
 |relations[0].validEndDate|	Date|Userに付与されたRoleの有効期間終了日(2024-02-27以降サポート終了)|
 
+<a id="10-give-user-a-role"></a>
+
 #### 1.10. UserにRole付与
 
 **[Method, URL]**
@@ -637,6 +667,8 @@ UserにRoleが付与されているかどうかを返します。関連関係に
 }
 ```
 
+<a id="11-delete-the-role-assigned-to-user"></a>
+
 #### 1.11. Userに付与されたRole削除
 
 **[Method, URL]**
@@ -677,6 +709,8 @@ UserにRoleが付与されているかどうかを返します。関連関係に
 	}
 }
 ```
+
+<a id="12-delete-an-existing-role-for-a-user-and-give-them-a-new-role"></a>
 
 #### 1.12. Userの既存Role削除後、新規Role付与
 
@@ -730,6 +764,8 @@ UserにRoleが付与されているかどうかを返します。関連関係に
 	}
 }
 ```
+<a id="13-set-an-expiration-date-for-a-role-granted-to-a-user"></a>
+
 #### 1.13. Userに付与されたRoleの有効期間設定
 
 **[Method, URL]**
@@ -781,7 +817,11 @@ UserにRoleが付与されているかどうかを返します。関連関係に
 }
 ```
 
+<a id="scope"></a>
+
 ### 2. Scope
+
+<a id="1-register-a-scope"></a>
 
 #### 2.1. Scope登録
 
@@ -830,6 +870,8 @@ UserにRoleが付与されているかどうかを返します。関連関係に
 }
 ```
 
+<a id="2-get-scope"></a>
+
 #### 2.2. Scope照会
 
 **[Method, URL]**
@@ -875,6 +917,8 @@ UserにRoleが付与されているかどうかを返します。関連関係に
 |scope.appKey|	String|	アプリキー|
 |scope.scopeId|	String|	Scope ID|
 |scope.description|	String|	Scope説明|
+
+<a id="3-edit-scope-description"></a>
 
 #### 2.3. Scope説明の修正
 
@@ -922,6 +966,8 @@ UserにRoleが付与されているかどうかを返します。関連関係に
 }
 ```
 
+<a id="4-delete-scope"></a>
+
 #### 2.4. Scopeの削除
 
 **[Method, URL]**
@@ -955,6 +1001,8 @@ UserにRoleが付与されているかどうかを返します。関連関係に
 	}
 }
 ```
+
+<a id="5-get-relationships-associated-with-scope"></a>
 
 #### 2.5. Scopeと関連する関連関係の照会
 
@@ -1008,6 +1056,8 @@ Scope IDと関連する関連関係を照会します。
 |relations[0].scopeId|	String|	Scope ID|
 |relations[0].userId|	String|	User ID|
 
+
+<a id="6-get-scope-list"></a>
 
 #### 2.6. Scopeリストの照会
 
@@ -1068,7 +1118,11 @@ pageに1、itemsPerPageに10を入力すると、最初の10個のリストを�
 |scopes[0].scopeId|	String|	Scope ID|
 |totalItems|	int|	scopeの総数|
 
+<a id="role"></a>
+
 ### 3. Role
+
+<a id="1-register-a-role"></a>
 
 #### 3.1. Roleの登録
 
@@ -1122,6 +1176,8 @@ pageに1、itemsPerPageに10を入力すると、最初の10個のリストを�
 	}
 }
 ```
+
+<a id="2-get-role"></a>
 
 #### 3.2. Role照会
 
@@ -1182,6 +1238,8 @@ pageに1、itemsPerPageに10を入力すると、最初の10個のリストを�
 |role.roleTags|	Object|	Tag情報 |
 |role.roleTags.roleTagId|	String|	Tag ID|
 
+<a id="3-edit-role-information"></a>
+
 #### 3.3. Role情報の修正
 
 **[Method, URL]**
@@ -1234,6 +1292,8 @@ pageに1、itemsPerPageに10を入力すると、最初の10個のリストを�
 }
 ```
 
+<a id="4-delete-a-role"></a>
+
 #### 3.4. Roleの削除
 
 **[Method, URL]**
@@ -1268,6 +1328,8 @@ pageに1、itemsPerPageに10を入力すると、最初の10個のリストを�
 	}
 }
 ```
+
+<a id="5-set-up-role-associations"></a>
 
 #### 3.5. Role 関連関係の設定
 
@@ -1315,6 +1377,8 @@ pageに1、itemsPerPageに10を入力すると、最初の10個のリストを�
 }
 ```
 
+<a id="6-delete-a-role-association"></a>
+
 #### 3.6. Role 関連関係の削除
 
 **[Method, URL]**
@@ -1349,6 +1413,8 @@ pageに1、itemsPerPageに10を入力すると、最初の10個のリストを�
 	}
 }
 ```
+
+<a id="7-assign-user-to-role"></a>
 
 #### 3.7. RoleにUserを割り当てる
 
@@ -1407,6 +1473,8 @@ pageに1、itemsPerPageに10を入力すると、最初の10個のリストを�
 	}
 }
 ```
+
+<a id="8-get-roles"></a>
 
 #### 3.8. Roleリストの照会
 
@@ -1491,6 +1559,8 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 |totalItems|	int|	総Role数|
 
 
+<a id="9-create-a-role-tag"></a>
+
 #### 3.9. Role Tagの作成
 
 **[Method, URL]**
@@ -1538,6 +1608,8 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 ```
 
 
+<a id="10-delete-role-tag"></a>
+
 #### 3.10. Role Tagの削除
 
 **[Method, URL]**
@@ -1572,6 +1644,8 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 	}
 }
 ```
+
+<a id="11-get-role-tag"></a>
 
 #### 3.11. Role Tagの照会
 
@@ -1614,7 +1688,11 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 |roleTags|	List|	Tag情報|
 |roleTags[0].roleTagId|	String|	Tag ID|
 
+<a id="resource"></a>
+
 ### 4. Resource
+
+<a id="1-create-a-resource"></a>
 
 #### 4.1. Resourceの作成
 
@@ -1672,6 +1750,8 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 	}
 }
 ```
+
+<a id="2-get-resource-hierarchy"></a>
 
 #### 4.2. Resource Hierarchy照会
 
@@ -1736,6 +1816,8 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 |resources[0].metadata|	String|	ユーザー定義データ|
 |resources[0].resources|	List|	Resourceリスト|
 
+<a id="3-get-resource"></a>
+
 #### 4.3. Resource照会
 
 **[Method, URL]**
@@ -1789,6 +1871,8 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 |resource.path|	String|	Resourceパス|
 |resource.priority|	smallint|	優先順位|
 |resource.metadata|	String|	ユーザー定義データ|
+
+<a id="4-modify-resource"></a>
 
 #### 4.4. Resource修正
 
@@ -1845,6 +1929,8 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 }
 ```
 
+<a id="5-delete-a-resource"></a>
+
 #### 4.5. Resource削除
 
 **[Method, URL]**
@@ -1878,6 +1964,8 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 	}
 }
 ```
+
+<a id="6-get-permissions-associated-with-a-resource"></a>
 
 #### 4.6. Resourceと関連する権限の照会
 
@@ -1924,6 +2012,8 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 |authorizations|	List|	権限情報リスト|
 |authorizations[0].operationId|	String|	Operation ID|
 |authorizations[0].roleId|	String|	Role ID|
+
+<a id="7-add-permissions-to-the-resource"></a>
 
 #### 4.7. Resourceに権限を追加します。
 
@@ -1972,6 +2062,8 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 	}
 }
 ```
+
+<a id="8-get-resources"></a>
 
 #### 4.8. Resourceリストの照会
 
@@ -2036,7 +2128,11 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 |resources[0].resourceId|	String|	Resource ID|
 |resources[0].uiPath|	String|	uiPath|
 
+<a id="operation"></a>
+
 ### 5. Operation
+
+<a id="1-register-an-operation"></a>
 
 #### 5.1. Operationの登録
 
@@ -2085,6 +2181,8 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 }
 ```
 
+<a id="2-get-operation"></a>
+
 #### 5.2. Operation照会
 
 **[Method, URL]**
@@ -2130,6 +2228,8 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 |operation.appKey|	String|	アプリキー|
 |operation.operationId|	String|	Operation ID|
 |operation.description|	String|	Operation説明|
+
+<a id="3-edit-the-operation-description"></a>
 
 #### 5.3. Operation説明の修正
 
@@ -2178,6 +2278,8 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 }
 ```
 
+<a id="4-delete-an-operation"></a>
+
 #### 5.4. Operationの削除
 
 **[Method, URL]**
@@ -2212,6 +2314,8 @@ AかB Tagのどちらか一つだけあっても検索をしたい場合は、A,
 }
 ```
 
+
+<a id="5-get-operations"></a>
 
 #### 5.5. Operationリストの照会
 
