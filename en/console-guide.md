@@ -1,4 +1,8 @@
+<!-- pre-align:aligned sig=69e120b73414 -->
+
 ## Application Service > ROLE > Console User Guide
+
+<a id="bulletin-board-example"></a>
 
 ## Bulletin Board Example
 
@@ -8,6 +12,8 @@ You first have to create a role as an authenticated member.
 
 > In the example with curl, the values "{Appkey}" and "{SecretKey}" should be replaced by Appkey and SecretKey of active Role service within the actual project.
 
+<a id="create-role"></a>
+
 ### 1) Create Role
 
 ![role_1.1.png](http://static.toastoven.net/prod_role/role_1.1.png)
@@ -15,6 +21,8 @@ You first have to create a role as an authenticated member.
 
 ![role_1.2.png](http://static.toastoven.net/prod_role/role_1.2.png)
 <center>[Figure 1.2] Add Role</center>
+
+<a id="create-operation"></a>
 
 ### 2) Create Operation
 
@@ -25,6 +33,8 @@ Once you have created a role, you have to create an operation.
 
 ![role_2.2.png](http://static.toastoven.net/prod_role/role_2.2.png)
 <center>[Figure 2.2] Add Operation</center>
+
+<a id="create-resource"></a>
 
 ### 3) Create Resource
 
@@ -46,6 +56,8 @@ You have to register sequentially by dividing it into `board`, `v1.0` and `{boar
 ![role_3.5.png](http://static.toastoven.net/prod_role/role_3.5.png)
 <center>[Figure 3.5] Add resource #3 '{boardId}'</center>
 
+<a id="create-a-role-resource-relationship"></a>
+
 ### 4) Create a Role-Resource Relationship
 
 If you even registered a resource, you need to set up `role-resource` relationship to specify the resources for which the role can perform the operation.
@@ -55,6 +67,8 @@ If you even registered a resource, you need to set up `role-resource` relationsh
 
 ![role_4.2.png](http://static.toastoven.net/prod_role/role_4.2.png)
 <center>[Figure 4.2] This is a view after adding user-resource relationships.</center>
+
+<a id="create-condition-attribute"></a>
 
 ### 5) Create condition attribute
 
@@ -69,6 +83,8 @@ Condition attributes are only available for roles that you pre-add to condition 
 
 ![role_5.3.png](http://static.toastoven.net/prod_role/role_5.3.png)
 <center>[Figure 5.3] Add role to condition attribute.</center>
+
+<a id="create-user"></a>
 
 ### 6) Create user
 
@@ -95,10 +111,14 @@ Lastly, add a user to use the Bulletin API and set `MEMBER` role and `instance.n
 ![role_6.7.png](http://static.toastoven.net/prod_role/role_6.7.png)
 <center>[Figure 6.7] This is a view that condition attribute was added to user role.</center>
 
+<a id="authority-check"></a>
+
 ### 7) Authority Check
 
 Let’s assume that `userId` is transferred to `'uuid'` in Header.
 When the user `12345678-1234-5678-1234-567812345678` calls API `/board/v1.0/1`, permission is checked as below.
+
+<a id="when-call-restful-api"></a>
 
 #### [When call RESTFUL API]
 
@@ -147,6 +167,8 @@ Response Example) If you have access rights, the response `permission: true` is 
 }
 ```
 
+<a id="migration"></a>
+
 ## Migration
 
 If you have other projects that use ROLE service, you can conveniently synchronize your data using the data transfer feature.
@@ -171,6 +193,8 @@ You can select a project to transfer data to, or enter AppKey directly.
 ![role_8.5.png](http://static.toastoven.net/prod_role/role_8.5.png)
 <center>[Figure 8.5] **Check** button is a confirmation modal that is exposed when clicked.</center>
 
+<a id="server-settings"></a>
+
 ## Server Settings
 
 ![role_8.1.png](http://static.toastoven.net/prod_role/role_8.1.png)
@@ -179,16 +203,22 @@ You can select a project to transfer data to, or enter AppKey directly.
 ![role_9.2.png](http://static.toastoven.net/prod_role/role_9.2.png)
 <center>[Figure 9.2] This is Server Settings Area.</center>
 
+<a id="client-sdk-cache-settings"></a>
+
 ### Client SDK Cache Settings
 
 You can set up client SDK cache. 
 Attributes that can be set include `TTL`, `ID-specific sizes`, `Path-specific sizes`, and `Tree-specific sizes`.
+
+<a id="resource-path-trailing-slash-match"></a>
 
 ### Resource Path Trailing Slash Match
 
 You can set it for the last `'/'` of resource path.
 If set to `NonIdentical Path`, `'/board/v1.0/{boardId}'` and `'/board/v1.0/{boardId}/'` are different paths.
 However, if you set it to `IdenticalPath`, `'/board/v1.0/{boardId}'` and `'/board/v1.0/{boardId}/'` are the same path.
+
+<a id="clear-cache"></a>
 
 ## Clear Cache
 
