@@ -1,7 +1,11 @@
+<!-- pre-align:aligned sig=4fb0e8c01ff0 -->
+
 ## Application Service > ROLE > SDK user guide 
 
 > In order to check authority using the ROLE service, 
 > the RESTful API have to be called or the client SDK have to be used.
+
+<a id="authentication-and-authorization"></a>
 
 ## Authentication and Authorization 
 
@@ -10,7 +14,11 @@ The Appkey is included in the request URL to identify and specify a particular r
 For more information on checking and using Appkeys and SecretKeys, please refer to [Appkey](/nhncloud/en/public-api/appkey).
 Alternatively, a Project-integrated Appkey can be used in place of Appkey. For more information on creating and using Project Integrated Appkeys, please refer to [Project Integrated Appkey](/nhncloud/en/public-api/project-integrated-appkey).
 
+<a id="client-sdk"></a>
+
 ## Client SDK
+
+<a id="what-is-client-sdk"></a>
 
 ### What is Client SDK?
 
@@ -18,8 +26,12 @@ It is a ROLE-only client SDK for easy calling of RESTful API.
 Since it has its own cache feature, it is possible to use the ROLE service more efficiently. 
 Currently, we only support JAVA language.
 
+<a id="usage-environment"></a>
+
 ### Usage Environment
 `JDK 11` or later version environments
+
+<a id="using-the-java-client-sdk-with-maven"></a>
 
 ### Using the Java Client SDK with Maven
 
@@ -48,6 +60,8 @@ If you use another storage or do not reference Maven Central environment, set it
    </dependency>
 </dependencies>
 ```
+
+<a id="using-the-java-client-sdk"></a>
 
 ### Using the Java Client SDK
 
@@ -88,7 +102,11 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
 > Be careful not to call the RoleClient creator directly.
 
+<a id="sdk-user-guide"></a>
+
 ### SDK User Guide 
+<a id="common"></a>
+
 #### Common
 > What is used as a common SDK feature
 
@@ -108,6 +126,8 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 |--------------|----------------|----|----------|
 | totalItems         | Integer    | **Yes** | Total number    |
 | items | List<T> | **Yes** | List viewed     |
+
+<a id="user"></a>
 
 #### 1. User
 > Check user information Register, view, modify and delete and user role change history
@@ -345,6 +365,8 @@ PutUserRequest request = PutUserScopeRequest.builder()
 client.updateUserInScope(request);
 ```
 
+<a id="operation"></a>
+
 #### 2. Operation
 > Operation information Register, view, modify, and delete 
 
@@ -437,6 +459,8 @@ DeleteOperationsRequest request = DeleteOperationsRequest.builder()
 
 client.deleteOperations(request);
 ```
+
+<a id="attribute"></a>
 
 #### 3. Attribute
 > Attribute register, view, modify, and delete
@@ -567,6 +591,8 @@ DeleteAttributesRequest request = DeleteAttributesRequest.builder()
 client.deleteAttributes(request);
 ```
 
+<a id="scope"></a>
+
 #### 3. Scope
 > Scope register, view, modify and delete
 
@@ -658,6 +684,8 @@ DeleteScopesRequest request = DeleteScopesRequest.builder()
 
 client.deleteScopes(request);
 ```
+
+<a id="role"></a>
 
 #### 5. Role
 > Role information register, view, modify, and delete, and View list of configurable attributes of registered Role, Available to change to DENY (not used) or not
@@ -877,6 +905,8 @@ GetContainingRolesRequest request = GetContainingRolesRequest.builder()
 List<String> roleIds = client.getContainingRoleIds(request);
 ```
 
+<a id="role-related-relations"></a>
+
 #### 6. Role-related relations
 > Register, modify, and delete role-related relations
 
@@ -949,6 +979,8 @@ DeleteRoleRelationRequest role = DeleteRoleRelationRequest.builder()
 
 client.deleteRoleRelations(role);
 ```
+
+<a id="resource"></a>
 
 #### 4. Resource
 > Resource register, view, modify and delete
@@ -1072,6 +1104,8 @@ DeleteResourcesRequest request = DeleteResourcesRequest.builder()
 client.deleteResources(request);
 ```
 
+<a id="resource-hierarchy"></a>
+
 #### 8. Resource hierarchy
 > View hierarchy of resources. 
 Hierarchy structure is formed based on uiPath (resourceUiPath), and is cached for user-defined cache time.
@@ -1109,6 +1143,8 @@ List<ResourceHierarchy> responses = client.getResourceHierarchy(request);
 | uiPath      | String                     |**Yes**| Resource UI path<br/>Hierarchy is built based on this path.  |
 | priority    | Integer                    |**Yes**| Priority                                    |
 | Resources   | List<ResourceHierarchy> |**No**| Sub-resources                                 |
+
+<a id="user-authorization"></a>
 
 #### 9. User Authorization
 > Verify that the user has a specific role or has access rights to the resource. 
@@ -1246,6 +1282,8 @@ List<GetRoleAuthorizationResponse> responses = client.hasAuthorizationByRoles(us
 | permission     | Boolean                         |**Yes**| Authorization result<br/><br/>true: permission present<br/>false: permission not present |
 | attributes     | List<AuthorizationAttribute> |**No**| Condition attribute list                                      |
 
+<a id="client-sdk-cache"></a>
+
 ### Client SDK Cache
 
 Client SDK uses the client-level cache for each of the following three cases.
@@ -1260,6 +1298,8 @@ Any changes made in NHN Cloud Console will be reflected immediately and all exis
 
 ![[Figure 2] Client SDK Cache Settings](http://static.toastoven.net/prod_role/role_62.png)
 <center>[Figure 2] Client SDK Cache Settings</center>
+
+<a id="support-transaction"></a>
 
 ### Support Transaction
 
