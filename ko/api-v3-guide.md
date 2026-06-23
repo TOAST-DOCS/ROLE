@@ -1,7 +1,11 @@
+<!-- pre-align:aligned sig=73c669f1398b -->
+
 ## Application Service > ROLE > API v3 가이드
 
 > ROLE 서비스를 사용해 권한을 확인하려면
 > RESTful API를 호출하거나, 클라이언트 SDK를 사용해야 합니다.
+
+<a id="authentication-and-authorization"></a>
 
 ## 인증 및 권한
 
@@ -10,7 +14,11 @@ Appkey는 API 호출 시 요청 URL에 포함하여 특정 리소스를 가리�
 Appkey 및 SecretKey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/public-api/appkey)를 참고하세요.
 Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프로젝트 통합 Appkey에 대한 자세한 내용은 [프로젝트 통합 Appkey](/nhncloud/ko/public-api/project-integrated-appkey)를 참고하세요.
 
+<a id="restful-api-guide"></a>
+
 ## RESTful API 가이드
+
+<a id="common-response-body"></a>
 
 ### Common Response Body
 
@@ -47,6 +55,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | cache.sizeTree | int      | 리소스 Hierarchy 조회 캐시 크기                 |
 | cache.ttl | int      | 캐시 데이터 유지 시간(초 단위)                     |
 
+<a id="user"></a>
+
 ## 사용자
 
 | Method | HTTP request | Description |
@@ -62,8 +72,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/scopes/{scopeId}**](#updateUserScope) | 사용자 범위 한정 수정 |
 
 <a name="createUsers"></a>
+<a id="create-a-user"></a>
+
 ### **사용자 생성**
 > POST "/role/v3.0/appkeys/{appKey}/users"
+
+<a id="parameters"></a>
 
 #### Parameters
 
@@ -104,6 +118,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
 |   **attributeValues** | **List&lt;String>**| **No** | 조건 속성 값  |
 
+<a id="response-body"></a>
+
 #### Response Body
 
 ```json
@@ -117,8 +133,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteUser"></a>
+<a id="deleting-a-user"></a>
+
 ### **사용자 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/users/{userId}"
+
+<a id="parameters-2"></a>
 
 #### Parameters
 
@@ -127,6 +147,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 | 
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Path |**userId** | **String**| **Yes** | 사용자 ID | 
+
+<a id="response-body-2"></a>
 
 #### Response Body
 
@@ -141,8 +163,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteUsers"></a>
+<a id="delete-users"></a>
+
 ### **사용자 다건 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/users"
+
+<a id="parameters-3"></a>
 
 #### Parameters
 
@@ -151,6 +177,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
 |  Path |**appKey** | **String**| **Yes** | 앱키 |
 | Request Body |**userIds** |  **List&lt;String>**| **Yes** | 사용자 ID 목록 |
+
+<a id="response-body-3"></a>
 
 #### Response Body
 
@@ -165,8 +193,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="getAllUsers"></a>
+<a id="get-a-list-of-all-user-ids"></a>
+
 ### **모든 사용자 ID 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/users/id"
+
+<a id="parameters-4"></a>
 
 #### Parameters
 
@@ -195,6 +227,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **userIdPreLike** | **String**| **No** | 사용자 ID(전방 일치)  |
 |   **userIds** | **List&lt;String>**| **No** | 사용자 ID 목록(완전 일치)  |
 
+<a id="response-body-4"></a>
+
 #### Response Body
 
 ```json
@@ -217,8 +251,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **userIds** | **List&lt;String>**| **Yes** | 사용자 목록  |
 
 <a name="getUser"></a>
+<a id="get-user-information"></a>
+
 ### **사용자 정보 조회**
 > GET "/role/v3.0/appkeys/{appKey}/users/{userId}"
+
+<a id="parameters-5"></a>
 
 #### Parameters
 
@@ -230,6 +268,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Query |**searchRoleOptionCode** | **String**| **No** | 접근 가능한 역할 목록 검색 방식 | [optional] [default to null] [enum: DIRECT_ROLE, INDIRECT_ROLE] |
 |  Query |**roleIds** |  **List&lt;String>**| **No** | 연관 관계 역할 ID |
 |  Query |**scopeIds** |  **List&lt;String>**| **No** | 연관 관계 범위 ID |
+
+<a id="response-body-5"></a>
 
 #### Response Body
 
@@ -365,8 +405,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **roleTagId** | **String**| **No** | 역할 태그 ID  |
 
 <a name="getUserRoleHistories"></a>
+<a id="view-a-list-of-changes-to-roles-assigned-to-a-user"></a>
+
 ### **사용자에게 할당된 역할의 변경 내역 목록 조회**
 > GET "/role/v3.0/appkeys/{appKey}/users/{userId}/histories"
+
+<a id="parameters-6"></a>
 
 #### Parameters
 
@@ -383,6 +427,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `seq,DESC`)|
+
+<a id="response-body-6"></a>
 
 #### Response Body
 
@@ -487,8 +533,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **description** | **String**| **No** | 조건 속성 설명  |
 
 <a name="getUsers"></a>
+<a id="get-a-list-of-users"></a>
+
 ### **사용자 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/users/search"
+
+<a id="parameters-7"></a>
 
 #### Parameters
 
@@ -516,6 +566,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **searchRoleOptionCode** | **String**| **No** | DIRECT_ROLE, INDIRECT_ROLE                   |
 |   **userIdPreLike** | **String**| **No** | 사용자 ID(전방 일치)                                |
 |   **userIds** | **List&lt;String>**| **No** | 사용자 ID 목록(완전 일치)                             |
+
+<a id="response-body-7"></a>
 
 #### Response Body
 
@@ -738,8 +790,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **roleTagId** | **String**| **No** | 역할 태그 ID  |
 
 <a name="updateUser"></a>
+<a id="edit-users"></a>
+
 ### **사용자 수정**
 > PUT "/role/v3.0/appkeys/{appKey}/users/{userId}"
+
+<a id="parameters-8"></a>
 
 #### Parameters
 
@@ -781,6 +837,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
 |   **attributeValues** | **List&lt;String>**| **No** | 조건 속성 값  |
 
+<a id="response-body-8"></a>
+
 #### Response Body
 
 ```json
@@ -794,8 +852,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="updateUserScope"></a>
+<a id="edit-user-scopes"></a>
+
 ### **사용자 범위 한정 수정**
 > PUT "/role/v3.0/appkeys/{appKey}/users/{userId}/scopes/{scopeId}"
+
+<a id="parameters-9"></a>
 
 #### Parameters
 
@@ -837,6 +899,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
 |   **attributeValues** | **List&lt;String>**| **No** | 조건 속성 값  |
 
+<a id="response-body-9"></a>
+
 #### Response Body
 
 ```json
@@ -849,6 +913,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 }
 ```
 
+<a id="user-authentication"></a>
+
 ## 사용자 인증
 
 | Method | HTTP request | Description |
@@ -857,8 +923,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **POST** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/authorizations/roles**](#checkRole) | 사용자가 역할에 대한 접근 권한이 있는지 검사 |
 
 <a name="checkResource"></a>
+<a id="check-if-a-user-is-authorized-to-access-a-resource"></a>
+
 ### **사용자가 리소스에 접근 권한이 있는지 검사**
 > POST "/role/v3.0/appkeys/{appKey}/users/{userId}/authorizations/resources"
+
+<a id="parameters-10"></a>
 
 #### Parameters
 
@@ -892,6 +962,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeId** | **String**| **Yes** | 조건 속성 ID  |
 |   **attributeValue** | **String**| **Yes** | 조건 속성 값  |
+
+<a id="response-body-10"></a>
 
 #### Response Body
 
@@ -960,8 +1032,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **attributeValue** | **String**| **Yes** | 조건 속성 값  |
 
 <a name="checkRole"></a>
+<a id="check-if-a-user-has-access-to-a-role"></a>
+
 ### **사용자가 역할에 대한 접근 권한이 있는지 검사**
 > POST "/role/v3.0/appkeys/{appKey}/users/{userId}/authorizations/roles"
+
+<a id="parameters-11"></a>
 
 #### Parameters
 
@@ -993,6 +1069,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeId** | **String**| **Yes** | 조건 속성 ID  |
 |   **attributeValue** | **String**| **Yes** | 조건 속성 값  |
+
+<a id="response-body-11"></a>
 
 #### Response Body
 
@@ -1054,6 +1132,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **attributeId** | **String**| **Yes** | 조건 속성 ID  |
 |   **attributeValue** | **String**| **Yes** | 조건 속성 값  |
 
+<a id="roles"></a>
+
 ## 역할
 
 | Method | HTTP request | Description |
@@ -1070,8 +1150,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#updateRole) | 역할 수정 |
 
 <a name="createRole"></a>
+<a id="create-a-role"></a>
+
 ### **역할 생성**
 > POST "/role/v3.0/appkeys/{appKey}/roles"
+
+<a id="parameters-12"></a>
 
 #### Parameters
 
@@ -1121,6 +1205,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |------------ | ------------- | ------------- | ------------ |
 |   **roleTagId** | **String**| **Yes** | 역할 태그 ID  |
 
+<a id="response-body-12"></a>
+
 #### Response Body
 
 ```json
@@ -1134,8 +1220,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteRole"></a>
+<a id="deleting-roles"></a>
+
 ### **역할 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/roles/{roleId}"
+
+<a id="parameters-13"></a>
 
 #### Parameters
 
@@ -1144,6 +1234,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Path |**roleId** | **String**| **Yes** | 역할 ID | 
+
+<a id="response-body-13"></a>
 
 #### Response Body
 
@@ -1158,8 +1250,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteRoles"></a>
+<a id="delete-roles"></a>
+
 ### **역할 다건 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/roles/{roleId}"
+
+<a id="parameters-14"></a>
 
 #### Parameters
 
@@ -1168,6 +1264,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
 |  Path |**appKey** | **String**| **Yes** | 앱키 |
 | Request Body |**roleIds** |  **List&lt;String>**| **Yes** | 역할 ID 목록 |
+
+<a id="response-body-14"></a>
 
 #### Response Body
 
@@ -1182,8 +1280,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="getDeniable"></a>
+<a id="whether-the-role-is-enabled-or-can-be-changed-to-deny-not-enabled"></a>
+
 ### **역할 사용여부 DENY(미사용)로 변경가능 여부**
 > GET "/role/v3.0/appkeys/{appKey}/roles/{roleId}/deniable"
+
+<a id="parameters-15"></a>
 
 #### Parameters
 
@@ -1192,6 +1294,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Path |**roleId** | **String**| **Yes** | 역할 ID | 
+
+<a id="response-body-15"></a>
 
 #### Response Body
 
@@ -1213,8 +1317,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **deniable** | **Boolean**| **No** | 역할 사용여부 DENY(미사용)로 변경가능 여부  |
 
 <a name="getRole"></a>
+<a id="single-role-lookup"></a>
+
 ### **역할 단건 조회**
 > GET "/role/v3.0/appkeys/{appKey}/roles/{roleId}"
+
+<a id="parameters-16"></a>
 
 #### Parameters
 
@@ -1223,6 +1331,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Path |**roleId** | **String**| **Yes** | 역할 ID | 
+
+<a id="response-body-16"></a>
 
 #### Response Body
 
@@ -1386,8 +1496,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **roleTagId** | **String**| **No** | 역할 태그 ID  |
 
 <a name="searchAllRoleIds"></a>
+<a id="get-a-list-of-all-role-ids"></a>
+
 ### **모든 역할 ID 목록 조회**
 > GET "/role/v3.0/appkeys/{appKey}/roles/id"
+
+<a id="parameters-17"></a>
 
 #### Parameters
 
@@ -1399,6 +1513,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.roleId,ASC`)|
+
+<a id="response-body-17"></a>
 
 #### Response Body
 
@@ -1422,8 +1538,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **totalItems** | **Long**| **Yes** | 전체 개수  |
 
 <a name="searchAttributesByRoleId"></a>
+<a id="get-a-list-of-all-condition-attributes-that-can-be-set-in-a-role"></a>
+
 ### **역할에서 설정 가능한 모든 조건 속성 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search"
+
+<a id="parameters-18"></a>
 
 #### Parameters
 
@@ -1444,6 +1564,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **attributeIds** | **List&lt;String>**| **No** | 조건 속성 ID 목록(완전 일치)  |
 |   **attributeNameLike** | **String**| **No** | 조건 속성 이름(부분 일치)  |
 |   **attributeTagIds** | **List&lt;String>**| **No** | 조건 속성 태그 ID 목록(완전 일치)  |
+
+<a id="response-body-18"></a>
 
 #### Response Body
 
@@ -1486,10 +1608,14 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **description** | **String**| **No** | 조건 속성 설명  |
 
 <a name="searchContainingRoles"></a>
+<a id="retrieve-a-list-of-roles-that-include-all-sub-roles-and-permissions-of-a-specific-role"></a>
+
 ### **특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search"
 
 기준이 되는 역할(`{roleId}`)의 직접 하위 역할 목록을 모두 포함하는 상위 호환 역할 ID 목록을 조회합니다.
+
+<a id="parameters-19"></a>
 
 #### Parameters
 
@@ -1507,6 +1633,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **roleTagIds** | **List&lt;String>**| **No** | 역할 태그 ID 목록(OR 조건)  |
 |   **roleGroups** | **List&lt;String>**| **No** | 역할 그룹 목록(OR 조건)  |
 
+<a id="request-example"></a>
+
 #### Request 예시
 
 ```json
@@ -1515,6 +1643,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
   "roleGroups" : [ "GROUP_1" ]
 }
 ```
+
+<a id="response-body-19"></a>
 
 #### Response Body
 
@@ -1538,8 +1668,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **totalItems** | **Long**| **Yes** | 전체 개수  |
 
 <a name="searchRoles"></a>
+<a id="get-a-list-of-roles"></a>
+
 ### **역할 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/roles/search"
+
+<a id="parameters-20"></a>
 
 #### Parameters
 
@@ -1570,6 +1704,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **roleNameLike** | **String**| **No** | 역할 이름(부분 일치)  |
 |   **roleTagIdExpr** | **String**| **No** | 역할 태그 조건(구분자 &#39;;&#39;:OR, &#39;,&#39;:AND)  |
 |   **roleTagIds** | **List&lt;String>**| **No** | 역할 태그 ID 목록(완전 일치)  |
+
+<a id="response-body-20"></a>
 
 #### Response Body
 
@@ -1809,8 +1945,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **roleTagId** | **String**| **No** | 역할 태그 ID  |
 
 <a name="updateRole"></a>
+<a id="modify-roles"></a>
+
 ### **역할 수정**
 > PUT "/role/v3.0/appkeys/{appKey}/roles/{roleId}"
+
+<a id="parameters-21"></a>
 
 #### Parameters
 
@@ -1860,6 +2000,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |------------ | ------------- | ------------- | ------------ |
 |   **roleTagId** | **String**| **Yes** | 역할 태그 ID  |
 
+<a id="response-body-21"></a>
+
 #### Response Body
 
 ```json
@@ -1872,6 +2014,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 }
 ```
 
+<a id="role-tags"></a>
+
 ## 역할 태그
 
 | Method | HTTP request | Description |
@@ -1879,8 +2023,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/tags/id**](#getAllRoleTagIds) | 모든 역할 태그 ID 목록 조회 |
 
 <a name="getAllRoleTagIds"></a>
+<a id="get-a-list-of-all-role-tag-ids"></a>
+
 ### **모든 역할 태그 ID 목록 조회**
 > GET "/role/v3.0/appkeys/{appKey}/roles/tags/id"
+
+<a id="parameters-22"></a>
 
 #### Parameters
 
@@ -1892,6 +2040,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.roleTagId,ASC`)|
+
+<a id="response-body-22"></a>
 
 #### Response Body
 
@@ -1914,6 +2064,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **roleTagIds** | **List&lt;String>**| **No** | 역할 태그 ID 목록  |
 |   **totalItems** | **Long**| **Yes** | 전체 개수  |
 
+<a id="role-related-relations"></a>
+
 ## 역할 연관 관계
 
 | Method | HTTP request | Description |
@@ -1923,8 +2075,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#updateRoleRelations) | 역할 연관 관계 다건 수정 |
 
 <a name="createRoleRelations"></a>
+<a id="create-role-related-relations"></a>
+
 ### **역할 연관 관계 다건 생성**
 > POST "/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations"
+
+<a id="parameters-23"></a>
 
 #### Parameters
 
@@ -1957,6 +2113,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
 |   **attributeValues** | **List&lt;String>**| **No** | 조건 속성 값  |
 
+<a id="response-body-23"></a>
+
 #### Response Body
 
 ```json
@@ -1970,8 +2128,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteRoleRelations"></a>
+<a id="delete-role-realated-relations"></a>
+
 ### **역할 연관 관계 다건 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations"
+
+<a id="parameters-24"></a>
 
 #### Parameters
 
@@ -1988,6 +2150,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |------------ | ------------- | ------------- |------------------|
 |   **relatedRoleIds** | **List&lt;String>**| **Yes** | 연관 관계 역할 ID 목록 |
 
+<a id="response-body-24"></a>
+
 #### Response Body
 
 ```json
@@ -2001,8 +2165,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="updateRoleRelations"></a>
+<a id="edit-role-related-relations"></a>
+
 ### **역할 연관 관계 다건 수정**
 > PUT "/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations"
+
+<a id="parameters-25"></a>
 
 #### Parameters
 
@@ -2035,6 +2203,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
 |   **attributeValues** | **List&lt;String>**| **No** | 조건 속성 값  |
 
+<a id="response-body-25"></a>
+
 #### Response Body
 
 ```json
@@ -2046,6 +2216,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
   }
 }
 ```
+
+<a id="scope"></a>
 
 ## 범위
 
@@ -2060,8 +2232,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/scopes/{scopeId}**](#updateScope) | 범위 수정 |
 
 <a name="createScope"></a>
+<a id="create-a-scope"></a>
+
 ### **범위 생성**
 > POST "/role/v3.0/appkeys/{appKey}/scopes"
+
+<a id="parameters-26"></a>
 
 #### Parameters
 
@@ -2078,6 +2254,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **description** | **String**| **No** | 범위 설명  |
 |   **scopeId** | **String**| **Yes** | 범위 ID  |
 
+<a id="response-body-26"></a>
+
 #### Response Body
 
 ```json
@@ -2091,8 +2269,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteScope"></a>
+<a id="delete-a-scope"></a>
+
 ### **범위 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/scopes/{scopeId}"
+
+<a id="parameters-27"></a>
 
 #### Parameters
 
@@ -2101,6 +2283,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Path |**scopeId** | **String**| **Yes** | 범위 ID | 
+
+<a id="response-body-27"></a>
 
 #### Response Body
 
@@ -2115,8 +2299,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteScopes"></a>
+<a id="delete-scopes"></a>
+
 ### **범위 다건 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/scopes"
+
+<a id="parameters-28"></a>
 
 #### Parameters
 
@@ -2125,6 +2313,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
 |  Path |**appKey** | **String**| **Yes** | 앱키 |
 | Request Body |**scopeIds** |  **List&lt;String>**| **Yes** | 범위 ID 목록 |
+
+<a id="response-body-28"></a>
 
 #### Response Body
 
@@ -2139,8 +2329,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="getAllScopeIds"></a>
+<a id="get-a-list-of-all-scope-ids"></a>
+
 ### **모든 범위 ID 목록 조회**
 > GET "/role/v3.0/appkeys/{appKey}/scopes/id"
+
+<a id="parameters-29"></a>
 
 #### Parameters
 
@@ -2152,6 +2346,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.scopeId,ASC`)|
+
+<a id="response-body-29"></a>
 
 #### Response Body
 
@@ -2175,8 +2371,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **totalItems** | **Long**| **Yes** | 전체 개수  |
 
 <a name="getScope"></a>
+<a id="get-a-single-scope"></a>
+
 ### **범위 단건 조회**
 > GET "/role/v3.0/appkeys/{appKey}/scopes/{scopeId}"
+
+<a id="parameters-30"></a>
 
 #### Parameters
 
@@ -2185,6 +2385,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Path |**scopeId** | **String**| **Yes** | 범위 ID | 
+
+<a id="response-body-30"></a>
 
 #### Response Body
 
@@ -2216,8 +2418,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **scopeId** | **String**| **Yes** | 범위 ID  |
 
 <a name="postSearchScopes"></a>
+<a id="get-a-list-of-scopes"></a>
+
 ### **범위 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/scopes/search"
+
+<a id="parameters-31"></a>
 
 #### Parameters
 
@@ -2237,6 +2443,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **descriptionLike** | **String**| **No** | 범위 설명(부분 일치)  |
 |   **scopeIdPreLike** | **String**| **No** | 범위 ID(전방 일치)  |
 |   **scopeIds** | **List&lt;String>**| **No** | 범위 ID 목록(완전 일치)  |
+
+<a id="response-body-31"></a>
 
 #### Response Body
 
@@ -2273,8 +2481,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **scopeId** | **String**| **Yes** | 범위 ID  |
 
 <a name="updateScope"></a>
+<a id="modify-scope"></a>
+
 ### **범위 수정**
 > PUT "/role/v3.0/appkeys/{appKey}/scopes/{scopeId}"
+
+<a id="parameters-32"></a>
 
 #### Parameters
 
@@ -2291,6 +2503,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |------------ | ------------- | ------------- | ------------ |
 |   **description** | **String**| **No** | 설명  |
 
+<a id="response-body-32"></a>
+
 #### Response Body
 
 ```json
@@ -2302,6 +2516,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
   }
 }
 ```
+
+<a id="resource"></a>
 
 ## 리소스
 
@@ -2317,8 +2533,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#updateResource) | 리소스 수정 |
 
 <a name="createResource"></a>
+<a id="create-resources"></a>
+
 ### **리소스 생성**
 > POST "/role/v3.0/appkeys/{appKey}/resources"
+
+<a id="parameters-33"></a>
 
 #### Parameters
 
@@ -2340,6 +2560,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **resourceId** | **String**| **No** | 리소스 ID  |
 |   **uiPath** | **String**| **Yes** | 리소스 UI Path  |
 
+<a id="response-body-33"></a>
+
 #### Response Body
 
 ```json
@@ -2353,8 +2575,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteResource"></a>
+<a id="delete-resource"></a>
+
 ### **리소스 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/resources/{resourceId}"
+
+<a id="parameters-34"></a>
 
 #### Parameters
 
@@ -2363,6 +2589,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Path |**resourceId** | **String**| **Yes** | 리소스 ID | 
+
+<a id="response-body-34"></a>
 
 #### Response Body
 
@@ -2377,8 +2605,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteResources"></a>
+<a id="delete-resources"></a>
+
 ### **리소스 다건 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/resources"
+
+<a id="parameters-35"></a>
 
 #### Parameters
 
@@ -2387,6 +2619,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
 |  Path |**appKey** | **String**| **Yes** | 앱키 |
 | Request Body |**resourceIds** |  **List&lt;String>**| **Yes** | 리소스 ID 목록 |
+
+<a id="response-body-35"></a>
 
 #### Response Body
 
@@ -2401,8 +2635,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="getResource"></a>
+<a id="single-resource-lookup"></a>
+
 ### **리소스 단건 조회**
 > GET "/role/v3.0/appkeys/{appKey}/resources/{resourceId}"
+
+<a id="parameters-36"></a>
 
 #### Parameters
 
@@ -2411,6 +2649,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Path |**resourceId** | **String**| **Yes** | 리소스 ID | 
+
+<a id="response-body-36"></a>
 
 #### Response Body
 
@@ -2452,8 +2692,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **uiPath** | **String**| **Yes** | 리소스 UI Path  |
 
 <a name="getResourceIds"></a>
+<a id="get-a-list-of-resource-ids"></a>
+
 ### **리소스 ID 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/resources/id"
+
+<a id="parameters-37"></a>
 
 #### Parameters
 
@@ -2474,6 +2718,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **resourceIdPreLike** | **String**| **No** | 리소스에 접근 가능한 사용자 ID      |
 |   **roleIds** | **List&lt;String>**| **No** | 리소스에 부여된 역할 ID      |
 |   **userIds** | **List&lt;String>**| **No** | 리소스에 부여된 Operation ID      |
+
+<a id="response-body-37"></a>
 
 #### Response Body
 
@@ -2497,8 +2743,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **totalItems** | **Long**| **Yes** | 전체 개수  |
 
 <a name="searchAttributesByResource"></a>
+<a id="get-a-list-of-all-condition-attributes-that-can-be-set-in-a-role-2"></a>
+
 ### **리소스에서 설정 가능한 모든 조건 속성 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/resources/attributes/search"
+
+<a id="parameters-38"></a>
 
 #### Parameters
 
@@ -2518,6 +2768,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **operationId** | **String**| **Yes** | 오퍼레이션 ID  |
 |   **resourceId** | **String**| **No** | 리소스 ID, ID와 Path 가 둘다 있을 경우 ID 기준으로만 제공  |
 |   **resourcePath** | **String**| **No** | 리소스 Path  |
+
+<a id="response-body-38"></a>
 
 #### Response Body
 
@@ -2559,8 +2811,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **description** | **String**| **No** | 조건 속성 설명  |
 
 <a name="searchResources"></a>
+<a id="get-a-list-of-resources"></a>
+
 ### **리소스 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/resources/search"
+
+<a id="parameters-39"></a>
 
 #### Parameters
 
@@ -2589,6 +2845,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **scopeIds** | **List&lt;String>**| **No** | 리소스에 접근 가능한 범위 ID 목록  |
 |   **searchRoleOptionCode** | **String**| **No** | 접근 가능한 역할 목록 검색 방식  DIRECT_ROLE, INDIRECT_ROLE |
 |   **userIds** | **List&lt;String>**| **No** | 리소스에 접근 가능한 사용자 ID 목록  |
+
+<a id="response-body-39"></a>
 
 #### Response Body
 
@@ -2640,8 +2898,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **uiPath** | **String**| **Yes** | 리소스 UI Path  |
 
 <a name="updateResource"></a>
+<a id="modify-resources"></a>
+
 ### **리소스 수정**
 > PUT "/role/v3.0/appkeys/{appKey}/resources/{resourceId}"
+
+<a id="parameters-40"></a>
 
 #### Parameters
 
@@ -2664,6 +2926,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **priority** | **Integer**| **Yes** | 우선순위  |
 |   **uiPath** | **String**| **Yes** | 리소스 UI Path  |
 
+<a id="response-body-40"></a>
+
 #### Response Body
 
 ```json
@@ -2676,6 +2940,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 }
 ```
 
+<a id="resource-hierarchy"></a>
+
 ## 리소스 계층 구조
 
 | Method | HTTP request | Description |
@@ -2684,8 +2950,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **POST** |[**/role/v3.0/appkeys/{appKey}/resources/hierarchy/search**](#searchAllResourceHierarchy) | 리소스 Hierarchy 조회 |
 
 <a name="getSubResources"></a>
+<a id="viewing-child-resource-pages-on-a-ui-path"></a>
+
 ### **ui path 상의 하위 리소스 페이지 조회**
 > GET "/role/v3.0/appkeys/{appKey}/resources/{resourceId}/sub-resources"
+
+<a id="parameters-41"></a>
 
 #### Parameters
 
@@ -2701,6 +2971,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Query |**depth** | **Integer**| **No** | 리소스 UI Path에서 하위의 계층 깊이 |
 |  Query |**limit** | **Integer**| **No** | 반환할 목록의 위치. default: INT_MAX |
 |  Query |**offset** | **Integer**| **No** | 반환할 목록의 시작 위치. default: 0 |
+
+<a id="response-body-41"></a>
 
 #### Response Body
 
@@ -2752,8 +3024,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **uiPath** | **String**| **Yes** | 리소스 UI Path  |
 
 <a name="searchAllResourceHierarchy"></a>
+<a id="get-resource-hierarchy"></a>
+
 ### **리소스 Hierarchy 조회**
 > POST "/role/v3.0/appkeys/{appKey}/resources/hierarchy/search"
+
+<a id="parameters-42"></a>
 
 #### Parameters
 
@@ -2774,6 +3050,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **roleIds** | **List&lt;String>**| **No** | 리소스에 할당된 역할 ID 목록 |
 | **scopeIds** | **List&lt;String>**| **No** | 사용자에게 할당된 범위 ID 목록 |
 | **userIds** | **List&lt;String>**| **No** | 리소스에 접근 가능한 사용자 ID 목록 |
+
+<a id="response-body-42"></a>
 
 #### Response Body
 
@@ -2866,6 +3144,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 
 (../Models/SearchResourceHierarchy.ResourceHierarchyProtocol.md)
 
+<a id="user-related-role"></a>
+
 ## 리소스 연관 역할
 
 | Method | HTTP request | Description |
@@ -2875,8 +3155,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **DELETE** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations**](#removeAuthorization) | 리소스 역할 연관 관계 삭제 |
 
 <a name="addAuthorization"></a>
+<a id="add-a-resource-role-relation"></a>
+
 ### **리소스 역할 연관 관계 추가**
 > POST "/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations"
+
+<a id="parameters-43"></a>
 
 #### Parameters
 
@@ -2895,6 +3179,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **propagation** | **Boolean**| **No** | Root를 제외한 모든 상위 Path에 지정한 역할을 동일하게 적용할지 여부  |
 |   **roleId** | **String**| **Yes** | 역할 ID  |
 
+<a id="response-body-43"></a>
+
 #### Response Body
 
 ```json
@@ -2908,8 +3194,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="getAuthorizations"></a>
+<a id="get-a-list-of-resource-role-relations"></a>
+
 ### **리소스 역할 연관 관계 목록 조회**
 > GET "/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations"
+
+<a id="parameters-44"></a>
 
 #### Parameters
 
@@ -2918,6 +3208,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Path |**resourceId** | **String**| **Yes** | 리소스 ID | 
+
+<a id="response-body-44"></a>
 
 #### Response Body
 
@@ -2955,8 +3247,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **roleId** | **String**| **Yes** | 역할 Id  |
 
 <a name="removeAuthorization"></a>
+<a id="delete-a-resource-role-relation"></a>
+
 ### **리소스 역할 연관 관계 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations"
+
+<a id="parameters-45"></a>
 
 #### Parameters
 
@@ -2967,6 +3263,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Path |**resourceId** | **String**| **Yes** | 리소스 ID | 
 |  Query |**operationId** | **String**| **Yes** | 오퍼레이션 ID | 
 |  Query |**roleId** | **String**| **Yes** | 역할 ID | 
+
+<a id="response-body-45"></a>
 
 #### Response Body
 
@@ -2979,6 +3277,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
   }
 }
 ```
+
+<a id="operations"></a>
 
 ## 오퍼레이션
 
@@ -2993,8 +3293,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/operations/{operationId}**](#updateOperation) | 오퍼레이션 수정 |
 
 <a name="createOperation"></a>
+<a id="create-an-operation"></a>
+
 ### **오퍼레이션 생성**
 > POST "/role/v3.0/appkeys/{appKey}/operations"
+
+<a id="parameters-46"></a>
 
 #### Parameters
 
@@ -3011,6 +3315,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **description** | **String**| **No** | 오퍼레이션 설명  |
 |   **operationId** | **String**| **Yes** | 오퍼레이션 ID  |
 
+<a id="response-body-46"></a>
+
 #### Response Body
 
 ```json
@@ -3024,8 +3330,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteOperation"></a>
+<a id="delete-operations"></a>
+
 ### **오퍼레이션 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/operations/{operationId}"
+
+<a id="parameters-47"></a>
 
 #### Parameters
 
@@ -3034,6 +3344,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 | 
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Path |**operationId** | **String**| **Yes** | 오퍼레이션 ID | 
+
+<a id="response-body-47"></a>
 
 #### Response Body
 
@@ -3048,8 +3360,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteOperations"></a>
+<a id="delete-operatios"></a>
+
 ### **오퍼레이션 다건 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/operations"
+
+<a id="parameters-48"></a>
 
 #### Parameters
 
@@ -3058,6 +3374,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
 |  Path |**appKey** | **String**| **Yes** | 앱키 |
 | Request Body |**operationIds** |  **List&lt;String>**| **Yes** | 오퍼레이션 ID 목록 |
+
+<a id="response-body-48"></a>
 
 #### Response Body
 
@@ -3072,8 +3390,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="getOperation"></a>
+<a id="single-operation-lookup"></a>
+
 ### **오퍼레이션 단건 조회**
 > GET "/role/v3.0/appkeys/{appKey}/operations/{operationId}"
+
+<a id="parameters-49"></a>
 
 #### Parameters
 
@@ -3082,6 +3404,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 | 
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Path |**operationId** | **String**| **Yes** | 오퍼레이션 ID | 
+
+<a id="response-body-49"></a>
 
 #### Response Body
 
@@ -3115,8 +3439,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **operationId** | **String**| **Yes** | 오퍼레이션 ID  |
 
 <a name="getOperationIdByPageable"></a>
+<a id="get-all-operation-ids"></a>
+
 ### **모든 오퍼레이션 ID 조회**
 > GET "/role/v3.0/appkeys/{appKey}/operations/id"
+
+<a id="parameters-50"></a>
 
 #### Parameters
 
@@ -3128,6 +3456,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Query |**page** | **Integer**| **No** | 검색을 원하는 페이지 번호(기본값 1) | 
 |  Query |**itemsPerPage** | **Integer**| **No** | 결과를 원하는 페이지별 검색 개수(기본값 10) |  
 |  Query |**sort** |  **List&lt;String>**| **No** | 정렬 순서(기본값 `id.operationId,ASC`)|
+
+<a id="response-body-50"></a>
 
 #### Response Body
 
@@ -3151,8 +3481,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **totalItems** | **Long**| **Yes** | 전체 개수  |
 
 <a name="postSearchOperation"></a>
+<a id="get-operations-list-conditionspaging"></a>
+
 ### **오퍼레이션 목록 조회(조건/페이징)**
 > POST "/role/v3.0/appkeys/{appKey}/operations/search"
+
+<a id="parameters-51"></a>
 
 #### Parameters
 
@@ -3172,6 +3506,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **descriptionLike** | **String**| **No** | 오퍼레이션 설명(부분 일치)  |
 |   **operationIdPreLike** | **String**| **No** | 오퍼레이션 ID(전방 일치)  |
 |   **operationIds** | **List&lt;String>**| **No** | 오퍼레이션 ID 목록(완전 일치)  |
+
+<a id="response-body-51"></a>
 
 #### Response Body
 
@@ -3211,8 +3547,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **operationId** | **String**| **Yes** | 오퍼레이션 ID  |
 
 <a name="updateOperation"></a>
+<a id="modifying-operations"></a>
+
 ### **오퍼레이션 수정**
 > PUT "/role/v3.0/appkeys/{appKey}/operations/{operationId}"
+
+<a id="parameters-52"></a>
 
 #### Parameters
 
@@ -3229,6 +3569,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |------------ | ------------- | ------------- | ------------ |
 |   **description** | **String**| **No** | 오퍼레이션 설명  |
 
+<a id="response-body-52"></a>
+
 #### Response Body
 
 ```json
@@ -3240,6 +3582,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
   }
 }
 ```
+
+<a id="condition-attribute"></a>
 
 ## 조건 속성
 
@@ -3254,8 +3598,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}**](#updateAttribute) | 조건 속성 수정 |
 
 <a name="createAttribute"></a>
+<a id="create-condition-attribute"></a>
+
 ### **조건 속성 생성**
 > POST "/role/v3.0/appkeys/{appKey}/attributes"
+
+<a id="parameters-53"></a>
 
 #### Parameters
 
@@ -3276,6 +3624,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **attributeTagIds** | **List&lt;String>**| **No** | 조건 속성 태그 ID 목록  |
 |   **description** | **String**| **No** | 조건 속성 설명  |
 
+<a id="response-body-53"></a>
+
 #### Response Body
 
 ```json
@@ -3289,8 +3639,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteAttribute"></a>
+<a id="delete-condition-attribute"></a>
+
 ### **조건 속성 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}"
+
+<a id="parameters-54"></a>
 
 #### Parameters
 
@@ -3300,6 +3654,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Path |**attributeId** | **String**| **Yes** | 조건 속성 ID | 
 |  Query |**forceDelete** | **Boolean**| **No** | 강제 삭제, 기본값(false) |
+
+<a id="response-body-54"></a>
 
 #### Response Body
 
@@ -3314,8 +3670,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteAttributes"></a>
+<a id="delete-condition-attributes"></a>
+
 ### **조건 속성 다건 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/attributes"
+
+<a id="parameters-55"></a>
 
 #### Parameters
 
@@ -3325,6 +3685,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Path |**appKey** | **String**| **Yes** | 앱키 |
 | Request Body |**attributeIds** |  **List&lt;String>**| **Yes** | 조건 속성 ID 목록 |
 | Request Body |**forceDelete** | **Boolean**| **No** | 강제 삭제, 기본값(false) |
+
+<a id="response-body-55"></a>
 
 #### Response Body
 
@@ -3339,8 +3701,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="getAttribute"></a>
+<a id="single-lookup-of-condition-attribute"></a>
+
 ### **조건 속성 단건 조회**
 > GET "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}"
+
+<a id="parameters-56"></a>
 
 #### Parameters
 
@@ -3349,6 +3715,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
 |  Path |**attributeId** | **String**| **Yes** | 조건 속성 ID | 
+
+<a id="response-body-56"></a>
 
 #### Response Body
 
@@ -3434,8 +3802,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **regYmdt** | **Date**| **Yes** | 조건 속성 태그 생성 일시  |
 
 <a name="searchAttributeIds"></a>
+<a id="get-a-list-of-condition-attribute-ids"></a>
+
 ### **조건 속성 ID 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/id"
+
+<a id="parameters-57"></a>
 
 #### Parameters
 
@@ -3460,6 +3832,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **descriptionLike** | **String**| **No** | 조건 속성 설명(부분 일치)  |
 |   **roleIdPreLike** | **String**| **No** | 역할 ID(전방 일치)  |
 |   **roleIds** | **List&lt;String>**| **No** | 역할 ID 목록(완전 일치)  |
+
+<a id="response-body-57"></a>
 
 #### Response Body
 
@@ -3483,8 +3857,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **totalItems** | **Long**| **Yes** | 역할 전체 개수  |
 
 <a name="searchAttributes"></a>
+<a id="get-a-list-of-condition-attributes"></a>
+
 ### **조건 속성 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/search"
+
+<a id="parameters-58"></a>
 
 #### Parameters
 
@@ -3509,6 +3887,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **descriptionLike** | **String**| **No** | 조건 속성 설명(부분 일치)  |
 |   **roleIdPreLike** | **String**| **No** | 역할 ID(전방 일치)  |
 |   **roleIds** | **List&lt;String>**| **No** | 역할 ID 목록(완전 일치)  |
+
+<a id="response-body-58"></a>
 
 #### Response Body
 
@@ -3624,8 +4004,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **regYmdt** | **Date**| **Yes** | 조건 속성 태그 생성 일시  |
 
 <a name="updateAttribute"></a>
+<a id="modify-condition-attributes"></a>
+
 ### **조건 속성 수정**
 > PUT "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}"
+
+<a id="parameters-59"></a>
 
 #### Parameters
 
@@ -3646,6 +4030,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **attributeTagIds** | **List&lt;String>**| **No** | 조건 속성 태그 ID 목록  |
 |   **description** | **String**| **No** | 조건 속성 설명  |
 
+<a id="response-body-59"></a>
+
 #### Response Body
 
 ```json
@@ -3658,6 +4044,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 }
 ```
 
+<a id="condition-attribute-data-types"></a>
+
 ## 조건 속성 데이터 타입
 
 | Method | HTTP request | Description |
@@ -3666,8 +4054,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/condition/validate**](#validateConditionValues) | 조건 값 유효성 확인 |
 
 <a name="getAttributeDataType"></a>
+<a id="get-condition-attribute-data-types"></a>
+
 ### **조건 속성 데이터 타입 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/data-types"
+
+<a id="parameters-60"></a>
 
 #### Parameters
 
@@ -3675,6 +4067,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 | 
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
+
+<a id="response-body-60"></a>
 
 #### Response Body
 
@@ -3733,8 +4127,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **operatorTypeCode** | **String**| **Yes** | 연산자  |
 
 <a name="validateConditionValues"></a>
+<a id="validating-condition-values"></a>
+
 ### **조건 값 유효성 확인**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/condition/validate"
+
+<a id="parameters-61"></a>
 
 #### Parameters
 
@@ -3758,6 +4156,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **attributeOperatorTypeCode** | **String**| **Yes** |   ALL_CONTAINS, ANY_CONTAINS, NOT_CONTAINS, ANY_MATCH, NONE_MATCH, BETWEEN, BEYOND, GREATER_THAN, GREATER_THAN_OR_EQUAL_TO, LESS_THAN, LESS_THAN_OR_EQUAL_TO, ALLOW, NOT_ALLOW, TRUE, FALSE |
 |   **attributeValues** | **List&lt;String>**| **No** | 조건 속성 값  |
 
+<a id="response-body-61"></a>
+
 #### Response Body
 
 ```json
@@ -3770,6 +4170,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 }
 ```
 
+<a id="condition-attribute-role-associations"></a>
+
 ## 조건 속성 역할 연관 관계
 
 | Method | HTTP request | Description |
@@ -3779,8 +4181,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles/search**](#searchAttributeRoleRelations) | 조건 속성과 연관된 역할 목록 조회 |
 
 <a name="createAttributeRoleRelations"></a>
+<a id="create-multiple-roles-associated-with-condition-attributes"></a>
+
 ### **조건 속성과 연관된 역할 다건 생성**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles"
+
+<a id="parameters-62"></a>
 
 #### Parameters
 
@@ -3797,6 +4203,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeRoleRelationIds** | **List&lt;String>**| **Yes** | 조건 속성과 연관된 역할 ID 목록  |
 
+<a id="response-body-62"></a>
+
 #### Response Body
 
 ```json
@@ -3810,8 +4218,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteAttributeRoleRelations"></a>
+<a id="delete-multiple-roles-associated-with-condition-attributes"></a>
+
 ### **조건 속성과 연관된 역할 다건 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles"
+
+<a id="parameters-63"></a>
 
 #### Parameters
 
@@ -3828,6 +4240,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeRoleRelationIds** | **List&lt;String>**| **Yes** | 조건 속성과 연관된 역할 ID 목록  |
 
+<a id="response-body-63"></a>
+
 #### Response Body
 
 ```json
@@ -3841,8 +4255,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="searchAttributeRoleRelations"></a>
+<a id="get-roles-associated-with-condition-attributes"></a>
+
 ### **조건 속성과 연관된 역할 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles/search"
+
+<a id="parameters-64"></a>
 
 #### Parameters
 
@@ -3863,6 +4281,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **roleIdPreLike** | **String**| **No** | 조건 속성과 연관된 역할 ID(전방 일치)  |
 |   **roleIds** | **List&lt;String>**| **No** | 조건 속성과 연관된 역할 ID 목록(완전 일치)  |
 |   **searchRoleOptionCode** | **String**| **No** |   DIRECT_ROLE, INDIRECT_ROLE |
+
+<a id="response-body-64"></a>
 
 #### Response Body
 
@@ -3913,6 +4333,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **roleId** | **String**| **Yes** | 역할 ID  |
 |   **roleName** | **String**| **No** | 역할 이름  |
 
+<a id="condition-attribute-tag"></a>
+
 ## 조건 속성 태그
 
 | Method | HTTP request | Description |
@@ -3923,8 +4345,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/tags/search**](#searchAttributeTags) | 조건 속성 태그 목록 조회 |
 
 <a name="createAttributeTags"></a>
+<a id="create-condition-attribute-tag"></a>
+
 ### **조건 속성 태그 생성**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/tags"
+
+<a id="parameters-65"></a>
 
 #### Parameters
 
@@ -3941,6 +4367,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeTagIds** | **List&lt;String>**| **Yes** | 조건 속성 태그 ID 목록  |
 
+<a id="response-body-65"></a>
+
 #### Response Body
 
 ```json
@@ -3954,8 +4382,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="deleteAttributeTags"></a>
+<a id="delete-condition-attribute-tag"></a>
+
 ### **조건 속성 태그 삭제**
 > DELETE "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/tags"
+
+<a id="parameters-66"></a>
 
 #### Parameters
 
@@ -3972,6 +4404,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |------------ | ------------- | ------------- | ------------ |
 |   **attributeTagIds** | **List&lt;String>**| **Yes** | 조건 속성 태그 ID 목록  |
 
+<a id="response-body-66"></a>
+
 #### Response Body
 
 ```json
@@ -3985,8 +4419,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="searchAttributeTagIds"></a>
+<a id="get-a-list-of-condition-attribute-tag-ids"></a>
+
 ### **조건 속성 태그 ID 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/tags/id"
+
+<a id="parameters-67"></a>
 
 #### Parameters
 
@@ -4007,6 +4445,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **attributeIds** | **List&lt;String>**| **No** | 조건 속성 ID 목록(완전 일치)  |
 |   **attributeTagIdPreLike** | **String**| **No** | 조건 속성 태그 ID(전방 일치)  |
 |   **attributeTagIds** | **List&lt;String>**| **No** | 조건 속성 태그 ID 목록(완전 일치)  |
+
+<a id="response-body-67"></a>
 
 #### Response Body
 
@@ -4030,8 +4470,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **totalItems** | **Long**| **Yes** | 역할 전체 개수  |
 
 <a name="searchAttributeTags"></a>
+<a id="get-a-list-of-condition-attribute-tags"></a>
+
 ### **조건 속성 태그 목록 조회**
 > POST "/role/v3.0/appkeys/{appKey}/attributes/tags/search"
+
+<a id="parameters-68"></a>
 
 #### Parameters
 
@@ -4052,6 +4496,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **attributeIds** | **List&lt;String>**| **No** | 조건 속성 ID 목록(완전 일치)  |
 |   **attributeTagIdPreLike** | **String**| **No** | 조건 속성 태그 ID(전방 일치)  |
 |   **attributeTagIds** | **List&lt;String>**| **No** | 조건 속성 태그 ID 목록(완전 일치)  |
+
+<a id="response-body-68"></a>
 
 #### Response Body
 
@@ -4090,6 +4536,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **attributeTagId** | **String**| **Yes** | 조건 속성 태그 ID  |
 |   **regYmdt** | **Date**| **Yes** | 조건 속성 태그 생성 일시  |
 
+<a id="settings"></a>
+
 ## 설정
 
 | Method | HTTP request                                                        | Description                     |
@@ -4099,8 +4547,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 | **PUT** | [**/role/v3.0/appkeys/{appKey}/config**](#updateConfig)             | 설정 수정                           |
 
 <a name="deleteCache"></a>
+<a id="purge-the-cache-of-the-server-and-client-sdks"></a>
+
 ### **서버와 클라이언트 SDK의 캐시 제거**
 > PUT "/role/v3.0/appkeys/{appKey}/config/cache-evict"
+
+<a id="parameters-69"></a>
 
 #### Parameters
 
@@ -4108,6 +4560,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 | 
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
+
+<a id="response-body-69"></a>
 
 #### Response Body
 
@@ -4122,8 +4576,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 ```
 
 <a name="getConfiguration"></a>
+<a id="get-settings"></a>
+
 ### **설정 조회**
 > GET "/role/v3.0/appkeys/{appKey}/config"
+
+<a id="parameters-70"></a>
 
 #### Parameters
 
@@ -4131,6 +4589,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |------------- |------------- | ------------- | ------------- | ------------- | 
 |  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 | 
 |  Path |**appKey** | **String**| **Yes** | 앱키 | 
+
+<a id="response-body-70"></a>
 
 #### Response Body
 
@@ -4151,8 +4611,12 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **resourcePathTrailingSlashMatchPolicyCode** | **String**| **Yes** |   IDENTICAL_PATH, NON_IDENTICAL_PATH |
 
 <a name="updateConfig"></a>
+<a id="modify-settings"></a>
+
 ### **설정 수정**
 > PUT "/role/v3.0/appkeys/{appKey}/config"
+
+<a id="parameters-71"></a>
 
 #### Parameters
 
@@ -4171,6 +4635,8 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |   **cacheSizeTree** | **Integer**| **No** | 리소스 Path 기반 인증 캐시 크기  |
 |   **cacheTtl** | **Integer**| **No** |  캐시 데이터 유지 시간(초 단위) |
 |   **resourcePathTrailingSlashMatchPolicyCode** | **String**| **No** |   IDENTICAL_PATH, NON_IDENTICAL_PATH |
+
+<a id="response-body-71"></a>
 
 #### Response Body
 
