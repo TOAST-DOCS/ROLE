@@ -1,7 +1,11 @@
+<!-- pre-align:aligned sig=4fb0e8c01ff0 -->
+
 ## Application Service > ROLE > SDK 사용 가이드
 
 > ROLE 서비스를 사용하여 권한을 확인하려면
 > RESTful API를 호출하거나, 클라이언트 SDK를 사용해야 합니다.
+
+<a id="authentication-and-authorization"></a>
 
 ## 인증 및 권한
 
@@ -10,7 +14,11 @@ Appkey는 API 호출 시 요청 URL에 포함하여 특정 리소스를 가리�
 Appkey 및 SecretKey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/public-api/appkey)를 참고하세요.
 Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프로젝트 통합 Appkey에 대한 자세한 내용은 [프로젝트 통합 Appkey](/nhncloud/ko/public-api/project-integrated-appkey)를 참고하세요.
 
+<a id="client-sdk"></a>
+
 ## 클라이언트 SDK
+
+<a id="what-is-client-sdk"></a>
 
 ### 클라이언트 SDK 란?
 
@@ -18,8 +26,12 @@ RESTful API를 손쉽게 호출하기 위한 ROLE 전용 클라이언트 SDK입�
 자체 캐시 기능을 가지고 있기 때문에, 좀 더 효율적으로 ROLE 서비스를 사용할 수 있습니다.
 현재는 Java 언어만 지원합니다.
 
+<a id="usage-environment"></a>
+
 ### 사용 환경
 `JDK 11` 버전 이상의 환경
+
+<a id="using-the-java-client-sdk-with-maven"></a>
 
 ### Maven을 사용한 Java 클라이언트 SDK 사용
 
@@ -48,6 +60,8 @@ Maven Central Repository에 저장되어 있어 별도의 설정은 필요 없�
    </dependency>
 </dependencies>
 ```
+
+<a id="using-the-java-client-sdk"></a>
 
 ### Java 클라이언트 SDK 사용법
 
@@ -88,7 +102,11 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 
 > RoleClient의 생성자를 직접 호출하지 않도록 주의합니다.
 
+<a id="sdk-user-guide"></a>
+
 ### SDK 사용 가이드
+<a id="common"></a>
+
 #### Common
 > SDK 공통 기능으로 사용되는 부분
 
@@ -108,6 +126,8 @@ RoleClient client = new RoleClient(RoleConfig.builder()
 |--------------|----------------|----|----------|
 | totalItems         | Integer    | **Yes** | 전체 개수    |
 | items | List&lt;T> | **Yes** | 조회된 목록     |
+
+<a id="user"></a>
 
 #### 1. 사용자
 > 사용자 정보 등록, 조회, 수정, 삭제 기능 및 사용자 역할 변경 내역 조회
@@ -345,6 +365,8 @@ PutUserRequest request = PutUserScopeRequest.builder()
 client.updateUserInScope(request);
 ```
 
+<a id="operation"></a>
+
 #### 2. 오퍼레이션
 > Operation 정보 등록, 조회, 수정, 삭제
 
@@ -437,6 +459,8 @@ DeleteOperationsRequest request = DeleteOperationsRequest.builder()
 
 client.deleteOperations(request);
 ```
+
+<a id="attribute"></a>
 
 #### 3. 속성
 > 속성 정보 등록, 조회, 수정, 삭제
@@ -567,6 +591,8 @@ DeleteAttributesRequest request = DeleteAttributesRequest.builder()
 client.deleteAttributes(request);
 ```
 
+<a id="scope"></a>
+
 #### 4. 범위
 > 범위 정보 등록, 조회, 수정, 삭제
 
@@ -659,6 +685,8 @@ DeleteScopesRequest request = DeleteScopesRequest.builder()
 
 client.deleteScopes(request);
 ```
+
+<a id="role"></a>
 
 #### 5. 역할
 > 역할 정보 등록, 조회, 수정, 삭제 및 등록된 역할의 설정 가능한 Attribute 목록 조회, DENY(미사용)로 변경 가능 여부
@@ -878,6 +906,8 @@ GetContainingRolesRequest request = GetContainingRolesRequest.builder()
 List<String> roleIds = client.getContainingRoleIds(request);
 ```
 
+<a id="role-related-relations"></a>
+
 #### 6. 역할 연관 관계
 > 역할 연관 관계 등록, 수정, 삭제
 
@@ -950,6 +980,8 @@ DeleteRoleRelationRequest role = DeleteRoleRelationRequest.builder()
 
 client.deleteRoleRelations(role);
 ```
+
+<a id="resource"></a>
 
 #### 7. 리소스
 > 리소스 정보 등록, 조회, 수정, 삭제
@@ -1073,6 +1105,8 @@ DeleteResourcesRequest request = DeleteResourcesRequest.builder()
 client.deleteResources(request);
 ```
 
+<a id="resource-hierarchy"></a>
+
 #### 8. 리소스 계층구조
 > 리소스의 계층구조를 조회합니다.
 > uiPath(resourceUiPath)를 기준으로 계층구조가 형성되며, 사용자가 정의한 캐시 시간만큼 캐싱됩니다.
@@ -1110,6 +1144,8 @@ List<ResourceHierarchy> responses = client.getResourceHierarchy(request);
 | uiPath      | String                     |**Yes**| 리소스 UI 경로<br/>계층 구조가 이 경로를 기반으로 만들어진다.  |
 | priority    | Integer                    |**Yes**| 우선 순위                                   |
 | resources   | List&lt;ResourceHierarchy> |**No**| 하위 리소스들                                 |
+
+<a id="user-authorization"></a>
 
 #### 9. 사용자 인가(user authorization)
 > 사용자가 특정한 역할을 가지고 있거나, 리소스에 대한 접근 권한을 가지고 있는지를 확인합니다.
@@ -1247,6 +1283,8 @@ List<GetRoleAuthorizationResponse> responses = client.hasAuthorizationByRoles(us
 | permission     | Boolean                         |**Yes**| 인가 결과<br/><br/>true: 권한 있음<br/>false: 권한 없음 |
 | attributes     | List&lt;AuthorizationAttribute> |**No**| 조건 속성 목록                                      |
 
+<a id="client-sdk-cache"></a>
+
 ### 클라이언트 SDK 캐시
 
 클라이언트 SDK에서는 아래 3가지 경우 각각 클라이언트 단의 캐시를 사용합니다.
@@ -1261,6 +1299,8 @@ NHN Cloud 콘솔에서 변경한 설정은 변경 즉시 반영되며, 변경되
 
 ![[그림 2] 클라이언트 SDK 캐시 설정](http://static.toastoven.net/prod_role/role_62.png)
 <center>[그림 2] 클라이언트 SDK 캐시 설정</center>
+
+<a id="support-transaction"></a>
 
 ### Transaction 지원
 
