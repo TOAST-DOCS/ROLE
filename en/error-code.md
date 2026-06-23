@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=ec416b7f4d48 -->
+
 ## Application Service > ROLE > Error Code
 Response Body contains "header" information by default. 
 If API call fails, isSuccessful becomes false and an error code is displayed in resultCode.
