@@ -1,6 +1,12 @@
+<!-- pre-align:aligned sig=3975932db001 -->
+
 ## Application Service > ROLE > Release note
 
+<a id="april-28-2026"></a>
+
 ## April 28, 2026
+<a id="added-features"></a>
+
 ### Added Features
 * [RESTful API] Added an API to retrieve a list of roles that include all sub-roles and permissions of a specific role.
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search
@@ -11,7 +17,11 @@
 * [SDK] Released as version 2.0.7.
     * The new API (retrieve a list of roles that include all sub-roles and permissions of a specific role) has been reflected.
 
+<a id="april-23-2024"></a>
+
 ## April 23, 2024
+<a id="added-features-2"></a>
+
 ### Added Features
 * [RESTful API] Extended The APIs to retrieve role lists and a single role.
   * Added role tag lists to the list of related roles.
@@ -20,17 +30,27 @@
     * GET /role/v3.0/appkeys/{appKey}/roles/{roleId}: Retrieve a role
         * For more details, see: [link](https://docs.nhncloud.com/en/Application%20Service/ROLE/en/api-v3-guide/#getRole)
 
+<a id="bug-fixes"></a>
+
 ### Bug Fixes
 * [RESTful API] Fixed an error where the roleApplyPolicyCode (role enabled or disabled) entry would not be reflected when requesting the Create role and Modify role API.
 * [RESTful API] Fixed an error where validations of some conditions (role condition attributes) failed when requesting the Create role and Modify role API.
 
+<a id="march-26-2024"></a>
+
 ## March 26, 2024
+<a id="added-features-3"></a>
+
 ### Added Features
 * [RESTful API] Changed the Get a list of users API.
     * POST /role/v3.0/appkeys/{appKey}/users/search: Get a list of users
         * For more information, see: [link](https://docs.nhncloud.com/en/Application%20Service/ROLE/en/api-v3-guide/#get-a-list-of-users )
 
+<a id="january-23-2024"></a>
+
 ## January 23, 2024.
+<a id="added-features-4"></a>
+
 ### Added Features
 * Added attribute-based access control (ABAC) feature. 
   * [Console] Applied a new design and added condition attribute feature.
@@ -43,6 +63,8 @@
   * [SDK] 2.0.0 was released.
       * Applied to v3 newly provided by RESTFUL API.
 
+<a id="end-of-support"></a>
+
 ### End of Support
 * [Console] Excel upload/Excel download feature is not supported.
 * [RESTFUL API] Public API v1 does not support the validation period setting feature when giving Role to User.
@@ -50,13 +72,21 @@
 * [SDK] The 1.x version does not support the validation period setting feature when giving Role to User.
 	* This feature is provided by attribute-based access control (ABAC).
 
+<a id="september-26-2023"></a>
+
 ## September 26, 2023
+<a id="feature-updates"></a>
+
 ### Feature Updates
 * Role ID naming rules changed when creating a role.
     * The maximum number of characters in RoleID has increased from 32 to 128.
     * Special characters `.` and `:` have also been added to allow, and previously only allowed `_` and `-`.
 
+<a id="november-26-2019"></a>
+
 ## November 26, 2019
+<a id="added-features-5"></a>
+
 ### Added Features
 * When granting Role to User, you can set the validation period.
     * Role granted to the User is valid only within the validation period that you set; conversely, the privileges granted are always valid unless set. 
@@ -67,13 +97,21 @@
     * When searching for a role list, it sorts in the order of exposure.
     * Multiple tags are configurable and can be used as search keywords. 
 
+<a id="june-25-2019"></a>
+
 ## June 25, 2019
+<a id="added-features-6"></a>
+
 ### Added Features
 * [Console] You can set the Trailing Slash setting for Resource Path.
     * When setting up Non-Identical Path, "/admin" and "/admin/" are recognized as different paths.
     * When setting up Identical Path, "/admin" and "/admin/" are recognized as the same path.
 
+<a id="february-22-2018"></a>
+
 ## February 22, 2018
+<a id="added-features-7"></a>
+
 ### Added Features
 * [Console] Among the resource entries, path supports antiPathPattern. 
     * When setting "/admin/\*\*", you can support authorization checks with the resource path under admin.
@@ -87,7 +125,11 @@
     * Commons-collection 3.2.2 was applied to enhance security.
     
 
+<a id="01"></a>
+
 ## 1.0.1
+<a id="added-features-8"></a>
+
 ### Added Features
 * [RESTFUL API] Added the API to look up the list of each component.
 	* GET /role/v1.0/appkeys/{appKey}/roles: role list look up
@@ -98,6 +140,8 @@
 		* For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#2-scope)
 	* GET /role/v1.0/appkeys/{appKey}/operations: operation list lookup
 		* For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#5-operation)
+
+<a id="feature-updates-2"></a>
 
 ### Feature Updates
 * [Console] You can enter Korean in Resource name. All characters can be entered except '/' characters.
@@ -117,6 +161,8 @@
 	* GET /role/v1.0/appkeys/{appKey}/resources/hierarchy The API has been changed to give full results without having to give users or roles as factors..
 		* For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#4-resource)
 
+<a id="bug-fixes-2"></a>
+
 ### Bug Fixes
 * [Console] On Resource Modification screen, an error that causes a 5XX error when changing the name of a resource with a sub-resource has been fixed. 
 	* The normally changed UiPath is also reflected in the child resource. 
@@ -131,52 +177,90 @@
 * [Console] On User Modification screen, the title has been modified to appear from 'Add User' to 'Modify User'.
  
 
+<a id="july-20-2017"></a>
+
 ## July 20, 2017
+<a id="bug-fixes-3"></a>
+
 ### Bug Fixes  
 * [Console] Failure warning window is displayed on the screen without reflecting when registering/modifying to the names of Resource, Role, and Scope that are already in use.  
 	
+<a id="may-25-2017"></a>
+
 ## May 25, 2017
+<a id="bug-fixes-4"></a>
+
 ### Bug Fixes
 * [Console] Fixed an issue in which [ Excel Upload] feature on the Resource tab does not work 
 
+<a id="april-20-2017"></a>
+
 ## April 20, 2017
+<a id="bug-fixes-5"></a>
+
 ### Bug Fixes
 * Fixed a bug that returns error if value of userId(key) contains '.', '@'
 
+<a id="december-22-2016"></a>
+
 ## December 22, 2016
+<a id="feature-updates-3"></a>
+
 ### Feature Updates
 * Added bulk user list lookup API
 * Added the association lookup API linked to Scope
+
+<a id="bug-fixes-6"></a>
 
 ### Bug Fixes
 * Fixed an issue with role associations not functioning properly
 * Fixed an issue where ScopeID ALL is not detected when searching for a user
 * Fixed a bug that caused the hierarchy tree to return abnormally if there was an invalid resource tree
 
+<a id="01-2"></a>
+
 ## 1.0.1
+<a id="feature-updates-4"></a>
+
 ### Feature Updates
 * Added a feature to remove Cache from Client SDK and servers
+
+<a id="bug-fixes-7"></a>
 
 ### Bug Fixes
 * Modified Resource Path so that it cannot be modified to an invalid path that does not start with '/' when modifying it
 	* Data input using Excel may not be possible if there is an incorrect path
 
+<a id="01-3"></a>
+
 ## 1.0.1
+<a id="feature-updates-5"></a>
+
 ### Feature Updates
 * Added the option to return users with associated Role when viewing user lists
 	* For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#1-user)
 
+<a id="01-4"></a>
+
 ## 1.0.1
+<a id="feature-updates-6"></a>
+
 ### Feature Updates
 * Added API to delete existing registered roles with the same scope when granting a new role to a user
 * Added a User to a Role Add an option to create a User if it doesn't exist in the API
 	* For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#3-role)
 
+<a id="01-5"></a>
+
 ## 1.0.1
+<a id="feature-updates-7"></a>
+
 ### Feature Updates
 * Polling API support is deprecated due to low usability
 * Added feature to migrate data between projects using Role products
     * For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/console-guide/#_3)
+
+<a id="bug-fixes-8"></a>
 
 ### Bug Fixes
 * Fixed a bug that when you deleted a Role, but the association information for another Role was deleted
