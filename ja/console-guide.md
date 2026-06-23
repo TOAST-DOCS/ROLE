@@ -1,4 +1,8 @@
+<!-- pre-align:aligned sig=69e120b73414 -->
+
 ## Application Service > ROLE > コンソール利用ガイド
+
+<a id="bulletin-board-example"></a>
 
 ## 掲示板の例
 
@@ -8,6 +12,8 @@
 
 > curlを使用した例で"\{Appkey}"と"\{SecretKey}"値は実際のプロジェクト内で有効にしたROLEサービスのアプリキーと秘密鍵に置き換える必要があります。
 
+<a id="create-role"></a>
+
 ### 1) ロールの作成
 
 ![role_1.1.png](http://static.toastoven.net/prod_role/role_1.1.png)
@@ -15,6 +21,8 @@
 
 ![role_1.2.png](http://static.toastoven.net/prod_role/role_1.2.png)
 <center>[図1.2]ロールを追加します。</center>
+
+<a id="create-operation"></a>
 
 ### 2)オペレーションの作成
 
@@ -25,6 +33,8 @@
 
 ![role_2.2.png](http://static.toastoven.net/prod_role/role_2.2.png)
 <center>[図2.2]オペレーションを追加します。</center>
+
+<a id="create-resource"></a>
 
 ### 3)リソースの作成
 
@@ -46,6 +56,8 @@
 ![role_3.5.png](http://static.toastoven.net/prod_role/role_3.5.png)
 <center>[図3.5]リソース #3 `{boardId}`を追加します。</center>
 
+<a id="create-a-role-resource-relationship"></a>
+
 ### 4)ロール-リソース関係の作成
 
 リソースまで登録したら、ロールがオペレーションを実行できるリソースを指定するため、`ロール-リソース`関係を設定する必要があります。
@@ -55,6 +67,8 @@
 
 ![role_4.2.png](http://static.toastoven.net/prod_role/role_4.2.png)
 <center>[図4.2]ユーザー-リソース関係を追加した後の様子です。</center>
+
+<a id="create-condition-attribute"></a>
 
 ### 5)条件属性の作成
 
@@ -69,6 +83,8 @@
 
 ![role_5.3.png](http://static.toastoven.net/prod_role/role_5.3.png)
 <center>[図5.3]条件属性にロールを追加します。</center>
+
+<a id="create-user"></a>
 
 ### 6)ユーザーの作成
 
@@ -95,10 +111,14 @@
 ![role_6.7.png](http://static.toastoven.net/prod_role/role_6.7.png)
 <center>[図6.7]ユーザーのロールに条件属性まで追加した様子です。</center>
 
+<a id="authority-check"></a>
+
 ### 7)権限チェック
 
 `userId`のHeaderの`'uuid'`に値が渡されたとします。
 `12345678-1234-5678-1234-567812345678`ユーザーが`/board/v1.0/1` APIを呼び出した時、権限をチェックすると下記のようになります。
+
+<a id="when-call-restful-api"></a>
 
 #### [RESTful API呼び出しの場合]
 
@@ -147,6 +167,8 @@ curl -X POST -H "Content-Type: application/json" -d '{
 }
 ```
 
+<a id="migration"></a>
+
 ## マイグレーション
 
 ROLEサービスを使用する他のプロジェクトがある場合、データ移行機能を利用して便利にデータを同期させることができます。
@@ -171,6 +193,8 @@ ROLEサービスを使用する他のプロジェクトがある場合、デー�
 ![role_8.5.png](http://static.toastoven.net/prod_role/role_8.5.png)
 <center>[図8.5] <strong>確認</strong> ボタンクリックした時に表示される確認モーダルです。</center>
 
+<a id="server-settings"></a>
+
 ## サーバー設定
 
 ![role_8.1.png](http://static.toastoven.net/prod_role/role_8.1.png)
@@ -179,16 +203,22 @@ ROLEサービスを使用する他のプロジェクトがある場合、デー�
 ![role_9.2.png](http://static.toastoven.net/prod_role/role_9.2.png)
 <center>[図9.2]サーバー設定領域です。</center>
 
+<a id="client-sdk-cache-settings"></a>
+
 ### クライアントSDKキャッシュ設定
 
 クライアントSDKキャッシュの設定を行うことができます。
 設定できる属性は`TTL`、`ID別サイズ`、`Path別サイズ`、`Tree別サイズ`があります。
+
+<a id="resource-path-trailing-slash-match"></a>
 
 ### Resource Path Trailing Slash Match
 
 リソースパスの最後の `'/'` に対して設定できます。
 `Non Identical Path`に設定すると、`'/board/v1.0/{boardId}'`と `'/board/v1.0/{boardId}/'`は異なるパスになります。
 しかし、`Identical Path` に設定した場合、 `'/board/v1.0/{boardId}'` と `'/board/v1.0/{boardId}/'` は同じパスになります。
+
+<a id="clear-cache"></a>
 
 ## キャッシュの削除
 
