@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=ec416b7f4d48 -->
+
 ## Application Service > ROLE > エラーコード
 Response Bodyには"header"情報が基本的に含まれています。
 API呼び出しが失敗すると、isSuccessfulがfalseになり、エラーコードがresultCodeに表示されます。
