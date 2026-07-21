@@ -3827,7 +3827,7 @@ Appkeyの代わりにプロジェクト統合Appkeyを使用することも可�
 
 
 <a name="updateResource"></a>
-### **リソースの修正
+### リソースの修正
 > PUT "/role/v3.0/appkeys/{appKey}/resources/{resourceId}"
 
 #### Parameters
