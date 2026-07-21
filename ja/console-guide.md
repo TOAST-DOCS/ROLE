@@ -1,6 +1,10 @@
-## Application Service > ROLE > コンソール利用ガイド
+<!-- pre-align:aligned sig=b2a1ed97b6ec -->
 
-## 掲示板の例
+<a id="application-service-role-console-user-guide"></a>
+## Application Service > ROLE > コンソール利用ガイド { #application-service-role-console-user-guide }
+
+<a id="bulletin-board-example"></a>
+## 掲示板の例 { #bulletin-board-example }
 
 小さな掲示板を作る状況でロールベースのリソースアクセスコントロールを構成する例でコンソールの使い方を説明します。
 `/board/v1.0/{boardId}` APIを呼び出すと投稿を返すAPIがあり、このAPIは認証された会員だけが呼び出すことができるとします。
@@ -8,7 +12,8 @@
 
 > curlを使用した例で"\{Appkey}"と"\{SecretKey}"値は実際のプロジェクト内で有効にしたROLEサービスのアプリケーションキーと秘密鍵に置き換える必要があります。
 
-### 1) ロールの作成
+<a id="create-role"></a>
+### 1) ロールの作成 { #create-role }
 
 ![role_1.1.png](http://static.toastoven.net/prod_role/role_1.1.png)
 <center>[図1.1]ロールタブに移動します。</center>
@@ -16,7 +21,8 @@
 ![role_1.2.png](http://static.toastoven.net/prod_role/role_1.2.png)
 <center>[図1.2]ロールを追加します。</center>
 
-### 2)オペレーションの作成
+<a id="create-operation"></a>
+### 2)オペレーションの作成 { #create-operation }
 
 ロールを作成したら、オペレーションを作成する必要があります。
 
@@ -26,7 +32,8 @@
 ![role_2.2.png](http://static.toastoven.net/prod_role/role_2.2.png)
 <center>[図2.2]オペレーションを追加します。</center>
 
-### 3)リソースの作成
+<a id="create-resource"></a>
+### 3)リソースの作成 { #create-resource }
 
 次は`/board/v1.0/{boardId}`をリソースとして登録してみます。
 `board`, `v1.0`, `{boardId}`に分けて順番に登録する必要があります。
@@ -46,7 +53,8 @@
 ![role_3.5.png](http://static.toastoven.net/prod_role/role_3.5.png)
 <center>[図3.5]リソース #3 `{boardId}`を追加します。</center>
 
-### 4)ロール-リソース関係の作成
+<a id="create-a-role-resource-relationship"></a>
+### 4)ロール-リソース関係の作成 { #create-a-role-resource-relationship }
 
 リソースまで登録したら、ロールがオペレーションを実行できるリソースを指定するため、`ロール-リソース`関係を設定する必要があります。
 
@@ -56,7 +64,8 @@
 ![role_4.2.png](http://static.toastoven.net/prod_role/role_4.2.png)
 <center>[図4.2]ユーザー-リソース関係を追加した後の様子です。</center>
 
-### 5)条件属性の作成
+<a id="create-condition-attribute"></a>
+### 5)条件属性の作成 { #create-condition-attribute }
 
 作成したロールに特定の条件のみオペレーション実行権限を付与するため、 `ロール-条件属性`関係を設定する必要があります。
 条件属性は、条件属性にあらかじめ追加したロールのみ使用できます。条件属性を作成/修正する時、先に作成しておいたロールを条件属性に追加します。
@@ -70,7 +79,8 @@
 ![role_5.3.png](http://static.toastoven.net/prod_role/role_5.3.png)
 <center>[図5.3]条件属性にロールを追加します。</center>
 
-### 6)ユーザーの作成
+<a id="create-user"></a>
+### 6)ユーザーの作成 { #create-user }
 
 最後に掲示板APIを使うユーザーを追加して、アクセス制御を設定するために`MEMBER`ロールと`instance.name`条件属性を設定します。
 
@@ -95,11 +105,13 @@
 ![role_6.7.png](http://static.toastoven.net/prod_role/role_6.7.png)
 <center>[図6.7]ユーザーのロールに条件属性まで追加した様子です。</center>
 
-### 7)権限チェック
+<a id="authority-check"></a>
+### 7)権限チェック { #authority-check }
 
 `userId`のHeaderの`'uuid'`に値が渡されたとします。
 `12345678-1234-5678-1234-567812345678`ユーザーが`/board/v1.0/1` APIを呼び出した時、権限をチェックすると下記のようになります。
 
+<a id="authority-check-when-call-restful-api"></a>
 #### [RESTful API呼び出しの場合]
 
 ```shell
@@ -147,7 +159,8 @@ curl -X POST -H "Content-Type: application/json" -d '{
 }
 ```
 
-## マイグレーション
+<a id="migration"></a>
+## マイグレーション { #migration }
 
 ROLEサービスを使用する他のプロジェクトがある場合、データ移行機能を利用して便利にデータを同期させることができます。
 データ同期の対象は`リソース`、`ロール`、`オペレーション`であり、`スコープ`と`ユーザー`は同期されません。
@@ -171,7 +184,8 @@ ROLEサービスを使用する他のプロジェクトがある場合、デー�
 ![role_8.5.png](http://static.toastoven.net/prod_role/role_8.5.png)
 <center>[図8.5] <strong>確認</strong> ボタンクリックした時に表示される確認モーダルです。</center>
 
-## サーバー設定
+<a id="server-settings"></a>
+## サーバー設定 { #server-settings }
 
 ![role_8.1.png](http://static.toastoven.net/prod_role/role_8.1.png)
 <center>[図9.1]管理タブに移動します。</center>
@@ -179,18 +193,21 @@ ROLEサービスを使用する他のプロジェクトがある場合、デー�
 ![role_9.2.png](http://static.toastoven.net/prod_role/role_9.2.png)
 <center>[図9.2]サーバー設定領域です。</center>
 
-### クライアントSDKキャッシュ設定
+<a id="client-sdk-cache-settings"></a>
+### クライアントSDKキャッシュ設定 { #client-sdk-cache-settings }
 
 クライアントSDKキャッシュの設定を行うことができます。
 設定できる属性は`TTL`、`ID別サイズ`、`Path別サイズ`、`Tree別サイズ`があります。
 
-### Resource Path Trailing Slash Match
+<a id="resource-path-trailing-slash-match"></a>
+### Resource Path Trailing Slash Match { #resource-path-trailing-slash-match }
 
 リソースパスの最後の `'/'` に対して設定できます。
 `Non Identical Path`に設定すると、`'/board/v1.0/{boardId}'`と `'/board/v1.0/{boardId}/'`は異なるパスになります。
 しかし、`Identical Path` に設定した場合、 `'/board/v1.0/{boardId}'` と `'/board/v1.0/{boardId}/'` は同じパスになります。
 
-## キャッシュの削除
+<a id="clear-cache"></a>
+## キャッシュの削除 { #clear-cache }
 
 クライアントSDKとサーバーのキャッシュのため、変更されたリソースの権限チェック結果がすぐに反映されない場合があります。
 その場合、[管理]タブの**キャッシュの削除**ボタンを使って明示的にキャッシュを削除することで問題を解決することができます。

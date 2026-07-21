@@ -1,21 +1,28 @@
-## Application Service > ROLE > Overview
+<!-- pre-align:aligned sig=6e61b1dc1e82 -->
 
-## What is Role service?
+<a id="application-service-role-overview"></a>
+## Application Service > ROLE > Overview { #application-service-role-overview }
+
+<a id="what-is-role-service"></a>
+## What is Role service? { #what-is-role-service }
 
 A service that allows you to systematically manage resource access control for users accessing your production environment.
 
-## Overall Structure
+<a id="overall-structure"></a>
+## Overall Structure { #overall-structure }
 
 ![[Figure 1] Overall structure ](http://static.toastoven.net/prod_role/Role_Intro_01.png)
 <center>[Figure 1] Overall structure </center>
 
-### RBAC (Role-based access control)
+<a id="rbac-role-based-access-control"></a>
+### RBAC (Role-based access control) { #rbac-role-based-access-control }
 
 You have to first define the required roles; roles can designate other roles as associated roles and can inherit other associated roles and condition attribute designated for those associated roles. This allows you to design a systematic role structure. 
 You can define roles that can perform specific features and group these roles into associations with roles that can perform specific features.
 You can assign roles to users that can perform a small range of features, or you can assign roles that can perform more features.
 
-### ABAC (Attribute-based access control)
+<a id="abac-attribute-based-access-control"></a>
+### ABAC (Attribute-based access control) { #abac-attribute-based-access-control }
 
 When designing authorization policy, roles alone may not be enough. You can configure detailed policy by defining roles based on condition attribute.
 Condition attribute can be configured in `ID-Value` format and can be assigned to `user` or `role`. You can configure this to allow access if it matches or does not match the value given to the condition attribute.
@@ -25,7 +32,8 @@ For example, if `bucket-name attribute ID` is given an attribute value named `pr
 
 When you access a protected resource with a `specific attribute ID ` as in the example above, you can configure the resource to be allowed access only if the attribute value you give matches the condition attribute of the target you want to access.
 
-### Resource
+<a id="resource"></a>
+### Resource { #resource }
 
 A resource is a unit that defines a protected resource. It can be configured as a URI-based hierarchy structure, and each resource can designate resource identification information with a list of `permissions (role-operation pairs)` to access resources.
 It is useful when establishing a policy for authorization based on resources. 
@@ -33,7 +41,8 @@ However, if you establish a role-based access control policy, you do not need to
 
 Example: You can define `posting` on the bulletin board as a resource so that `modify` and `delete` allow only `administrator role` and `guest role` allow only to `view`. Also, if you designate the role of `guest` to the role of `administrator` as the associated role to perform the `View` operation, enabling efficient management without duplicate application.
 
-### User
+<a id="user"></a>
+### User { #user }
 
 The user's access rights are examined by the roles assigned to the user and the associated roles of those roles.
 When you assign a role to a user, you can also specify the range of its validity, which is useful when you have multiple organizations or targets with the same role and condition attributes, and resource system in your operation environment.
@@ -41,7 +50,8 @@ When you assign a role to a user, you can also specify the range of its validity
 Authorization is provided on a role-based and resource-based. The role-based checks to allow access to a role that you specify and also checks for attributes that are assigned to a user or role, if any.
 Resource-based checks to allow access to user-specified resources and operations. Similarly, if a resource is given attributes in an accessible role, the attribute is also examined.
 
-## Main Features
+<a id="main-features"></a>
+## Main Features { #main-features }
 
 ![[Figure 2] Feature Description](http://static.toastoven.net/prod_role/Role_Intro_02.png)
 <center>[Figure 2] Feature Description</center>
@@ -53,7 +63,8 @@ Resource-based checks to allow access to user-specified resources and operations
 * Provides role-based and resource-based user access control.
 * Provides REST APIs and SDKs.
 
-## Service Terms
+<a id="service-terms"></a>
+## Service Terms { #service-terms }
 
 | Term | Description                 |
 | --- |--------------------|

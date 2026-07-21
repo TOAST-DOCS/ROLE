@@ -1,19 +1,25 @@
-## Application Service > ROLE > API 가이드
+<!-- pre-align:aligned sig=3faf08e3dd44 -->
+
+<a id="application-service-role-api-guide"></a>
+## Application Service > ROLE > API 가이드 { #application-service-role-api-guide }
 
 
 > ROLE 서비스를 이용해 권한을 체크하기 위해서는
 > RESTful API를 호출하거나, 클라이언트 SDK를 이용하여야 합니다.
 
-## 인증 및 권한
+<a id="authentication-and-authorization"></a>
+## 인증 및 권한 { #authentication-and-authorization }
 
 ROLE API를 사용하려면 Appkey와 SecretKey가 필요합니다.
 Appkey는 API 호출 시 요청 URL에 포함하여 특정 리소스를 가리키고 식별하는 데 사용되며, SecretKey는 API에 대한 접근을 제어하는 비밀 키입니다.
 Appkey 및 SecretKey 확인 및 사용에 대한 자세한 내용은 [Appkey](/nhncloud/ko/public-api/appkey)를 참고하세요.
 Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프로젝트 통합 Appkey에 대한 자세한 내용은 [프로젝트 통합 Appkey](/nhncloud/ko/public-api/project-integrated-appkey)를 참고하세요.
 
-## RESTful API 가이드
+<a id="restful-api-guide"></a>
+## RESTful API 가이드 { #restful-api-guide }
 
-### Common Response Body
+<a id="common-response-body"></a>
+### Common Response Body { #common-response-body }
 
 모든 API 요청에 대해 HTTP 응답 코드는 200으로 응답합니다.
 자세한 응답 결과는 Response Body의 header 항목을 참고합니다.
@@ -35,8 +41,10 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |header.resultCode|	int| 	응답 코드. 성공 시 0, 실패 시 오류 코드 반환           |
 |header.resultMessage|	String| 	응답 메시지. 성공 시 "SUCCESS", 실패 시 오류 메시지 반환 |
 
-### 1. User
+<a id="user"></a>
+### 1. User { #user }
 
+<a id="user-1-register-a-user"></a>
 #### 1.1. User 등록
 
 **[Method, URL]**
@@ -112,6 +120,7 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |errors[0].code|	int| 	오류 코드                                  |
 |errors[0].message|	String| 	오류 메시지                                 |
 
+<a id="user-2-get-user"></a>
 #### 1.2. User 조회
 
 **[Method, URL]**
@@ -160,6 +169,7 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 |user.description|	String|	User 설명|
 |user.regYmdt|	Timestamp|	등록일|
 
+<a id="user-3-get-users"></a>
 #### 1.3. User 리스트 조회
 
 Scope ID와 Role ID를 넘겨주면, 해당 역할을 가진 User만 반환합니다.
@@ -232,6 +242,7 @@ includeRelation 을 true로 설정하면, Role ID와 연관 관계에 있는 Rol
 |users[0].relations[0].validStartDate | Date | User에게 부여된 Role의 유효 기간 시작 날짜(2024-02-27 이후 지원 종료)|
 |users[0].relations[0].validEndDate | Date | User에게 부여된 Role의 유효 기간 종료 날짜(2024-02-27 이후 지원 종료)|
 
+<a id="user-4-get-bulk-users"></a>
 #### 1.4. 벌크 User 리스트 조회
 
 User 정보를 한번에 조회하는 API
@@ -308,6 +319,7 @@ User 정보를 한번에 조회하는 API
 |users[0].relations[0].validEndDate | Date | User에게 부여된 Role의 유효 기간 종료 날짜(2024-02-27 이후 지원 종료) |
 
 
+<a id="user-5-modify-user-description"></a>
 #### 1.5. User 설명 수정
 
 **[Method, URL]**
@@ -354,6 +366,7 @@ User 정보를 한번에 조회하는 API
 }
 ```
 
+<a id="user-6-delete-user"></a>
 #### 1.6. User 삭제
 
 **[Method, URL]**
@@ -388,6 +401,7 @@ User 정보를 한번에 조회하는 API
 }
 ```
 
+<a id="user-7-check-permissions"></a>
 #### 1.7. 권한 체크
 
 **[Method, URL]**
@@ -462,6 +476,7 @@ User 정보를 한번에 조회하는 API
 |authorizations[0].resourcePath|	String|	Resource Path|
 |authorizations[0].scopeId|	String|	Scope ID|
 
+<a id="user-8-check-role-permissions"></a>
 #### 1.8. Role 권한 체크
 
 User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따른 Role도 포함합니다.
@@ -530,6 +545,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 |authorizations[0].roleId|	String|	Role ID|
 |authorizations[0].scopeId|	String|	Scope ID|
 
+<a id="user-9-get-role-assigned-to-user"></a>
 #### 1.9. User에 부여된 Role 조회
 
 직접적으로 부여한 Role만 반환합니다. Role의 연관 관계에 따른 Role은 반환하지 않습니다.
@@ -585,6 +601,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 |relations[0].validStartDate|	Date|User에게 부여된 Role의 유효 기간 시작 날짜(2024-02-27 이후 지원 종료)|
 |relations[0].validEndDate|	Date|User에게 부여된 Role의 유효 기간 종료 날짜(2024-02-27 이후 지원 종료)|
 
+<a id="user-10-give-user-a-role"></a>
 #### 1.10. User에 Role 부여
 
 **[Method, URL]**
@@ -637,6 +654,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 }
 ```
 
+<a id="user-11-delete-the-role-assigned-to-user"></a>
 #### 1.11. User에 부여된 Role 삭제
 
 **[Method, URL]**
@@ -678,6 +696,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 }
 ```
 
+<a id="user-12-delete-an-existing-role-for-a-user-and-give-them-a-new-role"></a>
 #### 1.12. User 의 기존 Role 삭제 후, 신규 Role 부여
 
 **[Method, URL]**
@@ -730,6 +749,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 	}
 }
 ```
+<a id="user-13-set-an-expiration-date-for-a-role-granted-to-a-user"></a>
 #### 1.13. User에게 부여된 Role에 유효 기간 설정
 
 **[Method, URL]**
@@ -781,8 +801,10 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 }
 ```
 
-### 2. Scope
+<a id="scope"></a>
+### 2. Scope { #scope }
 
+<a id="scope-1-register-a-scope"></a>
 #### 2.1. Scope 등록
 
 **[Method, URL]**
@@ -830,6 +852,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 }
 ```
 
+<a id="scope-2-get-scope"></a>
 #### 2.2. Scope 조회
 
 **[Method, URL]**
@@ -876,6 +899,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 |scope.scopeId|	String|	Scope ID|
 |scope.description|	String|	Scope 설명|
 
+<a id="scope-3-edit-scope-description"></a>
 #### 2.3. Scope 설명 수정
 
 **[Method, URL]**
@@ -922,6 +946,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 }
 ```
 
+<a id="scope-4-delete-scope"></a>
 #### 2.4. Scope 삭제
 
 **[Method, URL]**
@@ -956,6 +981,7 @@ User에 Role이 부여됬는지 여부를 반환합니다. 연관 관계에 따�
 }
 ```
 
+<a id="scope-5-get-relationships-associated-with-scope"></a>
 #### 2.5. Scope과 연관된 연관 관계 조회
 
 Scope ID와 관련된 연관 관계를 조회합니다.
@@ -1009,6 +1035,7 @@ Scope ID와 관련된 연관 관계를 조회합니다.
 |relations[0].userId|	String|	User ID|
 
 
+<a id="scope-6-get-scope-list"></a>
 #### 2.6. Scope 리스트 조회
 
 페이지 형태로 리스트를 조회할 수 있습니다.
@@ -1068,8 +1095,10 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 |scopes[0].scopeId|	String|	Scope ID|
 |totalItems|	int|	총 scope 수|
 
-### 3. Role
+<a id="role"></a>
+### 3. Role { #role }
 
+<a id="role-1-register-a-role"></a>
 #### 3.1. Role 등록
 
 **[Method, URL]**
@@ -1123,6 +1152,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 }
 ```
 
+<a id="role-2-get-role"></a>
 #### 3.2. Role 조회
 
 **[Method, URL]**
@@ -1182,6 +1212,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 |role.roleTags|	Object|	Tag 정보 |
 |role.roleTags.roleTagId|	String|	Tag ID|
 
+<a id="role-3-edit-role-information"></a>
 #### 3.3. Role 정보 수정
 
 **[Method, URL]**
@@ -1234,6 +1265,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 }
 ```
 
+<a id="role-4-delete-a-role"></a>
 #### 3.4. Role 삭제
 
 **[Method, URL]**
@@ -1269,6 +1301,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 }
 ```
 
+<a id="role-5-set-up-role-associations"></a>
 #### 3.5. Role 연관 관계 설정
 
 **[Method, URL]**
@@ -1315,6 +1348,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 }
 ```
 
+<a id="role-6-delete-a-role-association"></a>
 #### 3.6. Role 연관 관계 삭제
 
 **[Method, URL]**
@@ -1350,6 +1384,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 }
 ```
 
+<a id="role-7-assign-user-to-role"></a>
 #### 3.7. Role에 User 할당
 
 
@@ -1408,6 +1443,7 @@ page에 1, itemsPerPage에 10을 입력하면 처음 10개의 리스트를 조�
 }
 ```
 
+<a id="role-8-get-roles"></a>
 #### 3.8. Role 리스트 조회
 
 페이지 형태로 리스트를 조회할 수 있습니다.
@@ -1491,6 +1527,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 |totalItems|	int|	총 Role 수|
 
 
+<a id="role-9-create-a-role-tag"></a>
 #### 3.9. Role Tag 생성
 
 **[Method, URL]**
@@ -1538,6 +1575,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 ```
 
 
+<a id="role-10-delete-role-tag"></a>
 #### 3.10. Role Tag 삭제
 
 **[Method, URL]**
@@ -1573,6 +1611,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 }
 ```
 
+<a id="role-11-get-role-tag"></a>
 #### 3.11. Role Tag 조회
 
 **[Method, URL]**
@@ -1614,8 +1653,10 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 |roleTags|	List|	Tag 정보|
 |roleTags[0].roleTagId|	String|	Tag ID|
 
-### 4. Resource
+<a id="resource"></a>
+### 4. Resource { #resource }
 
+<a id="resource-1-create-a-resource"></a>
 #### 4.1. Resource 생성
 
 **[Method, URL]**
@@ -1673,6 +1714,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 }
 ```
 
+<a id="resource-2-get-resource-hierarchy"></a>
 #### 4.2. Resource Hierarchy 조회
 
 **[Method, URL]**
@@ -1736,6 +1778,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 |resources[0].metadata|	String|	사용자 정의 데이터|
 |resources[0].resources|	List|	Resource 리스트|
 
+<a id="resource-3-get-resource"></a>
 #### 4.3. Resource 조회
 
 **[Method, URL]**
@@ -1790,6 +1833,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 |resource.priority|	smallint|	우선순위|
 |resource.metadata|	String|	사용자 정의 데이터|
 
+<a id="resource-4-modify-resource"></a>
 #### 4.4. Resource 수정
 
 **[Method, URL]**
@@ -1845,6 +1889,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 }
 ```
 
+<a id="resource-5-delete-a-resource"></a>
 #### 4.5. Resource 삭제
 
 **[Method, URL]**
@@ -1879,6 +1924,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 }
 ```
 
+<a id="resource-6-get-permissions-associated-with-a-resource"></a>
 #### 4.6. Resource와 관련된 권한 조회
 
 **[Method, URL]**
@@ -1925,6 +1971,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 |authorizations[0].operationId|	String|	Operation ID|
 |authorizations[0].roleId|	String|	Role ID|
 
+<a id="resource-7-add-permissions-to-the-resource"></a>
 #### 4.7. Resource에 권한을 추가합니다.
 
 **[Method, URL]**
@@ -1973,6 +2020,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 }
 ```
 
+<a id="resource-8-get-resources"></a>
 #### 4.8. Resource 리스트 조회
 
 **[Method, URL]**
@@ -2036,8 +2084,10 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 |resources[0].resourceId|	String|	Resource ID|
 |resources[0].uiPath|	String|	uiPath|
 
-### 5. Operation
+<a id="operation"></a>
+### 5. Operation { #operation }
 
+<a id="operation-1-register-an-operation"></a>
 #### 5.1. Operation 등록
 
 **[Method, URL]**
@@ -2085,6 +2135,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 }
 ```
 
+<a id="operation-2-get-operation"></a>
 #### 5.2. Operation 조회
 
 **[Method, URL]**
@@ -2131,6 +2182,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 |operation.operationId|	String|	Operation ID|
 |operation.description|	String|	Operation 설명|
 
+<a id="operation-3-edit-the-operation-description"></a>
 #### 5.3. Operation 설명 수정
 
 **[Method, URL]**
@@ -2178,6 +2230,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 }
 ```
 
+<a id="operation-4-delete-an-operation"></a>
 #### 5.4. Operation 삭제
 
 **[Method, URL]**
@@ -2213,6 +2266,7 @@ A 나 B Tag 중 하나만 있어도 검색을 하고 싶다면 A,B로 조건을 
 ```
 
 
+<a id="operation-5-get-operations"></a>
 #### 5.5. Operation 리스트 조회
 
 **[Method, URL]**

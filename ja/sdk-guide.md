@@ -1,11 +1,15 @@
-## Application Service > ROLE > SDK 사용 가이드
+<!-- pre-align:aligned sig=ea6cb95d87e9 -->
+
+<a id="application-service-role-sdk"></a>
+## Application Service > ROLE > SDK 사용 가이드 { #application-service-role-sdk }
 
 
 > Role 상품을 이용하여 권한을 체크하기 위해서는
 > RESTFUL API 를 호출하거나, Client SDK 를 이용하여야 한다.
 > Spring Framework 을 사용하는 경우, 좀더 편하게 JAVA Client SDK 를 사용할 수 있다.
 
-## 인증 및 권한
+<a id="section-1"></a>
+## 인증 및 권한 { #section-1 }
 
 ROLE SDK를 사용하려면 Appkey와 SecretKey가 필요합니다.
 Appkey는 API 호출 시 요청 URL에 포함하여 특정 리소스를 가리키고 식별하는 데 사용되며, SecretKey는 API에 대한 접근을 제어하는 비밀 키입니다.
@@ -13,9 +17,11 @@ Appkey 및 SecretKey 확인 및 사용에 대한 자세한 내용은 [Appkey](/n
 Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프로젝트 통합 Appkey에 대한 자세한 내용은 [프로젝트 통합 Appkey](/nhncloud/ko/public-api/project-integrated-appkey)를 참고하세요.
 
 
-## Spring Client SDK
+<a id="spring-client-sdk"></a>
+## Spring Client SDK { #spring-client-sdk }
 
-### Spring Client SDK 란?
+<a id="spring-client-sdk-2"></a>
+### Spring Client SDK 란? { #spring-client-sdk-2 }
 
 Spring Framework 을 이용한 MVC 프로젝트에서
 JAVA Client SDK 를 좀 더 편하게 사용하기 위한 @Annotation 및 Interceptor 를 제공한다.
@@ -25,7 +31,8 @@ Spring Client SDK 에서 제공하는 @Annotation 과 @RequestMapping 같이 사
 @Annotation 의 설정에 따라 User ID 와 Scope ID 를 Path Variable, Query Parameter, Header 의 특정 값으로 mapping 할 수 있다.
 
 
-### Maven 을 이용한 JAVA Client SDK For Spring 사용
+<a id="maven-java-client-sdk-for-spring"></a>
+### Maven 을 이용한 JAVA Client SDK For Spring 사용 { #maven-java-client-sdk-for-spring }
 
 JAVA Client SDK For Spring 을 사용하기 위해선 pom.xml 에 maven repository 및 depencency 설정이 필요하다.
 
@@ -53,7 +60,8 @@ JAVA Client SDK For Spring 을 사용하기 위해선 pom.xml 에 maven reposito
 </dependencies>
 ```
 
-### Spring Configuration
+<a id="spring-configuration"></a>
+### Spring Configuration { #spring-configuration }
 
 [applicationContext.xml] 에 TCRoleClientFactory 를 등록한다.
 
@@ -92,7 +100,8 @@ JAVA Client SDK For Spring 을 사용하기 위해선 pom.xml 에 maven reposito
 </beans>
 ```
 
-### @Annotation 을 이용한 권한 체크
+<a id="annotation"></a>
+### @Annotation 을 이용한 권한 체크 { #annotation }
 
 Spring MVC 프로젝트의 @RequestMapping 의 권한을 체크 하기 위해서는 아래 예제와 같이 @Authorization 을 사용한다.
 만약 권한 체크에 실패한다면, InvalidAuthInfoException 혹은 UnauthorizedException 을 throw 하게 된다.
@@ -128,15 +137,18 @@ public Example {
 |-|AuthParamType.HEADER_PARAM|	@AuthParam 의 value 를 Header 의 키로 사용하여 값을 얻어온다.|
 |-|AuthParamType.QUERY_PARAM|	@AuthParam 의 value 를 Query Parameter 의 키로 사용하여 값을 얻어온다.|
 
-## Client SDK
+<a id="client-sdk"></a>
+## Client SDK { #client-sdk }
 
-### Client SDK 란?
+<a id="client-sdk-2"></a>
+### Client SDK 란? { #client-sdk-2 }
 
 RESTFUL API를 손쉽게 호출하기 위한 Role 전용 Client SDK 이다.
 자체 Cache 기능을 가지고 있기 때문에, 좀더 효율적으로 Role 상품을 이용 할 수 있다.
 현재는 JAVA 언어에 대해서만 지원을 하고 있다.
 
-### Maven 을 이용한 JAVA Client SDK 사용
+<a id="maven-java-client-sdk"></a>
+### Maven 을 이용한 JAVA Client SDK 사용 { #maven-java-client-sdk }
 
 JAVA Client SDK 를 사용하기 위해선 pom.xml 에 maven repository 및 depencency 설정이 필요하다.
 
@@ -164,7 +176,8 @@ JAVA Client SDK 를 사용하기 위해선 pom.xml 에 maven repository 및 depe
 </dependencies>
 ```
 
-### JAVA Client SDK 사용법
+<a id="java-client-sdk"></a>
+### JAVA Client SDK 사용법 { #java-client-sdk }
 
 JAVA Client SDK 를 사용하기 위해선 먼저 TCRoleClientFactory 객체를 이용하여 TCRoleClient 객체의 instance 를 생성해야 한다.
 TCRoleClient 객체를 생성하였으면, 해당 객체에서 제공하는 method 를 호출하여 여러 작업들을 처리하면 된다.
@@ -179,7 +192,8 @@ TCRoleClient client = new TCRoleClient("TEST_APPKEY", "TEST_SECRETKEY");
 
 > TCRoleClient 의 생성자를 직접 호출하지 않도록 주의한다.
 
-### Client SDK Cache
+<a id="client-sdk-cache"></a>
+### Client SDK Cache { #client-sdk-cache }
 
 Client SDK 에서는 아래 3가지 경우에 대해서 각각 Client 단의 Cache 를 사용한다.
 
@@ -194,7 +208,8 @@ LRU 로 관리를 하고 있으며, Cache 의 기본값은 300초의 TTL (Time T
 ![[그림 2] Client SDK Cache 설정](http://static.toastoven.net/prod_role/role_61.png)
 <center>[그림 2] Client SDK Cache 설정</center>
 
-### Transaction 지원
+<a id="transaction"></a>
+### Transaction 지원 { #transaction }
 
 ROLE 의 데이터를 Atomic 하게 추가 / 변경 / 삭제 하고 싶을 경우에는 TCRoleClient 객체의 beginTransaction() 을 호출하여 TCRole Session 객체를 얻어와 사용하면된다.
 

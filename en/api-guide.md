@@ -1,18 +1,24 @@
-## Application Service > ROLE > API Guide
+<!-- pre-align:aligned sig=3faf08e3dd44 -->
+
+<a id="application-service-role-api-guide"></a>
+## Application Service > ROLE > API Guide { #application-service-role-api-guide }
 
 
 > To check permissions using the ROLE service, call the RESTful API or use the Client SDK.
 
-## Authentication and Authorization 
+<a id="authentication-and-authorization"></a>
+## Authentication and Authorization { #authentication-and-authorization }
 
 AppKey and SecretKey are required to use the ROLE API.
 The Appkey is included in the request URL to identify and specify a particular resource when making API calls. A SecretKey is a private key used to control access to the API. 
 For more information on checking and using Appkeys and SecretKeys, please refer to [Appkey](/nhncloud/en/public-api/appkey).
 Alternatively, a Project-integrated Appkey can be used in place of Appkey. For more information on creating and using Project Integrated Appkeys, please refer to [Project Integrated Appkey](/nhncloud/en/public-api/project-integrated-appkey).
 
-## RESTful API Guide
+<a id="restful-api-guide"></a>
+## RESTful API Guide { #restful-api-guide }
 
-### Common Response Body
+<a id="common-response-body"></a>
+### Common Response Body { #common-response-body }
 
 For all API requests, the HTTP response code is 200.
 For detailed response results, see the headers in the response body.
@@ -34,8 +40,10 @@ For detailed response results, see the headers in the response body.
 |header.resultCode|	int|	Response code. Returns 0 on success or an error code on failure.|
 |header.resultMessage|	String|	Response message. Returns "SUCCESS" on success or an error message on failure.|
 
-### 1. User
+<a id="user"></a>
+### 1. User { #user }
 
+<a id="user-1-register-a-user"></a>
 #### 1.1. Register a User
 
 **[Method, URL]**
@@ -111,6 +119,7 @@ For detailed response results, see the headers in the response body.
 |errors[0].code|	int|	Error Code|
 |errors[0].message|	String|	Error Message|
 
+<a id="user-2-get-user"></a>
 #### 1.2. Get User
 
 **[Method, URL]**
@@ -159,6 +168,7 @@ For detailed response results, see the headers in the response body.
 |user.description|	String|	User Description|
 |user.regYmdt|	Timestamp|	Registration Date|
 
+<a id="user-3-get-users"></a>
 #### 1.3. Get Users
 
 If you pass in a Scope ID and Role ID, it will return only the Users with that role.
@@ -231,6 +241,7 @@ If you set includeRelation to true, it will also include and return Users with r
 |users[0].relations[0].validStartDate | Date | Validity period start date for the role granted to the user (end of support after 2024-01-23)|
 |users[0].relations[0].validEndDate | Date | End of validity date for the role granted to the user (end of support after 2024-01-23)|
 
+<a id="user-4-get-bulk-users"></a>
 #### 1.4. Get Bulk Users
 
 API to get user information all at once
@@ -307,6 +318,7 @@ API to get user information all at once
 |users[0].relations[0].validEndDate | Date | End of validity date for the role granted to the user (end of support after 2024-01-23) |
 
 
+<a id="user-5-modify-user-description"></a>
 #### 1.5. Modify User Description
 
 **[Method, URL]**
@@ -353,6 +365,7 @@ API to get user information all at once
 }
 ```
 
+<a id="user-6-delete-user"></a>
 #### 1.6. Delete User
 
 **[Method, URL]**
@@ -387,6 +400,7 @@ API to get user information all at once
 }
 ```
 
+<a id="user-7-check-permissions"></a>
 #### 1.7. Check Permissions
 
 **[Method, URL]**
@@ -461,6 +475,7 @@ API to get user information all at once
 |authorizations[0].resourcePath|	String|	Resource Path|
 |authorizations[0].scopeId|	String|	Scope ID|
 
+<a id="user-8-check-role-permissions"></a>
 #### 1.8. Check Role Permissions
 
 Returns whether the User has been granted a role. Also includes roles based on associations.
@@ -529,6 +544,7 @@ Returns whether the User has been granted a role. Also includes roles based on a
 |authorizations[0].roleId|	String|	Role ID|
 |authorizations[0].scopeId|	String|	Scope ID|
 
+<a id="user-9-get-role-assigned-to-user"></a>
 #### 1.9. Get Role assigned to User
 
 Returns only directly granted roles. It does not return roles that are related to a role.
@@ -584,6 +600,7 @@ Returns only directly granted roles. It does not return roles that are related t
 |relations[0].validStartDate|	Date|Validity period start date for the role granted to the user (end of support after 2024-01-23)|
 |relations[0].validEndDate|	Date|End of validity date for the role granted to the user (end of support after 2024-01-23)|
 
+<a id="user-10-give-user-a-role"></a>
 #### 1.10. Give User a Role
 
 **[Method, URL]**
@@ -636,6 +653,7 @@ Returns only directly granted roles. It does not return roles that are related t
 }
 ```
 
+<a id="user-11-delete-the-role-assigned-to-user"></a>
 #### 1.11. Delete the Role assigned to User
 
 **[Method, URL]**
@@ -677,6 +695,7 @@ Returns only directly granted roles. It does not return roles that are related t
 }
 ```
 
+<a id="user-12-delete-an-existing-role-for-a-user-and-give-them-a-new-role"></a>
 #### 1.12. Delete an existing role for a user and give them a new role
 
 **[Method, URL]**
@@ -729,6 +748,7 @@ Returns only directly granted roles. It does not return roles that are related t
     }
 }
 ```
+<a id="user-13-set-an-expiration-date-for-a-role-granted-to-a-user"></a>
 #### 1.13. Set an expiration date for a role granted to a user
 
 **[Method, URL]**
@@ -780,8 +800,10 @@ Returns only directly granted roles. It does not return roles that are related t
 }
 ```
 
-### 2. Scope
+<a id="scope"></a>
+### 2. Scope { #scope }
 
+<a id="scope-1-register-a-scope"></a>
 #### 2.1. Register a Scope
 
 **[Method, URL]**
@@ -829,6 +851,7 @@ Returns only directly granted roles. It does not return roles that are related t
 }
 ```
 
+<a id="scope-2-get-scope"></a>
 #### 2.2. Get Scope
 
 **[Method, URL]**
@@ -875,6 +898,7 @@ Returns only directly granted roles. It does not return roles that are related t
 |scope.scopeId|	String|	Scope ID|
 |scope.description|	String|	Scope description|
 
+<a id="scope-3-edit-scope-description"></a>
 #### 2.3. Edit Scope Description
 
 **[Method, URL]**
@@ -921,6 +945,7 @@ Returns only directly granted roles. It does not return roles that are related t
 }
 ```
 
+<a id="scope-4-delete-scope"></a>
 #### 2.4. Delete Scope
 
 **[Method, URL]**
@@ -955,6 +980,7 @@ Returns only directly granted roles. It does not return roles that are related t
 }
 ```
 
+<a id="scope-5-get-relationships-associated-with-scope"></a>
 #### 2.5. Get relationships associated with Scope
 
 Gets associations related to a Scope ID.
@@ -1008,6 +1034,7 @@ Gets associations related to a Scope ID.
 |relations[0].userId|	String|	User ID|
 
 
+<a id="scope-6-get-scope-list"></a>
 #### 2.6. Get Scope List
 
 Gets lists in the form of pages.
@@ -1067,8 +1094,10 @@ Entering 1 for page and 10 for itemsPerPage will retrieve the first 10 lists.
 |scopes[0].scopeId|	String|	Scope ID|
 |totalItems|	int|	Total number of scopes|
 
-### 3. Role
+<a id="role"></a>
+### 3. Role { #role }
 
+<a id="role-1-register-a-role"></a>
 #### 3.1. Register a Role
 
 **[Method, URL]**
@@ -1122,6 +1151,7 @@ Entering 1 for page and 10 for itemsPerPage will retrieve the first 10 lists.
 }
 ```
 
+<a id="role-2-get-role"></a>
 #### 3.2. Get Role
 
 **[Method, URL]**
@@ -1181,6 +1211,7 @@ Entering 1 for page and 10 for itemsPerPage will retrieve the first 10 lists.
 |role.roleTags|	Object|	About Tags |
 |role.roleTags.roleTagId|	String|	Tag ID|
 
+<a id="role-3-edit-role-information"></a>
 #### 3.3. Edit Role information
 
 **[Method, URL]**
@@ -1233,6 +1264,7 @@ Entering 1 for page and 10 for itemsPerPage will retrieve the first 10 lists.
 }
 ```
 
+<a id="role-4-delete-a-role"></a>
 #### 3.4. Delete a Role
 
 **[Method, URL]**
@@ -1268,6 +1300,7 @@ Entering 1 for page and 10 for itemsPerPage will retrieve the first 10 lists.
 }
 ```
 
+<a id="role-5-set-up-role-associations"></a>
 #### 3.5. Set up Role associations
 
 **[Method, URL]**
@@ -1314,6 +1347,7 @@ Entering 1 for page and 10 for itemsPerPage will retrieve the first 10 lists.
 }
 ```
 
+<a id="role-6-delete-a-role-association"></a>
 #### 3.6. Delete a Role association
 
 **[Method, URL]**
@@ -1349,6 +1383,7 @@ Entering 1 for page and 10 for itemsPerPage will retrieve the first 10 lists.
 }
 ```
 
+<a id="role-7-assign-user-to-role"></a>
 #### 3.7. Assign User to Role
 
 
@@ -1407,6 +1442,7 @@ Entering 1 for page and 10 for itemsPerPage will retrieve the first 10 lists.
 }
 ```
 
+<a id="role-8-get-roles"></a>
 #### 3.8. Get Roles
 
 Gets lists in the form of pages.
@@ -1490,6 +1526,7 @@ You can also create conditions such as (A;B),C.
 |totalItems|	int|	Total number of roles|
 
 
+<a id="role-9-create-a-role-tag"></a>
 #### 3.9. Create a Role Tag
 
 **[Method, URL]**
@@ -1537,6 +1574,7 @@ You can also create conditions such as (A;B),C.
 ```
 
 
+<a id="role-10-delete-role-tag"></a>
 #### 3.10. Delete Role Tag
 
 **[Method, URL]**
@@ -1572,6 +1610,7 @@ You can also create conditions such as (A;B),C.
 }
 ```
 
+<a id="role-11-get-role-tag"></a>
 #### 3.11. Get Role Tag
 
 **[Method, URL]**
@@ -1613,8 +1652,10 @@ You can also create conditions such as (A;B),C.
 |roleTags|	List|	About Tags|
 |roleTags[0].roleTagId|	String|	Tag ID|
 
-### 4. Resource
+<a id="resource"></a>
+### 4. Resource { #resource }
 
+<a id="resource-1-create-a-resource"></a>
 #### 4.1. Create a Resource
 
 **[Method, URL]**
@@ -1672,6 +1713,7 @@ You can also create conditions such as (A;B),C.
 }
 ```
 
+<a id="resource-2-get-resource-hierarchy"></a>
 #### 4.2. Get Resource Hierarchy
 
 **[Method, URL]**
@@ -1735,6 +1777,7 @@ You can also create conditions such as (A;B),C.
 |resources[0].metadata|	String|	Custom data|
 |resources[0].resources|	List|	Resource list|
 
+<a id="resource-3-get-resource"></a>
 #### 4.3. Get Resource
 
 **[Method, URL]**
@@ -1789,6 +1832,7 @@ You can also create conditions such as (A;B),C.
 |resource.priority|	smallint|	Priority|
 |resource.metadata|	String|	Custom data|
 
+<a id="resource-4-modify-resource"></a>
 #### 4.4. Modify Resource
 
 **[Method, URL]**
@@ -1844,6 +1888,7 @@ You can also create conditions such as (A;B),C.
 }
 ```
 
+<a id="resource-5-delete-a-resource"></a>
 #### 4.5. Delete a Resource
 
 **[Method, URL]**
@@ -1878,6 +1923,7 @@ You can also create conditions such as (A;B),C.
 }
 ```
 
+<a id="resource-6-get-permissions-associated-with-a-resource"></a>
 #### 4.6. Get permissions associated with a Resource
 
 **[Method, URL]**
@@ -1924,6 +1970,7 @@ You can also create conditions such as (A;B),C.
 |authorizations[0].operationId|	String|	Operation ID|
 |authorizations[0].roleId|	String|	Role ID|
 
+<a id="resource-7-add-permissions-to-the-resource"></a>
 #### 4.7. Add permissions to the Resource.
 
 **[Method, URL]**
@@ -1972,6 +2019,7 @@ You can also create conditions such as (A;B),C.
 }
 ```
 
+<a id="resource-8-get-resources"></a>
 #### 4.8. Get Resources
 
 **[Method, URL]**
@@ -2035,8 +2083,10 @@ You can also create conditions such as (A;B),C.
 |resources[0].resourceId|	String|	Resource ID|
 |resources[0].uiPath|	String|	uiPath|
 
-### 5. Operation
+<a id="operation"></a>
+### 5. Operation { #operation }
 
+<a id="operation-1-register-an-operation"></a>
 #### 5.1. Register an Operation
 
 **[Method, URL]**
@@ -2084,6 +2134,7 @@ You can also create conditions such as (A;B),C.
 }
 ```
 
+<a id="operation-2-get-operation"></a>
 #### 5.2. Get Operation
 
 **[Method, URL]**
@@ -2130,6 +2181,7 @@ You can also create conditions such as (A;B),C.
 |operation.operationId|	String|	Operation ID|
 |operation.description|	String|	Operation description|
 
+<a id="operation-3-edit-the-operation-description"></a>
 #### 5.3. Edit the Operation description
 
 **[Method, URL]**
@@ -2177,6 +2229,7 @@ You can also create conditions such as (A;B),C.
 }
 ```
 
+<a id="operation-4-delete-an-operation"></a>
 #### 5.4. Delete an Operation
 
 **[Method, URL]**
@@ -2212,6 +2265,7 @@ You can also create conditions such as (A;B),C.
 ```
 
 
+<a id="operation-5-get-operations"></a>
 #### 5.5. Get Operations
 
 **[Method, URL]**
