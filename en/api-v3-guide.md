@@ -11,8 +11,8 @@
 
 AppKey and SecretKey are required to use the ROLE API.
 The Appkey is included in the request URL to identify and specify a particular resource when making API calls. A SecretKey is a private key used to control access to the API. 
-For more information on checking and using Appkeys and SecretKeys, please refer to [Appkey](/en/nhncloud/en/public-api/appkey/).
-Alternatively, a Project-integrated Appkey can be used in place of Appkey. For more information on creating and using Project Integrated Appkeys, please refer to [Project Integrated Appkey](/en/nhncloud/en/public-api/project-integrated-appkey/).
+For more information on checking and using Appkeys and SecretKeys, please refer to [Appkey](/nhncloud/en/public-api/appkey/).
+Alternatively, a Project-integrated Appkey can be used in place of Appkey. For more information on creating and using Project Integrated Appkeys, please refer to [Project Integrated Appkey](/nhncloud/en/public-api/project-integrated-appkey/).
 
 <a id="restful-api-guide"></a>
 ## RESTful API Guide { #restful-api-guide }
