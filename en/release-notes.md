@@ -9,10 +9,10 @@
 ### 기능 추가 { #04-28-1 }
 * [RESTful API] 특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록을 조회하는 API가 추가되었습니다.
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search
-        * 자세한 사항은 매뉴얼 참고: [링크](/en/Application%20Service/ROLE/en/api-v3-guide/#searchContainingRoles)
+        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#searchContainingRoles)
 * [RESTful API] 역할에서 설정 가능한 모든 조건 속성 목록 조회 API 응답에 `attributeTagIds`(조건 속성 태그 ID 목록) 필드가 추가되었습니다.
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search
-        * 자세한 사항은 매뉴얼 참고: [링크](/en/Application%20Service/ROLE/en/api-v3-guide/#searchAttributesByRoleId)
+        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#searchAttributesByRoleId)
 * [SDK] 2.0.7로 릴리스되었습니다.
     * 신규 API(특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회)가 반영되었습니다.
 
@@ -23,9 +23,9 @@
 * [RESTful API] Extended The APIs to retrieve role lists and a single role.
   * Added role tag lists to the list of related roles.
     * POST /role/v3.0/appkeys/{appKey}/roles/search: Retrieve roles
-        * For more details, see: [link](/en/Application%20Service/ROLE/en/api-v3-guide/#searchRoles)
+        * For more details, see: [link](./api-v3-guide/#searchRoles)
     * GET /role/v3.0/appkeys/{appKey}/roles/{roleId}: Retrieve a role
-        * For more details, see: [link](/en/Application%20Service/ROLE/en/api-v3-guide/#getRole)
+        * For more details, see: [link](./api-v3-guide/#getRole)
 
 <a id="bug-fixes"></a>
 ### Bug Fixes { #bug-fixes }
@@ -38,7 +38,7 @@
 ### Added Features { #march-26-2024-added-features }
 * [RESTful API] Changed the Get a list of users API.
     * POST /role/v3.0/appkeys/{appKey}/users/search: Get a list of users
-        * For more information, see: [link](/en/Application%20Service/ROLE/en/api-v3-guide/#get-a-list-of-users)
+        * For more information, see: [link](./api-v3-guide/#get-a-list-of-users)
 
 <a id="january-23-2024"></a>
 ## January 23, 2024. { #january-23-2024 }
