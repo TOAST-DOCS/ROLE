@@ -9,10 +9,10 @@
 ### 기능 추가 { #04-28-1 }
 * [RESTful API] 특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록을 조회하는 API가 추가되었습니다.
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search
-        * 자세한 사항은 매뉴얼 참고: [링크](https://docs.nhncloud.com/ja/Application%20Service/ROLE/ja/api-v3-guide/#searchContainingRoles)
+        * 자세한 사항은 매뉴얼 참고: [링크](/ja/Application%20Service/ROLE/ja/api-v3-guide/#searchContainingRoles)
 * [RESTful API] 역할에서 설정 가능한 모든 조건 속성 목록 조회 API 응답에 `attributeTagIds`(조건 속성 태그 ID 목록) 필드가 추가되었습니다.
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search
-        * 자세한 사항은 매뉴얼 참고: [링크](https://docs.nhncloud.com/ja/Application%20Service/ROLE/ja/api-v3-guide/#searchAttributesByRoleId)
+        * 자세한 사항은 매뉴얼 참고: [링크](/ja/Application%20Service/ROLE/ja/api-v3-guide/#searchAttributesByRoleId)
 * [SDK] 2.0.7로 릴리스되었습니다.
     * 신규 API(특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회)가 반영되었습니다.
 
@@ -23,9 +23,9 @@
 * [RESTful API]ロールリスト照会、ロール単件照会APIが拡張されました。
   * 関連関係ロールリストにロールタグリストが追加されました。
     * POST /role/v3.0/appkeys/{appKey}/roles/search:ロールリスト照会
-        * 詳細については、マニュアルを参照: [リンク](https://docs.nhncloud.com/ja/Application%20Service/ROLE/ja/api-v3-guide/#searchRoles)
+        * 詳細については、マニュアルを参照: [リンク](/ja/Application%20Service/ROLE/ja/api-v3-guide/#searchRoles)
     * GET /role/v3.0/appkeys/{appKey}/roles/{roleId}:ロール単件照会
-        * 詳細については、マニュアルを参照: [リンク](https://docs.nhncloud.com/ja/Application%20Service/ROLE/ja/api-v3-guide/#getRole)
+        * 詳細については、マニュアルを参照: [リンク](/ja/Application%20Service/ROLE/ja/api-v3-guide/#getRole)
 
 <a id="bug-fixes"></a>
 ### バグ修正 { #bug-fixes }
@@ -38,7 +38,7 @@
 ### 機能追加 { #march-26-2024-added-features }
 * [RESTful API]ユーザーリスト照会APIが変更されました。
     * POST /role/v3.0/appkeys/{appKey}/users/search :ユーザーリスト照会
-        * 詳細については、マニュアルを参照: [リンク](https://docs.nhncloud.com/ja/Application%20Service/ROLE/ja/api-v3-guide/#_8)
+        * 詳細については、マニュアルを参照: [リンク](/ja/Application%20Service/ROLE/ja/api-v3-guide/#getUsers)
 
 <a id="january-23-2024"></a>
 ## 2024. 02. 27. { #january-23-2024 }
@@ -103,7 +103,7 @@
     * RoleGroup: グループを指定し、グループ別検索で管理できます。
 * [Console] ResourceのResource IDの長さが64文字に増加しました。
 * [RESTful API] Role項目にRoleName、RoleGroupが追加され、Role関連APIが拡張されました。
-    * 詳細については、マニュアルを参照：[リンク](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#3-role)
+    * 詳細については、マニュアルを参照：[リンク](/ko/Application%20Service/ROLE/ko/api-guide/#role)
 * [SDK] 1.1.7にリリースされました。
     * セキュリティ強化のためにcommons-colllection 3.2.2 を適用しました。
     
@@ -114,13 +114,13 @@
 ### 機能追加 { #01-added-features }
 * [RESTful API] 各コンポーネントのリストを照会できるAPIを追加しました。
 	* GET /role/v1.0/appkeys/{appKey}/roles: roleリストの照会
-		* 詳細については、マニュアル参考: [リンク](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#3-role)
+		* 詳細については、マニュアル参考: [リンク](/ko/Application%20Service/ROLE/ko/api-guide/#role)
 	* GET /role/v1.0/appkeys/{appKey}/resources: resourceリストの照会
-		* 詳細についてはマニュアルを参考：[リンク](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#4-resource)
+		* 詳細についてはマニュアルを参考：[リンク](/ko/Application%20Service/ROLE/ko/api-guide/#resource)
 	* GET /role/v1.0/appkeys/{appKey}/scopes: scopeリストの照会
-		* 詳細については、マニュアルを参照：[リンク](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#2-scope)
+		* 詳細については、マニュアルを参照：[リンク](/ko/Application%20Service/ROLE/ko/api-guide/#scope)
 	* GET /role/v1.0/appkeys/{appKey}/operations: operationリストの照会
-		* 詳細については、マニュアルを参照：[リンク](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#5-operation)
+		* 詳細については、マニュアルを参照：[リンク](/ko/Application%20Service/ROLE/ko/api-guide/#operation)
 
 <a id="01-feature-updates"></a>
 ### 機能改善/変更 { #01-feature-updates }
@@ -139,7 +139,7 @@
 	* 注意文言：「※注意：現在のプロジェクトのResource、Role、Operationを選択したプロジェクトにコピーを進めます。選択したプロジェクトの既存のResource、Role、Operationは削除されます。」
 * [RESTful API] API制約事項が変更されました。
 	* GET /role/v1.0/appkeys/{appKey}/resources/hierarchy APIがuserやroleを引数に指定しなくても、全ての結果を返すように変更されました。
-		* 詳細についてはマニュアルを参照：[リンク](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#4-resource)
+		* 詳細についてはマニュアルを参照：[リンク](/ko/Application%20Service/ROLE/ko/api-guide/#resource)
 
 <a id="01-bug-fixes"></a>
 ### バグ修正 { #01-bug-fixes }
@@ -203,7 +203,7 @@
 <a id="01-3-feature-updates"></a>
 ### 機能改善/変更 { #01-3-feature-updates }
 * Userリストの照会時、関連関係にあるRoleを持つユーザーも返すオプションを追加
-	* 詳細については、マニュアルを参照：[リンク](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#1-user)
+	* 詳細については、マニュアルを参照：[リンク](/ko/Application%20Service/ROLE/ko/api-guide/#user)
 
 <a id="01-4"></a>
 ## 2016. 09. 29. { #01-4 }
@@ -211,7 +211,7 @@
 ### 機能改善/変更 { #01-4-feature-updates }
 * Userに新規Roleを付与する際、既に登録されているRoleのうちScopeが同じRoleを削除するAPIを追加
 * RoleにUserを追加するAPIでUserがない場合、Userを生成するオプションを追加
-	* 詳細については、マニュアルを参照：[リンク](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#3-role)
+	* 詳細については、マニュアルを参照：[リンク](/ko/Application%20Service/ROLE/ko/api-guide/#role)
 
 <a id="01-5"></a>
 ## 2016. 08. 18. { #01-5 }
@@ -219,7 +219,7 @@
 ### 機能改善/変更 { #01-5-feature-updates }
 * 使いやすさが落ちるため、Polling APIのサポートを終了しました。
 * Role商品を利用するProject間のデータをMigrationする機能を追加
-    * 詳細については、マニュアルを参照：[リンク](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/console-guide/#_3)
+    * 詳細については、マニュアルを参照：[リンク](/ko/Application%20Service/ROLE/ko/console-guide/#migration)
 
 <a id="01-5-bug-fixes"></a>
 ### バグ修正 { #01-5-bug-fixes }

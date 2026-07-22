@@ -9,10 +9,10 @@
 ### 기능 추가 { #04-28-1 }
 * [RESTful API] 특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록을 조회하는 API가 추가되었습니다.
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search
-        * 자세한 사항은 매뉴얼 참고: [링크](https://docs.nhncloud.com/en/Application%20Service/ROLE/en/api-v3-guide/#searchContainingRoles)
+        * 자세한 사항은 매뉴얼 참고: [링크](/en/Application%20Service/ROLE/en/api-v3-guide/#searchContainingRoles)
 * [RESTful API] 역할에서 설정 가능한 모든 조건 속성 목록 조회 API 응답에 `attributeTagIds`(조건 속성 태그 ID 목록) 필드가 추가되었습니다.
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search
-        * 자세한 사항은 매뉴얼 참고: [링크](https://docs.nhncloud.com/en/Application%20Service/ROLE/en/api-v3-guide/#searchAttributesByRoleId)
+        * 자세한 사항은 매뉴얼 참고: [링크](/en/Application%20Service/ROLE/en/api-v3-guide/#searchAttributesByRoleId)
 * [SDK] 2.0.7로 릴리스되었습니다.
     * 신규 API(특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회)가 반영되었습니다.
 
@@ -23,9 +23,9 @@
 * [RESTful API] Extended The APIs to retrieve role lists and a single role.
   * Added role tag lists to the list of related roles.
     * POST /role/v3.0/appkeys/{appKey}/roles/search: Retrieve roles
-        * For more details, see: [link](https://docs.nhncloud.com/en/Application%20Service/ROLE/en/api-v3-guide/#searchRoles)
+        * For more details, see: [link](/en/Application%20Service/ROLE/en/api-v3-guide/#searchRoles)
     * GET /role/v3.0/appkeys/{appKey}/roles/{roleId}: Retrieve a role
-        * For more details, see: [link](https://docs.nhncloud.com/en/Application%20Service/ROLE/en/api-v3-guide/#getRole)
+        * For more details, see: [link](/en/Application%20Service/ROLE/en/api-v3-guide/#getRole)
 
 <a id="bug-fixes"></a>
 ### Bug Fixes { #bug-fixes }
@@ -38,7 +38,7 @@
 ### Added Features { #march-26-2024-added-features }
 * [RESTful API] Changed the Get a list of users API.
     * POST /role/v3.0/appkeys/{appKey}/users/search: Get a list of users
-        * For more information, see: [link](https://docs.nhncloud.com/en/Application%20Service/ROLE/en/api-v3-guide/#get-a-list-of-users )
+        * For more information, see: [link](/en/Application%20Service/ROLE/en/api-v3-guide/#get-a-list-of-users)
 
 <a id="january-23-2024"></a>
 ## January 23, 2024. { #january-23-2024 }
@@ -103,7 +103,7 @@
     * RoleGroup: You can specify a group and manage it through a group-by-group search.
 * [Console] Resource ID of the resource has been increased to 64 characters in length.
 * [RESTFUL API] Among the Role entries, RoleName and RoleGroup have been added to extend the Role-related API.
-    * For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#3-role)
+    * For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#role)
 * [SDK] Released as 1.1.7 .
     * Commons-collection 3.2.2 was applied to enhance security.
     
@@ -114,13 +114,13 @@
 ### Added Features { #01-added-features }
 * [RESTFUL API] Added the API to look up the list of each component.
 	* GET /role/v1.0/appkeys/{appKey}/roles: role list look up
-		* For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#3-role)
+		* For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#role)
 	* GET /role/v1.0/appkeys/{appKey}/resources: resource list lookup
-		* For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#4-resource)
+		* For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#resource)
 	* GET /role/v1.0/appkeys/{appKey}/scopes: scope list lookup
-		* For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#2-scope)
+		* For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#scope)
 	* GET /role/v1.0/appkeys/{appKey}/operations: operation list lookup
-		* For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#5-operation)
+		* For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#operation)
 
 <a id="01-feature-updates"></a>
 ### Feature Updates { #01-feature-updates }
@@ -139,7 +139,7 @@
 	* a cautionary note: '※ caution: Copy the current project's Resources, Role, Operation to the selected project. Delete existing Resources, Role, Operation for the selected project.'
 * [RESTFUL API] API constraints has changed.
 	* GET /role/v1.0/appkeys/{appKey}/resources/hierarchy The API has been changed to give full results without having to give users or roles as factors..
-		* For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#4-resource)
+		* For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#resource)
 
 <a id="01-bug-fixes"></a>
 ### Bug Fixes { #01-bug-fixes }
@@ -203,7 +203,7 @@
 <a id="01-3-feature-updates"></a>
 ### Feature Updates { #01-3-feature-updates }
 * Added the option to return users with associated Role when viewing user lists
-	* For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#1-user)
+	* For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#user)
 
 <a id="01-4"></a>
 ## 1.0.1 { #01-4 }
@@ -211,7 +211,7 @@
 ### Feature Updates { #01-4-feature-updates }
 * Added API to delete existing registered roles with the same scope when granting a new role to a user
 * Added a User to a Role Add an option to create a User if it doesn't exist in the API
-	* For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/api-guide/#3-role)
+	* For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#role)
 
 <a id="01-5"></a>
 ## 1.0.1 { #01-5 }
@@ -219,7 +219,7 @@
 ### Feature Updates { #01-5-feature-updates }
 * Polling API support is deprecated due to low usability
 * Added feature to migrate data between projects using Role products
-    * For more information, refer to the manual: [link](http://docs.nhncloud.com/ko/Application%20Service/ROLE/ko/console-guide/#_3)
+    * For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/console-guide/#migration)
 
 <a id="01-5-bug-fixes"></a>
 ### Bug Fixes { #01-5-bug-fixes }
