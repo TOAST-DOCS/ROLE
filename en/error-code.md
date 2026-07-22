@@ -1,4 +1,7 @@
-## Application Service > ROLE > Error Code
+<!-- pre-align:aligned sig=22c09f41ce73 -->
+
+<a id="application-service-role-error-code"></a>
+## Application Service > ROLE > Error Code { #application-service-role-error-code }
 Response Body contains "header" information by default. 
 If API call fails, isSuccessful becomes false and an error code is displayed in resultCode.
 

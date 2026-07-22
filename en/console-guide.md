@@ -1,6 +1,10 @@
-## Application Service > ROLE > Console User Guide
+<!-- pre-align:aligned sig=b2a1ed97b6ec -->
 
-## Bulletin Board Example
+<a id="application-service-role-console-user-guide"></a>
+## Application Service > ROLE > Console User Guide { #application-service-role-console-user-guide }
+
+<a id="bulletin-board-example"></a>
+## Bulletin Board Example { #bulletin-board-example }
 
 Will explain how to use the console as an example of configuring role-based resource access control when creating a small bulletin board.
 Let's assume that calling `/board/v1.0/{boardId}` API returns a post, which can only be called by authenticated members. 
@@ -8,7 +12,8 @@ You first have to create a role as an authenticated member.
 
 > In the example with curl, the values "{Appkey}" and "{SecretKey}" should be replaced by Appkey and SecretKey of active Role service within the actual project.
 
-### 1) Create Role
+<a id="create-role"></a>
+### 1) Create Role { #create-role }
 
 ![role_1.1.png](http://static.toastoven.net/prod_role/role_1.1.png)
 <center>[Figure 1.1] Go to Role tab.</center>
@@ -16,7 +21,8 @@ You first have to create a role as an authenticated member.
 ![role_1.2.png](http://static.toastoven.net/prod_role/role_1.2.png)
 <center>[Figure 1.2] Add Role</center>
 
-### 2) Create Operation
+<a id="create-operation"></a>
+### 2) Create Operation { #create-operation }
 
 Once you have created a role, you have to create an operation.
 
@@ -26,7 +32,8 @@ Once you have created a role, you have to create an operation.
 ![role_2.2.png](http://static.toastoven.net/prod_role/role_2.2.png)
 <center>[Figure 2.2] Add Operation</center>
 
-### 3) Create Resource
+<a id="create-resource"></a>
+### 3) Create Resource { #create-resource }
 
 Now let's register `/board/v1.0/{boardId}` as a resource. 
 You have to register sequentially by dividing it into `board`, `v1.0` and `{boardId}`.
@@ -46,7 +53,8 @@ You have to register sequentially by dividing it into `board`, `v1.0` and `{boar
 ![role_3.5.png](http://static.toastoven.net/prod_role/role_3.5.png)
 <center>[Figure 3.5] Add resource #3 '{boardId}'</center>
 
-### 4) Create a Role-Resource Relationship
+<a id="create-a-role-resource-relationship"></a>
+### 4) Create a Role-Resource Relationship { #create-a-role-resource-relationship }
 
 If you even registered a resource, you need to set up `role-resource` relationship to specify the resources for which the role can perform the operation.
 
@@ -56,7 +64,8 @@ If you even registered a resource, you need to set up `role-resource` relationsh
 ![role_4.2.png](http://static.toastoven.net/prod_role/role_4.2.png)
 <center>[Figure 4.2] This is a view after adding user-resource relationships.</center>
 
-### 5) Create condition attribute
+<a id="create-condition-attribute"></a>
+### 5) Create condition attribute { #create-condition-attribute }
 
 `Role-Condition attribute ` relationships have to be set in order to grant the created roles permission to perform operations only under certain conditions.
 Condition attributes are only available for roles that you pre-add to condition attributes. When creating/modifying a condition attribute, you add the role you created earlier to the condition attribute.
@@ -70,7 +79,8 @@ Condition attributes are only available for roles that you pre-add to condition 
 ![role_5.3.png](http://static.toastoven.net/prod_role/role_5.3.png)
 <center>[Figure 5.3] Add role to condition attribute.</center>
 
-### 6) Create user
+<a id="create-user"></a>
+### 6) Create user { #create-user }
 
 Lastly, add a user to use the Bulletin API and set `MEMBER` role and `instance.name ` condition attribute to set access control.
 
@@ -95,11 +105,13 @@ Lastly, add a user to use the Bulletin API and set `MEMBER` role and `instance.n
 ![role_6.7.png](http://static.toastoven.net/prod_role/role_6.7.png)
 <center>[Figure 6.7] This is a view that condition attribute was added to user role.</center>
 
-### 7) Authority Check
+<a id="authority-check"></a>
+### 7) Authority Check { #authority-check }
 
 Let’s assume that `userId` is transferred to `'uuid'` in Header.
 When the user `12345678-1234-5678-1234-567812345678` calls API `/board/v1.0/1`, permission is checked as below.
 
+<a id="authority-check-when-call-restful-api"></a>
 #### [When call RESTFUL API]
 
 ```shell
@@ -147,7 +159,8 @@ Response Example) If you have access rights, the response `permission: true` is 
 }
 ```
 
-## Migration
+<a id="migration"></a>
+## Migration { #migration }
 
 If you have other projects that use ROLE service, you can conveniently synchronize your data using the data transfer feature.
 Data synchronization targets are `resource`, `role`, `operation` and `range` and `user` are not synchronized.
@@ -171,7 +184,8 @@ You can select a project to transfer data to, or enter AppKey directly.
 ![role_8.5.png](http://static.toastoven.net/prod_role/role_8.5.png)
 <center>[Figure 8.5] **Check** button is a confirmation modal that is exposed when clicked.</center>
 
-## Server Settings
+<a id="server-settings"></a>
+## Server Settings { #server-settings }
 
 ![role_8.1.png](http://static.toastoven.net/prod_role/role_8.1.png)
 <center>[Figure 9.1] Go to Administration tab.</center>
@@ -179,18 +193,21 @@ You can select a project to transfer data to, or enter AppKey directly.
 ![role_9.2.png](http://static.toastoven.net/prod_role/role_9.2.png)
 <center>[Figure 9.2] This is Server Settings Area.</center>
 
-### Client SDK Cache Settings
+<a id="client-sdk-cache-settings"></a>
+### Client SDK Cache Settings { #client-sdk-cache-settings }
 
 You can set up client SDK cache. 
 Attributes that can be set include `TTL`, `ID-specific sizes`, `Path-specific sizes`, and `Tree-specific sizes`.
 
-### Resource Path Trailing Slash Match
+<a id="resource-path-trailing-slash-match"></a>
+### Resource Path Trailing Slash Match { #resource-path-trailing-slash-match }
 
 You can set it for the last `'/'` of resource path.
 If set to `NonIdentical Path`, `'/board/v1.0/{boardId}'` and `'/board/v1.0/{boardId}/'` are different paths.
 However, if you set it to `IdenticalPath`, `'/board/v1.0/{boardId}'` and `'/board/v1.0/{boardId}/'` are the same path.
 
-## Clear Cache
+<a id="clear-cache"></a>
+## Clear Cache { #clear-cache }
 
 Because of the cache of client SDK and server, the results of the permission check on the changed resources might not be immediately reflected.
 In such case, you can resolve the issue by explicitly deleting the cache using **Delete Cash** button on Administration tab.

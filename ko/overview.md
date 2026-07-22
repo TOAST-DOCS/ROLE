@@ -1,21 +1,28 @@
-## Application Service > ROLE > 개요
+<!-- pre-align:aligned sig=6e61b1dc1e82 -->
 
-## ROLE 서비스는?
+<a id="application-service-role-overview"></a>
+## Application Service > ROLE > 개요 { #application-service-role-overview }
+
+<a id="what-is-role-service"></a>
+## ROLE 서비스는? { #what-is-role-service }
 
 운영 환경에 접근하는 사용자의 리소스 접근 제어를 체계적으로 관리할 수 있는 서비스입니다.
 
-## 전체 구조
+<a id="overall-structure"></a>
+## 전체 구조 { #overall-structure }
 
 ![\[그림 1\] 전체 구조](http://static.toastoven.net/prod_role/Role_Intro_01.png)
 <center>[그림 1] 전체 구조</center>
 
-### RBAC(Role-based access control)
+<a id="rbac-role-based-access-control"></a>
+### RBAC(Role-based access control) { #rbac-role-based-access-control }
 
 먼저 필요한 역할을 정의해야 합니다. 역할은 다른 역할을 연관 역할로 지정할 수 있고, 해당 연관 역할에 지정된 다른 연관 역할과 조건 속성을 상속받을 수 있습니다. 이를 통해 체계적인 역할 구조를 설계할 수 있습니다.
 특정한 기능을 수행할 수 있는 역할들을 정의하고, 이런 역할을 묶어서 특정 직무를 수행할 수 있는 역할에 연관 관계로 구성할 수 있습니다.
 사용자에게 작은 범위의 기능을 수행할 수 있는 역할을 할당할 수도 있고, 더 많은 기능을 할 수 있는 역할을 할당할 수 있습니다.
 
-### ABAC(Attribute-based access control)
+<a id="abac-attribute-based-access-control"></a>
+### ABAC(Attribute-based access control) { #abac-attribute-based-access-control }
 
 인가 정책을 설계할 때 역할만으로는 부족할 수 있습니다. 조건 속성을 기반으로 역할을 정의해서 세밀한 정책을 구성할 수 있습니다.
 조건 속성은 `ID-값` 형식으로 구성할 수 있고, `사용자` 또는 `역할`에 부여할 수 있습니다. 조건 속성에 부여된 값과 일치하거나 일치하지 않는 경우에 접근을 허용하도록 구성할 수 있습니다.
@@ -25,7 +32,8 @@
 
 위의 예시와 같이 `특정 속성 ID를 가지는 보호 자원에 접근`할 때, 사용자에게 부여한 속성값이 접근하려는 대상의 조건 속성과 일치하는 경우만 자원에 접근을 허용하도록 구성할 수 있습니다.
 
-### 리소스
+<a id="resource"></a>
+### 리소스 { #resource }
 
 리소스는 보호 자원을 정의하는 단위입니다. URI 기반 hierarchy 구조로 구성할 수 있으며, 각 리소스에는 리소스 식별 정보와 리소스에 접근할 수 있는 `권한(역할-오퍼레이션 쌍)` 목록을 지정할 수 있습니다.
 리소스 기반으로 인가에 대한 정책을 수립하는 경우에 유용합니다.
@@ -33,7 +41,8 @@
 
 예. 게시판의 `게시글`을 리소스로 정의하여 `수정`과 `삭제`는 `관리자 역할`만 허용하고, `게스트 역할`은 `보기만 허용`하도록 구성할 수 있습니다. 또한 `관리자` 역할에 `게스트`의 역할을 연관 역할로 지정하면 `보기` 오퍼레이션을 수행할 수 있으므로 중복 적용하지 않고 효율적으로 관리할 수 있습니다.
 
-### 사용자
+<a id="user"></a>
+### 사용자 { #user }
 
 사용자의 접근 권한은 사용자에게 부여된 역할과 그 역할의 연관 역할로 검사합니다.
 사용자에게 역할을 부여할 때, 해당 역할의 유효 범위를 함께 지정할 수 있습니다. 범위는 운영 환경에서 역할 및 조건 속성, 리소스 체계가 동일한 여러 조직이나 대상이 있을 때 유용합니다.
@@ -41,7 +50,8 @@
 인가는 역할 기반과 리소스 기반으로 제공됩니다. 역할 기반은 사용자가 지정한 역할에 대한 접근을 허용하는지 검사하며, 사용자나 역할에 부여된 속성이 있으면 속성에 대해서도 함께 검사합니다.
 리소스 기반은 사용자가 지정한 리소스 및 오퍼레이션에 대한 접근을 허용하는지 검사합니다. 마찬가지로, 리소스에 접근 가능한 역할에 속성이 부여되어 있다면 속성에 대해서도 함께 검사합니다.
 
-## 주요기능
+<a id="main-features"></a>
+## 주요기능 { #main-features }
 
 ![\[그림 2\] 기능 설명](http://static.toastoven.net/prod_role/Role_Intro_02.png)
 <center>[그림 2] 기능 설명</center>
@@ -53,7 +63,8 @@
 * 역할 기반 및 리소스 기반의 사용자 접근 제어 기능을 제공합니다.
 * REST API 및 SDK를 제공합니다.
 
-## 서비스 용어
+<a id="service-terms"></a>
+## 서비스 용어 { #service-terms }
 
 | 용어 | 설명                 |
 | --- |--------------------|

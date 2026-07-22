@@ -1,4 +1,7 @@
-## Application Service > ROLE > エラーコード
+<!-- pre-align:aligned sig=22c09f41ce73 -->
+
+<a id="application-service-role-error-code"></a>
+## Application Service > ROLE > エラーコード { #application-service-role-error-code }
 Response Bodyには"header"情報が基本的に含まれています。
 API呼び出しが失敗すると、isSuccessfulがfalseになり、エラーコードがresultCodeに表示されます。
 
