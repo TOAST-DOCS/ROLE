@@ -1208,7 +1208,7 @@ Appkey 대신 프로젝트 통합 Appkey를 사용할 수도 있습니다. 프�
 <a name="deleteRoles"></a>
 <a id="delete-roles"></a>
 ### **역할 다건 삭제** { #delete-roles }
-> DELETE "/role/v3.0/appkeys/{appKey}/roles/{roleId}"
+> DELETE "/role/v3.0/appkeys/{appKey}/roles"
 
 <a id="delete-roles-parameters"></a>
 #### Parameters
