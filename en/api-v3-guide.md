@@ -1545,7 +1545,7 @@ For detailed response results, see Headers in the Response Body.
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#getRole) | Single role lookup |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/id**](#searchAllRoleIds) | Get a list of all role IDs |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search**](#searchAttributesByRoleId) | Get a list of all condition attributes that can be set in a role |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search**](#searchContainingRoles) | 특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회 |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search**](#searchContainingRoles) | Retrieve a list of roles that include all sub-roles and permissions of a specific role |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/roles/search**](#searchRoles) | Get a list of roles |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#updateRole) | Modify roles |
 
@@ -2199,7 +2199,7 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeDataTypeCode** | **String**| **Yes** |   STRING, NUMERIC, DAY_OF_WEEK, DATETIME, TIME, IPADDRESS, BOOLEAN |
 |   **attributeId** | **String**| **Yes** | Condition attribute ID  |
 |   **attributeName** | **String**| **No** | Condition attribute name  |
-|   **attributeTagIds** | **List&lt;String>**| **No** | 조건 속성 태그 ID 목록  |
+|   **attributeTagIds** | **List&lt;String>**| **No** | List of condition attribute tag IDs  |
 |   **description** | **String**| **No** | Condition attribute description  |
 
 
@@ -2222,10 +2222,10 @@ For detailed response results, see Headers in the Response Body.
 
 <a name="searchContainingRoles"></a>
 <a id="roles-1"></a>
-### **특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회** { #roles-1 }
+### **Retrieve a list of roles that include all sub-roles and permissions of a specific role** { #roles-1 }
 > POST "/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search"
 
-기준이 되는 역할(`{roleId}`)의 직접 하위 역할 목록을 모두 포함하는 상위 호환 역할 ID 목록을 조회합니다.
+Retrieves a list of upward-compatible role IDs that include all direct sub-roles of the base role (`{roleId}`).
 
 <a id="roles-1-parameters"></a>
 #### Parameters
@@ -2234,9 +2234,9 @@ For detailed response results, see Headers in the Response Body.
 
 | ParameterType | Name | Type | Required | Description | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
-|  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
-|  Path |**appKey** | **String**| **Yes** | 앱키 |
-|  Path |**roleId** | **String**| **Yes** | 기준이 되는 역할 ID |
+|  Header |**X-Secret-Key** | **String**| **Yes** | Secret key |
+|  Path |**appKey** | **String**| **Yes** | Appkey |
+|  Path |**roleId** | **String**| **Yes** | Base role ID |
 | Request Body | **SearchContainingRoles.Request** | **SearchContainingRoles.Request**| **Yes** |  | |
 
 
@@ -2246,8 +2246,8 @@ For detailed response results, see Headers in the Response Body.
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
-|   **roleTagIds** | **List&lt;String>**| **No** | 역할 태그 ID 목록(OR 조건)  |
-|   **roleGroups** | **List&lt;String>**| **No** | 역할 그룹 목록(OR 조건)  |
+|   **roleTagIds** | **List&lt;String>**| **No** | List of role tag IDs (OR condition)  |
+|   **roleGroups** | **List&lt;String>**| **No** | Role Group List (OR condition)  |
 
 
 <a id="roles-1-request"></a>
@@ -2283,8 +2283,8 @@ For detailed response results, see Headers in the Response Body.
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
-|   **roleIds** | **List&lt;String>**| **Yes** | 상위 호환 역할 ID 목록  |
-|   **totalItems** | **Long**| **Yes** | 전체 개수  |
+|   **roleIds** | **List&lt;String>**| **Yes** | List of upward-compatible role IDs  |
+|   **totalItems** | **Long**| **Yes** | Total count  |
 
 
 
