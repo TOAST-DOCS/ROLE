@@ -6,15 +6,15 @@
 <a id="04-28"></a>
 ## 2026. 04. 28. { #04-28 }
 <a id="04-28-1"></a>
-### 기능 추가 { #04-28-1 }
-* [RESTful API] 특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록을 조회하는 API가 추가되었습니다.
+### 機能追加 { #04-28-1 }
+* [RESTful API] 特定のロールの下位ロール/権限をすべて含むロール一覧を照会する API が追加されました。
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search
-        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#searchContainingRoles)
-* [RESTful API] 역할에서 설정 가능한 모든 조건 속성 목록 조회 API 응답에 `attributeTagIds`(조건 속성 태그 ID 목록) 필드가 추가되었습니다.
+        * 詳細については、マニュアルを参照してください: [リンク](./api-v3-guide/#searchContainingRoles)
+* [RESTful API] ロールで設定可能なすべての条件属性の一覧照会 API レスポンスに `attributeTagIds`（条件属性タグ ID 一覧）フィールドが追加されました。
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search
-        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#searchAttributesByRoleId)
-* [SDK] 2.0.7로 릴리스되었습니다.
-    * 신규 API(특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회)가 반영되었습니다.
+        * 詳細については、マニュアルを参照してください: [リンク](./api-v3-guide/#searchAttributesByRoleId)
+* [SDK] 2.0.7 としてリリースされました。
+    * 特定のロールのサブロール/権限をすべて含むロール一覧を照会する新規 API が反映されました。
 
 <a id="april-23-2024"></a>
 ## 2024. 04. 23. { #april-23-2024 }

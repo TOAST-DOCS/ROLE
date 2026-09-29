@@ -1519,7 +1519,7 @@ Appkeyの代わりにプロジェクト統合Appkeyを使用することも可�
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#getRole) | ロール単件照会 |
 | **GET** |[**/role/v3.0/appkeys/{appKey}/roles/id**](#searchAllRoleIds) | すべてのロールIDリストの照会 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search**](#searchAttributesByRoleId) | ロールで設定可能なすべての条件属性リストの照会 |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search**](#searchContainingRoles) | 특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회 |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search**](#searchContainingRoles) | 特定のロールの下位ロール/権限をすべて含むロールの一覧照会 |
 | **POST** |[**/role/v3.0/appkeys/{appKey}/roles/search**](#searchRoles) | ロールリストの照会 |
 | **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#updateRole) | ロール修正 |
 
@@ -2173,7 +2173,7 @@ Appkeyの代わりにプロジェクト統合Appkeyを使用することも可�
 |   **attributeDataTypeCode** | **String**| **Yes** |   STRING, NUMERIC, DAY_OF_WEEK, DATETIME, TIME, IPADDRESS, BOOLEAN |
 |   **attributeId** | **String**| **Yes** | 条件属性ID  |
 |   **attributeName** | **String**| **No** | 条件属性名 |
-|   **attributeTagIds** | **List&lt;String>**| **No** | 조건 속성 태그 ID 목록  |
+|   **attributeTagIds** | **List&lt;String>**| **No** | 条件属性タグ ID リスト  |
 |   **description** | **String**| **No** | 条件属性の説明 |
 
 
@@ -2196,10 +2196,10 @@ Appkeyの代わりにプロジェクト統合Appkeyを使用することも可�
 
 <a name="searchContainingRoles"></a>
 <a id="roles-1"></a>
-### **특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회** { #roles-1 }
+### **特定のロールのサブロール/権限をすべて含むロール一覧の照会** { #roles-1 }
 > POST "/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search"
 
-기준이 되는 역할(`{roleId}`)의 직접 하위 역할 목록을 모두 포함하는 상위 호환 역할 ID 목록을 조회합니다.
+基準となるロール (`{roleId}`) の直接の下位ロール一覧をすべて含む上位互換ロール ID 一覧を照会します。
 
 <a id="roles-1-parameters"></a>
 #### Parameters
@@ -2208,9 +2208,9 @@ Appkeyの代わりにプロジェクト統合Appkeyを使用することも可�
 
 | ParameterType | Name | Type | Required | Description | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
-|  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
-|  Path |**appKey** | **String**| **Yes** | 앱키 |
-|  Path |**roleId** | **String**| **Yes** | 기준이 되는 역할 ID |
+|  Header |**X-Secret-Key** | **String**| **Yes** | 秘密鍵 |
+|  Path |**appKey** | **String**| **Yes** | アプリケーションキー |
+|  Path |**roleId** | **String**| **Yes** | 基準となるロール ID |
 | Request Body | **SearchContainingRoles.Request** | **SearchContainingRoles.Request**| **Yes** |  | |
 
 
@@ -2220,8 +2220,8 @@ Appkeyの代わりにプロジェクト統合Appkeyを使用することも可�
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
-|   **roleTagIds** | **List&lt;String>**| **No** | 역할 태그 ID 목록(OR 조건)  |
-|   **roleGroups** | **List&lt;String>**| **No** | 역할 그룹 목록(OR 조건)  |
+|   **roleTagIds** | **List&lt;String>**| **No** | ロールタグ ID リスト（OR 条件）  |
+|   **roleGroups** | **List&lt;String>**| **No** | ロールグループリスト（OR 条件）  |
 
 
 <a id="roles-1-request"></a>
@@ -2257,8 +2257,8 @@ Appkeyの代わりにプロジェクト統合Appkeyを使用することも可�
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
-|   **roleIds** | **List&lt;String>**| **Yes** | 상위 호환 역할 ID 목록  |
-|   **totalItems** | **Long**| **Yes** | 전체 개수  |
+|   **roleIds** | **List&lt;String>**| **Yes** | 上位互換ロール ID リスト  |
+|   **totalItems** | **Long**| **Yes** | 総件数  |
 
 
 

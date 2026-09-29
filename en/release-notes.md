@@ -6,15 +6,15 @@
 <a id="04-28"></a>
 ## 2026. 04. 28. { #04-28 }
 <a id="04-28-1"></a>
-### 기능 추가 { #04-28-1 }
-* [RESTful API] 특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록을 조회하는 API가 추가되었습니다.
+### Added Features { #04-28-1 }
+* [RESTful API] Added an API to retrieve a list of roles that include all sub-roles and permissions of a specific role.
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search
-        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#searchContainingRoles)
-* [RESTful API] 역할에서 설정 가능한 모든 조건 속성 목록 조회 API 응답에 `attributeTagIds`(조건 속성 태그 ID 목록) 필드가 추가되었습니다.
+        * For more details, see the manual: [Link](./api-v3-guide/#searchContainingRoles)
+* [RESTful API] Added the `attributeTagIds` (list of condition attribute tag IDs) field to the response of the API that retrieves a list of all configurable condition attributes for a role.
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search
-        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#searchAttributesByRoleId)
-* [SDK] 2.0.7로 릴리스되었습니다.
-    * 신규 API(특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회)가 반영되었습니다.
+        * For more details, see the manual: [Link](./api-v3-guide/#searchAttributesByRoleId)
+* [SDK] Released as version 2.0.7.
+    * The new API (retrieve a list of roles that include all sub-roles and permissions of a specific role) has been reflected.
 
 <a id="april-23-2024"></a>
 ## April 23, 2024 { #april-23-2024 }
