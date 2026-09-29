@@ -103,7 +103,7 @@
     * RoleGroup: You can specify a group and manage it through a group-by-group search.
 * [Console] Resource ID of the resource has been increased to 64 characters in length.
 * [RESTFUL API] Among the Role entries, RoleName and RoleGroup have been added to extend the Role-related API.
-    * For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#role)
+    * For more information, refer to the manual: [link](./api-guide/#role)
 * [SDK] Released as 1.1.7 .
     * Commons-collection 3.2.2 was applied to enhance security.
     
@@ -114,13 +114,13 @@
 ### Added Features { #01-added-features }
 * [RESTFUL API] Added the API to look up the list of each component.
 	* GET /role/v1.0/appkeys/{appKey}/roles: role list look up
-		* For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#role)
+		* For more information, refer to the manual: [link](./api-guide/#role)
 	* GET /role/v1.0/appkeys/{appKey}/resources: resource list lookup
-		* For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#resource)
+		* For more information, refer to the manual: [link](./api-guide/#resource)
 	* GET /role/v1.0/appkeys/{appKey}/scopes: scope list lookup
-		* For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#scope)
+		* For more information, refer to the manual: [link](./api-guide/#scope)
 	* GET /role/v1.0/appkeys/{appKey}/operations: operation list lookup
-		* For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#operation)
+		* For more information, refer to the manual: [link](./api-guide/#operation)
 
 <a id="01-feature-updates"></a>
 ### Feature Updates { #01-feature-updates }
@@ -139,7 +139,7 @@
 	* a cautionary note: '※ caution: Copy the current project's Resources, Role, Operation to the selected project. Delete existing Resources, Role, Operation for the selected project.'
 * [RESTFUL API] API constraints has changed.
 	* GET /role/v1.0/appkeys/{appKey}/resources/hierarchy The API has been changed to give full results without having to give users or roles as factors..
-		* For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#resource)
+		* For more information, refer to the manual: [link](./api-guide/#resource)
 
 <a id="01-bug-fixes"></a>
 ### Bug Fixes { #01-bug-fixes }
@@ -203,7 +203,7 @@
 <a id="01-3-feature-updates"></a>
 ### Feature Updates { #01-3-feature-updates }
 * Added the option to return users with associated Role when viewing user lists
-	* For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#user)
+	* For more information, refer to the manual: [link](./api-guide/#user)
 
 <a id="01-4"></a>
 ## 1.0.1 { #01-4 }
@@ -211,7 +211,7 @@
 ### Feature Updates { #01-4-feature-updates }
 * Added API to delete existing registered roles with the same scope when granting a new role to a user
 * Added a User to a Role Add an option to create a User if it doesn't exist in the API
-	* For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/api-guide/#role)
+	* For more information, refer to the manual: [link](./api-guide/#role)
 
 <a id="01-5"></a>
 ## 1.0.1 { #01-5 }
@@ -219,7 +219,7 @@
 ### Feature Updates { #01-5-feature-updates }
 * Polling API support is deprecated due to low usability
 * Added feature to migrate data between projects using Role products
-    * For more information, refer to the manual: [link](/ko/Application%20Service/ROLE/ko/console-guide/#migration)
+    * For more information, refer to the manual: [link](./console-guide/#migration)
 
 <a id="01-5-bug-fixes"></a>
 ### Bug Fixes { #01-5-bug-fixes }
