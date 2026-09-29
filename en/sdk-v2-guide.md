@@ -757,21 +757,21 @@ Role role = client.getRole(roleId);
 
 | Key               |    Type | Required |   Description   |
 |--------------|----------------|----|----------|
-| roleIds           |    List&lt;String>  |**No**|  Role ID list (fully matched)                |
-| roleIdPreLike     |    String           |**No**|  Range ID (Front matched)                  |
-| relatedRoleIds    |    List&lt;String>  |**No**|  Association Role ID List (Fully matched)           |
-| descriptionLike   |    String           |**No**|  Description (Partially matched)                        |
-| roleNameLike      |    String           |**No**|  Role name (Partially matched)                   |
-| roleGroupLike     |    String           |**No**|  Role group (Partially matched)                   |
-| roleGroupLike     |    String           |**No**|  Role group(Partially matched)                   |
-| roleTagIdExpr     |    String           |**No**|  Role tag condition (divider ';':OR, ',':AND) |
-| roleTagIds        |    List&lt;String>  |**No**|  Role tag ID List (Fully matched)            |
-| attributeIds      |    List&lt;String>  |**No**|  Role tag ID List (Fully matched)           |
-| attributeTagIds   |    List&lt;String>  |**No**|  Condition attribute tag ID List (Fully matched)       |
-| needAttributes    |    Boolean          |**No**|  Whether or not to include condition attribute information when in response           |
-| needRoleTags      |    Boolean          |**No**|  Whether or not to include role tag ID list when in response         |
-| needRoleRelations |    Boolean          |**No**|  Whether or not to include association role ID list when in response        |
-| searchRoleOptionCode |    SearchRoleOptionCode          |**No**| Whether to include subroles when searching for roles  |
+| roleIds              |    List&lt;String>               |**No**|  Role ID list (fully matched)                |
+| roleIdPreLike        |    String                        |**No**|  Range ID (Front matched)                  |
+| relatedRoleIds       |    List&lt;String>               |**No**|  Association Role ID List (Fully matched)           |
+| descriptionLike      |    String                        |**No**|  Description (Partially matched)                        |
+| roleNameLike         |    String                        |**No**|  Role name (Partially matched)                   |
+| roleGroup            |    String                        |**No**|  Role group (exact match)                   |
+| roleGroupLike        |    String                        |**No**|  Role group (Partially matched)                   |
+| roleTagIdExpr        |    String                        |**No**|  Role tag condition (divider ';':OR, ',':AND) |
+| roleTagIds           |    List&lt;String>               |**No**|  Role tag ID List (Fully matched)            |
+| attributeIds         |    List&lt;String>               |**No**|  Role tag ID List (Fully matched)           |
+| attributeTagIds      |    List&lt;String>               |**No**|  Condition attribute tag ID List (Fully matched)       |
+| needAttributes       |    Boolean                       |**No**|  Whether or not to include condition attribute information when in response           |
+| needRoleTags         |    Boolean                       |**No**|  Whether or not to include role tag ID list when in response         |
+| needRoleRelations    |    Boolean                       |**No**|  Whether or not to include association role ID list when in response        |
+| searchRoleOptionCode |    SearchRoleOptionCode          |**No**|  Whether to include subroles when searching for roles       |
 
 ```java
 GetRoleRequest request = GetRoleRequest.builder()
