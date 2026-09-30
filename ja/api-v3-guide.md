@@ -1683,7 +1683,7 @@ Appkeyの代わりにプロジェクト統合Appkeyを使用することも可�
 <a name="deleteRoles"></a>
 <a id="delete-roles"></a>
 ### **ロールの一括削除** { #delete-roles }
-> DELETE "/role/v3.0/appkeys/{appKey}/roles/{roleId}"
+> DELETE "/role/v3.0/appkeys/{appKey}/roles"
 
 <a id="delete-roles-parameters"></a>
 #### Parameters

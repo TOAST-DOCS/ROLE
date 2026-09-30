@@ -1709,7 +1709,7 @@ For detailed response results, see Headers in the Response Body.
 <a name="deleteRoles"></a>
 <a id="delete-roles"></a>
 ### **Delete roles** { #delete-roles }
-> DELETE "/role/v3.0/appkeys/{appKey}/roles/{roleId}"
+> DELETE "/role/v3.0/appkeys/{appKey}/roles"
 
 <a id="delete-roles-parameters"></a>
 #### Parameters
