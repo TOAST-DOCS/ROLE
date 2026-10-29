@@ -1,3 +1,5 @@
+<!-- machine_translated: true -->
+
 <!-- pre-align:aligned sig=812d7e85772e -->
 
 <a id="application-service-role-api-v3-guide"></a>
@@ -59,18 +61,17 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| **POST** |[**/role/v3.0/appkeys/{appKey}/users**](#createUsers) | Create a user |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/users/{userId}**](#deleteUser) | Delete a user |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/users**](#deleteUsers) | Delete users |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/users/id**](#getAllUsers) | Get a list of all user IDs |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/users/{userId}**](#getUser) | Get user information |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/histories**](#getUserRoleHistories) | View a list of changes to roles assigned to a user |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/users/search**](#getUsers) | Get a list of users |
-| **PUT** |[**/role/v3.0/appkeys/{appKey}/users/{userId}**](#updateUser) | Edit users |
-| **PUT** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/scopes/{scopeId}**](#updateUserScope) | Edit user scopes |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/users**](#create-a-user) | Create a user |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/users/{userId}**](#deleting-a-user) | Delete a user |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/users**](#delete-users) | Delete users |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/users/id**](#get-a-list-of-all-user-ids) | Get a list of all user IDs |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/users/{userId}**](#get-user-information) | Get user information |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/histories**](#view-a-list-of-changes-to-roles-assigned-to-a-user) | View a list of changes to roles assigned to a user |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/users/search**](#get-a-list-of-users) | Get a list of users |
+| **PUT** |[**/role/v3.0/appkeys/{appKey}/users/{userId}**](#edit-users) | Edit users |
+| **PUT** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/scopes/{scopeId}**](#edit-user-scopes) | Edit user scopes |
 
 
-<a name="createUsers"></a>
 <a id="create-a-user"></a>
 ### **Create a user** { #create-a-user }
 > POST "/role/v3.0/appkeys/{appKey}/users"
@@ -171,7 +172,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="deleteUser"></a>
 <a id="deleting-a-user"></a>
 ### **Deleting a user** { #deleting-a-user }
 > DELETE "/role/v3.0/appkeys/{appKey}/users/{userId}"
@@ -209,7 +209,6 @@ For detailed response results, see Headers in the Response Body.
 ```
 
 
-<a name="deleteUsers"></a>
 <a id="delete-users"></a>
 ### **Delete users** { #delete-users }
 > DELETE "/role/v3.0/appkeys/{appKey}/users"
@@ -240,7 +239,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getAllUsers"></a>
 <a id="get-a-list-of-all-user-ids"></a>
 ### **Get a list of all user IDs** { #get-a-list-of-all-user-ids }
 > POST "/role/v3.0/appkeys/{appKey}/users/id"
@@ -333,7 +331,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getUser"></a>
 <a id="get-user-information"></a>
 ### **Get user information** { #get-user-information }
 > GET "/role/v3.0/appkeys/{appKey}/users/{userId}"
@@ -551,7 +548,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getUserRoleHistories"></a>
 <a id="view-a-list-of-changes-to-roles-assigned-to-a-user"></a>
 ### **View a list of changes to roles assigned to a user** { #view-a-list-of-changes-to-roles-assigned-to-a-user }
 > GET "/role/v3.0/appkeys/{appKey}/users/{userId}/histories"
@@ -704,7 +700,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getUsers"></a>
 <a id="get-a-list-of-users"></a>
 ### **Get a list of users** { #get-a-list-of-users }
 > POST "/role/v3.0/appkeys/{appKey}/users/search"
@@ -1041,7 +1036,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="updateUser"></a>
 <a id="edit-users"></a>
 ### **Edit users** { #edit-users }
 > PUT "/role/v3.0/appkeys/{appKey}/users/{userId}"
@@ -1139,7 +1133,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="updateUserScope"></a>
 <a id="edit-user-scopes"></a>
 ### **Edit user scopes** { #edit-user-scopes }
 > PUT "/role/v3.0/appkeys/{appKey}/users/{userId}/scopes/{scopeId}"
@@ -1207,11 +1200,10 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| **POST** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/authorizations/resources**](#checkResource) | Check if a user is authorized to access a resource |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/authorizations/roles**](#checkRole) | Check if a user has access to a role |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/authorizations/resources**](#check-if-a-user-is-authorized-to-access-a-resource) | Check if a user is authorized to access a resource |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/users/{userId}/authorizations/roles**](#check-if-a-user-has-access-to-a-role) | Check if a user has access to a role |
 
 
-<a name="checkResource"></a>
 <a id="check-if-a-user-is-authorized-to-access-a-resource"></a>
 ### **Check if a user is authorized to access a resource** { #check-if-a-user-is-authorized-to-access-a-resource }
 > POST "/role/v3.0/appkeys/{appKey}/users/{userId}/authorizations/resources"
@@ -1378,7 +1370,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="checkRole"></a>
 <a id="check-if-a-user-has-access-to-a-role"></a>
 ### **Check if a user has access to a role** { #check-if-a-user-has-access-to-a-role }
 > POST "/role/v3.0/appkeys/{appKey}/users/{userId}/authorizations/roles"
@@ -1538,19 +1529,18 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| **POST** |[**/role/v3.0/appkeys/{appKey}/roles**](#createRole) | Create a role |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#deleteRole) | Delete a role |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles**](#deleteRoles) | Delete roles |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/deniable**](#getDeniable) | Whether the role is enabled or can be changed to DENY (not enabled) |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#getRole) | Single role lookup |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/roles/id**](#searchAllRoleIds) | Get a list of all role IDs |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search**](#searchAttributesByRoleId) | Get a list of all condition attributes that can be set in a role |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search**](#searchContainingRoles) | 특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회 |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/search**](#searchRoles) | Get a list of roles |
-| **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#updateRole) | Modify roles |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/roles**](#create-a-role) | Create a role |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#deleting-roles) | Delete a role |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles**](#delete-roles) | Delete roles |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/deniable**](#whether-the-role-is-enabled-or-can-be-changed-to-deny-not-enabled) | Whether the role is enabled or can be changed to DENY (not enabled) |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#single-role-lookup) | Single role lookup |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/roles/id**](#get-a-list-of-all-role-ids) | Get a list of all role IDs |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search**](#get-a-list-of-all-condition-attributes-that-can-be-set-in-a-role) | Get a list of all condition attributes that can be set in a role |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search**](#roles-1) | Retrieve a list of roles that include all sub-roles and permissions of a specific role |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/search**](#get-a-list-of-roles) | Get a list of roles |
+| **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}**](#modify-roles) | Modify roles |
 
 
-<a name="createRole"></a>
 <a id="create-a-role"></a>
 ### **Create a role** { #create-a-role }
 > POST "/role/v3.0/appkeys/{appKey}/roles"
@@ -1668,7 +1658,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="deleteRole"></a>
 <a id="deleting-roles"></a>
 ### **Deleting roles** { #deleting-roles }
 > DELETE "/role/v3.0/appkeys/{appKey}/roles/{roleId}"
@@ -1706,10 +1695,9 @@ For detailed response results, see Headers in the Response Body.
 ```
 
 
-<a name="deleteRoles"></a>
 <a id="delete-roles"></a>
 ### **Delete roles** { #delete-roles }
-> DELETE "/role/v3.0/appkeys/{appKey}/roles/{roleId}"
+> DELETE "/role/v3.0/appkeys/{appKey}/roles"
 
 <a id="delete-roles-parameters"></a>
 #### Parameters
@@ -1737,7 +1725,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getDeniable"></a>
 <a id="whether-the-role-is-enabled-or-can-be-changed-to-deny-not-enabled"></a>
 ### **Whether the role is enabled or can be changed to DENY (not enabled)** { #whether-the-role-is-enabled-or-can-be-changed-to-deny-not-enabled }
 > GET "/role/v3.0/appkeys/{appKey}/roles/{roleId}/deniable"
@@ -1793,7 +1780,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getRole"></a>
 <a id="single-role-lookup"></a>
 ### **Single role lookup** { #single-role-lookup }
 > GET "/role/v3.0/appkeys/{appKey}/roles/{roleId}"
@@ -2047,7 +2033,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="searchAllRoleIds"></a>
 <a id="get-a-list-of-all-role-ids"></a>
 ### **Get a list of all role IDs** { #get-a-list-of-all-role-ids }
 > GET "/role/v3.0/appkeys/{appKey}/roles/id"
@@ -2111,7 +2096,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="searchAttributesByRoleId"></a>
 <a id="get-a-list-of-all-condition-attributes-that-can-be-set-in-a-role"></a>
 ### **Get a list of all condition attributes that can be set in a role** { #get-a-list-of-all-condition-attributes-that-can-be-set-in-a-role }
 > POST "/role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search"
@@ -2199,7 +2183,7 @@ For detailed response results, see Headers in the Response Body.
 |   **attributeDataTypeCode** | **String**| **Yes** |   STRING, NUMERIC, DAY_OF_WEEK, DATETIME, TIME, IPADDRESS, BOOLEAN |
 |   **attributeId** | **String**| **Yes** | Condition attribute ID  |
 |   **attributeName** | **String**| **No** | Condition attribute name  |
-|   **attributeTagIds** | **List&lt;String>**| **No** | 조건 속성 태그 ID 목록  |
+|   **attributeTagIds** | **List&lt;String>**| **No** | List of condition attribute tag IDs  |
 |   **description** | **String**| **No** | Condition attribute description  |
 
 
@@ -2220,12 +2204,11 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="searchContainingRoles"></a>
 <a id="roles-1"></a>
-### **특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회** { #roles-1 }
+### **Retrieve a list of roles that include all sub-roles and permissions of a specific role** { #roles-1 }
 > POST "/role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search"
 
-기준이 되는 역할(`{roleId}`)의 직접 하위 역할 목록을 모두 포함하는 상위 호환 역할 ID 목록을 조회합니다.
+Retrieves a list of upward-compatible role IDs that include all direct sub-roles of the base role (`{roleId}`).
 
 <a id="roles-1-parameters"></a>
 #### Parameters
@@ -2234,9 +2217,9 @@ For detailed response results, see Headers in the Response Body.
 
 | ParameterType | Name | Type | Required | Description | 
 |------------- |------------- | ------------- | ------------- | ------------- | 
-|  Header |**X-Secret-Key** | **String**| **Yes** | 비밀 키 |
-|  Path |**appKey** | **String**| **Yes** | 앱키 |
-|  Path |**roleId** | **String**| **Yes** | 기준이 되는 역할 ID |
+|  Header |**X-Secret-Key** | **String**| **Yes** | Secret key |
+|  Path |**appKey** | **String**| **Yes** | Appkey |
+|  Path |**roleId** | **String**| **Yes** | Base role ID |
 | Request Body | **SearchContainingRoles.Request** | **SearchContainingRoles.Request**| **Yes** |  | |
 
 
@@ -2246,8 +2229,8 @@ For detailed response results, see Headers in the Response Body.
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
-|   **roleTagIds** | **List&lt;String>**| **No** | 역할 태그 ID 목록(OR 조건)  |
-|   **roleGroups** | **List&lt;String>**| **No** | 역할 그룹 목록(OR 조건)  |
+|   **roleTagIds** | **List&lt;String>**| **No** | List of role tag IDs (OR condition)  |
+|   **roleGroups** | **List&lt;String>**| **No** | Role Group List (OR condition)  |
 
 
 <a id="roles-1-request"></a>
@@ -2283,8 +2266,8 @@ For detailed response results, see Headers in the Response Body.
 
 | Name | Type | Required | Description | 
 |------------ | ------------- | ------------- | ------------ |
-|   **roleIds** | **List&lt;String>**| **Yes** | 상위 호환 역할 ID 목록  |
-|   **totalItems** | **Long**| **Yes** | 전체 개수  |
+|   **roleIds** | **List&lt;String>**| **Yes** | List of upward-compatible role IDs  |
+|   **totalItems** | **Long**| **Yes** | Total count  |
 
 
 
@@ -2295,7 +2278,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="searchRoles"></a>
 <a id="get-a-list-of-roles"></a>
 ### **Get a list of roles** { #get-a-list-of-roles }
 > POST "/role/v3.0/appkeys/{appKey}/roles/search"
@@ -2667,7 +2649,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="updateRole"></a>
 <a id="modify-roles"></a>
 ### **Modify roles** { #modify-roles }
 > PUT "/role/v3.0/appkeys/{appKey}/roles/{roleId}"
@@ -2786,10 +2767,9 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| **GET** |[**/role/v3.0/appkeys/{appKey}/roles/tags/id**](#getAllRoleTagIds) | Get a list of all role tag IDs |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/roles/tags/id**](#get-a-list-of-all-role-tag-ids) | Get a list of all role tag IDs |
 
 
-<a name="getAllRoleTagIds"></a>
 <a id="get-a-list-of-all-role-tag-ids"></a>
 ### **Get a list of all role tag IDs** { #get-a-list-of-all-role-tag-ids }
 > GET "/role/v3.0/appkeys/{appKey}/roles/tags/id"
@@ -2852,11 +2832,10 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#createRoleRelations) | Create role-related relations |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#deleteRoleRelations) | Delete role-related relations |
-| **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#updateRoleRelations) | Edit role-related relations |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#create-role-related-relations) | Create role-related relations |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#delete-role-realated-relations) | Delete role-related relations |
+| **PUT** |[**/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations**](#edit-role-related-relations) | Edit role-related relations |
 
-<a name="createRoleRelations"></a>
 <a id="create-role-related-relations"></a>
 ### **Create role-related relations** { #create-role-related-relations }
 > POST "/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations"
@@ -2908,7 +2887,6 @@ For detailed response results, see Headers in the Response Body.
 }
 ```
 
-<a name="deleteRoleRelations"></a>
 <a id="delete-role-realated-relations"></a>
 ### **Delete role realated relations** { #delete-role-realated-relations }
 > DELETE "/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations"
@@ -2944,7 +2922,6 @@ For detailed response results, see Headers in the Response Body.
 ```
 
 
-<a name="updateRoleRelations"></a>
 <a id="edit-role-related-relations"></a>
 ### **Edit role-related relations** { #edit-role-related-relations }
 > PUT "/role/v3.0/appkeys/{appKey}/roles/{roleId}/relations"
@@ -3004,16 +2981,15 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| **POST** |[**/role/v3.0/appkeys/{appKey}/scopes**](#createScope) | Create a scope |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/scopes/{scopeId}**](#deleteScope) | Delete a scope |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/scopes**](#deleteScopes) | Delete scopes |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/scopes/id**](#getAllScopeIds) | Get a list of all scope IDs |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/scopes/{scopeId}**](#getScope) | Get a single scope |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/scopes/search**](#postSearchScopes) | Get a list of scopes |
-| **PUT** |[**/role/v3.0/appkeys/{appKey}/scopes/{scopeId}**](#updateScope) | Modify scope |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/scopes**](#create-a-scope) | Create a scope |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/scopes/{scopeId}**](#delete-a-scope) | Delete a scope |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/scopes**](#delete-scopes) | Delete scopes |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/scopes/id**](#get-a-list-of-all-scope-ids) | Get a list of all scope IDs |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/scopes/{scopeId}**](#get-a-single-scope) | Get a single scope |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/scopes/search**](#get-a-list-of-scopes) | Get a list of scopes |
+| **PUT** |[**/role/v3.0/appkeys/{appKey}/scopes/{scopeId}**](#modify-scope) | Modify scope |
 
 
-<a name="createScope"></a>
 <a id="create-a-scope"></a>
 ### **Create a scope** { #create-a-scope }
 > POST "/role/v3.0/appkeys/{appKey}/scopes"
@@ -3069,7 +3045,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="deleteScope"></a>
 <a id="delete-a-scope"></a>
 ### **Delete a scope** { #delete-a-scope }
 > DELETE "/role/v3.0/appkeys/{appKey}/scopes/{scopeId}"
@@ -3107,7 +3082,6 @@ For detailed response results, see Headers in the Response Body.
 ```
 
 
-<a name="deleteScopes"></a>
 <a id="delete-scopes"></a>
 ### **Delete scopes** { #delete-scopes }
 > DELETE "/role/v3.0/appkeys/{appKey}/scopes"
@@ -3138,7 +3112,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getAllScopeIds"></a>
 <a id="get-a-list-of-all-scope-ids"></a>
 ### **Get a list of all scope IDs** { #get-a-list-of-all-scope-ids }
 > GET "/role/v3.0/appkeys/{appKey}/scopes/id"
@@ -3202,7 +3175,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getScope"></a>
 <a id="get-a-single-scope"></a>
 ### **Get a single scope** { #get-a-single-scope }
 > GET "/role/v3.0/appkeys/{appKey}/scopes/{scopeId}"
@@ -3274,7 +3246,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="postSearchScopes"></a>
 <a id="get-a-list-of-scopes"></a>
 ### **Get a list of scopes** { #get-a-list-of-scopes }
 > POST "/role/v3.0/appkeys/{appKey}/scopes/search"
@@ -3372,7 +3343,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="updateScope"></a>
 <a id="modify-scope"></a>
 ### **Modify scope** { #modify-scope }
 > PUT "/role/v3.0/appkeys/{appKey}/scopes/{scopeId}"
@@ -3428,17 +3398,16 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| **POST** |[**/role/v3.0/appkeys/{appKey}/resources**](#createResource) | Create Resources |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#deleteResource) | Delete Resource |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/resources**](#deleteResources) | Delete Resources |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#getResource) | Single resource lookup |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/resources/id**](#getResourceIds) | Get a list of resource IDs |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/resources/attributes/search**](#searchAttributesByResource) | Get a list of all condition attributes that can be set in a role |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/resources/search**](#searchResources) | Get a list of resources |
-| **PUT** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#updateResource) | Modify Resources |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/resources**](#create-resources) | Create Resources |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#delete-resource) | Delete Resource |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/resources**](#delete-resources) | Delete Resources |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#single-resource-lookup) | Single resource lookup |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/resources/id**](#get-a-list-of-resource-ids) | Get a list of resource IDs |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/resources/attributes/search**](#resource-get-a-list-of-all-condition-attributes-that-can-be-set-in-a-role) | Get a list of all condition attributes that can be set in a role |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/resources/search**](#get-a-list-of-resources) | Get a list of resources |
+| **PUT** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}**](#modify-resources) | Modify Resources |
 
 
-<a name="createResource"></a>
 <a id="create-resources"></a>
 ### **Create Resources** { #create-resources }
 > POST "/role/v3.0/appkeys/{appKey}/resources"
@@ -3504,7 +3473,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="deleteResource"></a>
 <a id="delete-resource"></a>
 ### **Delete Resource** { #delete-resource }
 > DELETE "/role/v3.0/appkeys/{appKey}/resources/{resourceId}"
@@ -3542,7 +3510,6 @@ For detailed response results, see Headers in the Response Body.
 ```
 
 
-<a name="deleteResources"></a>
 <a id="delete-resources"></a>
 ### **Delete resources** { #delete-resources }
 > DELETE "/role/v3.0/appkeys/{appKey}/resources"
@@ -3573,7 +3540,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getResource"></a>
 <a id="single-resource-lookup"></a>
 ### **Single resource lookup** { #single-resource-lookup }
 > GET "/role/v3.0/appkeys/{appKey}/resources/{resourceId}"
@@ -3660,7 +3626,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getResourceIds"></a>
 <a id="get-a-list-of-resource-ids"></a>
 ### **Get a list of resource IDs** { #get-a-list-of-resource-ids }
 > POST "/role/v3.0/appkeys/{appKey}/resources/id"
@@ -3741,7 +3706,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="searchAttributesByResource"></a>
 <a id="resource-get-a-list-of-all-condition-attributes-that-can-be-set-in-a-role"></a>
 ### **Get a list of all condition attributes that can be set in a role** { #resource-get-a-list-of-all-condition-attributes-that-can-be-set-in-a-role }
 > POST "/role/v3.0/appkeys/{appKey}/resources/attributes/search"
@@ -3847,7 +3811,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="searchResources"></a>
 <a id="get-a-list-of-resources"></a>
 ### **Get a list of resources** { #get-a-list-of-resources }
 > POST "/role/v3.0/appkeys/{appKey}/resources/search"
@@ -3983,7 +3946,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="updateResource"></a>
 <a id="modify-resources"></a>
 ### **Modify Resources** { #modify-resources }
 > PUT "/role/v3.0/appkeys/{appKey}/resources/{resourceId}"
@@ -4051,11 +4013,10 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| **GET** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}/sub-resources**](#getSubResources) | Viewing child resource pages on a UI PATH |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/resources/hierarchy/search**](#searchAllResourceHierarchy) | Get Resource Hierarchy |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}/sub-resources**](#viewing-child-resource-pages-on-a-ui-path) | Viewing child resource pages on a UI PATH |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/resources/hierarchy/search**](#get-resource-hierarchy) | Get Resource Hierarchy |
 
 
-<a name="getSubResources"></a>
 <a id="viewing-child-resource-pages-on-a-ui-path"></a>
 ### **Viewing child resource pages on a UI PATH** { #viewing-child-resource-pages-on-a-ui-path }
 > GET "/role/v3.0/appkeys/{appKey}/resources/{resourceId}/sub-resources"
@@ -4167,7 +4128,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="searchAllResourceHierarchy"></a>
 <a id="get-resource-hierarchy"></a>
 ### **Get Resource Hierarchy** { #get-resource-hierarchy }
 > POST "/role/v3.0/appkeys/{appKey}/resources/hierarchy/search"
@@ -4370,12 +4330,11 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| **POST** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations**](#addAuthorization) | Add a resource role relation |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations**](#getAuthorizations) | Get a list of resource role relations |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations**](#removeAuthorization) | Delete a resource role relation |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations**](#add-a-resource-role-relation) | Add a resource role relation |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations**](#get-a-list-of-resource-role-relations) | Get a list of resource role relations |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations**](#delete-a-resource-role-relation) | Delete a resource role relation |
 
 
-<a name="addAuthorization"></a>
 <a id="add-a-resource-role-relation"></a>
 ### **Add a resource role relation** { #add-a-resource-role-relation }
 > POST "/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations"
@@ -4435,7 +4394,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getAuthorizations"></a>
 <a id="get-a-list-of-resource-role-relations"></a>
 ### **Get a list of resource role relations** { #get-a-list-of-resource-role-relations }
 > GET "/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations"
@@ -4514,7 +4472,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="removeAuthorization"></a>
 <a id="delete-a-resource-role-relation"></a>
 ### **Delete a resource role relation** { #delete-a-resource-role-relation }
 > DELETE "/role/v3.0/appkeys/{appKey}/resources/{resourceId}/authorizations"
@@ -4561,16 +4518,15 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| **POST** |[**/role/v3.0/appkeys/{appKey}/operations**](#createOperation) | Create an operation |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/operations/{operationId}**](#deleteOperation) | Delete operations |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/operations**](#deleteOperations) | Delete operations |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/operations/{operationId}**](#getOperation) | Single operation lookup |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/operations/id**](#getOperationIdByPageable) | Get all operation IDs |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/operations/search**](#postSearchOperation) | Get Operations List (Conditions/Paging) |
-| **PUT** |[**/role/v3.0/appkeys/{appKey}/operations/{operationId}**](#updateOperation) | Modifying operations |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/operations**](#create-an-operation) | Create an operation |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/operations/{operationId}**](#delete-operations) | Delete operations |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/operations**](#delete-operatios) | Delete operations |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/operations/{operationId}**](#single-operation-lookup) | Single operation lookup |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/operations/id**](#get-all-operation-ids) | Get all operation IDs |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/operations/search**](#get-operations-list-conditionspaging) | Get Operations List (Conditions/Paging) |
+| **PUT** |[**/role/v3.0/appkeys/{appKey}/operations/{operationId}**](#modifying-operations) | Modifying operations |
 
 
-<a name="createOperation"></a>
 <a id="create-an-operation"></a>
 ### **Create an operation** { #create-an-operation }
 > POST "/role/v3.0/appkeys/{appKey}/operations"
@@ -4626,7 +4582,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="deleteOperation"></a>
 <a id="delete-operations"></a>
 ### **Delete operations** { #delete-operations }
 > DELETE "/role/v3.0/appkeys/{appKey}/operations/{operationId}"
@@ -4664,7 +4619,6 @@ For detailed response results, see Headers in the Response Body.
 ```
 
 
-<a name="deleteOperations"></a>
 <a id="delete-operatios"></a>
 ### **Delete operatios** { #delete-operatios }
 > DELETE "/role/v3.0/appkeys/{appKey}/operations"
@@ -4695,7 +4649,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getOperation"></a>
 <a id="single-operation-lookup"></a>
 ### **Single operation lookup** { #single-operation-lookup }
 > GET "/role/v3.0/appkeys/{appKey}/operations/{operationId}"
@@ -4770,7 +4723,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getOperationIdByPageable"></a>
 <a id="get-all-operation-ids"></a>
 ### **Get all operation IDs** { #get-all-operation-ids }
 > GET "/role/v3.0/appkeys/{appKey}/operations/id"
@@ -4834,7 +4786,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="postSearchOperation"></a>
 <a id="get-operations-list-conditionspaging"></a>
 ### **Get Operations List (Conditions/Paging)** { #get-operations-list-conditionspaging }
 > POST "/role/v3.0/appkeys/{appKey}/operations/search"
@@ -4936,7 +4887,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="updateOperation"></a>
 <a id="modifying-operations"></a>
 ### **Modifying operations** { #modifying-operations }
 > PUT "/role/v3.0/appkeys/{appKey}/operations/{operationId}"
@@ -4992,16 +4942,15 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes**](#createAttribute) | Create condition attribute |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}**](#deleteAttribute) | Delete condition attribute |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/attributes**](#deleteAttributes) | Delete condition attributes |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}**](#getAttribute) | Single lookup of condition attribute |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/id**](#searchAttributeIds) | Get a list of condition attributes IDs |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/search**](#searchAttributes) | Get a list of condition attributes |
-| **PUT** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}**](#updateAttribute) | Modify condition attributes |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes**](#create-condition-attribute) | Create condition attribute |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}**](#delete-condition-attribute) | Delete condition attribute |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/attributes**](#delete-condition-attributes) | Delete condition attributes |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}**](#single-lookup-of-condition-attribute) | Single lookup of condition attribute |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/id**](#get-a-list-of-condition-attribute-ids) | Get a list of condition attributes IDs |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/search**](#get-a-list-of-condition-attributes) | Get a list of condition attributes |
+| **PUT** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}**](#modify-condition-attributes) | Modify condition attributes |
 
 
-<a name="createAttribute"></a>
 <a id="create-condition-attribute"></a>
 ### **Create condition attribute** { #create-condition-attribute }
 > POST "/role/v3.0/appkeys/{appKey}/attributes"
@@ -5065,7 +5014,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="deleteAttribute"></a>
 <a id="delete-condition-attribute"></a>
 ### **Delete condition attribute** { #delete-condition-attribute }
 > DELETE "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}"
@@ -5105,7 +5053,6 @@ For detailed response results, see Headers in the Response Body.
 ```
 
 
-<a name="deleteAttributes"></a>
 <a id="delete-condition-attributes"></a>
 ### **Delete condition attributes** { #delete-condition-attributes }
 > DELETE "/role/v3.0/appkeys/{appKey}/attributes"
@@ -5136,7 +5083,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getAttribute"></a>
 <a id="single-lookup-of-condition-attribute"></a>
 ### **Single lookup of condition attribute** { #single-lookup-of-condition-attribute }
 > GET "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}"
@@ -5286,7 +5232,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="searchAttributeIds"></a>
 <a id="get-a-list-of-condition-attribute-ids"></a>
 ### **Get a list of condition attribute IDs** { #get-a-list-of-condition-attribute-ids }
 > POST "/role/v3.0/appkeys/{appKey}/attributes/id"
@@ -5375,7 +5320,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="searchAttributes"></a>
 <a id="get-a-list-of-condition-attributes"></a>
 ### **Get a list of condition attributes** { #get-a-list-of-condition-attributes }
 > POST "/role/v3.0/appkeys/{appKey}/attributes/search"
@@ -5585,7 +5529,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="updateAttribute"></a>
 <a id="modify-condition-attributes"></a>
 ### **Modify condition attributes** { #modify-condition-attributes }
 > PUT "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}"
@@ -5649,11 +5592,10 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/data-types**](#getAttributeDataType) | Get condition attribute data types |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/condition/validate**](#validateConditionValues) | Validating condition values |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/data-types**](#get-condition-attribute-data-types) | Get condition attribute data types |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/condition/validate**](#validating-condition-values) | Validating condition values |
 
 
-<a name="getAttributeDataType"></a>
 <a id="get-condition-attribute-data-types"></a>
 ### **Get condition attribute data types** { #get-condition-attribute-data-types }
 > POST "/role/v3.0/appkeys/{appKey}/attributes/data-types"
@@ -5757,7 +5699,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="validateConditionValues"></a>
 <a id="validating-condition-values"></a>
 ### **Validating condition values** { #validating-condition-values }
 > POST "/role/v3.0/appkeys/{appKey}/attributes/condition/validate"
@@ -5827,12 +5768,11 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles**](#createAttributeRoleRelations) | Create multiple roles associated with condition attributes |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles**](#deleteAttributeRoleRelations) | Delete multiple roles associated with condition attributes |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles/search**](#searchAttributeRoleRelations) | Get roles associated with condition attributes |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles**](#create-multiple-roles-associated-with-condition-attributes) | Create multiple roles associated with condition attributes |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles**](#delete-multiple-roles-associated-with-condition-attributes) | Delete multiple roles associated with condition attributes |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles/search**](#get-roles-associated-with-condition-attributes) | Get roles associated with condition attributes |
 
 
-<a name="createAttributeRoleRelations"></a>
 <a id="create-multiple-roles-associated-with-condition-attributes"></a>
 ### **Create multiple roles associated with condition attributes** { #create-multiple-roles-associated-with-condition-attributes }
 > POST "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles"
@@ -5888,7 +5828,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="deleteAttributeRoleRelations"></a>
 <a id="delete-multiple-roles-associated-with-condition-attributes"></a>
 ### **Delete multiple roles associated with condition attributes** { #delete-multiple-roles-associated-with-condition-attributes }
 > DELETE "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles"
@@ -5944,7 +5883,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="searchAttributeRoleRelations"></a>
 <a id="get-roles-associated-with-condition-attributes"></a>
 ### **Get roles associated with condition attributes** { #get-roles-associated-with-condition-attributes }
 > POST "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/roles/search"
@@ -6068,13 +6006,12 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/tags**](#createAttributeTags) | Create condition attribute tag |
-| **DELETE** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/tags**](#deleteAttributeTags) | Delete condition attribute tag |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/tags/id**](#searchAttributeTagIds) | Get a list of condition attribute tag IDs |
-| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/tags/search**](#searchAttributeTags) | Get a list of condition attribute tags |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/tags**](#create-condition-attribute-tag) | Create condition attribute tag |
+| **DELETE** |[**/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/tags**](#delete-condition-attribute-tag) | Delete condition attribute tag |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/tags/id**](#get-a-list-of-condition-attribute-tag-ids) | Get a list of condition attribute tag IDs |
+| **POST** |[**/role/v3.0/appkeys/{appKey}/attributes/tags/search**](#get-a-list-of-condition-attribute-tags) | Get a list of condition attribute tags |
 
 
-<a name="createAttributeTags"></a>
 <a id="create-condition-attribute-tag"></a>
 ### **Create condition attribute tag** { #create-condition-attribute-tag }
 > POST "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/tags"
@@ -6130,7 +6067,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="deleteAttributeTags"></a>
 <a id="delete-condition-attribute-tag"></a>
 ### **Delete condition attribute tag** { #delete-condition-attribute-tag }
 > DELETE "/role/v3.0/appkeys/{appKey}/attributes/{attributeId}/tags"
@@ -6186,7 +6122,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="searchAttributeTagIds"></a>
 <a id="get-a-list-of-condition-attribute-tag-ids"></a>
 ### **Get a list of condition attribute tag IDs** { #get-a-list-of-condition-attribute-tag-ids }
 > POST "/role/v3.0/appkeys/{appKey}/attributes/tags/id"
@@ -6267,7 +6202,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="searchAttributeTags"></a>
 <a id="get-a-list-of-condition-attribute-tags"></a>
 ### **Get a list of condition attribute tags** { #get-a-list-of-condition-attribute-tags }
 > POST "/role/v3.0/appkeys/{appKey}/attributes/tags/search"
@@ -6375,12 +6309,11 @@ For detailed response results, see Headers in the Response Body.
 
 | Method | HTTP request | Description                            |
 |------------- | ------------- |----------------------------------------|
-| **PUT** |[**/role/v3.0/appkeys/{appKey}/config/cache-evict**](#deleteCache) | Purge the cache of the Role Service server and the Client SDK |
-| **GET** |[**/role/v3.0/appkeys/{appKey}/config**](#getConfiguration) | Get settings                                  |
-| **PUT** |[**/role/v3.0/appkeys/{appKey}/config**](#updateConfig) | Modify settings                                  |
+| **PUT** |[**/role/v3.0/appkeys/{appKey}/config/cache-evict**](#purge-the-cache-of-the-server-and-client-sdks) | Purge the cache of the Role Service server and the Client SDK |
+| **GET** |[**/role/v3.0/appkeys/{appKey}/config**](#get-settings) | Get settings                                  |
+| **PUT** |[**/role/v3.0/appkeys/{appKey}/config**](#modify-settings) | Modify settings                                  |
 
 
-<a name="deleteCache"></a>
 <a id="purge-the-cache-of-the-server-and-client-sdks"></a>
 ### **Purge the cache of the server and client SDKs** { #purge-the-cache-of-the-server-and-client-sdks }
 > PUT "/role/v3.0/appkeys/{appKey}/config/cache-evict"
@@ -6421,7 +6354,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="getConfiguration"></a>
 <a id="get-settings"></a>
 ### **Get settings** { #get-settings }
 > GET "/role/v3.0/appkeys/{appKey}/config"
@@ -6474,7 +6406,6 @@ For detailed response results, see Headers in the Response Body.
 
 
 
-<a name="updateConfig"></a>
 <a id="modify-settings"></a>
 ### **Modify settings** { #modify-settings }
 > PUT "/role/v3.0/appkeys/{appKey}/config"

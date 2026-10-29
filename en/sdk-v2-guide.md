@@ -335,7 +335,7 @@ Page<UserRoleHistory> userRoleHistories = client.getUserRoleHistories(request, P
 |--------------|----------------|----|----------|
 | userId               | String         |**Yes**|   User ID      |
 | scopeId             | String          |**Yes**| Applicable ID
-| description|    String  |**No**| 설명|
+| description|    String  |**No**| Description|
 | createUserIfNotExist | Boolean    |**No**|  Whether to create when the user does not exist when requested |
 | roleRelations|  List&lt;UserRoleRelation> |**No**| Related role|
 
@@ -872,17 +872,17 @@ String roleId = "";
 boolean result = client.isDeniable(roleId);
 ```
 
-9. 특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회
+9. Retrieve a list of roles that include all sub-roles and permissions of a specific role
 
-> 기준 역할의 직접 하위 역할 목록을 모두 포함하는 상위 호환 역할 ID 목록을 조회합니다.
+> Retrieves a list of upward-compatible role IDs that include all direct sub-roles of the base role.
 
 **[GetContainingRolesRequest]**
 
 | Key         | Type            | Required | Description           |
 |-------------|-----------------|----------|-----------------------|
-| roleId      | String          |**Yes**| 기준이 되는 역할 ID            |
-| roleTagIds  | List&lt;String> |**No**| 역할 태그 ID 목록(OR 조건)        |
-| roleGroups  | List&lt;String> |**No**| 역할 그룹 목록(OR 조건)          |
+| roleId      | String          |**Yes**| Base role ID            |
+| roleTagIds  | List&lt;String> |**No**| List of role tag IDs (OR condition)        |
+| roleGroups  | List&lt;String> |**No**| Role Group List (OR condition)          |
 
 ```java
 GetContainingRolesRequest request = GetContainingRolesRequest.builder()
