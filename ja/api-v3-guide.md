@@ -1,3 +1,5 @@
+<!-- machine_translated: true -->
+
 <!-- pre-align:aligned sig=812d7e85772e -->
 
 <a id="application-service-role-api-v3-guide"></a>
