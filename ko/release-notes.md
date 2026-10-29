@@ -9,10 +9,10 @@
 ### 기능 추가 { #04-28-1 }
 * [RESTful API] 특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록을 조회하는 API 추가
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search
-        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#searchContainingRoles)
+        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#roles-1)
 * [RESTful API] 역할에서 설정 가능한 모든 조건 속성 목록 조회 API 응답에 `attributeTagIds`(조건 속성 태그 ID 목록) 필드 추가
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search
-        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#searchAttributesByRoleId)
+        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#get-a-list-of-all-condition-attributes-that-can-be-set-in-a-role)
 * [SDK] 2.0.7로 릴리스
     * 신규 API(특정 역할의 하위 역할/권한을 모두 포함하는 역할 목록 조회)가 반영되었습니다.
 
@@ -23,9 +23,9 @@
 * [RESTful API] 역할 목록 조회, 역할 단건 조회 API 확장
   * 연관 관계 역할 목록에 역할 태그 목록이 추가되었습니다.
     * POST /role/v3.0/appkeys/{appKey}/roles/search: 역할 목록 조회
-        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#searchRoles)
+        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#get-a-list-of-roles)
     * GET /role/v3.0/appkeys/{appKey}/roles/{roleId}: 역할 단건 조회
-        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#getRole)
+        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#single-role-lookup)
 
 <a id="bug-fixes"></a>
 ### 버그 수정 { #bug-fixes }
@@ -38,7 +38,7 @@
 ### 기능 추가 { #march-26-2024-added-features }
 * [RESTful API] 사용자 목록 조회 API 변경
     * POST /role/v3.0/appkeys/{appKey}/users/search: 사용자 목록 조회
-        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#getUsers)
+        * 자세한 사항은 매뉴얼 참고: [링크](./api-v3-guide/#get-a-list-of-users)
 
 <a id="january-23-2024"></a>
 ## 2024. 02. 27. { #january-23-2024 }

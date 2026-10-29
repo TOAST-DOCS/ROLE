@@ -9,10 +9,10 @@
 ### Added Features { #04-28-1 }
 * [RESTful API] Added an API to retrieve a list of roles that include all sub-roles and permissions of a specific role.
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search
-        * For more details, see the manual: [Link](./api-v3-guide/#searchContainingRoles)
+        * For more details, see the manual: [Link](./api-v3-guide/#roles-1)
 * [RESTful API] Added the `attributeTagIds` (list of condition attribute tag IDs) field to the response of the API that retrieves a list of all configurable condition attributes for a role.
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search
-        * For more details, see the manual: [Link](./api-v3-guide/#searchAttributesByRoleId)
+        * For more details, see the manual: [Link](./api-v3-guide/#get-a-list-of-all-condition-attributes-that-can-be-set-in-a-role)
 * [SDK] Released as version 2.0.7.
     * The new API (retrieve a list of roles that include all sub-roles and permissions of a specific role) has been reflected.
 
@@ -23,9 +23,9 @@
 * [RESTful API] Extended The APIs to retrieve role lists and a single role.
   * Added role tag lists to the list of related roles.
     * POST /role/v3.0/appkeys/{appKey}/roles/search: Retrieve roles
-        * For more details, see: [link](./api-v3-guide/#searchRoles)
+        * For more details, see: [link](./api-v3-guide/#get-a-list-of-roles)
     * GET /role/v3.0/appkeys/{appKey}/roles/{roleId}: Retrieve a role
-        * For more details, see: [link](./api-v3-guide/#getRole)
+        * For more details, see: [link](./api-v3-guide/#single-role-lookup)
 
 <a id="bug-fixes"></a>
 ### Bug Fixes { #bug-fixes }

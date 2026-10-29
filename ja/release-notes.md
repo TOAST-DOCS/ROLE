@@ -9,10 +9,10 @@
 ### 機能追加 { #04-28-1 }
 * [RESTful API] 特定のロールの下位ロール/権限をすべて含むロール一覧を照会する API が追加されました。
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/containing-roles/search
-        * 詳細については、マニュアルを参照してください: [リンク](./api-v3-guide/#searchContainingRoles)
+        * 詳細については、マニュアルを参照してください: [リンク](./api-v3-guide/#roles-1)
 * [RESTful API] ロールで設定可能なすべての条件属性の一覧照会 API レスポンスに `attributeTagIds`（条件属性タグ ID 一覧）フィールドが追加されました。
     * POST /role/v3.0/appkeys/{appKey}/roles/{roleId}/attributes/search
-        * 詳細については、マニュアルを参照してください: [リンク](./api-v3-guide/#searchAttributesByRoleId)
+        * 詳細については、マニュアルを参照してください: [リンク](./api-v3-guide/#get-a-list-of-all-condition-attributes-that-can-be-set-in-a-role)
 * [SDK] 2.0.7 としてリリースされました。
     * 特定のロールのサブロール/権限をすべて含むロール一覧を照会する新規 API が反映されました。
 
@@ -23,9 +23,9 @@
 * [RESTful API]ロールリスト照会、ロール単件照会APIが拡張されました。
   * 関連関係ロールリストにロールタグリストが追加されました。
     * POST /role/v3.0/appkeys/{appKey}/roles/search:ロールリスト照会
-        * 詳細については、マニュアルを参照: [リンク](./api-v3-guide/#searchRoles)
+        * 詳細については、マニュアルを参照: [リンク](./api-v3-guide/#get-a-list-of-roles)
     * GET /role/v3.0/appkeys/{appKey}/roles/{roleId}:ロール単件照会
-        * 詳細については、マニュアルを参照: [リンク](./api-v3-guide/#getRole)
+        * 詳細については、マニュアルを参照: [リンク](./api-v3-guide/#single-role-lookup)
 
 <a id="bug-fixes"></a>
 ### バグ修正 { #bug-fixes }
@@ -38,7 +38,7 @@
 ### 機能追加 { #march-26-2024-added-features }
 * [RESTful API]ユーザーリスト照会APIが変更されました。
     * POST /role/v3.0/appkeys/{appKey}/users/search :ユーザーリスト照会
-        * 詳細については、マニュアルを参照: [リンク](./api-v3-guide/#getUsers)
+        * 詳細については、マニュアルを参照: [リンク](./api-v3-guide/#get-a-list-of-users)
 
 <a id="january-23-2024"></a>
 ## 2024. 02. 27. { #january-23-2024 }
